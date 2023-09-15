@@ -59,10 +59,10 @@ var relearn_search_index = [
     "uri": "/algorithms/list/doublelinkedlist/index.html"
   },
   {
-    "content": "目的 用于存储、展示、收集计算机技术相关的资料，同时用于展示个人项目或相关技术记录。\n归档 数据结构与算法 链表 单向节点链表 双向节点链表 待续 文件格式 待完善 编译原理 待完善 操作系统 待完善 ",
+    "content": "目标 用于存储、展示、收集计算机技术相关的资料，同时用于展示个人项目或相关技术记录。\n归档 数据结构与算法 链表 单向节点链表 双向节点链表 待续 文件格式 待完善 编译原理 待完善 操作系统 待完善 ",
     "description": "",
     "tags": null,
-    "title": "总览",
+    "title": "主页",
     "uri": "/index.html"
   },
   {
