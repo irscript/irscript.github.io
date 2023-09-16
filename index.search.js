@@ -7,11 +7,39 @@ var relearn_search_index = [
     "uri": "/algorithms/list/index.html"
   },
   {
+    "content": " 单向节点链表 双向节点链表 ",
+    "description": "",
+    "tags": null,
+    "title": "链表",
+    "uri": "/struct/list/index.html"
+  },
+  {
     "content": "",
     "description": "",
     "tags": null,
-    "title": "数据结构与算法",
+    "title": "算法",
     "uri": "/algorithms/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "单向节点链表",
+    "uri": "/struct/list/singlelinkedlist/index.html"
+  },
+  {
+    "content": "目录 链表 单向节点链表 双向节点链表 待续 ",
+    "description": "",
+    "tags": null,
+    "title": "数据结构",
+    "uri": "/struct/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "双向节点链表",
+    "uri": "/struct/list/doublelinkedlist/index.html"
   },
   {
     "content": "",
@@ -21,18 +49,18 @@ var relearn_search_index = [
     "uri": "/compiler/index.html"
   },
   {
-    "content": " BMP 文件格式 ",
-    "description": "",
-    "tags": null,
-    "title": "文件格式",
-    "uri": "/format/index.html"
-  },
-  {
     "content": "测试 ",
     "description": "",
     "tags": null,
     "title": "操作系统",
     "uri": "/os/index.html"
+  },
+  {
+    "content": " BMP 文件格式 ",
+    "description": "",
+    "tags": null,
+    "title": "文件格式",
+    "uri": "/format/index.html"
   },
   {
     "content": "",
@@ -59,7 +87,7 @@ var relearn_search_index = [
     "uri": "/algorithms/list/doublelinkedlist/index.html"
   },
   {
-    "content": "目标 用于存储、展示、收集计算机技术相关的资料，同时用于展示个人项目或相关技术记录。\n归档 数据结构与算法 链表 单向节点链表 双向节点链表 待续 文件格式 待完善 编译原理 待完善 操作系统 待完善 ",
+    "content": "目标 用于存储、展示、收集计算机技术相关的资料，同时用于展示个人项目或相关技术记录。\n归档 存在以下分类： 算法 数据结构 编译原理 操作系统 文件格式 ",
     "description": "",
     "tags": null,
     "title": "主页",
