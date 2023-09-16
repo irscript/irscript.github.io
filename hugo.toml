@@ -51,7 +51,7 @@ title = "巨人之海"
             weight = 30
 
 [params]
-    alwaysopen = true
+    alwaysopen = false
     editURL = "https://irscript.github.io/content/"
     description = "站在巨人的肩膀上"
     author = "月明之都"
@@ -64,7 +64,7 @@ title = "巨人之海"
     breadcrumbSeparator = ">"
     titleSeparator = "::"
     themeVariant = [ "auto", "relearn-bright", "relearn-light", "relearn-dark", "zen-light", "zen-dark", "neon", "learn", "blue", "green", "red" ]
-    themeVariantAuto = [ "relearn-light", "relearn-dark" ]
+    themeVariantAuto = [ "neon","relearn-light", "relearn-dark" ]
     disableSeoHiddenPages = true
     # this is to index search for your native language in other languages, too (eg.
     # pir in this showcase)
