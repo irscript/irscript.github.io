@@ -1,0 +1,116 @@
+<mxfile host="Electron" modified="2023-09-17T05:16:35.648Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="tea7BFDOoh3u2laboVGr" version="21.6.5" type="device">
+  <diagram name="编译器总流程" id="pHLcmgY6DiVvPwXDbM37">
+    <mxGraphModel dx="1100" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_Drs3A529WouXeMS6EPl-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" edge="1" parent="1" source="_Drs3A529WouXeMS6EPl-3" target="_Drs3A529WouXeMS6EPl-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-3" value="前端" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fontSize=17;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="110" y="80" width="440" height="290" as="geometry">
+            <mxRectangle x="110" y="80" width="70" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" edge="1" parent="_Drs3A529WouXeMS6EPl-3" source="_Drs3A529WouXeMS6EPl-4" target="_Drs3A529WouXeMS6EPl-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-3" source="_Drs3A529WouXeMS6EPl-4" target="_Drs3A529WouXeMS6EPl-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-4" value="词法分析" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-3">
+          <mxGeometry x="80" y="70" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" edge="1" parent="_Drs3A529WouXeMS6EPl-3" source="_Drs3A529WouXeMS6EPl-5" target="_Drs3A529WouXeMS6EPl-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-3" source="_Drs3A529WouXeMS6EPl-5" target="_Drs3A529WouXeMS6EPl-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-5" value="语法分析" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-3">
+          <mxGeometry x="80" y="132" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-3" source="_Drs3A529WouXeMS6EPl-6" target="_Drs3A529WouXeMS6EPl-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-6" value="语义分析" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-3">
+          <mxGeometry x="80" y="200" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-25" value="生成单词流" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-3">
+          <mxGeometry x="260" y="70" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-26" value="生成语法树" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-3">
+          <mxGeometry x="260" y="132" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-27" value="引用消解、信息标注" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-3">
+          <mxGeometry x="260" y="200" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" edge="1" parent="1" source="_Drs3A529WouXeMS6EPl-11" target="_Drs3A529WouXeMS6EPl-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-11" value="中端" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fontSize=17;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="110" y="400" width="440" height="205" as="geometry">
+            <mxRectangle x="110" y="430" width="70" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" edge="1" parent="_Drs3A529WouXeMS6EPl-11" source="_Drs3A529WouXeMS6EPl-12" target="_Drs3A529WouXeMS6EPl-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-11" source="_Drs3A529WouXeMS6EPl-12" target="_Drs3A529WouXeMS6EPl-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-12" value="中间代码生成" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-11">
+          <mxGeometry x="80" y="42.5" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-11" source="_Drs3A529WouXeMS6EPl-23" target="_Drs3A529WouXeMS6EPl-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-23" value="机器无关代码优化" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-11">
+          <mxGeometry x="80" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-31" value="生成中间表达式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-11">
+          <mxGeometry x="270" y="47.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-33" value="常量折叠、死代码删除等" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-11">
+          <mxGeometry x="270" y="135" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-14" value="后端" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fontSize=17;fillColor=#e6d0de;gradientColor=#d5739d;strokeColor=#996185;" vertex="1" parent="1">
+          <mxGeometry x="110" y="630" width="440" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" edge="1" parent="_Drs3A529WouXeMS6EPl-14" source="_Drs3A529WouXeMS6EPl-16" target="_Drs3A529WouXeMS6EPl-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-14" source="_Drs3A529WouXeMS6EPl-16" target="_Drs3A529WouXeMS6EPl-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-16" value="机器代码生成" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-14">
+          <mxGeometry x="80" y="50" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" edge="1" parent="_Drs3A529WouXeMS6EPl-14" source="_Drs3A529WouXeMS6EPl-19" target="_Drs3A529WouXeMS6EPl-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-14" source="_Drs3A529WouXeMS6EPl-19" target="_Drs3A529WouXeMS6EPl-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-19" value="机器相关优化" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-14">
+          <mxGeometry x="80" y="120" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" edge="1" parent="_Drs3A529WouXeMS6EPl-14" source="_Drs3A529WouXeMS6EPl-20" target="_Drs3A529WouXeMS6EPl-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-20" value="目标文件生成" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="_Drs3A529WouXeMS6EPl-14">
+          <mxGeometry x="80" y="200" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-35" value="生成单词流" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-14">
+          <mxGeometry x="270" y="55" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-36" value="指令选择、指令重排等" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-14">
+          <mxGeometry x="270" y="125" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Drs3A529WouXeMS6EPl-37" value="机器指令文件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="_Drs3A529WouXeMS6EPl-14">
+          <mxGeometry x="270" y="205" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
