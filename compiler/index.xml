@@ -1,10 +1,71 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>编译原理 on 巨人之海</title>
+    <title>编译器设计与实现 on 巨人之海</title>
     <link>https://irscript.github.io/compiler/index.html</link>
-    <description>Recent content in 编译原理 on 巨人之海</description>
+    <description>Recent content in 编译器设计与实现 on 巨人之海</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://irscript.github.io/compiler/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate><atom:link href="https://irscript.github.io/compiler/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>词法分析</title>
+      <link>https://irscript.github.io/compiler/1_lexer/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/1_lexer/index.html</guid>
+      <description>1 序 词法分析就是将代码字符流，按照一定的规则进行分析，获取符合词法规则的字符串，并进行信息标注，为语法分析提供单词(Token)流。
+2 词法规则 词法分析按照规定的规则，可以从字符流中获取数据。
+规则定义为以下几类：
+标识符：由字母、数字、下划线( _ )构成，但是不得由数字为起始；其中存在特殊的字符串为关键字。 普通数字字面量：由数字和&amp;rsquo;.&amp;lsquo;组成，其中分为整数、浮点数； 2进制数字字面量：由 &amp;lsquo;0B&amp;rsquo;起始，多个 &amp;lsquo;0&amp;rsquo;或&#39;1&amp;rsquo;构成。 16进制数字字面量：由 &amp;lsquo;0X&amp;rsquo;起始，多个 十六进制字符 构成。 字符字面量：由 &amp;lsquo;&amp;lsquo;&amp;lsquo;起始和结尾，中间为可打印的字符。 3 Token 分类 4 关键字 5 解析标识符 6 解析数字 </description>
+    </item>
+    <item>
+      <title>语法分析</title>
+      <link>https://irscript.github.io/compiler/2_parser/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/2_parser/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>语义分析</title>
+      <link>https://irscript.github.io/compiler/3_analysis/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/3_analysis/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>中间优化</title>
+      <link>https://irscript.github.io/compiler/4_optimize/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/4_optimize/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>目标生成</title>
+      <link>https://irscript.github.io/compiler/5_target/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/5_target/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>中间代码</title>
+      <link>https://irscript.github.io/compiler/6_ir/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/6_ir/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>指令集</title>
+      <link>https://irscript.github.io/compiler/7_instruction/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/7_instruction/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>语言定义</title>
+      <link>https://irscript.github.io/compiler/8_langdef/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>https://irscript.github.io/compiler/8_langdef/index.html</guid>
+      <description>air语言是C语法系的编程语言，提供面向对象、函数式、模板等高级语言功能。
+目录 代码文件结构 关键字 操作符 类型系统 语法定义 文件单元FileUnit = PkgDef (ImportDef) Decl*包定义PkgDef = package ID (.ID)*依赖导入(可选)ImportDef = &amp;#39;import&amp;#39; STRING as ID; |&amp;#39;{&amp;#39; (STRING as ID; )* &amp;#39;}&amp;#39;声明定义Decl = ScopeDecl | VarDecl | FuncDecl | EnumDecl | StructDecl | UnionDecl | InterfaceDecl | ClassDecl | ~表达式Exp = BaseExp | DotExp | UnaryExp | BinaryExp | TernaryExp | NewExp | PriorityExp基础表达式BaseExp = IDExp | ConstExp | CallExp | ArrarExp | ThisExp | SuperExpIDExp = IDConstExp = cCallExp = ID &amp;#39;(&amp;#39; ArgList&amp;#39;)&amp;#39;ArrarExp = ID &amp;#39;[&amp;#39; Exp &amp;#39;]&amp;#39;ThisExp = &amp;#39;this&amp;#39;SuperExp = &amp;#39;super&amp;#39;成员访问表达式DotExp = BaseExp ( &amp;#39;.</description>
+    </item>
   </channel>
 </rss>

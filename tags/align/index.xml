@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Align on 巨人之海</title>
+    <link>https://irscript.github.io/tags/align/index.html</link>
+    <description>Recent content in Align on 巨人之海</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate><atom:link href="https://irscript.github.io/tags/align/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>整数对齐</title>
+      <link>https://irscript.github.io/algorithms/align/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>https://irscript.github.io/algorithms/align/index.html</guid>
+      <description>// 向上大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T alignup(T num, T base) { return (num + base - 1) &amp;amp; (~(base - 1)); } // 向下大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T aligndown(T num, T base) { return (num &amp;amp; ~(base - 1)); }</description>
+    </item>
+  </channel>
+</rss>

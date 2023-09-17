@@ -8,11 +8,11 @@
     <language>zh-cn</language>
     <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate><atom:link href="https://irscript.github.io/algorithms/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>链表</title>
-      <link>https://irscript.github.io/algorithms/list/index.html</link>
+      <title>整数对齐</title>
+      <link>https://irscript.github.io/algorithms/align/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/algorithms/list/index.html</guid>
-      <description> 单向节点链表 双向节点链表 </description>
+      <guid>https://irscript.github.io/algorithms/align/index.html</guid>
+      <description>// 向上大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T alignup(T num, T base) { return (num + base - 1) &amp;amp; (~(base - 1)); } // 向下大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T aligndown(T num, T base) { return (num &amp;amp; ~(base - 1)); }</description>
     </item>
   </channel>
 </rss>

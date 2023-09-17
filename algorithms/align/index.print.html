@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Relearn 5.20.0">
+    <meta name="description" content="站在巨人的肩膀上">
+    <meta name="author" content="月明之都">
+    <title>整数对齐 :: 巨人之海</title>
+    <link href="https://irscript.github.io/algorithms/align/index.html" rel="canonical" type="text/html" title="整数对齐 :: 巨人之海">
+    <link href="../../algorithms/align/index.xml" rel="alternate" type="application/rss+xml" title="整数对齐 :: 巨人之海"><link rel="icon" href="../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../css/fontawesome-all.min.css?1694943322" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1694943322" rel="stylesheet"></noscript>
+    <link href="../../css/nucleus.css?1694943322" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1694943322" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1694943322" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1694943322" rel="stylesheet">
+    <link href="../../css/fonts.css?1694943322" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1694943322" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1694943322" rel="stylesheet">
+    <link href="../../css/theme-auto.css?1694943322" rel="stylesheet" id="variant-style">
+    <link href="../../css/variant.css?1694943322" rel="stylesheet">
+    <link href="../../css/print.css?1694943322" rel="stylesheet" media="print">
+    <link href="../../css/format-print.css?1694943322" rel="stylesheet">
+    <link href="../../css/ie.css?1694943322" rel="stylesheet">
+    <script src="../../js/url.js?1694943322"></script>
+    <script src="../../js/variant.js?1694943322"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      window.index_js_url="../../index.search.js";
+      var root_url="../../";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = '复制到剪贴板';
+      window.T_Copied_to_clipboard = '复制到剪贴板！';
+      window.T_Copy_link_to_clipboard = '将链接复制到剪贴板';
+      window.T_Link_copied_to_clipboard = '链接复制到剪贴板！';
+      window.T_No_results_found = '找不到\u0022{0}\u0022的结果';
+      window.T_N_results_found = '为\u0022{0}\u0022找到 {1} 个结果';
+      // some further base stuff
+      var baseUriFull='https:\/\/irscript.github.io/';
+      window.variants && variants.init( [ 'auto', 'relearn-bright', 'relearn-light', 'relearn-dark', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+    </script>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../algorithms/align/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" class="topbar-link" title='导航 (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../algorithms/index.html"><span itemprop="name">算法</span></a><meta itemprop="position" content="2"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">整数对齐</span><meta itemprop="position" content="3"></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../../tags/align/index.html">Align</a>
+  <a class="tag-link" href="../../tags/cxx/index.html">Cxx</a>
+</div>
+            </header>
+<h1 id="整数对齐">整数对齐</h1>
+
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 向上大小对齐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">T</span> <span class="n">alignup</span><span class="p">(</span><span class="n">T</span> <span class="n">num</span><span class="p">,</span> <span class="n">T</span> <span class="n">base</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">num</span> <span class="o">+</span> <span class="n">base</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">base</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 向下大小对齐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">T</span> <span class="n">aligndown</span><span class="p">(</span><span class="n">T</span> <span class="n">num</span><span class="p">,</span> <span class="n">T</span> <span class="n">base</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">num</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">base</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span> <span class="p">}</span></span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="../../js/clipboard.min.js?1694943322" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1694943322" defer></script>
+    <script src="../../js/theme.js?1694943322" defer></script>
+  </body>
+</html>
