@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>语言定义 on 巨人之海</title>
+    <title>8 语言定义 on 巨人之海</title>
     <link>https://irscript.github.io/compiler/8_langdef/index.html</link>
-    <description>Recent content in 语言定义 on 巨人之海</description>
+    <description>Recent content in 8 语言定义 on 巨人之海</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate><atom:link href="https://irscript.github.io/compiler/8_langdef/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>代码文件结构</title>
-      <link>https://irscript.github.io/compiler/8_langdef/1_codefile/index.html</link>
+      <title>1 语法定义</title>
+      <link>https://irscript.github.io/compiler/8_langdef/1_langdef/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/compiler/8_langdef/1_codefile/index.html</guid>
+      <guid>https://irscript.github.io/compiler/8_langdef/1_langdef/index.html</guid>
+      <description>语法使用非严格的EBNF语法描述。
+文件单元FileUnit = PkgDef (ImportDef) Decl*包定义PkgDef = package ID (.ID)*依赖导入(可选)ImportDef = &amp;#39;import&amp;#39; STRING as ID; |&amp;#39;{&amp;#39; (STRING as ID; )* &amp;#39;}&amp;#39;声明定义Decl = ScopeDecl | VarDecl | FuncDecl | EnumDecl | StructDecl | UnionDecl | InterfaceDecl | ClassDecl | EntrustDecl | ~表达式Exp = BaseExp | DotExp | UnaryExp | BinaryExp | TernaryExp | NewExp | PriorityExp基础表达式BaseExp = IDExp | ConstExp | CallExp | ArrarExp | ThisExp | SuperExpIDExp = IDConstExp = cCallExp = ID &amp;#39;(&amp;#39; ArgList&amp;#39;)&amp;#39;ArrarExp = ID &amp;#39;[&amp;#39; Exp &amp;#39;]&amp;#39;ThisExp = &amp;#39;this&amp;#39;SuperExp = &amp;#39;super&amp;#39;成员访问表达式DotExp = BaseExp ( &amp;#39;.</description>
+    </item>
+    <item>
+      <title>2 代码结构</title>
+      <link>https://irscript.github.io/compiler/8_langdef/2_codefile/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>https://irscript.github.io/compiler/8_langdef/2_codefile/index.html</guid>
       <description>每一个文件都必须定义一个作用域名，其他内容在此作用域定义。
 生成的声明符号都在该作用域内，只能通过该作用域才能访问代码文件中声明的符号内容。
 代码结构 包声明 package pkg.pkg2;依赖单元 Import file=“dir/file.ext” as file ;或者
 Import{ile=“dir/file.ext” as file ;ile2=“dir/file2.ext” as file2 ;}枚举定义 enum name : int32{item=0,item2=23,…}结构体定义 Struct name{Int32 i32;Union{Int32 s32;Flt32 f32;}}联合体定义 Union name{Int32 s32;Flt32 f32;Struct{…}}接口定义 Interface IFather{void eat(int32 arg);}Interface IFather2{void say(int32 arg);}Interface IChild :[ IFather,IFather2 ]{void walk(int32 arg);}类定义 Class Parent {Private:Int32 mI32;Public	Flt32 mF32;Public:Void print(){}Protected void toString(){}Virtual void vfun()=0;}Class child: Parent :[ IChild ]{void eat(int32 arg) @override{}void say(int32 arg) @override{}void walk(int32 arg) @override{}void vfun()@override{}} </description>
     </item>
     <item>
-      <title>关键字</title>
-      <link>https://irscript.github.io/compiler/8_langdef/2_keyword/index.html</link>
+      <title>3 关键字</title>
+      <link>https://irscript.github.io/compiler/8_langdef/3_keyword/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/compiler/8_langdef/2_keyword/index.html</guid>
+      <guid>https://irscript.github.io/compiler/8_langdef/3_keyword/index.html</guid>
       <description>airlang 的关键字分为两种：普通关键字，宏关键字。 两者差别不大，但是宏关键字有特殊的标记作用，一般用于注解一些信息。
 宏关键字 关键字 注解 @file 代码中获取文件的名称字符串 @line 代码中获取代码所作行号数字 @func 代码中获取函数声明字符串 @debug 用于标记只在debug标志下启用的代码 @NotNulptr 用于标记需要检查函数的指针参数非空 @override 标记非静态成员函数是重写父类的函数 普通关键字 固定位宽类型关键字 注解 位宽(bit) void 空，一般用于表示无返回值 0 bool 布尔类型 8 flt32 32位单精度浮点 32 flt64 64位双精度浮点 32 int8 8位有符号整数 8 int16 8位有符号整数 16 int32 8位有符号整数 32 int64 8位有符号整数 64 uint8 8位无符号整数 8 uint16 16位无符号整数 16 uint32 32位无符号整数 32 uint64 64位无符号整数 64 char 字符 8 可变位宽类型的位宽由编译的目标CPU架构有关。
 可变位宽类型关键字注解CPU32CPU64sint有符号整数 3264uint无符号整数 3264uintptr指针 3264cstring字符串指针 3264修饰关键字 注解 static 静态 public 完全公开的 protected 对部分成员公开的 private 私有的 成员 const 常量化，只读 friend 友元定义 分支关键字 注解 if 比较分支 elsif 次比较分支 else 比较默认分支 for 循环 foreach 循环 while 循环 do 循环 break 跳出循环 continue 继续下一轮循环 goto 跳转到标签 return 函数返回 类型定义关键字 注解 enum 枚举 struct 结构体 union 联合体 interface 接口 class 类 entrust 委托指针 其他关键字 注解 false true nullptr this super </description>
     </item>
     <item>
-      <title>操作符</title>
-      <link>https://irscript.github.io/compiler/8_langdef/3_operator/index.html</link>
+      <title>4 操作符</title>
+      <link>https://irscript.github.io/compiler/8_langdef/4_operator/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/compiler/8_langdef/3_operator/index.html</guid>
-      <description> 操作符 优先级 注解 </description>
+      <guid>https://irscript.github.io/compiler/8_langdef/4_operator/index.html</guid>
+      <description>成员访问操作符 成员访问操作符的优先级最高。
+成员范文操作符 优先级 注解 . 0 成员访问 .? 0 带null检查的成员访问 一元操作符 一元操作符优先级一致，主要查看其声明的先后顺序。
+一元操作符 优先级 注解 ~ -10 按位取反 ! -10 逻辑取反 - -10 符号取反 + -10 取绝对值 ++ -10 自增 -- -10 自减 括号操作符 括号表达式中的括号操作符，用于提升表达式的优先级。
+括号操作符 优先级 注解 （） -20 括号操作符 二元操作符 在语法解析表达式中，二元表达式最复杂的。
+二元操作符 优先级 注解 * 乘运算操作符 / 除运算操作符 % 模运算操作符 + 加运算操作符 - 减运算操作符 &amp;lt; 小于操作符 &amp;lt;= 小于等于操作符 &amp;gt; 大于于操作符 &amp;gt;= 大于等于操作符 == 等于操作符 != 不等于操作符 &amp;amp;&amp;amp; 逻辑与操作符 || 逻辑或操作符 &amp;amp; 位与操作符 ^ 位异或操作符 | 位或操作符 &amp;lt;&amp;lt; 左移操作符 &amp;gt;&amp;gt; 逻辑右移操作符 &amp;gt;&amp;gt;&amp;gt; 算术右移操作符 三元操作符 三元操作符主要用于比较赋值、简单得比较分支操作。</description>
     </item>
     <item>
-      <title>类型系统</title>
-      <link>https://irscript.github.io/compiler/8_langdef/4_typesystem/index.html</link>
+      <title>5 类型系统</title>
+      <link>https://irscript.github.io/compiler/8_langdef/5_typesystem/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/compiler/8_langdef/4_typesystem/index.html</guid>
+      <guid>https://irscript.github.io/compiler/8_langdef/5_typesystem/index.html</guid>
       <description>基本类型 固定位宽类型 注解 位宽(bit) void 空，一般用于表示无返回值 &amp;mdash; bool 布尔类型 8 flt32 32位单精度浮点 32 flt64 64位双精度浮点 32 int8 8位有符号整数 8 int16 8位有符号整数 16 int32 8位有符号整数 32 int64 8位有符号整数 64 uint8 8位无符号整数 8 uint16 16位无符号整数 16 uint32 32位无符号整数 32 uint64 64位无符号整数 64 char 字符 8 可变位宽类型的位宽由编译的目标CPU架构有关。
-可变位宽类型注解CPU32CPU64sint有符号整数 3264uint无符号整数 3264uintptr指针 3264cstring字符串指针 3264枚举类型 结构体 联合体 接口 类 函数指针 </description>
+可变位宽类型注解CPU32CPU64sint有符号整数 3264uint无符号整数 3264uintptr指针 3264cstring字符串指针 3264枚举类型 枚举定义只能是定义整数类的值，其占用的字节数、有无符号性，通过基类标识指定。
+如下所示：
+enum Color:uint32{ Red, Black, }结构体 结构体在airlang中是值类型，不会进入GC系统，除通过API分配独立的堆内存。
+一般用于构成类中的共同属性。
+struct Vec2{ int32 x; int32 y; } struct Vec3 :Vec2{ int32 z; }联合体 union Int32{ int32 i32; struct{ int8 [4] v4; } }接口 interface IEvent{ void eat(); }类 class Parent{ int32 i32; void doing(){} } class Child :Parent [IEvent]{ int64 i64; void eat()@override{} }委托 entrust Func = void (int32,int64)@clang;</description>
     </item>
   </channel>
 </rss>
