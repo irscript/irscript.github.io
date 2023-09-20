@@ -1,7 +1,7 @@
 +++
-title = "类型系统"
+title = "5 类型系统"
 date = 2023-09-14T21:30:02+08:00
-weight = 4
+weight = 5
 +++
 
 ## 基本类型
@@ -39,14 +39,58 @@ char | 字符    | 8
 </table>
 
 ## 枚举类型
+枚举定义只能是定义整数类的值，其占用的字节数、有无符号性，通过基类标识指定。
 
+如下所示：
+```c++
+enum Color:uint32{
+    Red,
+    Black,
+}
+```
 
 ## 结构体
+结构体在airlang中是值类型，不会进入GC系统，除通过API分配独立的堆内存。
 
+一般用于构成类中的共同属性。
+
+```c++
+struct Vec2{
+    int32 x;
+    int32 y;
+}
+struct Vec3 :Vec2{
+    int32 z;
+}
+```
 ## 联合体
-
+```c++
+union Int32{
+    int32 i32;
+    struct{
+        int8 [4] v4;
+    }
+}
+```
 ## 接口
-
+```c++
+interface IEvent{
+    void eat();
+}
+```
 ## 类
+```c++
+class Parent{
+ int32 i32;
 
-## 函数指针
+ void doing(){} 
+}
+class Child :Parent [IEvent]{
+    int64 i64;
+    void eat()@override{}
+}
+```
+## 委托
+```c++
+entrust Func = void (int32,int64)@clang;
+```
