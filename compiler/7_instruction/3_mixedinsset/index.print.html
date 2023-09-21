@@ -11,19 +11,19 @@
     <link href="https://irscript.github.io/compiler/7_instruction/3_mixedinsset/index.html" rel="canonical" type="text/html" title="3 基于栈和寄存器的指令集 :: 巨人之海">
     <link href="../../../compiler/7_instruction/3_mixedinsset/index.xml" rel="alternate" type="application/rss+xml" title="3 基于栈和寄存器的指令集 :: 巨人之海"><link rel="icon" href="../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1695212754" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1695212754" rel="stylesheet"></noscript>
-    <link href="../../../css/nucleus.css?1695212754" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1695212754" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1695212754" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1695212754" rel="stylesheet">
-    <link href="../../../css/fonts.css?1695212754" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1695212754" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1695212754" rel="stylesheet">
-    <link href="../../../css/theme-auto.css?1695212754" rel="stylesheet" id="variant-style">
-    <link href="../../../css/variant.css?1695212754" rel="stylesheet">
-    <link href="../../../css/print.css?1695212754" rel="stylesheet" media="print">
-    <link href="../../../css/format-print.css?1695212754" rel="stylesheet">
-    <link href="../../../css/ie.css?1695212754" rel="stylesheet">
-    <script src="../../../js/url.js?1695212754"></script>
-    <script src="../../../js/variant.js?1695212754"></script>
+    <link href="../../../css/fontawesome-all.min.css?1695308995" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1695308995" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1695308995" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1695308995" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1695308995" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1695308995" rel="stylesheet">
+    <link href="../../../css/fonts.css?1695308995" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1695308995" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1695308995" rel="stylesheet">
+    <link href="../../../css/theme-auto.css?1695308995" rel="stylesheet" id="variant-style">
+    <link href="../../../css/variant.css?1695308995" rel="stylesheet">
+    <link href="../../../css/print.css?1695308995" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1695308995" rel="stylesheet">
+    <link href="../../../css/ie.css?1695308995" rel="stylesheet">
+    <script src="../../../js/url.js?1695308995"></script>
+    <script src="../../../js/variant.js?1695308995"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -738,8 +738,9 @@
 <li>文本格式： op des,src,src2</li>
 <li>指令含义：des = src op src2</li>
 <li>子操作码：可以用于标识比较的方法。</li>
-<li>比较的结果，存储在整数寄存器中，且使用位宽 64 bit，即des是整数寄存器。
-指令格式如下所示：
+<li>比较的结果，存储在整数寄存器中，且使用位宽 64 bit，即des是整数寄存器。</li>
+</ul>
+<p>指令格式如下所示：</p>
 <table>
 <thead>
 <tr>
@@ -818,8 +819,6 @@
 </tr>
 </tbody>
 </table>
-</li>
-</ul>
 <p>操作子码定义如下：</p>
 <table>
 <thead>
@@ -880,16 +879,85 @@
 </ul>
 <h3 id="34-条件赋值">3.4 条件赋值</h3>
 <p>条件赋值指令使用比较指令的结果，对另外 2 个源操作数进行选择，传递个目标操作数。</p>
-<p>指令格式如下所示：
-助记符|操作码|目的操作数|源操作数|源操作数|源操作数|操作子码
-&mdash;|&mdash;|&mdash;|&mdash;|&mdash;|&mdash;|
-| |9 bit| 5 bit| 5 bit| 5 bit| 5 bit| 3 bit
-sel-i32| |des|src|src2|cond
-sel-u32| |des|src|src2|cond
-sel-i64| |des|src|src2|cond
-sel-u64| |des|src|src2|cond
-sel-f32| |des|src|src2|cond
-sel-f64| |des|src|src2|cond</p>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>3 bit</td>
+</tr>
+<tr>
+<td>sel-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>当比较系列指令使用操作子码方式时：</p>
 <ul>
 <li>cond == 0 ：des = src</li>
@@ -1527,8 +1595,6 @@ sel-f64| |des|src|src2|cond</p>
 <th>目的操作数</th>
 <th>立即数</th>
 <th>注释</th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -1538,8 +1604,6 @@ sel-f64| |des|src|src2|cond</p>
 <td>5 bit</td>
 <td>18 bit</td>
 <td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>grown</td>
@@ -1547,8 +1611,6 @@ sel-f64| |des|src|src2|cond</p>
 <td>des</td>
 <td>imm</td>
 <td>分配栈内存，将分配后的栈指针值传递到 des 寄存器</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
@@ -1556,15 +1618,11 @@ sel-f64| |des|src|src2|cond</p>
 <td>23 bit</td>
 <td>释放栈内存，</td>
 <td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>shrunk</td>
 <td></td>
 <td>imm</td>
-<td></td>
-<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -1584,8 +1642,6 @@ sel-f64| |des|src|src2|cond</p>
 <th>目的操作数</th>
 <th>立即数</th>
 <th>注释</th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -1595,8 +1651,6 @@ sel-f64| |des|src|src2|cond</p>
 <td>23 bit</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>jmp</td>
@@ -1604,16 +1658,12 @@ sel-f64| |des|src|src2|cond</p>
 <td>imm</td>
 <td></td>
 <td>直接跳转</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
 <td>9 bit</td>
 <td>5 bit</td>
 <td>18 bit</td>
-<td></td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1622,16 +1672,12 @@ sel-f64| |des|src|src2|cond</p>
 <td>reg</td>
 <td></td>
 <td>偏移量在 reg 寄存器中</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
 <td>9 bit</td>
 <td>5 bit</td>
 <td>18 bit</td>
-<td></td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1640,8 +1686,6 @@ sel-f64| |des|src|src2|cond</p>
 <td>reg</td>
 <td>imm</td>
 <td>reg 表示偏移量索引，imm表示偏移量数组中偏移数据条数，指令后面接 32 bit 对齐的偏移量数组</td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1786,8 +1830,6 @@ sel-f64| |des|src|src2|cond</p>
 <th>目的操作数</th>
 <th>立即数</th>
 <th>注释</th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -1797,8 +1839,6 @@ sel-f64| |des|src|src2|cond</p>
 <td>23 bit</td>
 <td>32 bit</td>
 <td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>call</td>
@@ -1806,16 +1846,12 @@ sel-f64| |des|src|src2|cond</p>
 <td></td>
 <td>imm</td>
 <td>imm表示函数的偏移量或者是编号，看虚拟机的具体实现</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
 <td>9 bit</td>
 <td>5 bit</td>
 <td>18 bit</td>
-<td></td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1824,15 +1860,11 @@ sel-f64| |des|src|src2|cond</p>
 <td>reg</td>
 <td></td>
 <td>reg 寄存器中保存函数的偏移量或者是编号，看虚拟机的具体实现</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
 <td>9 bit</td>
 <td>23 bit</td>
-<td></td>
-<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -1842,12 +1874,11 @@ sel-f64| |des|src|src2|cond</p>
 <td></td>
 <td></td>
 <td>函数返回</td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
 <h2 id="4-寄存器与立即数--指令集">4 寄存器与立即数&ndash;指令集</h2>
+<p>待续</p>
 
             <footer class="footline">
 
@@ -1857,8 +1888,8 @@ sel-f64| |des|src|src2|cond</p>
         </div>
       </main>
     </div>
-    <script src="../../../js/clipboard.min.js?1695212754" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1695212754" defer></script>
-    <script src="../../../js/theme.js?1695212754" defer></script>
+    <script src="../../../js/clipboard.min.js?1695308995" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1695308995" defer></script>
+    <script src="../../../js/theme.js?1695308995" defer></script>
   </body>
 </html>

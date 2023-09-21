@@ -7,9 +7,9 @@
     <meta name="generator" content="Relearn 5.20.0">
     <meta name="description" content="站在巨人的肩膀上">
     <meta name="author" content="月明之都">
-    <title>3 语义分析 :: 巨人之海</title>
-    <link href="../../compiler/3_analysis/index.xml" rel="alternate" type="application/rss+xml" title="3 语义分析 :: 巨人之海">
-    <link href="../../compiler/3_analysis/index.print.html" rel="alternate" type="text/html" title="3 语义分析 :: 巨人之海"><link rel="icon" href="../../images/favicon.png" type="image/png">
+    <title>9 字节码文件格式 :: 巨人之海</title>
+    <link href="../../compiler/9_bcf/index.xml" rel="alternate" type="application/rss+xml" title="9 字节码文件格式 :: 巨人之海">
+    <link href="../../compiler/9_bcf/index.print.html" rel="alternate" type="text/html" title="9 字节码文件格式 :: 巨人之海"><link rel="icon" href="../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../css/fontawesome-all.min.css?1695308995" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1695308995" rel="stylesheet"></noscript>
     <link href="../../css/nucleus.css?1695308995" rel="stylesheet">
@@ -41,25 +41,25 @@
       window.variants && variants.init( [ 'auto', 'relearn-bright', 'relearn-light', 'relearn-dark', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
     </script>
   </head>
-  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../compiler/3_analysis/index.html">
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../compiler/9_bcf/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable">
         <div>
           <div class="navigation">
-            <a class="nav nav-next topbar-link" href="../../compiler/4_optimize/index.html" title="4 中间优化 (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next topbar-link" href="../../compiler/10_vmimp/index.html" title="10 虚拟机设计与实现 (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev topbar-link" href="../../compiler/2_parser/7_parserdecl2/index.html" title="7 解析声明续 (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev topbar-link" href="../../compiler/8_langdef/5_typesystem/index.html" title="5 类型系统 (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="top-print-link">
-            <a class="print-link topbar-link" title='打印整章 (CTRL+ALT+p)' href="../../compiler/3_analysis/index.print.html">
+            <a class="print-link topbar-link" title='打印整章 (CTRL+ALT+p)' href="../../compiler/9_bcf/index.print.html">
               <i class="fas fa-print fa-fw"></i>
             </a>
           </div>
           <div id="top-github-link">
-            <a class="github-link topbar-link" title='编辑 (CTRL+ALT+w)' href="https://github.com/irscript/irscript.github.io/content/Compiler/3_Analysis/_index.md" target="_blank">
+            <a class="github-link topbar-link" title='编辑 (CTRL+ALT+w)' href="https://github.com/irscript/irscript.github.io/content/Compiler/9_BCF/_index.md" target="_blank">
               <i class="fas fa-pen fa-fw"></i>
             </a>
           </div>
@@ -71,14 +71,13 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../compiler/index.html"><span itemprop="name">编译器设计与实现</span></a><meta itemprop="position" content="2"> &gt; </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">3 语义分析</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">9 字节码文件格式</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
             <div class="toc-wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1-序">1 序</a></li>
-    <li><a href="#2-目录">2 目录</a></li>
+    <li><a href="#目录">目录</a></li>
   </ul>
 </nav>
             </div>
@@ -90,22 +89,17 @@
           <article class="chapter">
             <header class="headline">
             </header>
-<div class="article-subheading">第3章</div>
-<h1 id="3-语义分析">3 语义分析</h1>
+<div class="article-subheading">第9章</div>
+<h1 id="9-字节码文件格式">9 字节码文件格式</h1>
 
-<h2 id="1-序">1 序</h2>
-<p>语义分析就是分析语法树中所有的符号是否存在声明，从语义层次进一步规范程序所表达的含义。</p>
-<ul>
-<li>分析符号的含义和类型。</li>
-<li>分析变量的位置偏移。</li>
-<li>分析表达式的类型，并进行类型匹配。</li>
-</ul>
-<h2 id="2-目录">2 目录</h2>
+<p>字节码文件的设计是虚拟机资源加载的核心，其中的设计会影响到虚拟机指令集的设计。</p>
+<h2 id="目录">目录</h2>
 <hr>
 
 <ul class="children children-li children-sort-weight">
 	
 </ul>
+
             <footer class="footline">
 
             </footer>
@@ -160,7 +154,7 @@
           <li data-nav-id="/compiler/2_parser/5_parserexp/index.html" class=""><a class="padding" href="../../compiler/2_parser/5_parserexp/index.html">5 解析表达式<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/2_parser/6_parserdecl/index.html" class=""><a class="padding" href="../../compiler/2_parser/6_parserdecl/index.html">6 解析声明<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/2_parser/7_parserdecl2/index.html" class=""><a class="padding" href="../../compiler/2_parser/7_parserdecl2/index.html">7 解析声明续<i class="fas fa-check read-icon"></i></a></li></ul></li>
-          <li data-nav-id="/compiler/3_analysis/index.html" class="active"><a class="padding" href="../../compiler/3_analysis/index.html">3 语义分析<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/compiler/3_analysis/index.html" class=""><a class="padding" href="../../compiler/3_analysis/index.html">3 语义分析<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/4_optimize/index.html" class=""><a class="padding" href="../../compiler/4_optimize/index.html">4 中间优化<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/5_target/index.html" class=""><a class="padding" href="../../compiler/5_target/index.html">5 目标生成<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/6_ir/index.html" class=""><a class="padding" href="../../compiler/6_ir/index.html">6 中间代码<i class="fas fa-check read-icon"></i></a></li>
@@ -174,7 +168,7 @@
           <li data-nav-id="/compiler/8_langdef/3_keyword/index.html" class=""><a class="padding" href="../../compiler/8_langdef/3_keyword/index.html">3 关键字<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/8_langdef/4_operator/index.html" class=""><a class="padding" href="../../compiler/8_langdef/4_operator/index.html">4 操作符<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../compiler/8_langdef/5_typesystem/index.html">5 类型系统<i class="fas fa-check read-icon"></i></a></li></ul></li>
-          <li data-nav-id="/compiler/9_bcf/index.html" class=""><a class="padding" href="../../compiler/9_bcf/index.html">9 字节码文件格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/compiler/9_bcf/index.html" class="active"><a class="padding" href="../../compiler/9_bcf/index.html">9 字节码文件格式<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/10_vmimp/index.html" class=""><a class="padding" href="../../compiler/10_vmimp/index.html">10 虚拟机设计与实现<i class="fas fa-check read-icon"></i></a></li></ul></li>
           <li data-nav-id="/os/index.html" class=""><a class="padding" href="../../os/index.html">操作系统<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/format/index.html" class=""><input type="checkbox" id="section-855d8e34025f723e685ee8557525d62c" aria-controls="subsections-855d8e34025f723e685ee8557525d62c"><label for="section-855d8e34025f723e685ee8557525d62c"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单文件格式</span></label><a class="padding" href="../../format/index.html">文件格式<i class="fas fa-check read-icon"></i></a><ul id="subsections-855d8e34025f723e685ee8557525d62c" class="morespace collapsible-menu">

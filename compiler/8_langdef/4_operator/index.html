@@ -11,18 +11,18 @@
     <link href="../../../compiler/8_langdef/4_operator/index.xml" rel="alternate" type="application/rss+xml" title="4 操作符 :: 巨人之海">
     <link href="../../../compiler/8_langdef/4_operator/index.print.html" rel="alternate" type="text/html" title="4 操作符 :: 巨人之海"><link rel="icon" href="../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1695212754" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1695212754" rel="stylesheet"></noscript>
-    <link href="../../../css/nucleus.css?1695212754" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1695212754" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1695212754" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1695212754" rel="stylesheet">
-    <link href="../../../css/fonts.css?1695212754" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1695212754" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1695212754" rel="stylesheet">
-    <link href="../../../css/theme-auto.css?1695212754" rel="stylesheet" id="variant-style">
-    <link href="../../../css/variant.css?1695212754" rel="stylesheet">
-    <link href="../../../css/print.css?1695212754" rel="stylesheet" media="print">
-    <link href="../../../css/ie.css?1695212754" rel="stylesheet">
-    <script src="../../../js/url.js?1695212754"></script>
-    <script src="../../../js/variant.js?1695212754"></script>
+    <link href="../../../css/fontawesome-all.min.css?1695308995" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1695308995" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1695308995" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1695308995" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1695308995" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1695308995" rel="stylesheet">
+    <link href="../../../css/fonts.css?1695308995" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1695308995" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1695308995" rel="stylesheet">
+    <link href="../../../css/theme-auto.css?1695308995" rel="stylesheet" id="variant-style">
+    <link href="../../../css/variant.css?1695308995" rel="stylesheet">
+    <link href="../../../css/print.css?1695308995" rel="stylesheet" media="print">
+    <link href="../../../css/ie.css?1695308995" rel="stylesheet">
+    <script src="../../../js/url.js?1695308995"></script>
+    <script src="../../../js/variant.js?1695308995"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -59,7 +59,7 @@
             </a>
           </div>
           <div id="top-github-link">
-            <a class="github-link topbar-link" title='编辑 (CTRL+ALT+w)' href="https://irscript.github.io/content/Compiler/8_LangDef/4_operator.md" target="_blank">
+            <a class="github-link topbar-link" title='编辑 (CTRL+ALT+w)' href="https://github.com/irscript/irscript.github.io/content/Compiler/8_LangDef/4_operator.md" target="_blank">
               <i class="fas fa-pen fa-fw"></i>
             </a>
           </div>
@@ -80,10 +80,10 @@
   <ul>
     <li><a href="#成员访问操作符">成员访问操作符</a></li>
     <li><a href="#一元操作符">一元操作符</a></li>
-    <li><a href="#括号操作符">括号操作符</a></li>
     <li><a href="#二元操作符">二元操作符</a></li>
     <li><a href="#三元操作符">三元操作符</a></li>
     <li><a href="#赋值操作符">赋值操作符</a></li>
+    <li><a href="#其他操作符">其他操作符</a></li>
   </ul>
 </nav>
             </div>
@@ -102,7 +102,7 @@
 <table>
 <thead>
 <tr>
-<th>成员范文操作符</th>
+<th>成员访问操作符</th>
 <th>优先级</th>
 <th>注解</th>
 </tr>
@@ -163,24 +163,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="括号操作符">括号操作符</h2>
-<p>括号表达式中的括号操作符，用于提升表达式的优先级。</p>
-<table>
-<thead>
-<tr>
-<th>括号操作符</th>
-<th>优先级</th>
-<th>注解</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>（）</td>
-<td>-20</td>
-<td>括号操作符</td>
-</tr>
-</tbody>
-</table>
 <h2 id="二元操作符">二元操作符</h2>
 <p>在语法解析表达式中，二元表达式最复杂的。</p>
 <table>
@@ -194,17 +176,17 @@
 <tbody>
 <tr>
 <td>*</td>
-<td></td>
+<td>-20</td>
 <td>乘运算操作符</td>
 </tr>
 <tr>
 <td>/</td>
-<td></td>
+<td>-20</td>
 <td>除运算操作符</td>
 </tr>
 <tr>
 <td>%</td>
-<td></td>
+<td>-20</td>
 <td>模运算操作符</td>
 </tr>
 <tr>
@@ -214,12 +196,12 @@
 </tr>
 <tr>
 <td>+</td>
-<td></td>
+<td>-30</td>
 <td>加运算操作符</td>
 </tr>
 <tr>
 <td>-</td>
-<td></td>
+<td>-30</td>
 <td>减运算操作符</td>
 </tr>
 <tr>
@@ -228,33 +210,58 @@
 <td></td>
 </tr>
 <tr>
-<td>&lt;</td>
+<td>&lt;&lt;</td>
+<td>-40</td>
+<td>左移操作符</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>-40</td>
+<td>逻辑右移操作符</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td>-40</td>
+<td>算术右移操作符</td>
+</tr>
+<tr>
 <td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>-50</td>
 <td>小于操作符</td>
 </tr>
 <tr>
 <td>&lt;=</td>
-<td></td>
+<td>-50</td>
 <td>小于等于操作符</td>
 </tr>
 <tr>
 <td>&gt;</td>
-<td></td>
+<td>-50</td>
 <td>大于于操作符</td>
 </tr>
 <tr>
 <td>&gt;=</td>
-<td></td>
+<td>-50</td>
 <td>大于等于操作符</td>
 </tr>
 <tr>
-<td>==</td>
 <td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>==</td>
+<td>-60</td>
 <td>等于操作符</td>
 </tr>
 <tr>
 <td>!=</td>
-<td></td>
+<td>-60</td>
 <td>不等于操作符</td>
 </tr>
 <tr>
@@ -263,33 +270,18 @@
 <td></td>
 </tr>
 <tr>
-<td>&amp;&amp;</td>
-<td></td>
-<td>逻辑与操作符</td>
-</tr>
-<tr>
-<td>||</td>
-<td></td>
-<td>逻辑或操作符</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td>&amp;</td>
-<td></td>
+<td>-70</td>
 <td>位与操作符</td>
 </tr>
 <tr>
 <td>^</td>
-<td></td>
+<td>-71</td>
 <td>位异或操作符</td>
 </tr>
 <tr>
 <td>|</td>
-<td></td>
+<td>-72</td>
 <td>位或操作符</td>
 </tr>
 <tr>
@@ -298,24 +290,19 @@
 <td></td>
 </tr>
 <tr>
-<td>&lt;&lt;</td>
-<td></td>
-<td>左移操作符</td>
+<td>&amp;&amp;</td>
+<td>-80</td>
+<td>逻辑与操作符</td>
 </tr>
 <tr>
-<td>&gt;&gt;</td>
-<td></td>
-<td>逻辑右移操作符</td>
-</tr>
-<tr>
-<td>&gt;&gt;&gt;</td>
-<td></td>
-<td>算术右移操作符</td>
+<td>||</td>
+<td>-81</td>
+<td>逻辑或操作符</td>
 </tr>
 </tbody>
 </table>
 <h2 id="三元操作符">三元操作符</h2>
-<p>三元操作符主要用于比较赋值、简单得比较分支操作。</p>
+<p>三元操作符主要用于比较赋值、简单的比较分支操作。</p>
 <table>
 <thead>
 <tr>
@@ -327,13 +314,13 @@
 <tbody>
 <tr>
 <td>? :</td>
-<td></td>
+<td>-90</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h2 id="赋值操作符">赋值操作符</h2>
-<p>赋值类操作符的优先级一致。</p>
+<p>赋值类操作符的优先级一致，优先级最低。</p>
 <table>
 <thead>
 <tr>
@@ -345,7 +332,7 @@
 <tbody>
 <tr>
 <td>=</td>
-<td></td>
+<td>-100</td>
 <td>赋值操作符</td>
 </tr>
 <tr>
@@ -355,17 +342,17 @@
 </tr>
 <tr>
 <td>*=</td>
-<td></td>
+<td>-100</td>
 <td>乘运算复合赋值操作符</td>
 </tr>
 <tr>
 <td>/=</td>
-<td></td>
+<td>-100</td>
 <td>除运算复合赋值操作符</td>
 </tr>
 <tr>
 <td>%=</td>
-<td></td>
+<td>-100</td>
 <td>模运算复合赋值操作符</td>
 </tr>
 <tr>
@@ -375,12 +362,12 @@
 </tr>
 <tr>
 <td>+=</td>
-<td></td>
+<td>-100</td>
 <td>加运算复合赋值操作符</td>
 </tr>
 <tr>
 <td>-=</td>
-<td></td>
+<td>-100</td>
 <td>减运算复合赋值操作符</td>
 </tr>
 <tr>
@@ -390,18 +377,23 @@
 </tr>
 <tr>
 <td>&amp;=</td>
-<td></td>
+<td>-100</td>
 <td>位与运算复合赋值操作符</td>
 </tr>
 <tr>
 <td>=</td>
-<td></td>
+<td>-100</td>
 <td>位或运算复合赋值操作符</td>
 </tr>
 <tr>
 <td>^=</td>
-<td></td>
+<td>-100</td>
 <td>位异或运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>~=</td>
+<td>-100</td>
+<td>位取反运算复合赋值操作符</td>
 </tr>
 <tr>
 <td></td>
@@ -410,18 +402,56 @@
 </tr>
 <tr>
 <td>&lt;&lt;=</td>
-<td></td>
+<td>-100</td>
 <td>左移运算复合赋值操作符</td>
 </tr>
 <tr>
 <td>&gt;&gt;=</td>
-<td></td>
+<td>-100</td>
 <td>逻辑右移运算复合赋值操作符</td>
 </tr>
 <tr>
 <td>&gt;&gt;&gt;=</td>
-<td></td>
+<td>-100</td>
 <td>算术右移运算复合赋值操作符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他操作符">其他操作符</h2>
+<p>括号表达式中的括号操作符，用于提升表达式的优先级，在算符优先解析算法，该系列是作为基本表达式进行解析的。</p>
+<table>
+<thead>
+<tr>
+<th>括号操作符</th>
+<th>优先级</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>（）</td>
+<td>-10</td>
+<td>括号操作符</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>-10</td>
+<td>数组下标</td>
+</tr>
+<tr>
+<td>cast</td>
+<td>-10</td>
+<td>静态类型转换</td>
+</tr>
+<tr>
+<td>dyn_cast</td>
+<td>-10</td>
+<td>动态类型转换</td>
+</tr>
+<tr>
+<td>()</td>
+<td>-10</td>
+<td>函数调用</td>
 </tr>
 </tbody>
 </table>
@@ -448,12 +478,12 @@
         <script>
           var contentLangs=['zh'];
         </script>
-        <script src="../../../js/auto-complete.js?1695212754" defer></script>
-        <script src="../../../js/lunr/lunr.min.js?1695212754" defer></script>
-        <script src="../../../js/lunr/lunr.stemmer.support.min.js?1695212754" defer></script>
-        <script src="../../../js/lunr/lunr.multi.min.js?1695212754" defer></script>
-        <script src="../../../js/lunr/lunr.zh.min.js?1695212754" defer></script>
-        <script src="../../../js/search.js?1695212754" defer></script>
+        <script src="../../../js/auto-complete.js?1695308995" defer></script>
+        <script src="../../../js/lunr/lunr.min.js?1695308995" defer></script>
+        <script src="../../../js/lunr/lunr.stemmer.support.min.js?1695308995" defer></script>
+        <script src="../../../js/lunr/lunr.multi.min.js?1695308995" defer></script>
+        <script src="../../../js/lunr/lunr.zh.min.js?1695308995" defer></script>
+        <script src="../../../js/search.js?1695308995" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <hr class="padding">
@@ -493,7 +523,9 @@
           <li data-nav-id="/compiler/8_langdef/2_codefile/index.html" class=""><a class="padding" href="../../../compiler/8_langdef/2_codefile/index.html">2 代码结构<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/8_langdef/3_keyword/index.html" class=""><a class="padding" href="../../../compiler/8_langdef/3_keyword/index.html">3 关键字<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/compiler/8_langdef/4_operator/index.html" class="active"><a class="padding" href="../../../compiler/8_langdef/4_operator/index.html">4 操作符<i class="fas fa-check read-icon"></i></a></li>
-          <li data-nav-id="/compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../../compiler/8_langdef/5_typesystem/index.html">5 类型系统<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../../compiler/8_langdef/5_typesystem/index.html">5 类型系统<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/compiler/9_bcf/index.html" class=""><a class="padding" href="../../../compiler/9_bcf/index.html">9 字节码文件格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/compiler/10_vmimp/index.html" class=""><a class="padding" href="../../../compiler/10_vmimp/index.html">10 虚拟机设计与实现<i class="fas fa-check read-icon"></i></a></li></ul></li>
           <li data-nav-id="/os/index.html" class=""><a class="padding" href="../../../os/index.html">操作系统<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/format/index.html" class=""><input type="checkbox" id="section-855d8e34025f723e685ee8557525d62c" aria-controls="subsections-855d8e34025f723e685ee8557525d62c"><label for="section-855d8e34025f723e685ee8557525d62c"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单文件格式</span></label><a class="padding" href="../../../format/index.html">文件格式<i class="fas fa-check read-icon"></i></a><ul id="subsections-855d8e34025f723e685ee8557525d62c" class="morespace collapsible-menu">
           <li data-nav-id="/format/bmp/index.html" class=""><a class="padding" href="../../../format/bmp/index.html">BMP 文件格式<i class="fas fa-check read-icon"></i></a></li></ul></li>
@@ -568,8 +600,8 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1695212754" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1695212754" defer></script>
-    <script src="../../../js/theme.js?1695212754" defer></script>
+    <script src="../../../js/clipboard.min.js?1695308995" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1695308995" defer></script>
+    <script src="../../../js/theme.js?1695308995" defer></script>
   </body>
 </html>

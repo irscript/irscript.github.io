@@ -19,8 +19,9 @@
       <link>https://irscript.github.io/compiler/7_instruction/2_registerbasedinsset/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
       <guid>https://irscript.github.io/compiler/7_instruction/2_registerbasedinsset/index.html</guid>
-      <description>基于纯寄存器的指令集，指令系统存在下列的要求：
-每条指令按照 16 bit 对齐。 寄存器的索引位宽有 4 bit、8 bit、16 bit。 最多支持 65536 个寄存器。 每个寄存器 32 bit。 64位寄存器由相邻的两个32 bit 寄存器组合而成。 指令操作码位宽为 8 bit。 指令中可有子操作码，具体位宽看具体的指令格式。 32 bit 寄存器内可以存储 32 bit的整数、浮点数。 64 bit 寄存器内可以存储 64 bit的整数、浮点数。 位宽小于 32 位的值，需要进行扩展（零扩展、符号扩展）到 32 bit。 助记符中的 I 表示寄存器索引，后面的数字表示索引位宽 指令格式 总体格式：
+      <description>Dalvik 字节码指令集的字节码指令集不支持无符号整数运算，因此参照 Dalvik 设计了以下指令集。
+基于纯寄存器的指令集，指令系统存在下列的要求：
+每条指令按照 16 bit 对齐。 寄存器的索引位宽有 4 bit、8 bit、16 bit。 最多支持 65536 个寄存器。 每个寄存器 32 bit。 64 bit寄存器由相邻的两个 32 bit 寄存器组合而成。 指令操作码位宽为 8 bit。 指令中可有子操作码，具体位宽看具体的指令格式。 32 bit 寄存器内可以存储 32 bit的整数、浮点数。 64 bit 寄存器内可以存储 64 bit的整数、浮点数。 位宽小于 32 位的值，需要进行扩展（零扩展、符号扩展）到 32 bit。 助记符中的 I 表示寄存器索引，后面的数字表示索引位宽 指令格式 总体格式：
 操作码 + [ 操作子码 ] + ( 操作数 )*操作子码可选。 操作数可以有多个。 寄存器位宽索引支持的寄存器数量：
 位宽 寄存器数量 索引范围 4 bit 16 [ 0, 15 ] 8 bit 256 [ 0, 255 ] 16 bit 65536 [ 0, 65535 ] 空指令 文本格式： nop</description>
     </item>

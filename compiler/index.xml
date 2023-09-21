@@ -60,7 +60,8 @@
       <description>1 序 指令集可分为两大类，真实硬件指令集和虚拟机指令集。
 真实硬件指令集又分为两类：
 CISC (复杂指令集)：CISC 以 X86 系列为代表，指令系统较为复杂，硬件实现也比较复杂。 RISC (精简指令集)：RISC 的指令系统较为精简，目的是降低硬件实现的复杂度，以 RISC-V 、ARM为代表。 虚拟机指令集可分为三种：
-基于栈的指令集：纯栈操作，所有的运算都基于栈，其中以 Java 字节码指令集为代表。 基于寄存器的指令集：纯寄存器操作，所有的运算基于寄存器，其中以安卓的 Dalvik 字节码指令集为代表。 基于栈和寄存器的指令集：混合式操作，类似于 RISC 指令集，但是又与真实硬件系统有差异。 2 目录 1 基于栈的指令集 2 基于寄存器的指令集 3 基于栈和寄存器的指令集 </description>
+基于栈的指令集：纯栈操作，所有的运算都基于栈，其中以 Java 字节码指令集为代表。 基于寄存器的指令集：纯寄存器操作，所有的运算基于寄存器，其中以安卓的 Dalvik 字节码指令集为代表。 基于栈和寄存器的指令集：混合式操作，类似于 RISC 指令集，但是又与真实硬件系统有差异。 虚拟机的指令与设计的字节码保存文件存在较强相关性，所以要真正理解虚拟机指令，还需要理解字节码文件的存储格式。
+2 目录 1 基于栈的指令集 2 基于寄存器的指令集 3 基于栈和寄存器的指令集 </description>
     </item>
     <item>
       <title>8 语言定义</title>
@@ -69,6 +70,22 @@ CISC (复杂指令集)：CISC 以 X86 系列为代表，指令系统较为复杂
       <guid>https://irscript.github.io/compiler/8_langdef/index.html</guid>
       <description>air语言是C语法系的编程语言，提供面向对象、函数式、模板等高级语言功能。
 目录 1 语法定义 2 代码结构 3 关键字 4 操作符 5 类型系统 </description>
+    </item>
+    <item>
+      <title>9 字节码文件格式</title>
+      <link>https://irscript.github.io/compiler/9_bcf/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/9_bcf/index.html</guid>
+      <description>字节码文件的设计是虚拟机资源加载的核心，其中的设计会影响到虚拟机指令集的设计。
+目录 </description>
+    </item>
+    <item>
+      <title>10 虚拟机设计与实现</title>
+      <link>https://irscript.github.io/compiler/10_vmimp/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/compiler/10_vmimp/index.html</guid>
+      <description>虚拟机的设计与实现，其核心是指令集、字节码文件的设计，这两者包含了虚拟运行的机制。只有明白两者为什么这样设计，才能快速写出执行代码。
+目录 </description>
     </item>
   </channel>
 </rss>
