@@ -41,7 +41,8 @@
       <link>https://irscript.github.io/format/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://irscript.github.io/format/index.html</guid>
-      <description> BMP 文件格式 </description>
+      <description>1 序 本篇章收集一些文件的详细格式格式，为程序开发提供参考。
+2 目录 1 通用格式设计 1 文件头 2 段节格式 3 TLV格式 2 程序格式 1 ELF 格式 1 ELF32 格式 2 ELF64 格式 3 颜色格式 1 RGBA 2 HSL/HSV 3 YUV 4 XYZ 5 LAB 6 CMYK 4 压缩格式 5 图片格式 6 视频格式 7 音频格式 8 模型3D </description>
     </item>
   </channel>
 </rss>

@@ -49,6 +49,41 @@ var relearn_search_index = [
     "uri": "/algorithms/index.html"
   },
   {
+    "content": "1 序 2 目录 1 ELF32 格式 2 ELF64 格式 ",
+    "description": "",
+    "tags": null,
+    "title": "1 ELF 格式",
+    "uri": "/format/2_program/1_elf/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "1 ELF32 格式",
+    "uri": "/format/2_program/1_elf/1_elf32/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "1 RGBA",
+    "uri": "/format/3_color/1_rgba/index.html"
+  },
+  {
+    "content": "1 序 二进制文件的格式一般采用 ***文件头 + 核心内容*** 的结构。\r文件头：标识文件的基本信息，其设计方法基本一致。 核心内容：这部分是真正的文件数据内容。 2 目录 1 文件头 2 段节格式 3 TLV格式 ",
+    "description": "",
+    "tags": null,
+    "title": "1 通用格式设计",
+    "uri": "/format/1_general/index.html"
+  },
+  {
+    "content": "\r描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。\r顾名思义，即是将文件的整体信息通常放在文件的开头。\n在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 文件头。\n1 魔数 魔数作为文件格式的标识，一般用于识别文件是否程序所能处理的文件。其值可以随意选取，主要看设计者自身的喜好。\r例如 zip 格式的魔数就是 “PK\\x03\\x04”,其中 PK 就是设计者 Philip Katz 的名字首字母。\n一般程序在分析文件时，会先判断魔数的值是否匹配，不匹配就表明文件格式不正确。\n需要注意的是，假如魔数正确，文件格式并非一定能够读取正确，还需要进一步判断。\n2 检验码 文件头通常还会有个检验码，用于检验文件是否完整并且没有经过修改的。这个检验码可以使用 crc, 可以使用 md5，也可以使用其它算法。\r这也是检查文件格式的正确性中的重要一步，因为即便是魔数相同，校验码所采用的算法不同，和校验码所作的位置不同，所计算的校验码，基本上是不一的，所以进一步就，能区分出文件格式是否正确。\n3 版本号 文件头通常还会包含版本号。版本号不同，就表明文件格式发生变化，可能变化很小，也可能变化很大；可能是某些字段的值在解释上发生变化，也可能是直接添加了一些结构。所以导致文件的读取方式可能会有所不同。\r版本号有时只是单独一个数字，不断往上递增。有时也会拆分成两个数字，为主版本号和次版本号。主版本号修改，通常表示文件格式发生大变动。而次版本号修改，通常只是表示添加了一些小功能。\n4 字节顺序 字节顺序在文件格式设计中至关重要。\r字节顺序分为大端字节序和小端字节序。不同的机器字节序有可能不同，设计文件格式时需要考虑文件用什么字节序保存数据的。\n不然有可能在这一台机器上生成的文件，传输到另一台机器上就打开失败了。\n5 基本结构 基本结构定义如下：\r```c++\rstruct FileHeader{\ruint8 mMagic[4]; //魔数\ruint8 mHash[16]; //检验码\ruint32 mEndian; //字节序\ruint32 mVersion; //文件版本\r...\r};\r```",
+    "description": "",
+    "tags": null,
+    "title": "1 文件头",
+    "uri": "/format/1_general/1_fileheader/index.html"
+  },
+  {
     "content": "待续\n",
     "description": "",
     "tags": null,
@@ -108,6 +143,34 @@ var relearn_search_index = [
     "uri": "/algorithms/align/index.html"
   },
   {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "2 ELF64 格式",
+    "uri": "/format/2_program/1_elf/2_elf64/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "2 HSL/HSV",
+    "uri": "/format/3_color/2_hsl/index.html"
+  },
+  {
+    "content": "1 序 2 目录 1 ELF 格式 1 ELF32 格式 2 ELF64 格式 ",
+    "description": "",
+    "tags": null,
+    "title": "2 程序格式",
+    "uri": "/format/2_program/index.html"
+  },
+  {
+    "content": "分段(或叫分节，后续默认叫法为分段)的二进制文件格式是比较常见的，比如编译器 GCC 输出的目标文件一般为 ELF 的分段文件。\n1 整体结构 这类文件一般采用 文件头 + 分段 的结构：\nfile header section 0\rsection 1\r....\rsection N\r文件头设计方法在 序言 中介绍，本章节主要描述分段式存储数据的方法。\n2 分段方法 一般有两种结构：\n分散式：在分区的头部的描述分段的大小等信息。 段表式：存在统一的结构描述分段的大小、相对偏移等信息。 分散式 分散式分结构在分区的头部的描述分段的大小等信息，然后各个分段首尾相连的，分段写入。\n分段的每一个段的结构通常是：\ntag + length\rsection data\rtag 和 length 合起来是分区头部，描述分段中的数据标识，后面紧跟着体数据。\ntag 一般是一个整数，用来标识分区的类型。不同的分区用不同的 tag 值表示，不同的分区种类可以使用不同的读取方式。\n整体结构如下：\nfile header section 0\rtag //section 0 的标识\rlength //section 0 的数据长度\rdata[] //section 0 的数据\rsection 1\r....\rsection N\r段表式 段表式的结构是有一个描述分段信息的段表，后面存储各个分区的数据。\n主要优点就是，可以通过段描述表(简称段表)快速的访问分段的内容，其格式如下。\nsection table\rsection 0\rsection 1\r....\rsection N\r段表一般描述分段的类型、数据长度、相对偏移等，结构如下。\nkind\rlength\roffset\rC 语言定义如下：\nstruct SegTabItem{ uint32 kind; //类型 uint32 length; //数据长度 uint32 offset; //相对偏移 };整体结构如下：\nfile header section table\rkind //section 0 的类型\rlength //section 0 的数据长度\roffset //section 0 的相对偏移\rkind //section 1 的类型\rlength //section 1 的数据长度\roffset //section 1 的相对偏移\r...\rkind //section N 的类型\rlength //section N 的数据长度\roffset //section N 的相对偏移\rsection 0\rsection 1\r....\rsection N ",
+    "description": "",
+    "tags": null,
+    "title": "2 段节格式",
+    "uri": "/format/1_general/2_segmentformat/index.html"
+  },
+  {
     "content": "待续\n",
     "description": "",
     "tags": null,
@@ -153,6 +216,27 @@ var relearn_search_index = [
     "uri": "/struct/list/doublelinkedlist/index.html"
   },
   {
+    "content": "1 简介 TLV 是一种可变的格式，由三个域构成：标识域（Tag）+长度域（Length）+值域（Value），简称TLV格式。\n其中：\nT 可以理解为 Tag 或 Type ，用于标识标签或者编码格式信息； L 定义数值的长度； V 表示实际的数值。 T 和 L 的长度固定，一般是2或4个字节，V 的长度由 Length 指定。\nT 和 L 一般都是整数值。 V 可以存储整数、浮点、字符串、字节串，其类型是由格式定义者根据 T 的不同值，指定不同的类型。 2 基本结构 data 0\rT = 1\rL = 1\rV = 1\rdata 1\rT = 1\rL = 1\rV = 2\r...\rdata N\rT = 1\rL = 1\rV = n\r当然V中的数据也是可以嵌套,至于嵌套几层看设计者的规定的。\n结构如下：\ndata 0\rT = 1\rL = 3\rV =[\rdata x\rT = 1\rL = 1\rV = 1\r]\rdata 1\rT = 1\rL = 1\rV = 2\r...\rdata N\rT = 1\rL = 1\rV = n ",
+    "description": "",
+    "tags": null,
+    "title": "3 TLV格式",
+    "uri": "/format/1_general/3_tlvformat/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "3 YUV",
+    "uri": "/format/3_color/3_yuv/index.html"
+  },
+  {
+    "content": "1 序 颜色常用颜色空间来表示。颜色空间是用一种数学方法形象化表示颜色，人们用它来指定和产生颜色。例如，\n对于人来说，我们可以通过色调、饱和度和明度来定义颜色； 对于显示设备来说，人们使用红、绿和蓝磷光体的发光量来描述颜色； 对于打印或者印刷设备来说，人们使用青色、品红色、黄色和黑色的反射和吸收来产生指定的颜色。 颜色空间有设备相关和设备无关之分。\n设备相关的颜色空间是指颜色空间指定生成的颜色与生成颜色的设备有关。例如，RGB颜色空间是与显示系统相关的颜色空间，计算机显示器使用RGB来显示颜色，用像素值(例如，R＝250,G＝123,B＝23)生成的颜色将随显示器的亮度和对比度的改变而改变。\n设备无关的颜色空间是指颜色空间指定生成的颜色与生成颜色的设备无关，例如，CIE Lab*颜色空间就是设备无关的颜色空间，它构建在HSV(hue, saturation and value)颜色空间的基础上，用该空间指定的颜色无论在什么设备上生成的颜色都相同。\n2 目录 1 RGBA 2 HSL/HSV 3 YUV 4 XYZ 5 LAB 6 CMYK ",
+    "description": "",
+    "tags": null,
+    "title": "3 颜色格式",
+    "uri": "/format/3_color/index.html"
+  },
+  {
     "content": "1 序 语义分析就是分析语法树中所有的符号是否存在声明，从语义层次进一步规范程序所表达的含义。\n分析符号的含义和类型。 分析变量的位置偏移。 分析表达式的类型，并进行类型匹配。 2 目录 ",
     "description": "",
     "tags": null,
@@ -172,6 +256,20 @@ var relearn_search_index = [
     "tags": null,
     "title": "4 顶层语法解析实现",
     "uri": "/compiler/2_parser/4_parserbase/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "4 XYZ",
+    "uri": "/format/3_color/4_xyz/index.html"
+  },
+  {
+    "content": "1 序 2 目录 ",
+    "description": "",
+    "tags": null,
+    "title": "4 压缩格式",
+    "uri": "/format/4_compress/index.html"
   },
   {
     "content": "",
@@ -205,11 +303,25 @@ var relearn_search_index = [
     "content": "",
     "description": "",
     "tags": null,
+    "title": "5 LAB",
+    "uri": "/format/3_color/5_lab/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
     "title": "5 目标生成",
     "uri": "/compiler/5_target/index.html"
   },
   {
-    "content": " BMP 文件格式 ",
+    "content": "1 序 2 目录 ",
+    "description": "",
+    "tags": null,
+    "title": "5 图片格式",
+    "uri": "/format/5_picture/index.html"
+  },
+  {
+    "content": "1 序 本篇章收集一些文件的详细格式格式，为程序开发提供参考。\n2 目录 1 通用格式设计 1 文件头 2 段节格式 3 TLV格式 2 程序格式 1 ELF 格式 1 ELF32 格式 2 ELF64 格式 3 颜色格式 1 RGBA 2 HSL/HSV 3 YUV 4 XYZ 5 LAB 6 CMYK 4 压缩格式 5 图片格式 6 视频格式 7 音频格式 8 模型3D ",
     "description": "",
     "tags": null,
     "title": "文件格式",
@@ -221,6 +333,20 @@ var relearn_search_index = [
     "tags": null,
     "title": "6 解析声明",
     "uri": "/compiler/2_parser/6_parserdecl/index.html"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "6 CMYK",
+    "uri": "/format/3_color/6_cmyk/index.html"
+  },
+  {
+    "content": "1 序 2 目录 ",
+    "description": "",
+    "tags": null,
+    "title": "6 视频格式",
+    "uri": "/format/6_video/index.html"
   },
   {
     "content": "",
@@ -244,11 +370,25 @@ var relearn_search_index = [
     "uri": "/compiler/7_instruction/index.html"
   },
   {
+    "content": "1 序 2 目录 ",
+    "description": "",
+    "tags": null,
+    "title": "7 音频格式",
+    "uri": "/format/7_audio/index.html"
+  },
+  {
     "content": "air语言是C语法系的编程语言，提供面向对象、函数式、模板等高级语言功能。\n目录 1 语法定义 2 代码结构 3 关键字 4 操作符 5 类型系统 ",
     "description": "",
     "tags": null,
     "title": "8 语言定义",
     "uri": "/compiler/8_langdef/index.html"
+  },
+  {
+    "content": "1 序 2 目录 ",
+    "description": "",
+    "tags": null,
+    "title": "8 模型3D",
+    "uri": "/format/8_model/index.html"
   },
   {
     "content": "字节码文件的设计是虚拟机资源加载的核心，其中的设计会影响到虚拟机指令集的设计。\n目录 ",
@@ -263,16 +403,6 @@ var relearn_search_index = [
     "tags": null,
     "title": "10 虚拟机设计与实现",
     "uri": "/compiler/10_vmimp/index.html"
-  },
-  {
-    "content": "",
-    "description": "",
-    "tags": [
-      "BMP",
-      "Format"
-    ],
-    "title": "BMP 文件格式",
-    "uri": "/format/bmp/index.html"
   },
   {
     "content": "",
@@ -303,7 +433,7 @@ var relearn_search_index = [
     "uri": "/tags/index.html"
   },
   {
-    "content": "目标 用于存储、展示、收集计算机技术相关的资料，同时用于展示个人项目或相关技术记录。\n归档 存在以下分类： 算法 数据结构 编译器设计与实现 操作系统 文件格式 网址收藏 文件格式相关 文件格式汇编: https://www.moon-soft.com/program/FORMAT/ 算法相关 加解密算法: https://www.cnblogs.com/Kingfans/category/2198205.html 快速位运算算法: http://graphics.stanford.edu/~seander/bithacks.html x86/x64指令相关 x86-64的指令编码入门: https://blog.csdn.net/JimFire/article/details/112652145 x86_64指令编码方式: https://zhuanlan.zhihu.com/p/464774687 X86 Opcode and Instruction Reference: http://ref.x86asm.net/geek64.html X86-64_Instruction_Encoding: https://wiki.osdev.org/X86-64_Instruction_Encoding 游戏引擎相关 游戏引擎 浅入浅出: https://www.thisisgame.com.cn/tutorial?book=cpp-game-engine-book\u0026lang=zh\u0026md=Introduction.md ",
+    "content": " 技术收集、随笔、总结。\n目录 存在以下分类： 算法 整数对齐 数据结构 链表 编译器设计与实现 1 词法分析 2 语法分析 3 语义分析 4 中间优化 5 目标生成 6 中间代码 7 指令集 8 语言定义 9 字节码文件格式 10 虚拟机设计与实现 操作系统 文件格式 1 通用格式设计 2 程序格式 3 颜色格式 4 压缩格式 5 图片格式 6 视频格式 7 音频格式 8 模型3D 网址收藏 文件格式相关 文件格式汇编: https://www.moon-soft.com/program/FORMAT/ 算法相关 加解密算法: https://www.cnblogs.com/Kingfans/category/2198205.html 快速位运算算法: http://graphics.stanford.edu/~seander/bithacks.html x86/x64指令相关 x86-64的指令编码入门: https://blog.csdn.net/JimFire/article/details/112652145 x86_64指令编码方式: https://zhuanlan.zhihu.com/p/464774687 X86 Opcode and Instruction Reference: http://ref.x86asm.net/geek64.html X86-64_Instruction_Encoding: https://wiki.osdev.org/X86-64_Instruction_Encoding 游戏引擎相关 游戏引擎 浅入浅出: https://www.thisisgame.com.cn/tutorial?book=cpp-game-engine-book\u0026lang=zh\u0026md=Introduction.md ",
     "description": "",
     "tags": null,
     "title": "主页",
@@ -313,21 +443,7 @@ var relearn_search_index = [
     "content": "",
     "description": "",
     "tags": null,
-    "title": "标签 :: BMP",
-    "uri": "/tags/bmp/index.html"
-  },
-  {
-    "content": "",
-    "description": "",
-    "tags": null,
     "title": "类别",
     "uri": "/categories/index.html"
-  },
-  {
-    "content": "",
-    "description": "",
-    "tags": null,
-    "title": "标签 :: Format",
-    "uri": "/tags/format/index.html"
   }
 ]

@@ -29,6 +29,21 @@
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
+    <loc>https://irscript.github.io/format/2_program/1_elf/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/2_program/1_elf/1_elf32/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/3_color/1_rgba/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/1_general/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/1_general/1_fileheader/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/compiler/1_lexer/2_lexer/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
@@ -61,6 +76,18 @@
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
+    <loc>https://irscript.github.io/format/2_program/1_elf/2_elf64/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/3_color/2_hsl/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/2_program/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/1_general/2_segmentformat/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/compiler/2_parser/3_fileunit/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
@@ -85,6 +112,15 @@
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
+    <loc>https://irscript.github.io/format/1_general/3_tlvformat/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/3_color/3_yuv/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/3_color/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/compiler/3_analysis/index.html</loc>
   </url>
   <url>
@@ -94,6 +130,12 @@
   <url>
     <loc>https://irscript.github.io/compiler/2_parser/4_parserbase/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/3_color/4_xyz/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/4_compress/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/compiler/4_optimize/index.html</loc>
@@ -110,7 +152,13 @@
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
+    <loc>https://irscript.github.io/format/3_color/5_lab/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/compiler/5_target/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/5_picture/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/format/index.html</loc>
@@ -118,6 +166,12 @@
   <url>
     <loc>https://irscript.github.io/compiler/2_parser/6_parserdecl/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/3_color/6_cmyk/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/6_video/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/compiler/6_ir/index.html</loc>
@@ -131,17 +185,20 @@
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
+    <loc>https://irscript.github.io/format/7_audio/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/compiler/8_langdef/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/format/8_model/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/compiler/9_bcf/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/compiler/10_vmimp/index.html</loc>
-  </url>
-  <url>
-    <loc>https://irscript.github.io/format/bmp/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/tags/align/index.html</loc>
@@ -164,12 +221,6 @@
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>https://irscript.github.io/tags/bmp/index.html</loc>
-  </url>
-  <url>
     <loc>https://irscript.github.io/categories/index.html</loc>
-  </url>
-  <url>
-    <loc>https://irscript.github.io/tags/format/index.html</loc>
   </url>
 </urlset>
