@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 哈希函数 on 巨人之海</title>
+    <link>https://irscript.github.io/1_algorithms/2_hash/index.html</link>
+    <description>Recent content in 2 哈希函数 on 巨人之海</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://irscript.github.io/1_algorithms/2_hash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1 消息摘要算法</title>
+      <link>https://irscript.github.io/1_algorithms/2_hash/1_md/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/1_algorithms/2_hash/1_md/index.html</guid>
+      <description>简介 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。
+MD系列家族 1 MD2 算法 2 MD4 算法 3 MD5 算法 </description>
+    </item>
+    <item>
+      <title>2 签名算法</title>
+      <link>https://irscript.github.io/1_algorithms/2_hash/2_sha/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/1_algorithms/2_hash/2_sha/index.html</guid>
+      <description>原文来自：https://www.cnblogs.com/Kingfans/p/16546386.html
+简介 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
+SHA系列家族 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 </description>
+    </item>
+    <item>
+      <title>3 CRC 哈希函数</title>
+      <link>https://irscript.github.io/1_algorithms/2_hash/3_crc/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/1_algorithms/2_hash/3_crc/index.html</guid>
+      <description>CRC 系列算法 </description>
+    </item>
+  </channel>
+</rss>

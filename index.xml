@@ -9,39 +9,46 @@
     <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate><atom:link href="https://irscript.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>算法</title>
-      <link>https://irscript.github.io/algorithms/index.html</link>
-      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/algorithms/index.html</guid>
-      <description> 整数对齐 </description>
+      <link>https://irscript.github.io/1_algorithms/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/1_algorithms/index.html</guid>
+      <description>目录 1 整数对齐 2 哈希函数 1 消息摘要算法 1 MD2 算法 2 MD4 算法 3 MD5 算法 2 签名算法 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 3 CRC 哈希函数 3 位运算快速算法 1 快速平均值 2 位域值提取 3 使用按位运算计算INT_MAX和INT_MIN </description>
     </item>
     <item>
       <title>数据结构</title>
-      <link>https://irscript.github.io/struct/index.html</link>
+      <link>https://irscript.github.io/2_struct/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/struct/index.html</guid>
+      <guid>https://irscript.github.io/2_struct/index.html</guid>
       <description>目录 链表 单向节点链表 双向节点链表 待续 </description>
     </item>
     <item>
-      <title>编译器设计与实现</title>
-      <link>https://irscript.github.io/compiler/index.html</link>
+      <title>编译原理</title>
+      <link>https://irscript.github.io/3_compiler/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>https://irscript.github.io/compiler/index.html</guid>
+      <guid>https://irscript.github.io/3_compiler/index.html</guid>
       <description>目录 1 词法分析 2 语法分析 3 语义分析 4 中间优化 5 目标生成 6 中间代码 7 指令集 8 语言定义 9 字节码文件格式 10 虚拟机设计与实现 引言 编译原理是将文本字符流，通过一系列的分析、转换，最后生成确定的指令文件的数据分析转换技术。编译器是利用编译原理，将一种程序（源程序）翻译成另一种程序（目标程序）的计算机程序。业界也将编译器分为三个部分：前端、中端、后端。
 编译器所做的工作流程如下图所示。</description>
     </item>
     <item>
-      <title>操作系统</title>
-      <link>https://irscript.github.io/os/index.html</link>
+      <title>图形图像</title>
+      <link>https://irscript.github.io/4_graphical/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://irscript.github.io/os/index.html</guid>
-      <description>测试 </description>
+      <guid>https://irscript.github.io/4_graphical/index.html</guid>
+      <description>待续 </description>
     </item>
     <item>
-      <title>文件格式</title>
-      <link>https://irscript.github.io/format/index.html</link>
+      <title>操作系统</title>
+      <link>https://irscript.github.io/5_os/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://irscript.github.io/format/index.html</guid>
-      <description>1 序 本篇章收集一些文件的详细格式格式，为程序开发提供参考。
+      <guid>https://irscript.github.io/5_os/index.html</guid>
+      <description>待续 </description>
+    </item>
+    <item>
+      <title>文件数据格式</title>
+      <link>https://irscript.github.io/6_format/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/6_format/index.html</guid>
+      <description>1 简介 本篇章收集一些文件数据的详细格式格式，为程序开发提供参考。
 2 目录 1 通用格式设计 1 文件头 2 段节格式 3 TLV格式 2 程序格式 1 ELF 格式 1 ELF32 格式 2 ELF64 格式 3 颜色格式 1 RGBA 2 HSL/HSV 3 YUV 4 XYZ 5 LAB 6 CMYK 4 压缩格式 5 图片格式 6 视频格式 7 音频格式 8 模型3D </description>
     </item>
   </channel>

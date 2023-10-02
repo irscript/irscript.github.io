@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>7 指令集 on 巨人之海</title>
+    <link>https://irscript.github.io/3_compiler/7_instruction/index.html</link>
+    <description>Recent content in 7 指令集 on 巨人之海</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate><atom:link href="https://irscript.github.io/3_compiler/7_instruction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1 基于栈的指令集</title>
+      <link>https://irscript.github.io/3_compiler/7_instruction/1_stackbasedinsset/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>https://irscript.github.io/3_compiler/7_instruction/1_stackbasedinsset/index.html</guid>
+      <description>基于栈的指令集参考Java的指令集。</description>
+    </item>
+    <item>
+      <title>2 基于寄存器的指令集</title>
+      <link>https://irscript.github.io/3_compiler/7_instruction/2_registerbasedinsset/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>https://irscript.github.io/3_compiler/7_instruction/2_registerbasedinsset/index.html</guid>
+      <description>Dalvik 字节码指令集的字节码指令集不支持无符号整数运算，因此参照 Dalvik 设计了以下指令集。
+基于纯寄存器的指令集，指令系统存在下列的要求：
+每条指令按照 16 bit 对齐。 寄存器的索引位宽有 4 bit、8 bit、16 bit。 最多支持 65536 个寄存器。 每个寄存器 32 bit。 64 bit寄存器由相邻的两个 32 bit 寄存器组合而成。 指令操作码位宽为 8 bit。 指令中可有子操作码，具体位宽看具体的指令格式。 32 bit 寄存器内可以存储 32 bit的整数、浮点数。 64 bit 寄存器内可以存储 64 bit的整数、浮点数。 位宽小于 32 位的值，需要进行扩展（零扩展、符号扩展）到 32 bit。 助记符中的 I 表示寄存器索引，后面的数字表示索引位宽 指令格式 总体格式：
+操作码 + [ 操作子码 ] + ( 操作数 )*操作子码可选。 操作数可以有多个。 寄存器位宽索引支持的寄存器数量：
+位宽 寄存器数量 索引范围 4 bit 16 [ 0, 15 ] 8 bit 256 [ 0, 255 ] 16 bit 65536 [ 0, 65535 ] 空指令 文本格式： nop</description>
+    </item>
+    <item>
+      <title>3 基于栈和寄存器的指令集</title>
+      <link>https://irscript.github.io/3_compiler/7_instruction/3_mixedinsset/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>https://irscript.github.io/3_compiler/7_instruction/3_mixedinsset/index.html</guid>
+      <description>本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。
+其类似与硬件指令集，可作为编译器后端指令系统目标，用于提供类似硬件指令系统环境，避免编译原理初学者陷入对硬件指令系统不了解的深渊。 降低学习难度，提高学习效率。
+这类指令的主要特点如下：
+1 寄存器的数量固定； 2 指令所操作的寄存器数量固定； 3 指令的含义简单； 1 寄存器 虚拟机的寄存器分为三种：
+1 整数寄存器：主要用于整数运算，位宽为 64 bit，根据指令的含义可选择 32 bit 和 64 bit 运算模式。 2 浮点寄存器：主要用于浮点数运算，位宽为 64 bit，和通用寄存器一致，可选择位宽模式。 3 系统寄存器：对用户不可见，与虚拟机运行系统相关，对其进行操作隐藏在相关指令的实现细节中。 4 根据指令格式，整数寄存器、浮点寄存器最多可以有32个。 2 指令格式 每条指令是 32bit 大小对齐的，其中最低 9bit 是操作码，其余23bit作为操作数或者操作码的补充。如下表所示：
+操作码 操作数 9 bit 23 bit 2.1 格式1 操作码 操作数 9 bit 23 bit 2.2 格式2 多数指令使用此格式。
+操作码 目的操作数 源操作数 源操作数 操作子码 9 bit 5 bit 5 bit 5 bit 8 bit 2.</description>
+    </item>
+  </channel>
+</rss>

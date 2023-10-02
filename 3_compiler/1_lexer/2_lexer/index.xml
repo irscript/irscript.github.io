@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 Lexer 实现 on 巨人之海</title>
+    <link>https://irscript.github.io/3_compiler/1_lexer/2_lexer/index.html</link>
+    <description>Recent content in 2 Lexer 实现 on 巨人之海</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate><atom:link href="https://irscript.github.io/3_compiler/1_lexer/2_lexer/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

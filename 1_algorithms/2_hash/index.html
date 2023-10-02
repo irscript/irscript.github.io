@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Relearn 5.20.0">
+    <meta name="description" content="站在巨人的肩膀上">
+    <meta name="author" content="月明之都">
+    <title>2 哈希函数 :: 巨人之海</title>
+    <link href="../../1_algorithms/2_hash/index.xml" rel="alternate" type="application/rss+xml" title="2 哈希函数 :: 巨人之海">
+    <link href="../../1_algorithms/2_hash/index.print.html" rel="alternate" type="text/html" title="2 哈希函数 :: 巨人之海"><link rel="icon" href="../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../css/fontawesome-all.min.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../css/nucleus.css?1696231135" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1696231135" rel="stylesheet">
+    <link href="../../css/fonts.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1696231135" rel="stylesheet">
+    <link href="../../css/theme-auto.css?1696231135" rel="stylesheet" id="variant-style">
+    <link href="../../css/variant.css?1696231135" rel="stylesheet">
+    <link href="../../css/print.css?1696231135" rel="stylesheet" media="print">
+    <link href="../../css/ie.css?1696231135" rel="stylesheet">
+    <script src="../../js/url.js?1696231135"></script>
+    <script src="../../js/variant.js?1696231135"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      window.index_js_url="../../index.search.js";
+      var root_url="../../";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = '复制到剪贴板';
+      window.T_Copied_to_clipboard = '复制到剪贴板！';
+      window.T_Copy_link_to_clipboard = '将链接复制到剪贴板';
+      window.T_Link_copied_to_clipboard = '链接复制到剪贴板！';
+      window.T_No_results_found = '找不到\u0022{0}\u0022的结果';
+      window.T_N_results_found = '为\u0022{0}\u0022找到 {1} 个结果';
+      // some further base stuff
+      var baseUriFull='https:\/\/irscript.github.io/';
+      window.variants && variants.init( [ 'auto', 'relearn-bright', 'relearn-light', 'relearn-dark', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+    </script>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../1_algorithms/2_hash/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+            <a class="nav nav-next topbar-link" href="../../1_algorithms/2_hash/1_md/index.html" title="1 消息摘要算法 (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+            <a class="nav nav-prev topbar-link" href="../../1_algorithms/1_align/index.html" title="1 整数对齐 (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="top-print-link">
+            <a class="print-link topbar-link" title='打印整章 (CTRL+ALT+p)' href="../../1_algorithms/2_hash/index.print.html">
+              <i class="fas fa-print fa-fw"></i>
+            </a>
+          </div>
+          <div id="top-github-link">
+            <a class="github-link topbar-link" title='编辑 (CTRL+ALT+w)' href="https://github.com/irscript/irscript.github.io/content/1_Algorithms/2_Hash/_index.md" target="_blank">
+              <i class="fas fa-pen fa-fw"></i>
+            </a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" class="topbar-link" title='导航 (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='目录 (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../1_algorithms/index.html"><span itemprop="name">算法</span></a><meta itemprop="position" content="2"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">2 哈希函数</span><meta itemprop="position" content="3"></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="2-哈希函数">2 哈希函数</h1>
+
+<h2 id="目录">目录</h2>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../../1_algorithms/2_hash/1_md/index.html">1 消息摘要算法</a><ul>
+	
+<li><a href="../../1_algorithms/2_hash/1_md/1_md2/index.html">1 MD2 算法</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/2_hash/1_md/2_md4/index.html">2 MD4 算法</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/2_hash/1_md/3_md5/index.html">3 MD5 算法</a><ul>
+	</ul></li></ul></li>
+<li><a href="../../1_algorithms/2_hash/2_sha/index.html">2 签名算法</a><ul>
+	
+<li><a href="../../1_algorithms/2_hash/2_sha/1_sha1/index.html">1 SHA1 算法</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/2_hash/2_sha/2_sha2_224/index.html">2 SHA2-224 算法</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/2_hash/2_sha/3_sha2_256/index.html">3 SHA2-256 算法</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/2_hash/2_sha/4_sha2_384/index.html">4 SHA2-384 算法</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/2_hash/2_sha/5_sha2_512/index.html">5 SHA2-512 算法</a><ul>
+	</ul></li></ul></li>
+<li><a href="../../1_algorithms/2_hash/3_crc/index.html">3 CRC 哈希函数</a><ul>
+	</ul></li>
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation showVisitedLinks">
+      <div id="header-topbar" class="default-animation"></div>
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<a id="logo" href="../../"><img src="../../images/logo.png"></a>
+        </div>
+        <form action="../../search.html" method="get"><div class="searchbox default-animation">
+          <button class="search-detail" type="submit" title="搜索 (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+          <label class="a11y-only" for="search-by">搜索</label>
+          <input data-search-input id="search-by" name="search-by" class="search-by" type="search" placeholder="搜索...">
+          <button class="search-clear" type="button" data-search-clear="" title="清除搜索"><i class="fas fa-times" title="清除搜索"></i></button>
+        </div></form>
+        <script>
+          var contentLangs=['zh'];
+        </script>
+        <script src="../../js/auto-complete.js?1696231135" defer></script>
+        <script src="../../js/lunr/lunr.min.js?1696231135" defer></script>
+        <script src="../../js/lunr/lunr.stemmer.support.min.js?1696231135" defer></script>
+        <script src="../../js/lunr/lunr.multi.min.js?1696231135" defer></script>
+        <script src="../../js/lunr/lunr.zh.min.js?1696231135" defer></script>
+        <script src="../../js/search.js?1696231135" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <div id="topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/1_algorithms/index.html" class="parent "><input type="checkbox" id="section-b7828fce6f31b3ff858713c2256e3c54" aria-controls="subsections-b7828fce6f31b3ff858713c2256e3c54" checked><label for="section-b7828fce6f31b3ff858713c2256e3c54"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单算法</span></label><a class="padding" href="../../1_algorithms/index.html">算法<i class="fas fa-check read-icon"></i></a><ul id="subsections-b7828fce6f31b3ff858713c2256e3c54" class="morespace collapsible-menu">
+          <li data-nav-id="/1_algorithms/1_align/index.html" class=""><a class="padding" href="../../1_algorithms/1_align/index.html">1 整数对齐<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/2_hash/index.html" class="active parent "><input type="checkbox" id="section-59936ac533da604ae040a948faa26d7a" aria-controls="subsections-59936ac533da604ae040a948faa26d7a" checked><label for="section-59936ac533da604ae040a948faa26d7a"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单2 哈希函数</span></label><a class="padding" href="../../1_algorithms/2_hash/index.html">2 哈希函数<i class="fas fa-check read-icon"></i></a><ul id="subsections-59936ac533da604ae040a948faa26d7a" class="morespace collapsible-menu">
+          <li data-nav-id="/1_algorithms/2_hash/1_md/index.html" class=""><input type="checkbox" id="section-e514df400de6fb901eed366bb597bc39" aria-controls="subsections-e514df400de6fb901eed366bb597bc39"><label for="section-e514df400de6fb901eed366bb597bc39"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单1 消息摘要算法</span></label><a class="padding" href="../../1_algorithms/2_hash/1_md/index.html">1 消息摘要算法<i class="fas fa-check read-icon"></i></a><ul id="subsections-e514df400de6fb901eed366bb597bc39" class="morespace collapsible-menu">
+          <li data-nav-id="/1_algorithms/2_hash/1_md/1_md2/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/1_md/1_md2/index.html">1 MD2 算法<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/2_hash/1_md/2_md4/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/1_md/2_md4/index.html">2 MD4 算法<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/2_hash/1_md/3_md5/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/1_md/3_md5/index.html">3 MD5 算法<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/1_algorithms/2_hash/2_sha/index.html" class=""><input type="checkbox" id="section-339f75f6fb69594eac3679a1cf2118c8" aria-controls="subsections-339f75f6fb69594eac3679a1cf2118c8"><label for="section-339f75f6fb69594eac3679a1cf2118c8"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单2 签名算法</span></label><a class="padding" href="../../1_algorithms/2_hash/2_sha/index.html">2 签名算法<i class="fas fa-check read-icon"></i></a><ul id="subsections-339f75f6fb69594eac3679a1cf2118c8" class="morespace collapsible-menu">
+          <li data-nav-id="/1_algorithms/2_hash/2_sha/1_sha1/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/2_sha/1_sha1/index.html">1 SHA1 算法<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/2_hash/2_sha/2_sha2_224/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/2_sha/2_sha2_224/index.html">2 SHA2-224 算法<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/2_hash/2_sha/3_sha2_256/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/2_sha/3_sha2_256/index.html">3 SHA2-256 算法<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/2_hash/2_sha/4_sha2_384/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/2_sha/4_sha2_384/index.html">4 SHA2-384 算法<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/2_hash/2_sha/5_sha2_512/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/2_sha/5_sha2_512/index.html">5 SHA2-512 算法<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/1_algorithms/2_hash/3_crc/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/3_crc/index.html">3 CRC 哈希函数<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/index.html" class=""><input type="checkbox" id="section-50e71911e06154beb6d0cb1165fd5aa3" aria-controls="subsections-50e71911e06154beb6d0cb1165fd5aa3"><label for="section-50e71911e06154beb6d0cb1165fd5aa3"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单3 位运算快速算法</span></label><a class="padding" href="../../1_algorithms/3_bitwise/index.html">3 位运算快速算法<i class="fas fa-check read-icon"></i></a><ul id="subsections-50e71911e06154beb6d0cb1165fd5aa3" class="morespace collapsible-menu">
+          <li data-nav-id="/1_algorithms/3_bitwise/1_average/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/1_average/index.html">1 快速平均值<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/2_bitfield/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/2_bitfield/index.html">2 位域值提取<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/3_intmaxmin/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/3_intmaxmin/index.html">3 使用按位运算计算INT_MAX和INT_MIN<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/2_struct/index.html" class=""><input type="checkbox" id="section-2d758bde77d047a405ef5f0ea6305cca" aria-controls="subsections-2d758bde77d047a405ef5f0ea6305cca"><label for="section-2d758bde77d047a405ef5f0ea6305cca"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单数据结构</span></label><a class="padding" href="../../2_struct/index.html">数据结构<i class="fas fa-check read-icon"></i></a><ul id="subsections-2d758bde77d047a405ef5f0ea6305cca" class="morespace collapsible-menu">
+          <li data-nav-id="/2_struct/list/index.html" class=""><input type="checkbox" id="section-6e430b5cea65fabb7835cc66a71f75b4" aria-controls="subsections-6e430b5cea65fabb7835cc66a71f75b4"><label for="section-6e430b5cea65fabb7835cc66a71f75b4"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单链表</span></label><a class="padding" href="../../2_struct/list/index.html">链表<i class="fas fa-check read-icon"></i></a><ul id="subsections-6e430b5cea65fabb7835cc66a71f75b4" class="morespace collapsible-menu">
+          <li data-nav-id="/2_struct/list/singlelinkedlist/index.html" class=""><a class="padding" href="../../2_struct/list/singlelinkedlist/index.html">单向节点链表<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_struct/list/doublelinkedlist/index.html" class=""><a class="padding" href="../../2_struct/list/doublelinkedlist/index.html">双向节点链表<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/3_compiler/index.html" class=""><input type="checkbox" id="section-6a229c4ab45d0e478fee0459ceea0953" aria-controls="subsections-6a229c4ab45d0e478fee0459ceea0953"><label for="section-6a229c4ab45d0e478fee0459ceea0953"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单编译原理</span></label><a class="padding" href="../../3_compiler/index.html">编译原理<i class="fas fa-check read-icon"></i></a><ul id="subsections-6a229c4ab45d0e478fee0459ceea0953" class="morespace collapsible-menu">
+          <li data-nav-id="/3_compiler/1_lexer/index.html" class=""><input type="checkbox" id="section-8aa5fe853e3e5b8b98bfb9fba9b4f5b7" aria-controls="subsections-8aa5fe853e3e5b8b98bfb9fba9b4f5b7"><label for="section-8aa5fe853e3e5b8b98bfb9fba9b4f5b7"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单1 词法分析</span></label><a class="padding" href="../../3_compiler/1_lexer/index.html">1 词法分析<i class="fas fa-check read-icon"></i></a><ul id="subsections-8aa5fe853e3e5b8b98bfb9fba9b4f5b7" class="morespace collapsible-menu">
+          <li data-nav-id="/3_compiler/1_lexer/1_tokendef/index.html" class=""><a class="padding" href="../../3_compiler/1_lexer/1_tokendef/index.html">1 Token 定义<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/1_lexer/2_lexer/index.html" class=""><a class="padding" href="../../3_compiler/1_lexer/2_lexer/index.html">2 Lexer 实现<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/1_lexer/3_project/index.html" class=""><a class="padding" href="../../3_compiler/1_lexer/3_project/index.html">3 工程文件解析<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_compiler/2_parser/index.html" class=""><input type="checkbox" id="section-c774a45d75120607d091c6d43edf32a0" aria-controls="subsections-c774a45d75120607d091c6d43edf32a0"><label for="section-c774a45d75120607d091c6d43edf32a0"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单2 语法分析</span></label><a class="padding" href="../../3_compiler/2_parser/index.html">2 语法分析<i class="fas fa-check read-icon"></i></a><ul id="subsections-c774a45d75120607d091c6d43edf32a0" class="morespace collapsible-menu">
+          <li data-nav-id="/3_compiler/2_parser/1_typesystem/index.html" class=""><a class="padding" href="../../3_compiler/2_parser/1_typesystem/index.html">1 类型系统设计与实现<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/2_parser/2_astnode/index.html" class=""><a class="padding" href="../../3_compiler/2_parser/2_astnode/index.html">2 抽象语法树设计与实现<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/2_parser/3_fileunit/index.html" class=""><a class="padding" href="../../3_compiler/2_parser/3_fileunit/index.html">3 代码文件文件管理<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/2_parser/4_parserbase/index.html" class=""><a class="padding" href="../../3_compiler/2_parser/4_parserbase/index.html">4 顶层语法解析实现<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/2_parser/5_parserexp/index.html" class=""><a class="padding" href="../../3_compiler/2_parser/5_parserexp/index.html">5 解析表达式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/2_parser/6_parserdecl/index.html" class=""><a class="padding" href="../../3_compiler/2_parser/6_parserdecl/index.html">6 解析声明<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/2_parser/7_parserdecl2/index.html" class=""><a class="padding" href="../../3_compiler/2_parser/7_parserdecl2/index.html">7 解析声明续<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_compiler/3_analysis/index.html" class=""><a class="padding" href="../../3_compiler/3_analysis/index.html">3 语义分析<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/4_optimize/index.html" class=""><a class="padding" href="../../3_compiler/4_optimize/index.html">4 中间优化<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/5_target/index.html" class=""><a class="padding" href="../../3_compiler/5_target/index.html">5 目标生成<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/6_ir/index.html" class=""><a class="padding" href="../../3_compiler/6_ir/index.html">6 中间代码<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/7_instruction/index.html" class=""><input type="checkbox" id="section-dedd27cbba01c571c8e8716aa462e735" aria-controls="subsections-dedd27cbba01c571c8e8716aa462e735"><label for="section-dedd27cbba01c571c8e8716aa462e735"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单7 指令集</span></label><a class="padding" href="../../3_compiler/7_instruction/index.html">7 指令集<i class="fas fa-check read-icon"></i></a><ul id="subsections-dedd27cbba01c571c8e8716aa462e735" class="morespace collapsible-menu">
+          <li data-nav-id="/3_compiler/7_instruction/1_stackbasedinsset/index.html" class=""><a class="padding" href="../../3_compiler/7_instruction/1_stackbasedinsset/index.html">1 基于栈的指令集<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/7_instruction/2_registerbasedinsset/index.html" class=""><a class="padding" href="../../3_compiler/7_instruction/2_registerbasedinsset/index.html">2 基于寄存器的指令集<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/7_instruction/3_mixedinsset/index.html" class=""><a class="padding" href="../../3_compiler/7_instruction/3_mixedinsset/index.html">3 基于栈和寄存器的指令集<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_compiler/8_langdef/index.html" class=""><input type="checkbox" id="section-17a05f08dbcda51918ebad0cb19ecac1" aria-controls="subsections-17a05f08dbcda51918ebad0cb19ecac1"><label for="section-17a05f08dbcda51918ebad0cb19ecac1"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单8 语言定义</span></label><a class="padding" href="../../3_compiler/8_langdef/index.html">8 语言定义<i class="fas fa-check read-icon"></i></a><ul id="subsections-17a05f08dbcda51918ebad0cb19ecac1" class="morespace collapsible-menu">
+          <li data-nav-id="/3_compiler/8_langdef/1_langdef/index.html" class=""><a class="padding" href="../../3_compiler/8_langdef/1_langdef/index.html">1 语法定义<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/8_langdef/2_codefile/index.html" class=""><a class="padding" href="../../3_compiler/8_langdef/2_codefile/index.html">2 代码结构<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/8_langdef/3_keyword/index.html" class=""><a class="padding" href="../../3_compiler/8_langdef/3_keyword/index.html">3 关键字<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/8_langdef/4_operator/index.html" class=""><a class="padding" href="../../3_compiler/8_langdef/4_operator/index.html">4 操作符<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../3_compiler/8_langdef/5_typesystem/index.html">5 类型系统<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_compiler/9_bcf/index.html" class=""><a class="padding" href="../../3_compiler/9_bcf/index.html">9 字节码文件格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_compiler/10_vmimp/index.html" class=""><a class="padding" href="../../3_compiler/10_vmimp/index.html">10 虚拟机设计与实现<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_graphical/index.html" class=""><a class="padding" href="../../4_graphical/index.html">图形图像<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_os/index.html" class=""><a class="padding" href="../../5_os/index.html">操作系统<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/index.html" class=""><input type="checkbox" id="section-4c35ade786ad7ed384d261be2a7d5c8e" aria-controls="subsections-4c35ade786ad7ed384d261be2a7d5c8e"><label for="section-4c35ade786ad7ed384d261be2a7d5c8e"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单文件数据格式</span></label><a class="padding" href="../../6_format/index.html">文件数据格式<i class="fas fa-check read-icon"></i></a><ul id="subsections-4c35ade786ad7ed384d261be2a7d5c8e" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/index.html" class=""><input type="checkbox" id="section-5469b4a7b4acb15f774665f97badbced" aria-controls="subsections-5469b4a7b4acb15f774665f97badbced"><label for="section-5469b4a7b4acb15f774665f97badbced"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单1 通用格式设计</span></label><a class="padding" href="../../6_format/1_general/index.html">1 通用格式设计<i class="fas fa-check read-icon"></i></a><ul id="subsections-5469b4a7b4acb15f774665f97badbced" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/1_fileheader/index.html" class=""><a class="padding" href="../../6_format/1_general/1_fileheader/index.html">1 文件头<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/2_segmentformat/index.html" class=""><a class="padding" href="../../6_format/1_general/2_segmentformat/index.html">2 段节格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/3_tlvformat/index.html" class=""><a class="padding" href="../../6_format/1_general/3_tlvformat/index.html">3 TLV格式<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/2_program/index.html" class=""><input type="checkbox" id="section-bce8355bdca25ba62831f59e9f9c1dd0" aria-controls="subsections-bce8355bdca25ba62831f59e9f9c1dd0"><label for="section-bce8355bdca25ba62831f59e9f9c1dd0"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单2 程序格式</span></label><a class="padding" href="../../6_format/2_program/index.html">2 程序格式<i class="fas fa-check read-icon"></i></a><ul id="subsections-bce8355bdca25ba62831f59e9f9c1dd0" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/index.html" class=""><input type="checkbox" id="section-39bc97de41f485f857ce3085f2593ee0" aria-controls="subsections-39bc97de41f485f857ce3085f2593ee0"><label for="section-39bc97de41f485f857ce3085f2593ee0"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单1 ELF 格式</span></label><a class="padding" href="../../6_format/2_program/1_elf/index.html">1 ELF 格式<i class="fas fa-check read-icon"></i></a><ul id="subsections-39bc97de41f485f857ce3085f2593ee0" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/1_elf32/index.html" class=""><a class="padding" href="../../6_format/2_program/1_elf/1_elf32/index.html">1 ELF32 格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/2_program/1_elf/2_elf64/index.html" class=""><a class="padding" href="../../6_format/2_program/1_elf/2_elf64/index.html">2 ELF64 格式<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/3_color/index.html" class=""><input type="checkbox" id="section-c367726fe58535012a48fc416458ac11" aria-controls="subsections-c367726fe58535012a48fc416458ac11"><label for="section-c367726fe58535012a48fc416458ac11"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单3 颜色格式</span></label><a class="padding" href="../../6_format/3_color/index.html">3 颜色格式<i class="fas fa-check read-icon"></i></a><ul id="subsections-c367726fe58535012a48fc416458ac11" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/3_color/1_rgba/index.html" class=""><a class="padding" href="../../6_format/3_color/1_rgba/index.html">1 RGBA<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/2_hsl/index.html" class=""><a class="padding" href="../../6_format/3_color/2_hsl/index.html">2 HSL/HSV<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/3_yuv/index.html" class=""><a class="padding" href="../../6_format/3_color/3_yuv/index.html">3 YUV<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/4_xyz/index.html" class=""><a class="padding" href="../../6_format/3_color/4_xyz/index.html">4 XYZ<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/5_lab/index.html" class=""><a class="padding" href="../../6_format/3_color/5_lab/index.html">5 LAB<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/6_cmyk/index.html" class=""><a class="padding" href="../../6_format/3_color/6_cmyk/index.html">6 CMYK<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/4_compress/index.html" class=""><a class="padding" href="../../6_format/4_compress/index.html">4 压缩格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/5_picture/index.html" class=""><a class="padding" href="../../6_format/5_picture/index.html">5 图片格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/6_video/index.html" class=""><a class="padding" href="../../6_format/6_video/index.html">6 视频格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/7_audio/index.html" class=""><a class="padding" href="../../6_format/7_audio/index.html">7 音频格式<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/8_model/index.html" class=""><a class="padding" href="../../6_format/8_model/index.html">8 模型3D<i class="fas fa-check read-icon"></i></a></li></ul></li>
+          </ul>
+        </div>
+        <div id="shortcuts">
+          <div class="nav-title padding">更多</div>
+          <ul class="space">
+            <li><a class="padding" href="https://github.com/irscript/irscript.github.io"><i class='fab fa-fw fa-github'></i> GitHub 仓库</a></li>
+            <li><a class="padding" href="https://gohugo.io/"><i class='fas fa-fw fa-bookmark'></i> Hugo 文档</a></li>
+            <li><a class="padding" href="../../tags/index.html"><i class='fas fa-fw fa-tags'></i> 标签</a></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter"></div>
+        <div id="menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter">
+          <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showVariantSwitch showVisitedLinks">
+            <ul>
+              <li id="select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fas fa-language fa-fw"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="select-language">语言</label>
+                    <select id="select-language" onchange="location = baseUri + this.value;">
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="select-variant-container" class="footerVariantSwitch showVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fas fa-paint-brush fa-fw"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="select-variant">主题</label>
+                    <select id="select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="auto" value="auto" selected>Auto</option>
+                      <option id="relearn-bright" value="relearn-bright">Relearn Bright</option>
+                      <option id="relearn-light" value="relearn-light">Relearn Light</option>
+                      <option id="relearn-dark" value="relearn-dark">Relearn Dark</option>
+                      <option id="zen-light" value="zen-light">Zen Light</option>
+                      <option id="zen-dark" value="zen-dark">Zen Dark</option>
+                      <option id="neon" value="neon">Neon</option>
+                      <option id="learn" value="learn">Learn</option>
+                      <option id="blue" value="blue">Blue</option>
+                      <option id="green" value="green">Green</option>
+                      <option id="red" value="red">Red</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fas fa-history fa-fw"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">清理历史记录</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="footer" class="footerFooter showFooter"><hr/>
+<p style="text-align: center;margin: 0;">© 2023 - 2023</p>
+<p style="text-align: center;margin: 0;"><i class="fab fa-creative-commons-sa"></i> CC BY-SA 3.0</p>
+<p style="text-align: center;margin: 0;">Built with ❤️ by <a href="https://github.com/irscript/">IrScript</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../js/clipboard.min.js?1696231135" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1696231135" defer></script>
+    <script src="../../js/theme.js?1696231135" defer></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Relearn 5.20.0">
+    <meta name="description" content="站在巨人的肩膀上">
+    <meta name="author" content="月明之都">
+    <title>1 文件头 :: 巨人之海</title>
+    <link href="https://irscript.github.io/6_format/1_general/1_fileheader/index.html" rel="canonical" type="text/html" title="1 文件头 :: 巨人之海">
+    <link href="../../../6_format/1_general/1_fileheader/index.xml" rel="alternate" type="application/rss+xml" title="1 文件头 :: 巨人之海"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1696231135" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1696231135" rel="stylesheet">
+    <link href="../../../css/fonts.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1696231135" rel="stylesheet">
+    <link href="../../../css/theme-auto.css?1696231135" rel="stylesheet" id="variant-style">
+    <link href="../../../css/variant.css?1696231135" rel="stylesheet">
+    <link href="../../../css/print.css?1696231135" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1696231135" rel="stylesheet">
+    <link href="../../../css/ie.css?1696231135" rel="stylesheet">
+    <script src="../../../js/url.js?1696231135"></script>
+    <script src="../../../js/variant.js?1696231135"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      window.index_js_url="../../../index.search.js";
+      var root_url="../../../";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = '复制到剪贴板';
+      window.T_Copied_to_clipboard = '复制到剪贴板！';
+      window.T_Copy_link_to_clipboard = '将链接复制到剪贴板';
+      window.T_Link_copied_to_clipboard = '链接复制到剪贴板！';
+      window.T_No_results_found = '找不到\u0022{0}\u0022的结果';
+      window.T_N_results_found = '为\u0022{0}\u0022找到 {1} 个结果';
+      // some further base stuff
+      var baseUriFull='https:\/\/irscript.github.io/';
+      window.variants && variants.init( [ 'auto', 'relearn-bright', 'relearn-light', 'relearn-dark', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+    </script>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../6_format/1_general/1_fileheader/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" class="topbar-link" title='导航 (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/index.html"><span itemprop="name">文件数据格式</span></a><meta itemprop="position" content="2"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/1_general/index.html"><span itemprop="name">1 通用格式设计</span></a><meta itemprop="position" content="3"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">1 文件头</span><meta itemprop="position" content="4"></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="1-文件头">1 文件头</h1>
+
+<hr>
+<p>描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。</p>
+<p>顾名思义，即是将文件的整体信息通常放在文件的开头。</p>
+<p>在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 <em><strong>文件头</strong></em>。</p>
+<h3 id="1-魔数">1 魔数</h3>
+<hr>
+<p>魔数作为文件格式的标识，一般用于识别文件是否程序所能处理的文件。其值可以随意选取，主要看设计者自身的喜好。</p>
+<p>例如 zip 格式的魔数就是 <em><strong>&ldquo;PK\x03\x04&rdquo;</strong></em>,其中 PK 就是设计者 Philip Katz 的名字首字母。</p>
+<p>一般程序在分析文件时，会先判断魔数的值是否匹配，不匹配就表明文件格式不正确。</p>
+<p>需要注意的是，假如魔数正确，文件格式并非一定能够读取正确，还需要进一步判断。</p>
+<h3 id="2-检验码">2 检验码</h3>
+<hr>
+<p>文件头通常还会有个检验码，用于检验文件是否完整并且没有经过修改的。这个检验码可以使用 crc, 可以使用 md5，也可以使用其它算法。</p>
+<p>这也是检查文件格式的正确性中的重要一步，因为即便是魔数相同，校验码所采用的算法不同，和校验码所作的位置不同，所计算的校验码，基本上是不一的，所以进一步就，能区分出文件格式是否正确。</p>
+<h3 id="3-版本号">3 版本号</h3>
+<hr>
+<p>文件头通常还会包含版本号。</p>
+<p>版本号不同，就表明文件格式发生变化，可能变化很小，也可能变化很大；可能是某些字段的值在解释上发生变化，也可能是直接添加了一些结构。所以导致文件的读取方式可能会有所不同。</p>
+<p>版本号有时只是单独一个数字，不断往上递增。有时也会拆分成两个数字，为主版本号和次版本号。主版本号修改，通常表示文件格式发生大变动。而次版本号修改，通常只是表示添加了一些小功能。</p>
+<h3 id="4-字节顺序">4 字节顺序</h3>
+<hr>
+<p>字节顺序在文件格式设计中至关重要。</p>
+<p>字节顺序分为大端字节序和小端字节序。不同的机器字节序有可能不同，设计文件格式时需要考虑文件用什么字节序保存数据的。</p>
+<p>读取和存储的字节序不一致就会导致程序出错。</p>
+<h3 id="5-通用结构">5 通用结构</h3>
+<hr>
+<p>通用结构定义如下：</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">FileHeader</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uint8</span> <span class="n">mMagic</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>    <span class="c1">//魔数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint8</span> <span class="n">mHash</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>    <span class="c1">//检验码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint32</span> <span class="n">mEndian</span><span class="p">;</span>     <span class="c1">//字节序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint32</span> <span class="n">mVersion</span><span class="p">;</span>    <span class="c1">//文件版本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1696231135" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1696231135" defer></script>
+    <script src="../../../js/theme.js?1696231135" defer></script>
+  </body>
+</html>

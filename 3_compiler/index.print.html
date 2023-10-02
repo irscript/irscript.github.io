@@ -1,0 +1,5276 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Relearn 5.20.0">
+    <meta name="description" content="站在巨人的肩膀上">
+    <meta name="author" content="月明之都">
+    <title>编译原理 :: 巨人之海</title>
+    <link href="https://irscript.github.io/3_compiler/index.html" rel="canonical" type="text/html" title="编译原理 :: 巨人之海">
+    <link href="../3_compiler/index.xml" rel="alternate" type="application/rss+xml" title="编译原理 :: 巨人之海"><link rel="icon" href="../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../css/fontawesome-all.min.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../css/nucleus.css?1696231135" rel="stylesheet">
+    <link href="../css/auto-complete.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1696231135" rel="stylesheet">
+    <link href="../css/fonts.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fonts.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../css/theme.css?1696231135" rel="stylesheet">
+    <link href="../css/theme-auto.css?1696231135" rel="stylesheet" id="variant-style">
+    <link href="../css/variant.css?1696231135" rel="stylesheet">
+    <link href="../css/print.css?1696231135" rel="stylesheet" media="print">
+    <link href="../css/format-print.css?1696231135" rel="stylesheet">
+    <link href="../css/ie.css?1696231135" rel="stylesheet">
+    <script src="../js/url.js?1696231135"></script>
+    <script src="../js/variant.js?1696231135"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      window.index_js_url="../index.search.js";
+      var root_url="../";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = '复制到剪贴板';
+      window.T_Copied_to_clipboard = '复制到剪贴板！';
+      window.T_Copy_link_to_clipboard = '将链接复制到剪贴板';
+      window.T_Link_copied_to_clipboard = '链接复制到剪贴板！';
+      window.T_No_results_found = '找不到\u0022{0}\u0022的结果';
+      window.T_N_results_found = '为\u0022{0}\u0022找到 {1} 个结果';
+      // some further base stuff
+      var baseUriFull='https:\/\/irscript.github.io/';
+      window.variants && variants.init( [ 'auto', 'relearn-bright', 'relearn-light', 'relearn-dark', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+    </script>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../3_compiler/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" class="topbar-link" title='导航 (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">编译原理</span><meta itemprop="position" content="2"></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="编译原理">编译原理</h1>
+
+<h2 id="目录">目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../3_compiler/1_lexer/index.html">1 词法分析</a></li>
+<li><a href="../3_compiler/2_parser/index.html">2 语法分析</a></li>
+<li><a href="../3_compiler/3_analysis/index.html">3 语义分析</a></li>
+<li><a href="../3_compiler/4_optimize/index.html">4 中间优化</a></li>
+<li><a href="../3_compiler/5_target/index.html">5 目标生成</a></li>
+<li><a href="../3_compiler/6_ir/index.html">6 中间代码</a></li>
+<li><a href="../3_compiler/7_instruction/index.html">7 指令集</a></li>
+<li><a href="../3_compiler/8_langdef/index.html">8 语言定义</a></li>
+<li><a href="../3_compiler/9_bcf/index.html">9 字节码文件格式</a></li>
+<li><a href="../3_compiler/10_vmimp/index.html">10 虚拟机设计与实现</a></li>
+</ul>
+<h2 id="引言">引言</h2>
+<hr>
+编译原理是将文本字符流，通过一系列的分析、转换，最后生成确定的指令文件的数据分析转换技术。
+<p>编译器是利用编译原理，将一种程序（源程序）翻译成另一种程序（目标程序）的计算机程序。业界也将编译器分为三个部分：前端、中端、后端。</p>
+<p>编译器所做的工作流程如下图所示。</p>
+<p><a href="#image-bfd342c4ca8030c5ec16f92089b392f2" class="lightbox-link"><img src="../3_compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86.svg" alt="编译总流程" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-bfd342c4ca8030c5ec16f92089b392f2"><img src="../3_compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86.svg" alt="编译总流程" class="lightbox-image" loading="lazy"></a></p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">编译原理 的子部分</h1>
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第1章</div>
+<h1 id="1-词法分析">1 词法分析</h1>
+
+<h2 id="1-序">1 序</h2>
+<p>词法分析就是将代码字符流，按照一定的规则进行分析，获取符合词法规则的字符串，并进行信息标注，为语法分析提供单词(Token)流。</p>
+<h2 id="2-目录">2 目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../3_compiler/1_lexer/1_tokendef/index.html">1 Token 定义</a></li>
+<li><a href="../3_compiler/1_lexer/2_lexer/index.html">2 Lexer 实现</a></li>
+<li><a href="../3_compiler/1_lexer/3_project/index.html">3 工程文件解析</a></li>
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">1 词法分析 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="1-token-定义">1 Token 定义</h1>
+
+<h2 id="1-词法规则">1 词法规则</h2>
+<hr>
+<p>词法分析按照规定的规则，可以从字符流中获取数据。</p>
+<p>规则定义为以下几类：</p>
+<ul>
+<li>标识符：由字母、数字、下划线( _ )构成，但是不得由数字为起始；其中存在特殊的字符串为关键字。</li>
+<li>普通数字字面量：由数字和&rsquo;.&lsquo;组成，其中分为整数、浮点数；</li>
+<li>2进制数字字面量：由 &lsquo;0B&rsquo;起始，多个 &lsquo;0&rsquo;或'1&rsquo;构成。</li>
+<li>16进制数字字面量：由 &lsquo;0X&rsquo;起始，多个 十六进制字符 构成。</li>
+<li>字符字面量：由 &lsquo;&lsquo;&lsquo;起始和结尾，中间为可打印的字符。</li>
+</ul>
+<h2 id="2-token-分类">2 Token 分类</h2>
+<hr>
+<h2 id="3-位置信息">3 位置信息</h2>
+<hr>
+<h2 id="3-token-定义">3 Token 定义</h2>
+<hr>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="2-lexer-实现">2 Lexer 实现</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="3-工程文件解析">3 工程文件解析</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第2章</div>
+<h1 id="2-语法分析">2 语法分析</h1>
+
+<h2 id="1-序">1 序</h2>
+<p>语法分析就是将词法分析提供单词(Token)流，按照语法规则构建抽象语法分析树，为语义分析提供数据骨架。</p>
+<h2 id="2-目录">2 目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../3_compiler/2_parser/1_typesystem/index.html">1 类型系统设计与实现</a></li>
+<li><a href="../3_compiler/2_parser/2_astnode/index.html">2 抽象语法树设计与实现</a></li>
+<li><a href="../3_compiler/2_parser/3_fileunit/index.html">3 代码文件文件管理</a></li>
+<li><a href="../3_compiler/2_parser/4_parserbase/index.html">4 顶层语法解析实现</a></li>
+<li><a href="../3_compiler/2_parser/5_parserexp/index.html">5 解析表达式</a></li>
+<li><a href="../3_compiler/2_parser/6_parserdecl/index.html">6 解析声明</a></li>
+<li><a href="../3_compiler/2_parser/7_parserdecl2/index.html">7 解析声明续</a></li>
+</ul>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">2 语法分析 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="1-类型系统设计与实现">1 类型系统设计与实现</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="2-抽象语法树设计与实现">2 抽象语法树设计与实现</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="3-代码文件文件管理">3 代码文件文件管理</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="4-顶层语法解析实现">4 顶层语法解析实现</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="5-解析表达式">5 解析表达式</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="6-解析声明">6 解析声明</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="7-解析声明续">7 解析声明续</h1>
+
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第3章</div>
+<h1 id="3-语义分析">3 语义分析</h1>
+
+<h2 id="1-序">1 序</h2>
+<p>语义分析就是分析语法树中所有的符号是否存在声明，从语义层次进一步规范程序所表达的含义。</p>
+<ul>
+<li>分析符号的含义和类型。</li>
+<li>分析变量的位置偏移。</li>
+<li>分析表达式的类型，并进行类型匹配。</li>
+</ul>
+<h2 id="2-目录">2 目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+</ul>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第4章</div>
+<h1 id="4-中间优化">4 中间优化</h1>
+
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第5章</div>
+<h1 id="5-目标生成">5 目标生成</h1>
+
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第6章</div>
+<h1 id="6-中间代码">6 中间代码</h1>
+
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第7章</div>
+<h1 id="7-指令集">7 指令集</h1>
+
+<h2 id="1-序">1 序</h2>
+<p>指令集可分为两大类，真实硬件指令集和虚拟机指令集。</p>
+<p>真实硬件指令集又分为两类：</p>
+<ul>
+<li>CISC (复杂指令集)：CISC 以 X86 系列为代表，指令系统较为复杂，硬件实现也比较复杂。</li>
+<li>RISC (精简指令集)：RISC 的指令系统较为精简，目的是降低硬件实现的复杂度，以 RISC-V 、ARM为代表。</li>
+</ul>
+<p>虚拟机指令集可分为三种：</p>
+<ul>
+<li>基于栈的指令集：纯栈操作，所有的运算都基于栈，其中以 Java 字节码指令集为代表。</li>
+<li>基于寄存器的指令集：纯寄存器操作，所有的运算基于寄存器，其中以安卓的 Dalvik 字节码指令集为代表。</li>
+<li>基于栈和寄存器的指令集：混合式操作，类似于 RISC 指令集，但是又与真实硬件系统有差异。</li>
+</ul>
+<p>虚拟机的指令与设计的字节码保存文件存在较强相关性，所以要真正理解虚拟机指令，还需要理解字节码文件的存储格式。</p>
+<h2 id="2-目录">2 目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../3_compiler/7_instruction/1_stackbasedinsset/index.html">1 基于栈的指令集</a></li>
+<li><a href="../3_compiler/7_instruction/2_registerbasedinsset/index.html">2 基于寄存器的指令集</a></li>
+<li><a href="../3_compiler/7_instruction/3_mixedinsset/index.html">3 基于栈和寄存器的指令集</a></li>
+</ul>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">7 指令集 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="1-基于栈的指令集">1 基于栈的指令集</h1>
+
+<p>基于栈的指令集参考Java的指令集。</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="2-基于寄存器的指令集">2 基于寄存器的指令集</h1>
+
+<p>Dalvik 字节码指令集的字节码指令集不支持无符号整数运算，因此参照 Dalvik 设计了以下指令集。</p>
+<p>基于纯寄存器的指令集，指令系统存在下列的要求：</p>
+<ul>
+<li>每条指令按照 16 bit 对齐。</li>
+<li>寄存器的索引位宽有 4 bit、8 bit、16 bit。</li>
+<li>最多支持 65536 个寄存器。</li>
+<li>每个寄存器 32 bit。</li>
+<li>64 bit寄存器由相邻的两个 32 bit 寄存器组合而成。</li>
+<li>指令操作码位宽为 8 bit。</li>
+<li>指令中可有子操作码，具体位宽看具体的指令格式。</li>
+<li>32 bit 寄存器内可以存储 32 bit的整数、浮点数。</li>
+<li>64 bit 寄存器内可以存储 64 bit的整数、浮点数。</li>
+<li>位宽小于 32 位的值，需要进行扩展（零扩展、符号扩展）到 32 bit。</li>
+<li>助记符中的 I 表示寄存器索引，后面的数字表示索引位宽</li>
+</ul>
+<h3 id="指令格式">指令格式</h3>
+<p>总体格式：</p>
+<pre><code>操作码 + [ 操作子码 ] + ( 操作数 )*
+</code></pre>
+<ul>
+<li>操作子码可选。</li>
+<li>操作数可以有多个。</li>
+</ul>
+<p>寄存器位宽索引支持的寄存器数量：</p>
+<table>
+<thead>
+<tr>
+<th>位宽</th>
+<th>寄存器数量</th>
+<th>索引范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 bit</td>
+<td>16</td>
+<td>[ 0, 15 ]</td>
+</tr>
+<tr>
+<td>8 bit</td>
+<td>256</td>
+<td>[ 0, 255 ]</td>
+</tr>
+<tr>
+<td>16 bit</td>
+<td>65536</td>
+<td>[ 0, 65535 ]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="空指令">空指令</h3>
+<p>文本格式： nop</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>对齐</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>格式</td>
+<td>8 bit</td>
+<td>8bit</td>
+<td>指令宽度：16 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>nop</td>
+<td>0</td>
+<td></td>
+<td>空操作，用于对齐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常量赋值指令">常量赋值指令</h3>
+<h4 id="文本格式-op-des-imm">文本格式： op des, imm</h4>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的寄存器</th>
+<th>立即数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>4 bit</td>
+<td>4 bit</td>
+<td>4 bit 立即数，指令宽度：16 bit</td>
+</tr>
+<tr>
+<td>const-w32-I4-i4</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为有符号整数，有符号扩展至 32 bit。</td>
+</tr>
+<tr>
+<td>const-w64-I4-i4</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为有符号整数，有符号扩展至 32 bit。</td>
+</tr>
+<tr>
+<td>const-w32-I4-u4</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数，无符号扩展至 32 bit。</td>
+</tr>
+<tr>
+<td>const-w64-I4-u4</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数，无符号扩展至 32 bit。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>16 bit 立即数，指令宽度：32 bit</td>
+</tr>
+<tr>
+<td>const-w32-I8-i16</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为有符号整数，有符号扩展至 32 bit。</td>
+</tr>
+<tr>
+<td>const-w64-I8-i16</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为有符号整数，有符号扩展至 64 bit。</td>
+</tr>
+<tr>
+<td>const-w32-I8-u16</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数，无符号扩展至 32 bit。</td>
+</tr>
+<tr>
+<td>const-w64-I8-u16</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数，无符号扩展至 64 bit。</td>
+</tr>
+<tr>
+<td>const-w32-I8-L16</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数。imm 存放在寄存器的低 16 bit，不改变高 16 bit。</td>
+</tr>
+<tr>
+<td>const-w32-I8-H16</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数。imm 存放在寄存器的高 16 bit，不改变低 16 bit。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>32 bit</td>
+<td>32 bit 立即数，指令宽度：48 bit</td>
+</tr>
+<tr>
+<td>const-w32-I8</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>原样拷贝，支持32 bit 整数和浮点。</td>
+</tr>
+<tr>
+<td>const-w64-I8-i32</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为有符号整数，有符号扩展至 64 bit。</td>
+</tr>
+<tr>
+<td>const-w64-I8-u32</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数，无符号扩展至 64 bit。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>64 bit</td>
+<td>64 bit 立即数，指令宽度：80 bit</td>
+</tr>
+<tr>
+<td>const-w64-I8</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>原样拷贝，支持64 bit整数和浮点。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文本格式opsub-desimm">文本格式：op.sub des,imm</h4>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作子码</th>
+<th>目的寄存器</th>
+<th>立即数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>指令宽度：32 bit</td>
+</tr>
+<tr>
+<td>const-w32-I8</td>
+<td></td>
+<td>subop</td>
+<td>des</td>
+<td>imm</td>
+<td>imm 为无符号整数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="操作子码定义">操作子码定义</h4>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B0</td>
+<td></td>
+<td>imm存放在寄存器的第 1 个字节，不改变其他字节。</td>
+</tr>
+<tr>
+<td>B1</td>
+<td></td>
+<td>imm存放在寄存器的第 2 个字节，不改变其他字节。</td>
+</tr>
+<tr>
+<td>B2</td>
+<td></td>
+<td>imm存放在寄存器的第 3 个字节，不改变其他字节。</td>
+</tr>
+<tr>
+<td>B3</td>
+<td></td>
+<td>imm存放在寄存器的第 4 个字节，不改变其他字节。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="寄存器赋值指令">寄存器赋值指令</h3>
+<p>文本格式：op des,src</p>
+<h4 id="文本格式op-dessrc">文本格式：op des,src</h4>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的寄存器</th>
+<th>源寄存器</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>4 bit</td>
+<td>4 bit</td>
+<td>指令宽度：16 bit</td>
+</tr>
+<tr>
+<td>move-w32-I4</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>32 位寄存器值传递</td>
+</tr>
+<tr>
+<td>move-w64-I4</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>64 位寄存器值传递</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>指令宽度：32 bit</td>
+</tr>
+<tr>
+<td>move-w32-I8I16</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>32 位寄存器值传递</td>
+</tr>
+<tr>
+<td>move-w64-I8I16</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>64 位寄存器值传递</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文本格式opsub-dessrc">文本格式：op.sub des,src</h4>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作子码</th>
+<th>目的寄存器</th>
+<th>源寄存器</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>指令宽度：32 bit</td>
+</tr>
+<tr>
+<td>mov-I8</td>
+<td>sub</td>
+<td>des</td>
+<td>src</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>指令宽度：48 bit</td>
+</tr>
+<tr>
+<td>mov-I16</td>
+<td>sub</td>
+<td>des</td>
+<td>src</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="操作子码定义-1">操作子码定义</h4>
+<p>助记符含义：</p>
+<ul>
+<li>
+<p>目标位宽-源数据获取转换位宽</p>
+<ul>
+<li>i:符号扩展。</li>
+<li>u:零扩展。</li>
+<li>只有目标位宽时，表示源位宽直接拷贝传递。</li>
+</ul>
+</li>
+<li>
+<p>目标类型-源类型</p>
+<ul>
+<li>表示从源类型转换到目标类型</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w32-B0-i8</td>
+<td>0</td>
+<td>获取寄存器的第 1 个字节，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-B0-u8</td>
+<td>1</td>
+<td>获取寄存器的第 1 个字节，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-B1-i8</td>
+<td>2</td>
+<td>获取寄存器的第 2 个字节，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-B1-u8</td>
+<td>3</td>
+<td>获取寄存器的第 2 个字节，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-B2-i8</td>
+<td>4</td>
+<td>获取寄存器的第 3 个字节，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-B2-u8</td>
+<td>5</td>
+<td>获取寄存器的第 3 个字节，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-B3-i8</td>
+<td>6</td>
+<td>获取寄存器的第 4 个字节，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-B3-u8</td>
+<td>7</td>
+<td>获取寄存器的第 4 个字节，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>w32-L16-i16</td>
+<td>8</td>
+<td>获取寄存器的低 16 位，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-L16-u16</td>
+<td>9</td>
+<td>获取寄存器的低 16 位，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-H16-i16</td>
+<td>10</td>
+<td>获取寄存器的高 16 位，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32-H16-u16</td>
+<td>11</td>
+<td>获取寄存器的高 16 位，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td>w32</td>
+<td>12</td>
+<td>32 位原值拷贝传递</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>w64-B0-i8</td>
+<td>13</td>
+<td>获取寄存器的第 1 个字节，进行符号扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-B0-u8</td>
+<td>14</td>
+<td>获取寄存器的第 1 个字节，进行零扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-B1-i8</td>
+<td>15</td>
+<td>获取寄存器的第 2 个字节，进行符号扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-B1-u8</td>
+<td>16</td>
+<td>获取寄存器的第 2 个字节，进行零扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-B2-i8</td>
+<td>17</td>
+<td>获取寄存器的第 3 个字节，进行符号扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-B2-u8</td>
+<td>18</td>
+<td>获取寄存器的第 3 个字节，进行零扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-B3-i8</td>
+<td>19</td>
+<td>获取寄存器的第 4 个字节，进行符号扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-B3-u8</td>
+<td>20</td>
+<td>获取寄存器的第 4 个字节，进行零扩展到 64 位</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>w64-L16-i16</td>
+<td>21</td>
+<td>获取寄存器的低 16 位，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w64-L16-u16</td>
+<td>22</td>
+<td>获取寄存器的低 16 位，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td>w64-H16-i16</td>
+<td>23</td>
+<td>获取寄存器的高 16 位，进行符号扩展到 32 位</td>
+</tr>
+<tr>
+<td>w64-H16-u16</td>
+<td>24</td>
+<td>获取寄存器的高 16 位，进行零扩展到 32 位</td>
+</tr>
+<tr>
+<td>w64-i32</td>
+<td>25</td>
+<td>获取寄存器的 32 位，进行符号扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64-u32</td>
+<td>26</td>
+<td>获取寄存器的 32 位，进行零扩展到 64 位</td>
+</tr>
+<tr>
+<td>w64</td>
+<td>27</td>
+<td>64 位原值拷贝传递</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32-f32</td>
+<td>28</td>
+<td>32 位有符号整数转 32 位浮点数</td>
+</tr>
+<tr>
+<td>i32-f64</td>
+<td>29</td>
+<td>32 位有符号整数转 64 位浮点数</td>
+</tr>
+<tr>
+<td>u32-f32</td>
+<td>30</td>
+<td>32 位无符号整数转 32 位浮点数</td>
+</tr>
+<tr>
+<td>u32-f64</td>
+<td>31</td>
+<td>32 位无符号整数转 64 位浮点数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64-f32</td>
+<td>32</td>
+<td>64 位有符号整数转 32 位浮点数</td>
+</tr>
+<tr>
+<td>i64-f64</td>
+<td>33</td>
+<td>64 位有符号整数转 32 位浮点数</td>
+</tr>
+<tr>
+<td>u64-f32</td>
+<td>34</td>
+<td>64 位无符号整数转 32 位浮点数</td>
+</tr>
+<tr>
+<td>u64-f64</td>
+<td>35</td>
+<td>64 位无符号整数转 64 位浮点数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-i32</td>
+<td>36</td>
+<td>32 位浮点数转 32 位有符号</td>
+</tr>
+<tr>
+<td>f32-i64</td>
+<td>37</td>
+<td>32 位浮点数转 64 位有符号</td>
+</tr>
+<tr>
+<td>f32-u32</td>
+<td>38</td>
+<td>32 位浮点数转 32 位无符号</td>
+</tr>
+<tr>
+<td>f32-u64</td>
+<td>39</td>
+<td>32 位浮点数转 64 位无符号</td>
+</tr>
+<tr>
+<td>f32-f64</td>
+<td>49</td>
+<td>32 位浮点数转 64 位浮点数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-i32</td>
+<td>41</td>
+<td>64 位浮点数转 32 位有符号</td>
+</tr>
+<tr>
+<td>f64-i64</td>
+<td>42</td>
+<td>64 位浮点数转 64 位有符号</td>
+</tr>
+<tr>
+<td>f64-u32</td>
+<td>43</td>
+<td>64 位浮点数转 32 位无符号</td>
+</tr>
+<tr>
+<td>f64-u64</td>
+<td>44</td>
+<td>64 位浮点数转 64 位无符号</td>
+</tr>
+<tr>
+<td>f64-f32</td>
+<td>45</td>
+<td>64 位浮点数转 32 位浮点数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数学运算指令">数学运算指令</h3>
+<ul>
+<li>有二地址、三地址分类。</li>
+<li>每类的主操作码不一致。</li>
+</ul>
+<h4 id="三地址操作">三地址操作</h4>
+<p>三地址文本格式： op.sub des,src,src2</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作子码</th>
+<th>目的寄存器</th>
+<th>源寄存器</th>
+<th>源操作数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>4 bit</td>
+<td>4 bit</td>
+<td>指令宽度：32 bit</td>
+</tr>
+<tr>
+<td>math-I4</td>
+<td></td>
+<td>sub</td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>指令宽度：48 bit</td>
+</tr>
+<tr>
+<td>math-I16I8</td>
+<td></td>
+<td>sub</td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>指令宽度：64 bit</td>
+</tr>
+<tr>
+<td>math-I16</td>
+<td></td>
+<td>sub</td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="子码定义">子码定义</h4>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add-int32</td>
+<td>0</td>
+<td>32 位有符号 加 +</td>
+</tr>
+<tr>
+<td>sub-int32</td>
+<td>1</td>
+<td>32 位有符号 减 -</td>
+</tr>
+<tr>
+<td>mul-int32</td>
+<td>2</td>
+<td>32 位有符号 乘 *</td>
+</tr>
+<tr>
+<td>div-int32</td>
+<td>3</td>
+<td>32 位有符号 除 /</td>
+</tr>
+<tr>
+<td>mod-int32</td>
+<td>4</td>
+<td>32 位有符号 模 %</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-uint32</td>
+<td>5</td>
+<td>32 位无符号 加 +</td>
+</tr>
+<tr>
+<td>sub-uint32</td>
+<td>6</td>
+<td>32 位无符号 减 -</td>
+</tr>
+<tr>
+<td>mul-uint32</td>
+<td>7</td>
+<td>32 位无符号 乘 *</td>
+</tr>
+<tr>
+<td>div-uint32</td>
+<td>8</td>
+<td>32 位无符号 除 /</td>
+</tr>
+<tr>
+<td>mod-uint32</td>
+<td>9</td>
+<td>32 位无符号 模 %</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-int64</td>
+<td>10</td>
+<td>64 位有符号 加 +</td>
+</tr>
+<tr>
+<td>sub-int64</td>
+<td>11</td>
+<td>64 位有符号 减 -</td>
+</tr>
+<tr>
+<td>mul-int64</td>
+<td>12</td>
+<td>64 位有符号 乘 *</td>
+</tr>
+<tr>
+<td>div-int64</td>
+<td>13</td>
+<td>64 位有符号 除 /</td>
+</tr>
+<tr>
+<td>mod-int64</td>
+<td>14</td>
+<td>64 位有符号</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-uint64</td>
+<td>15</td>
+<td>64 位无符号 加 +</td>
+</tr>
+<tr>
+<td>sub-uint64</td>
+<td>16</td>
+<td>64 位无符号 减 -</td>
+</tr>
+<tr>
+<td>mul-uint64</td>
+<td>17</td>
+<td>64 位无符号 乘 *</td>
+</tr>
+<tr>
+<td>div-uint64</td>
+<td>18</td>
+<td>64 位无符号 除 /</td>
+</tr>
+<tr>
+<td>mod-uint64</td>
+<td>19</td>
+<td>64 位无符号 模 %</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-flt32</td>
+<td>20</td>
+<td>32 位浮点 加 +</td>
+</tr>
+<tr>
+<td>sub-flt32</td>
+<td>21</td>
+<td>32 位浮点 减 -</td>
+</tr>
+<tr>
+<td>mul-flt32</td>
+<td>22</td>
+<td>32 位浮点 乘 *</td>
+</tr>
+<tr>
+<td>div-flt32</td>
+<td>23</td>
+<td>32 位浮点 除 /</td>
+</tr>
+<tr>
+<td>mod-flt32</td>
+<td>24</td>
+<td>32 位浮点 模 %</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-flt64</td>
+<td>25</td>
+<td>64 位浮点 加 +</td>
+</tr>
+<tr>
+<td>sub-flt64</td>
+<td>26</td>
+<td>64 位浮点 减 -</td>
+</tr>
+<tr>
+<td>mul-flt64</td>
+<td>27</td>
+<td>64 位浮点 乘 *</td>
+</tr>
+<tr>
+<td>div-flt64</td>
+<td>28</td>
+<td>64 位浮点 除 /</td>
+</tr>
+<tr>
+<td>mod-flt64</td>
+<td>29</td>
+<td>64 位浮点 模 %</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sl-w32</td>
+<td>30</td>
+<td>32 位 左移</td>
+</tr>
+<tr>
+<td>sr-w32</td>
+<td>31</td>
+<td>32 位 右移</td>
+</tr>
+<tr>
+<td>sra-w32</td>
+<td>32</td>
+<td>32 位 算术右移</td>
+</tr>
+<tr>
+<td>rol-w32</td>
+<td>33</td>
+<td>32 位 循环左移</td>
+</tr>
+<tr>
+<td>ror-w32</td>
+<td>34</td>
+<td>32 位 循环右移</td>
+</tr>
+<tr>
+<td>and-w32</td>
+<td>35</td>
+<td>32 位 位与</td>
+</tr>
+<tr>
+<td>or-w32</td>
+<td>36</td>
+<td>32 位  位或</td>
+</tr>
+<tr>
+<td>xor-w32</td>
+<td>37</td>
+<td>32 位 位异或</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sl-w64</td>
+<td>38</td>
+<td>64 位 左移</td>
+</tr>
+<tr>
+<td>sr-w64</td>
+<td>39</td>
+<td>64 位 右移</td>
+</tr>
+<tr>
+<td>sra-w64</td>
+<td>40</td>
+<td>64 位 算术右移</td>
+</tr>
+<tr>
+<td>rol-w32</td>
+<td>41</td>
+<td>64 位 循环左移</td>
+</tr>
+<tr>
+<td>ror-w32</td>
+<td>42</td>
+<td>64 位 循环右移</td>
+</tr>
+<tr>
+<td>and-w64</td>
+<td>43</td>
+<td>64 位 位与</td>
+</tr>
+<tr>
+<td>or-w64</td>
+<td>44</td>
+<td>64 位  位或</td>
+</tr>
+<tr>
+<td>xor-w64</td>
+<td>45</td>
+<td>64 位 位异或</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>andl-w32</td>
+<td>46</td>
+<td>32 位 逻辑与</td>
+</tr>
+<tr>
+<td>orl-w32</td>
+<td>47</td>
+<td>32 位 逻辑或</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-int32</td>
+<td>48</td>
+<td>src &lt; src2 : des=-1</td>
+</tr>
+<tr>
+<td>cmp-uint32</td>
+<td>49</td>
+<td>src == src2 : des=0</td>
+</tr>
+<tr>
+<td>cmp-int64</td>
+<td>50</td>
+<td>src &gt; src2 : des=1</td>
+</tr>
+<tr>
+<td>cmp-uint64</td>
+<td>51</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-flt32</td>
+<td>52</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-flt64</td>
+<td>53</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="二地址操作">二地址操作</h4>
+<p>二地址文本格式： op.sub des,src</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作子码</th>
+<th>目的寄存器</th>
+<th>源寄存器</th>
+<th>源操作数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>指令宽度：32 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>math-I8</td>
+<td></td>
+<td>sub</td>
+<td>des</td>
+<td>src</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>指令宽度：48 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>math-I16</td>
+<td></td>
+<td>sub</td>
+<td>des</td>
+<td>src</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="子码定义-1">子码定义</h4>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>not-w32</td>
+<td>0</td>
+<td>32 位 按位取反</td>
+</tr>
+<tr>
+<td>not-w64</td>
+<td>1</td>
+<td>64 位 按位取反</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>inv-w32</td>
+<td>2</td>
+<td>32 位 逻辑取反</td>
+</tr>
+<tr>
+<td>inv-w64</td>
+<td>3</td>
+<td>64 位 逻辑取反</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>neg-int32</td>
+<td>4</td>
+<td>32 位 符号取反</td>
+</tr>
+<tr>
+<td>neg-int64</td>
+<td>5</td>
+<td>64 位 符号取反</td>
+</tr>
+<tr>
+<td>neg-flt32</td>
+<td>6</td>
+<td>32 位 符号取反</td>
+</tr>
+<tr>
+<td>neg-flt64</td>
+<td>7</td>
+<td>64 位 符号取反</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>abs-int32</td>
+<td>8</td>
+<td>32 位 取绝对值</td>
+</tr>
+<tr>
+<td>abs-int64</td>
+<td>9</td>
+<td>64 位 取绝对值</td>
+</tr>
+<tr>
+<td>abs-flt32</td>
+<td>10</td>
+<td>32 位 取绝对值</td>
+</tr>
+<tr>
+<td>abs-flt64</td>
+<td>11</td>
+<td>64 位 取绝对值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sin-flt32</td>
+<td>12</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>cos-flt32</td>
+<td>13</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>tan-flt32</td>
+<td>14</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>asin-flt32</td>
+<td>15</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>acos-flt32</td>
+<td>16</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>atan-flt32</td>
+<td>17</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sin-flt64</td>
+<td>18</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>cos-flt64</td>
+<td>19</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>tan-flt64</td>
+<td>20</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>asin-flt64</td>
+<td>21</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>acos-flt64</td>
+<td>22</td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td>atan-flt64</td>
+<td>23</td>
+<td>三角函数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="跳转指令">跳转指令</h3>
+<h4 id="直接跳转指令">直接跳转指令</h4>
+<p>文本格式： goto imm</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>对齐</th>
+<th>立即数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td></td>
+<td>8 bit</td>
+<td>指令宽度： 16 bit</td>
+</tr>
+<tr>
+<td>goto8</td>
+<td></td>
+<td></td>
+<td>imm</td>
+<td>8 bit有符号偏移</td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>指令宽度： 32 bit</td>
+</tr>
+<tr>
+<td>goto16</td>
+<td></td>
+<td></td>
+<td>imm</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>32 bit</td>
+<td>指令宽度： 48 bit</td>
+</tr>
+<tr>
+<td>goto32</td>
+<td></td>
+<td></td>
+<td>imm</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="分支跳转指令">分支跳转指令</h4>
+<h5 id="文本格式">文本格式</h5>
+<pre><code>jbr src,src2,imm
+jbr src,imm
+</code></pre>
+<ul>
+<li>类型编码：标识操作数的类型。</li>
+<li>操作子码：标识比较方法。</li>
+<li>和 0 比较时，无源操作数 src2。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作子码</th>
+<th>类型码</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>立即数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>4 bit</td>
+<td>4 bit</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>指令宽度： 32 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>32 bit</td>
+<td>指令宽度： 32 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>指令宽度： 32 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>32 bit</td>
+<td>指令宽度： 32 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td>imm</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="操作子码">操作子码</h5>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eq</td>
+<td>0</td>
+<td>if( src == src2 ) goto imm</td>
+</tr>
+<tr>
+<td>ne</td>
+<td>1</td>
+<td>if( src != src2 ) goto imm</td>
+</tr>
+<tr>
+<td>lt</td>
+<td>2</td>
+<td>if( src &lt; src2 ) goto imm</td>
+</tr>
+<tr>
+<td>le</td>
+<td>3</td>
+<td>if( src &lt;= src2 ) goto imm</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>4</td>
+<td>if( src &gt; src2 ) goto imm</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>5</td>
+<td>if( src &gt;= src2 ) goto imm</td>
+</tr>
+<tr>
+<td>eqz</td>
+<td>6</td>
+<td>if( src == 0 ) goto imm</td>
+</tr>
+<tr>
+<td>nez</td>
+<td>7</td>
+<td>if( src != 0 ) goto imm</td>
+</tr>
+<tr>
+<td>ltz</td>
+<td>8</td>
+<td>if( src &lt; 0 ) goto imm</td>
+</tr>
+<tr>
+<td>lez</td>
+<td>9</td>
+<td>if( src &lt;= 0 ) goto imm</td>
+</tr>
+<tr>
+<td>gtz</td>
+<td>10</td>
+<td>if( src &gt; 0 ) goto imm</td>
+</tr>
+<tr>
+<td>gez</td>
+<td>11</td>
+<td>if( src &gt;= 0 ) goto imm</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>： 和 0 比较时，无源操作数 src2。</p>
+<h5 id="类型码">类型码</h5>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int32</td>
+<td>0</td>
+<td>32 位有符号比较</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>1</td>
+<td>32 位无符号比较</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>2</td>
+<td>64 位有符号比较</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>3</td>
+<td>64 位无符号比较</td>
+</tr>
+<tr>
+<td>flt32</td>
+<td>4</td>
+<td>32 位浮点数比较</td>
+</tr>
+<tr>
+<td>flt64</td>
+<td>5</td>
+<td>64 位浮点数比较</td>
+</tr>
+</tbody>
+</table>
+<h3 id="返回指令">返回指令</h3>
+<p>文本格式： op src
+op imm</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作子码</th>
+<th>立即数码</th>
+<th>源操作数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td></td>
+<td></td>
+<td>8 bit</td>
+<td>指令宽度： 16 bit</td>
+</tr>
+<tr>
+<td>return-void</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>无参数返回</td>
+</tr>
+<tr>
+<td>return-w32-I8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>返回 32 bit 值</td>
+</tr>
+<tr>
+<td>return-w64-I8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>返回 64 bit 值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>4 bit</td>
+<td>4 bit</td>
+<td>16/32/64 bit</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="操作子码-1">操作子码</h5>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I16</td>
+<td>0</td>
+<td>寄存器索引16位</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>1</td>
+<td>立即数转换到32位有符号整数</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>2</td>
+<td>立即数转换到32位有符号整数</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>3</td>
+<td>立即数转换到32位有符号整数</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>4</td>
+<td>立即数转换到32位有符号整数</td>
+</tr>
+<tr>
+<td>flt32</td>
+<td>5</td>
+<td>立即数转换到32位有符号整数</td>
+</tr>
+<tr>
+<td>flt64</td>
+<td>6</td>
+<td>立即数转换到32位有符号整数</td>
+</tr>
+</tbody>
+</table>
+<h5 id="立即数码">立即数码</h5>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作子码</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B16</td>
+<td>0</td>
+<td>16 位立即数</td>
+</tr>
+<tr>
+<td>B32</td>
+<td>1</td>
+<td>32 位立即数</td>
+</tr>
+<tr>
+<td>B64</td>
+<td>2</td>
+<td>64 位立即数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="函数调用指令">函数调用指令</h3>
+<h4 id="不固定参数调用">不固定参数调用</h4>
+<p>文本格式：op argcnt, arg,arg2,&hellip;,func</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>参数个数</th>
+<th>参数寄存器</th>
+<th>函数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>32 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>invoke-virtual-nofix</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用虚函数</td>
+</tr>
+<tr>
+<td>invoke-direct-nofix</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>直接调用函数</td>
+</tr>
+<tr>
+<td>invoke-static-nofix</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用静态函数</td>
+</tr>
+<tr>
+<td>invoke-interface-nofix</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用接口函数</td>
+</tr>
+<tr>
+<td>invoke-native-nofix</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用C语言函数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="范围参数调用">范围参数调用</h4>
+<p>文本格式：op argcnt,start, end,func</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>参数个数</th>
+<th>起始寄存器</th>
+<th>结束寄存器索引</th>
+<th>函数</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>16 bit</td>
+<td>32 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>invoke-virtual-range</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用虚函数</td>
+<td></td>
+</tr>
+<tr>
+<td>invoke-direct-range</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>直接调用函数</td>
+<td></td>
+</tr>
+<tr>
+<td>invoke-static-range</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用静态函数</td>
+<td></td>
+</tr>
+<tr>
+<td>invoke-interface-range</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用接口函数</td>
+<td></td>
+</tr>
+<tr>
+<td>invoke-native-range</td>
+<td></td>
+<td>argcnt</td>
+<td>arg&hellip;</td>
+<td>func</td>
+<td>调用C语言函数</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="获取返回值指令">获取返回值指令</h3>
+<p>文本格式：op des</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>对齐</th>
+<th>源寄存器</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td></td>
+<td>8 bit</td>
+<td>指令宽度： 16 bit</td>
+</tr>
+<tr>
+<td>get-result-w32-I8</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取32位返回值</td>
+</tr>
+<tr>
+<td>get-result-w64-I8</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取64位返回值</td>
+</tr>
+<tr>
+<td>get-result-obj-I8</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取对象返回值</td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>指令宽度： 32 bit</td>
+</tr>
+<tr>
+<td>get-result-w32-I16</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取32位返回值</td>
+</tr>
+<tr>
+<td>get-result-w64-I16</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取64位返回值</td>
+</tr>
+<tr>
+<td>get-result-obj-I16</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取对象返回值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="异常处理指令">异常处理指令</h3>
+<p>文本格式：op des</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>对齐</th>
+<th>源寄存器</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td></td>
+<td>8 bit</td>
+<td>指令宽度： 16 bit</td>
+</tr>
+<tr>
+<td>get-exception-I8</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取异常对象</td>
+</tr>
+<tr>
+<td>throw-I8</td>
+<td></td>
+<td>src</td>
+<td>抛出异常对象</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>8 bit</td>
+<td>16 bit</td>
+<td>指令宽度： 32 bit</td>
+</tr>
+<tr>
+<td>get-exception-I16</td>
+<td></td>
+<td></td>
+<td>des</td>
+<td>获取异常对象</td>
+</tr>
+<tr>
+<td>throw-I16</td>
+<td></td>
+<td>src</td>
+<td>抛出异常对象</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="3-基于栈和寄存器的指令集">3 基于栈和寄存器的指令集</h1>
+
+<p>本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。</p>
+<p>其类似与硬件指令集，可作为编译器后端指令系统目标，用于提供类似硬件指令系统环境，避免编译原理初学者陷入对硬件指令系统不了解的深渊。
+降低学习难度，提高学习效率。</p>
+<p>这类指令的主要特点如下：</p>
+<ul>
+<li>1 寄存器的数量固定；</li>
+<li>2 指令所操作的寄存器数量固定；</li>
+<li>3 指令的含义简单；</li>
+</ul>
+<h2 id="1-寄存器">1 寄存器</h2>
+<p>虚拟机的寄存器分为三种：</p>
+<ul>
+<li>1 整数寄存器：主要用于整数运算，位宽为 64 bit，根据指令的含义可选择 32 bit 和 64 bit 运算模式。</li>
+<li>2 浮点寄存器：主要用于浮点数运算，位宽为 64 bit，和通用寄存器一致，可选择位宽模式。</li>
+<li>3 系统寄存器：对用户不可见，与虚拟机运行系统相关，对其进行操作隐藏在相关指令的实现细节中。</li>
+<li>4 根据指令格式，整数寄存器、浮点寄存器最多可以有32个。</li>
+</ul>
+<h2 id="2-指令格式">2 指令格式</h2>
+<p>每条指令是 32bit 大小对齐的，其中最低 9bit 是操作码，其余23bit作为操作数或者操作码的补充。如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>操作数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>23 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="21-格式1">2.1 格式1</h3>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>操作数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>23 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-格式2">2.2 格式2</h3>
+<p>多数指令使用此格式。</p>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-格式3">2.3 格式3</h3>
+<p>该格式主要用于比较指令后的三元选择赋值操作。</p>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>3 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-格式4">2.4 格式4</h3>
+<p>当指令中需要使用立即数时，且在指令中没有足够的空间可以存储时，可以使用指令后跟32bit对齐的立即数操作数。</p>
+<ul>
+<li>32bit立即数：32bit 指令跟 1 个 32bit 立即数，虚拟机解析执行时，按照指令表达的语义参与运算。</li>
+<li>64bit立即数：32bit 指令跟 2 个 32bit 立即数，虚拟机解析执行时，按照指令表达的语义，组合成 64bit，后参与运算。</li>
+<li>其他位宽的立即数类似。</li>
+</ul>
+<p>格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>立即数 1</th>
+<th>立即数 2</th>
+<th>&hellip;</th>
+<th>立即数 n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>32 bit</td>
+<td>32 bit</td>
+<td>32 bit</td>
+<td>&hellip;</td>
+<td>32 bit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-寄存器与寄存器---指令集">3 寄存器与寄存器&mdash;指令集</h2>
+<h3 id="31-空指令">3.1 空指令</h3>
+<p>空指令一般用于对齐，在本指令集中没有特殊含义，执行空操作。</p>
+<p>格式如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+</tr>
+<tr>
+<td>Nop</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-算术运算">3.2 算术运算</h3>
+<p>算术运算包含 +、-、*、/、%，支持的运算类型有 int32、uint32、int64、uint64、flt32、flt64。</p>
+<ul>
+<li>文本格式： op des,src,src2</li>
+<li>指令含义：des = src op src2</li>
+<li>子操作码：可以用于将运算结果进行截断、扩展。</li>
+<li>助记符后缀的数字(32、64)标识指令运算使用的寄存器位宽。</li>
+<li>助记符后缀的 i 表示进行有符号运算。</li>
+<li>助记符后缀的 u 表示进行无符号运算。</li>
+<li>助记符后缀的 f 表示进行有符号运算。</li>
+</ul>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-位运算">3.2 位运算</h3>
+<p>位运算包括位相关的与、或、非、异或、移位、取反等运算。</p>
+<p>支持的运算类型有 uint32、uint64。</p>
+<ul>
+<li>文本格式： op des,src,src2</li>
+<li>指令含义：des = src op src2</li>
+<li>子操作码：可以用于将运算结果进行截断、扩展。</li>
+<li>i32：表示进行 32bit 的位运算。</li>
+<li>i64：表示进行 64bit 的位运算。</li>
+<li>位运算都是看作无符号运算。</li>
+</ul>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sl-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sr-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sra-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>and-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>or-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xor-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>andn-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>orn-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xorn-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>not-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sl-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sr-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sra-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>and-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>or-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xor-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>andn-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>orn-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xorn-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>not-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-逻辑比较">3.3 逻辑比较</h3>
+<p>逻辑比较运算包括：&lt;、&gt;、&lt;=、&gt;=、==、!=、 ==0、！=0.
+支持的运算类型有 int32、uint32、int64、uint64、flt32\flt64。</p>
+<ul>
+<li>文本格式： op des,src,src2</li>
+<li>指令含义：des = src op src2</li>
+<li>子操作码：可以用于标识比较的方法。</li>
+<li>比较的结果，存储在整数寄存器中，且使用位宽 64 bit，即des是整数寄存器。</li>
+</ul>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td></td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>le</td>
+<td></td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>gt</td>
+<td></td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>ge</td>
+<td></td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>eq</td>
+<td></td>
+<td>==</td>
+</tr>
+<tr>
+<td>ne</td>
+<td></td>
+<td>!=</td>
+</tr>
+<tr>
+<td>ez</td>
+<td></td>
+<td>==0，此时没有源操作数src2</td>
+</tr>
+<tr>
+<td>nz</td>
+<td></td>
+<td>!=0，此时没有源操作数src2</td>
+</tr>
+</tbody>
+</table>
+<p>当不使用操作子码，而是使用下面方式运算：</p>
+<ul>
+<li>src &lt; src2，设置des寄存器为 -1。</li>
+<li>src == src2，设置des寄存器为 0。</li>
+<li>src &gt; src2，设置des寄存器为 -1。</li>
+</ul>
+<h3 id="34-条件赋值">3.4 条件赋值</h3>
+<p>条件赋值指令使用比较指令的结果，对另外 2 个源操作数进行选择，传递个目标操作数。</p>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>3 bit</td>
+</tr>
+<tr>
+<td>sel-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>当比较系列指令使用操作子码方式时：</p>
+<ul>
+<li>cond == 0 ：des = src</li>
+<li>cond != 0 ：des = src2</li>
+</ul>
+<p>当比较系列指令不使用操作子码方式时，本系列指令要求使用操作子码进行判断：</p>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td></td>
+<td>&lt;  ：des = cond == -1 ? src : src2</td>
+</tr>
+<tr>
+<td>le</td>
+<td></td>
+<td>&lt;= ：des = cond &lt; 1 ? src : src2</td>
+</tr>
+<tr>
+<td>gt</td>
+<td></td>
+<td>&gt;  ：des = cond == 1 ? src : src2</td>
+</tr>
+<tr>
+<td>ge</td>
+<td></td>
+<td>&gt;= ：des = cond &gt; -1 ? src : src2</td>
+</tr>
+<tr>
+<td>eq</td>
+<td></td>
+<td>== ：des = cond == 0 ? src : src2</td>
+</tr>
+<tr>
+<td>ne</td>
+<td></td>
+<td>!= ：des = cond != 0 ? src : src2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35-赋值指令">3.5 赋值指令</h3>
+<p>此系列包括寄存器间赋值或类型转换。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mov</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>操作子码用于获取源操作数并转换到响应的类型。</p>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i8-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i8-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32_i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-bit-u32</td>
+<td></td>
+<td>位转换</td>
+</tr>
+<tr>
+<td>u32-bit-f32</td>
+<td></td>
+<td>位转换</td>
+</tr>
+<tr>
+<td>f64-bit-u64</td>
+<td></td>
+<td>位转换</td>
+</tr>
+<tr>
+<td>u64-bit-f64</td>
+<td></td>
+<td>位转换</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-加载存储指令">3.6 加载存储指令</h3>
+<p>此系列指令功能是从内存中读取、存储特定类型数据。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>load</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td>从基址内存中获取数据</td>
+</tr>
+<tr>
+<td>store</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>gload</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td>从全局内存中获取数据</td>
+</tr>
+<tr>
+<td>gstore</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="37-出入栈指令">3.7 出入栈指令</h3>
+<p>此系列指令用于将数据入栈，同时可以进行类型转换。
+注意：入栈数据应当进行 32bit 对齐。以加快虚拟机执行速度数据</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>push</td>
+<td></td>
+<td>des</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pop</td>
+<td></td>
+<td>des</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>操作子码定义如下：</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>助记符</td>
+<td>操作码</td>
+<td>含义</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="38-栈内存分配释放">3.8 栈内存分配释放</h3>
+<p>此系列指令用于栈内存分配释放。
+注意：立即数是无符号整数。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>立即数</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>grown</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>分配栈内存，将分配后的栈指针值传递到 des 寄存器</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td>释放栈内存，</td>
+<td></td>
+</tr>
+<tr>
+<td>shrunk</td>
+<td></td>
+<td>imm</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="39-跳转指令">3.9 跳转指令</h3>
+<ul>
+<li>跳转的偏移量是无符号整数值；</li>
+<li>相对于函数代码的起始地址；</li>
+<li>偏移量是偏移的指令条数；</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>立即数</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>jmp</td>
+<td></td>
+<td>imm</td>
+<td></td>
+<td>直接跳转</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>jmpx</td>
+<td></td>
+<td>reg</td>
+<td></td>
+<td>偏移量在 reg 寄存器中</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>jtab</td>
+<td></td>
+<td>reg</td>
+<td>imm</td>
+<td>reg 表示偏移量索引，imm表示偏移量数组中偏移数据条数，指令后面接 32 bit 对齐的偏移量数组</td>
+</tr>
+</tbody>
+</table>
+<h3 id="310-分支指令">3.10 分支指令</h3>
+<p>此系列指令用于条件分支跳转。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+<th>偏移立即数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+<td>32 bit</td>
+</tr>
+<tr>
+<td>jbr-i32</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-u32</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-i64</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-u64</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-f32</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-f64</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+</tbody>
+</table>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td></td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>le</td>
+<td></td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>gt</td>
+<td></td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>ge</td>
+<td></td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>eq</td>
+<td></td>
+<td>==</td>
+</tr>
+<tr>
+<td>ne</td>
+<td></td>
+<td>!=</td>
+</tr>
+<tr>
+<td>ez</td>
+<td></td>
+<td>==0，此时没有源操作数src2</td>
+</tr>
+<tr>
+<td>nz</td>
+<td></td>
+<td>!=0，此时没有源操作数src2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="311-函数指令">3.11 函数指令</h3>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>立即数</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td>32 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>call</td>
+<td></td>
+<td></td>
+<td>imm</td>
+<td>imm表示函数的偏移量或者是编号，看虚拟机的具体实现</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>callx</td>
+<td></td>
+<td>reg</td>
+<td></td>
+<td>reg 寄存器中保存函数的偏移量或者是编号，看虚拟机的具体实现</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ret</td>
+<td></td>
+<td></td>
+<td></td>
+<td>函数返回</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-寄存器与立即数--指令集">4 寄存器与立即数&ndash;指令集</h2>
+<p>待续</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第8章</div>
+<h1 id="8-语言定义">8 语言定义</h1>
+
+<p>air语言是C语法系的编程语言，提供面向对象、函数式、模板等高级语言功能。</p>
+<h2 id="目录">目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../3_compiler/8_langdef/1_langdef/index.html">1 语法定义</a></li>
+<li><a href="../3_compiler/8_langdef/2_codefile/index.html">2 代码结构</a></li>
+<li><a href="../3_compiler/8_langdef/3_keyword/index.html">3 关键字</a></li>
+<li><a href="../3_compiler/8_langdef/4_operator/index.html">4 操作符</a></li>
+<li><a href="../3_compiler/8_langdef/5_typesystem/index.html">5 类型系统</a></li>
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">8 语言定义 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="1-语法定义">1 语法定义</h1>
+
+<p>语法使用非严格的EBNF语法描述。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>文件单元
+FileUnit = PkgDef (ImportDef) Decl*
+
+包定义
+PkgDef = package ID (.ID)*
+
+依赖导入(可选)
+ImportDef = &#39;import&#39; STRING as ID; |&#39;{&#39; (STRING as ID; )* &#39;}&#39;
+声明定义
+Decl = ScopeDecl | VarDecl | FuncDecl | EnumDecl | StructDecl | UnionDecl | InterfaceDecl | ClassDecl | EntrustDecl | ~
+
+表达式
+Exp = BaseExp | DotExp | UnaryExp | BinaryExp | TernaryExp | NewExp | PriorityExp
+
+基础表达式
+BaseExp = IDExp | ConstExp | CallExp | ArrarExp | ThisExp | SuperExp
+IDExp = ID
+ConstExp = c
+CallExp = ID &#39;(&#39; ArgList&#39;)&#39;
+ArrarExp = ID &#39;[&#39; Exp &#39;]&#39;
+ThisExp = &#39;this&#39;
+SuperExp = &#39;super&#39;
+
+成员访问表达式
+DotExp = BaseExp ( &#39;.&#39; BaseExp)*  //BaseExp不得是ConstExp
+
+一元表达式
+UnaryExp = UnaryOP BaseExp
+UnaryOP = &#39;-&#39; | &#39;+&#39; | &#39;--&#39; | &#39;++&#39; | &#39;~&#39; | &#39;!&#39;
+二元表达式
+BinaryExp = Exp BinaryOP Exp
+BinaryOP = &#39;+&#39; | &#39;-&#39; | &#39;*&#39; | &#39;/&#39; | &#39;%&#39; |
+            &#39;&amp;&#39; | &#39;|&#39; | &#39;&amp;&amp;&#39; | &#39;||&#39; |
+            &#39;&lt;&lt;&#39; | &#39;&gt;&gt;&#39; | &#39;&gt;&gt;&gt;&#39; |
+            &#39;&lt;&#39; | &#39;&gt;&#39; | &#39;&lt;=&#39; | &#39;&gt;=&#39; |
+            &#39;==&#39; | &#39;!=&#39; | &#39;=&#39; |
+            
+三元表达式
+TernaryExp = Exp &#39;?&#39; Exp &#39;:&#39; Exp
+
+括号表达式
+PriorityExp = &#39;(&#39; Exp &#39;)&#39;
+
+作用域声明
+ScopeDecl = ( &#39;public&#39; | &#39;protected&#39; | &#39;private&#39; ) &#39;:&#39;
+
+变量声明
+VarDecl = Scope Type &#39;id&#39; [=initExp] &#39;;&#39;
+Scope = [&#39;public&#39; | &#39;protected&#39; | &#39;private&#39;| &#39;extern&#39; | &#39;static&#39;] 
+Type = [&#39;const&#39; ] &#39;id&#39;( &#39;.&#39; &#39;id&#39;)*
+
+代理变量
+Scope Type &#39;id&#39;&#39;(&#39; [ arglist] &#39;)&#39; &#39;delegate&#39; &#39;;&#39;
+
+闭包变量
+Scope Type &#39;id&#39;&#39;(&#39; [ arglist] &#39;)&#39; &#39;closure&#39; &#39;;&#39;
+
+函数申明
+VarDecl = Scope Type &#39;id&#39;&#39;(&#39; [ arglist] &#39;)&#39;[@override] [@cfun] [const] [final] (&#39;;&#39; |  funbody )
+arglist = argitem (&#39;,&#39; argitem)*
+argitem = type [&#39;id&#39;]
+funbody = BlkState
+BlkState = &#39;{&#39; [Statement] &#39;}&#39;
+Statement = ( BlkState | ExpState | IfState | ElseifState |
+			ElseState | SwitchState | ForState | DoState |
+			WhileState | GotoState | BreakState | ContinueState |
+			ReturnState )*
+	
+
+TypeDecl = EnumDecl | StructDecl |  UnionDecl |EntrustDecl
+FuncDecl = Type &#39;id&#39;&#39;(&#39; [ arglist] &#39;)&#39; &#39;=&#39; Serial
+	Serial = &#39;u32&#39;
+	枚举声明
+	EnumDecl = &#39;enum&#39; id [: BaseType]&#39;{&#39; EnumItem* &#39;}&#39;
+	BaseType = 基本整数类型
+	EnumItem = &#39;id&#39;[=initExp] &#39;,&#39;</code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="2-代码结构">2 代码结构</h1>
+
+<p>每一个文件都必须定义一个作用域名，其他内容在此作用域定义。</p>
+<p>生成的声明符号都在该作用域内，只能通过该作用域才能访问代码文件中声明的符号内容。</p>
+<h2 id="代码结构">代码结构</h2>
+<h3 id="包声明">包声明</h3>
+<pre><code>package pkg.pkg2;
+</code></pre>
+<h3 id="依赖单元">依赖单元</h3>
+<pre><code>Import file=“dir/file.ext” as file ;
+</code></pre>
+<p>或者</p>
+<pre><code>Import{
+
+	 ile=“dir/file.ext” as file ;
+	 ile2=“dir/file2.ext” as file2  ;
+}
+</code></pre>
+<h3 id="枚举定义">枚举定义</h3>
+<pre><code>enum name : int32{
+    item=0,
+    item2=23,
+    …
+}
+</code></pre>
+<h3 id="结构体定义">结构体定义</h3>
+<pre><code>Struct name{
+	Int32 i32;
+	Union{
+		Int32 s32;
+		Flt32 f32;
+    }
+}
+</code></pre>
+<h3 id="联合体定义">联合体定义</h3>
+<pre><code>Union name{
+	Int32 s32;
+	Flt32 f32;
+	Struct{…}
+}
+</code></pre>
+<h3 id="接口定义">接口定义</h3>
+<pre><code>Interface IFather{
+    void eat(int32 arg);
+}
+Interface IFather2{
+    void say(int32 arg);
+}
+Interface IChild :[ IFather,IFather2 ]{
+    void walk(int32 arg);
+}
+</code></pre>
+<h3 id="类定义">类定义</h3>
+<pre><code>Class Parent {
+Private:
+        Int32 mI32;
+Public	Flt32 mF32;
+Public:
+    Void print(){}
+Protected void toString(){}
+    Virtual void vfun()=0;
+}
+
+Class child: Parent :[ IChild ]{
+    void eat(int32 arg) @override{}
+    void say(int32 arg) @override{}
+    void walk(int32 arg) @override{}
+    void vfun()@override{}
+}</code></pre>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="3-关键字">3 关键字</h1>
+
+<p>airlang 的关键字分为两种：普通关键字，宏关键字。
+两者差别不大，但是宏关键字有特殊的标记作用，一般用于注解一些信息。</p>
+<h2 id="宏关键字">宏关键字</h2>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@file</td>
+<td>代码中获取文件的名称字符串</td>
+</tr>
+<tr>
+<td>@line</td>
+<td>代码中获取代码所作行号数字</td>
+</tr>
+<tr>
+<td>@func</td>
+<td>代码中获取函数声明字符串</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>@debug</td>
+<td>用于标记只在debug标志下启用的代码</td>
+</tr>
+<tr>
+<td>@NotNulptr</td>
+<td>用于标记需要检查函数的指针参数非空</td>
+</tr>
+<tr>
+<td>@override</td>
+<td>标记非静态成员函数是重写父类的函数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="普通关键字">普通关键字</h2>
+<table>
+<thead>
+<tr>
+<th>固定位宽类型关键字</th>
+<th>注解</th>
+<th>位宽(bit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td>空，一般用于表示无返回值</td>
+<td>0</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>布尔类型</td>
+<td>8</td>
+</tr>
+<tr>
+<td>flt32</td>
+<td>32位单精度浮点</td>
+<td>32</td>
+</tr>
+<tr>
+<td>flt64</td>
+<td>64位双精度浮点</td>
+<td>32</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>8位有符号整数</td>
+<td>8</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>8位有符号整数</td>
+<td>16</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>8位有符号整数</td>
+<td>32</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>8位有符号整数</td>
+<td>64</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>8位无符号整数</td>
+<td>8</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>16位无符号整数</td>
+<td>16</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>32位无符号整数</td>
+<td>32</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>64位无符号整数</td>
+<td>64</td>
+</tr>
+<tr>
+<td>char</td>
+<td>字符</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>可变位宽类型的位宽由编译的目标CPU架构有关。</p>
+<table>
+    <th>可变位宽类型关键字</th><th>注解</th><th>CPU32</th><th>CPU64</th>
+    <tr>
+    <td>sint</td><td>有符号整数 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>uint</td><td>无符号整数 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>uintptr</td><td>指针 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>cstring</td><td>字符串指针 </td><td>32</td><td>64</td>
+    </tr>
+</table>
+<table>
+<thead>
+<tr>
+<th>修饰关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>static</td>
+<td>静态</td>
+</tr>
+<tr>
+<td>public</td>
+<td>完全公开的</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>对部分成员公开的</td>
+</tr>
+<tr>
+<td>private</td>
+<td>私有的 成员</td>
+</tr>
+<tr>
+<td>const</td>
+<td>常量化，只读</td>
+</tr>
+<tr>
+<td>friend</td>
+<td>友元定义</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>分支关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>if</td>
+<td>比较分支</td>
+</tr>
+<tr>
+<td>elsif</td>
+<td>次比较分支</td>
+</tr>
+<tr>
+<td>else</td>
+<td>比较默认分支</td>
+</tr>
+<tr>
+<td>for</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>foreach</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>while</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>do</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>break</td>
+<td>跳出循环</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>继续下一轮循环</td>
+</tr>
+<tr>
+<td>goto</td>
+<td>跳转到标签</td>
+</tr>
+<tr>
+<td>return</td>
+<td>函数返回</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>类型定义关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enum</td>
+<td>枚举</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>结构体</td>
+</tr>
+<tr>
+<td>union</td>
+<td>联合体</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>接口</td>
+</tr>
+<tr>
+<td>class</td>
+<td>类</td>
+</tr>
+<tr>
+<td>entrust</td>
+<td>委托指针</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>其他关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>nullptr</td>
+<td></td>
+</tr>
+<tr>
+<td>this</td>
+<td></td>
+</tr>
+<tr>
+<td>super</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="4-操作符">4 操作符</h1>
+
+<h2 id="成员访问操作符">成员访问操作符</h2>
+<p>成员访问操作符的优先级最高。</p>
+<table>
+<thead>
+<tr>
+<th>成员访问操作符</th>
+<th>优先级</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>0</td>
+<td>成员访问</td>
+</tr>
+<tr>
+<td>.?</td>
+<td>0</td>
+<td>带null检查的成员访问</td>
+</tr>
+</tbody>
+</table>
+<h2 id="一元操作符">一元操作符</h2>
+<p>一元操作符优先级一致，主要查看其声明的先后顺序。</p>
+<table>
+<thead>
+<tr>
+<th>一元操作符</th>
+<th>优先级</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~</td>
+<td>-10</td>
+<td>按位取反</td>
+</tr>
+<tr>
+<td>!</td>
+<td>-10</td>
+<td>逻辑取反</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-10</td>
+<td>符号取反</td>
+</tr>
+<tr>
+<td>+</td>
+<td>-10</td>
+<td>取绝对值</td>
+</tr>
+<tr>
+<td>++</td>
+<td>-10</td>
+<td>自增</td>
+</tr>
+<tr>
+<td>--</td>
+<td>-10</td>
+<td>自减</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二元操作符">二元操作符</h2>
+<p>在语法解析表达式中，二元表达式最复杂的。</p>
+<table>
+<thead>
+<tr>
+<th>二元操作符</th>
+<th>优先级</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>-20</td>
+<td>乘运算操作符</td>
+</tr>
+<tr>
+<td>/</td>
+<td>-20</td>
+<td>除运算操作符</td>
+</tr>
+<tr>
+<td>%</td>
+<td>-20</td>
+<td>模运算操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>+</td>
+<td>-30</td>
+<td>加运算操作符</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-30</td>
+<td>减运算操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>-40</td>
+<td>左移操作符</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>-40</td>
+<td>逻辑右移操作符</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td>-40</td>
+<td>算术右移操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>-50</td>
+<td>小于操作符</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>-50</td>
+<td>小于等于操作符</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>-50</td>
+<td>大于于操作符</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>-50</td>
+<td>大于等于操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>==</td>
+<td>-60</td>
+<td>等于操作符</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>-60</td>
+<td>不等于操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>-70</td>
+<td>位与操作符</td>
+</tr>
+<tr>
+<td>^</td>
+<td>-71</td>
+<td>位异或操作符</td>
+</tr>
+<tr>
+<td>|</td>
+<td>-72</td>
+<td>位或操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>-80</td>
+<td>逻辑与操作符</td>
+</tr>
+<tr>
+<td>||</td>
+<td>-81</td>
+<td>逻辑或操作符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三元操作符">三元操作符</h2>
+<p>三元操作符主要用于比较赋值、简单的比较分支操作。</p>
+<table>
+<thead>
+<tr>
+<th>三元操作符</th>
+<th>优先级</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>? :</td>
+<td>-90</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="赋值操作符">赋值操作符</h2>
+<p>赋值类操作符的优先级一致，优先级最低。</p>
+<table>
+<thead>
+<tr>
+<th>赋值操作符</th>
+<th>优先级</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>-100</td>
+<td>赋值操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>*=</td>
+<td>-100</td>
+<td>乘运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>-100</td>
+<td>除运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>-100</td>
+<td>模运算复合赋值操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>+=</td>
+<td>-100</td>
+<td>加运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>-100</td>
+<td>减运算复合赋值操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>-100</td>
+<td>位与运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>=</td>
+<td>-100</td>
+<td>位或运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>-100</td>
+<td>位异或运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>~=</td>
+<td>-100</td>
+<td>位取反运算复合赋值操作符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>-100</td>
+<td>左移运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>-100</td>
+<td>逻辑右移运算复合赋值操作符</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;=</td>
+<td>-100</td>
+<td>算术右移运算复合赋值操作符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他操作符">其他操作符</h2>
+<p>括号表达式中的括号操作符，用于提升表达式的优先级，在算符优先解析算法，该系列是作为基本表达式进行解析的。</p>
+<table>
+<thead>
+<tr>
+<th>括号操作符</th>
+<th>优先级</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>（）</td>
+<td>-10</td>
+<td>括号操作符</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>-10</td>
+<td>数组下标</td>
+</tr>
+<tr>
+<td>cast</td>
+<td>-10</td>
+<td>静态类型转换</td>
+</tr>
+<tr>
+<td>dyn_cast</td>
+<td>-10</td>
+<td>动态类型转换</td>
+</tr>
+<tr>
+<td>()</td>
+<td>-10</td>
+<td>函数调用</td>
+</tr>
+</tbody>
+</table>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="5-类型系统">5 类型系统</h1>
+
+<h2 id="基本类型">基本类型</h2>
+<table>
+<thead>
+<tr>
+<th>固定位宽类型</th>
+<th>注解</th>
+<th>位宽(bit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td>空，一般用于表示无返回值</td>
+<td>&mdash;</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>布尔类型</td>
+<td>8</td>
+</tr>
+<tr>
+<td>flt32</td>
+<td>32位单精度浮点</td>
+<td>32</td>
+</tr>
+<tr>
+<td>flt64</td>
+<td>64位双精度浮点</td>
+<td>32</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>8位有符号整数</td>
+<td>8</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>8位有符号整数</td>
+<td>16</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>8位有符号整数</td>
+<td>32</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>8位有符号整数</td>
+<td>64</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>8位无符号整数</td>
+<td>8</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>16位无符号整数</td>
+<td>16</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>32位无符号整数</td>
+<td>32</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>64位无符号整数</td>
+<td>64</td>
+</tr>
+<tr>
+<td>char</td>
+<td>字符</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>可变位宽类型的位宽由编译的目标CPU架构有关。</p>
+<table>
+    <th>可变位宽类型</th><th>注解</th><th>CPU32</th><th>CPU64</th>
+    <tr>
+    <td>sint</td><td>有符号整数 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>uint</td><td>无符号整数 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>uintptr</td><td>指针 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>cstring</td><td>字符串指针 </td><td>32</td><td>64</td>
+    </tr>
+</table>
+<h2 id="枚举类型">枚举类型</h2>
+<p>枚举定义只能是定义整数类的值，其占用的字节数、有无符号性，通过基类标识指定。</p>
+<p>如下所示：</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">enum</span> <span class="nc">Color</span><span class="o">:</span><span class="n">uint32</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Red</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Black</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h2 id="结构体">结构体</h2>
+<p>结构体在airlang中是值类型，不会进入GC系统，除通过API分配独立的堆内存。</p>
+<p>一般用于构成类中的共同属性。</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Vec2</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">int32</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">int32</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Vec3</span> <span class="o">:</span><span class="n">Vec2</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">int32</span> <span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h2 id="联合体">联合体</h2>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">union</span> <span class="nc">Int32</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">int32</span> <span class="n">i32</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">int8</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">v4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h2 id="接口">接口</h2>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">interface</span> <span class="n">IEvent</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">eat</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h2 id="类">类</h2>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Parent</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="n">int32</span> <span class="n">i32</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kt">void</span> <span class="nf">doing</span><span class="p">(){}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Child</span> <span class="o">:</span><span class="n">Parent</span> <span class="o">&lt;</span><span class="n">IEvent</span><span class="o">&gt;</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">int64</span> <span class="n">i64</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">eat</span><span class="p">()</span><span class="err">@</span><span class="k">override</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h2 id="委托">委托</h2>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">entrust</span> <span class="n">Func</span> <span class="o">=</span> <span class="kt">void</span> <span class="p">(</span><span class="n">int32</span><span class="p">,</span><span class="n">int64</span><span class="p">)</span><span class="err">@</span><span class="n">clang</span><span class="p">;</span></span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第9章</div>
+<h1 id="9-字节码文件格式">9 字节码文件格式</h1>
+
+<p>字节码文件的设计是虚拟机资源加载的核心，其中的设计会影响到虚拟机指令集的设计。</p>
+<h2 id="目录">目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第10章</div>
+<h1 id="10-虚拟机设计与实现">10 虚拟机设计与实现</h1>
+
+<p>虚拟机的设计与实现，其核心是指令集、字节码文件的设计，这两者包含了虚拟运行的机制。只有明白两者为什么这样设计，才能快速写出执行代码。</p>
+<h2 id="目录">目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="../js/clipboard.min.js?1696231135" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1696231135" defer></script>
+    <script src="../js/theme.js?1696231135" defer></script>
+  </body>
+</html>

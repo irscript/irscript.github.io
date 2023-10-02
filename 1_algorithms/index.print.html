@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Relearn 5.20.0">
+    <meta name="description" content="站在巨人的肩膀上">
+    <meta name="author" content="月明之都">
+    <title>算法 :: 巨人之海</title>
+    <link href="https://irscript.github.io/1_algorithms/index.html" rel="canonical" type="text/html" title="算法 :: 巨人之海">
+    <link href="../1_algorithms/index.xml" rel="alternate" type="application/rss+xml" title="算法 :: 巨人之海"><link rel="icon" href="../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../css/fontawesome-all.min.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../css/nucleus.css?1696231135" rel="stylesheet">
+    <link href="../css/auto-complete.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1696231135" rel="stylesheet">
+    <link href="../css/fonts.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fonts.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../css/theme.css?1696231135" rel="stylesheet">
+    <link href="../css/theme-auto.css?1696231135" rel="stylesheet" id="variant-style">
+    <link href="../css/variant.css?1696231135" rel="stylesheet">
+    <link href="../css/print.css?1696231135" rel="stylesheet" media="print">
+    <link href="../css/format-print.css?1696231135" rel="stylesheet">
+    <link href="../css/ie.css?1696231135" rel="stylesheet">
+    <script src="../js/url.js?1696231135"></script>
+    <script src="../js/variant.js?1696231135"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      window.index_js_url="../index.search.js";
+      var root_url="../";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = '复制到剪贴板';
+      window.T_Copied_to_clipboard = '复制到剪贴板！';
+      window.T_Copy_link_to_clipboard = '将链接复制到剪贴板';
+      window.T_Link_copied_to_clipboard = '链接复制到剪贴板！';
+      window.T_No_results_found = '找不到\u0022{0}\u0022的结果';
+      window.T_N_results_found = '为\u0022{0}\u0022找到 {1} 个结果';
+      // some further base stuff
+      var baseUriFull='https:\/\/irscript.github.io/';
+      window.variants && variants.init( [ 'auto', 'relearn-bright', 'relearn-light', 'relearn-dark', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+    </script>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../1_algorithms/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" class="topbar-link" title='导航 (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">算法</span><meta itemprop="position" content="2"></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="算法">算法</h1>
+
+<h2 id="目录">目录</h2>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../1_algorithms/1_align/index.html">1 整数对齐</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/2_hash/index.html">2 哈希函数</a><ul>
+	
+<li><a href="../1_algorithms/2_hash/1_md/index.html">1 消息摘要算法</a><ul>
+	
+<li><a href="../1_algorithms/2_hash/1_md/1_md2/index.html">1 MD2 算法</a></li>
+<li><a href="../1_algorithms/2_hash/1_md/2_md4/index.html">2 MD4 算法</a></li>
+<li><a href="../1_algorithms/2_hash/1_md/3_md5/index.html">3 MD5 算法</a></li></ul></li>
+<li><a href="../1_algorithms/2_hash/2_sha/index.html">2 签名算法</a><ul>
+	
+<li><a href="../1_algorithms/2_hash/2_sha/1_sha1/index.html">1 SHA1 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/2_sha2_224/index.html">2 SHA2-224 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/3_sha2_256/index.html">3 SHA2-256 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/4_sha2_384/index.html">4 SHA2-384 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/5_sha2_512/index.html">5 SHA2-512 算法</a></li></ul></li>
+<li><a href="../1_algorithms/2_hash/3_crc/index.html">3 CRC 哈希函数</a><ul>
+	</ul></li></ul></li>
+<li><a href="../1_algorithms/3_bitwise/index.html">3 位运算快速算法</a><ul>
+	
+<li><a href="../1_algorithms/3_bitwise/1_average/index.html">1 快速平均值</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/3_bitwise/2_bitfield/index.html">2 位域值提取</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/3_bitwise/3_intmaxmin/index.html">3 使用按位运算计算INT_MAX和INT_MIN</a><ul>
+	</ul></li></ul></li>
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">算法 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/align/index.html">Align</a>
+</div>
+            </header>
+<h1 id="1-整数对齐">1 整数对齐</h1>
+
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 向上大小对齐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">T</span> <span class="n">alignup</span><span class="p">(</span><span class="n">T</span> <span class="n">num</span><span class="p">,</span> <span class="n">T</span> <span class="n">base</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">num</span> <span class="o">+</span> <span class="n">base</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">base</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 向下大小对齐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">T</span> <span class="n">aligndown</span><span class="p">(</span><span class="n">T</span> <span class="n">num</span><span class="p">,</span> <span class="n">T</span> <span class="n">base</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">num</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">base</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span> <span class="p">}</span></span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="2-哈希函数">2 哈希函数</h1>
+
+<h2 id="目录">目录</h2>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../1_algorithms/2_hash/1_md/index.html">1 消息摘要算法</a><ul>
+	
+<li><a href="../1_algorithms/2_hash/1_md/1_md2/index.html">1 MD2 算法</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/2_hash/1_md/2_md4/index.html">2 MD4 算法</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/2_hash/1_md/3_md5/index.html">3 MD5 算法</a><ul>
+	</ul></li></ul></li>
+<li><a href="../1_algorithms/2_hash/2_sha/index.html">2 签名算法</a><ul>
+	
+<li><a href="../1_algorithms/2_hash/2_sha/1_sha1/index.html">1 SHA1 算法</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/2_hash/2_sha/2_sha2_224/index.html">2 SHA2-224 算法</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/2_hash/2_sha/3_sha2_256/index.html">3 SHA2-256 算法</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/2_hash/2_sha/4_sha2_384/index.html">4 SHA2-384 算法</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/2_hash/2_sha/5_sha2_512/index.html">5 SHA2-512 算法</a><ul>
+	</ul></li></ul></li>
+<li><a href="../1_algorithms/2_hash/3_crc/index.html">3 CRC 哈希函数</a><ul>
+	</ul></li>
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">2 哈希函数 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+</div>
+            </header>
+<h1 id="1-消息摘要算法">1 消息摘要算法</h1>
+
+<h2 id="简介">简介</h2>
+<p>MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。</p>
+<h2 id="md系列家族">MD系列家族</h2>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../1_algorithms/2_hash/1_md/1_md2/index.html">1 MD2 算法</a></li>
+<li><a href="../1_algorithms/2_hash/1_md/2_md4/index.html">2 MD4 算法</a></li>
+<li><a href="../1_algorithms/2_hash/1_md/3_md5/index.html">3 MD5 算法</a></li>
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">1 消息摘要算法 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/md/index.html">MD</a>
+</div>
+            </header>
+<h1 id="1-md2-算法">1 MD2 算法</h1>
+
+<p>原文来自：https://www.cnblogs.com/Kingfans/p/16546430.html</p>
+<h2 id="1-基本介绍">1 基本介绍</h2>
+<p>MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD2算法的实现原理。</p>
+<p>1989年，MD2是由著名的非对称算法RSA发明人之一–麻省理工学院教授罗纳德-里维斯特开发的；这个算法首先对信息进行数据补位，使信息的字节长度是16的倍数，再以16位的检验和作为补充信息追加到原信息的末尾。最后根据这个新产生的信息计算出一个128位的散列值，MD2算法由此诞生。</p>
+<h2 id="2-实现原理">2 实现原理</h2>
+<p>有关MD2 算法详情请参见 RFC 1319 <a href="http://www.ietf.org/rfc/rfc1319.txt" target="_blank">http://www.ietf.org/rfc/rfc1319.txt</a>，RFC 1319 是MD2算法的官方文档，其实现原理共分为5步：</p>
+<h3 id="第1步字节填充append-padding-bytes">第1步：字节填充(Append Padding Bytes)</h3>
+<p>填充1~16个字节，确保是16字节的倍数，填充规则如下：</p>
+<p>假设数据长度为m, 则需要填充16 - (m mod 16)个字节的数据，填充内容为16 - (m mod 16)。</p>
+<h3 id="第2步添加校验和append-checksum">第2步：添加校验和(Append Checksum)</h3>
+<p>根据下列算法计算校验和，并追加到第1步填充数据的后面。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>/* Clear checksum. */
+For i = 0 to 15 do:
+　　Set C[i] to 0.
+end /* of loop on i */
+
+Set L to 0.
+
+/* Process each 16-word block. */
+For i = 0 to N/16-1 do
+　　/* Checksum block i. */
+　　For j = 0 to 15 do
+　　　　Set c to M[i*16+j].
+　　　　Set C[j] to S[c xor L].
+　　　　Set L to C[j].
+　　end /* of loop on j */
+end /* of loop on i */</code></pre></div><h3 id="第3步初始化md-bufferinitialize-md-buffer">第3步：初始化MD Buffer(Initialize MD Buffer)</h3>
+<p>最简单不过了，定义一个48字节数组X并初始化为0。</p>
+<h3 id="第4步处理消息块process-message-in-16-byte-blocks">第4步：处理消息块(Process Message in 16-Byte Blocks)</h3>
+<p>这个是MD2算法最核心的部分了，对第2步组装数据进行分块依次处理。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>/* Process each 16-word block. */
+For i = 0 to N&#39;/16-1 do
+　　/* Copy block i into X. */
+　　For j = 0 to 15 do
+　　　　Set X[16+j] to M[i*16+j].
+　　　　Set X[32+j] to (X[16+j] xor X[j]).
+　　end /* of loop on j */
+
+　　Set t to 0.
+
+　　/* Do 18 rounds. */
+　　For j = 0 to 17 do
+　　　　/* Round j. */
+　　　　For k = 0 to 47 do
+　　　　　　Set t and X[k] to (X[k] xor S[t]).
+　　　　end /* of loop on k */
+　　　　Set t to (t+j) modulo 256.
+　　end /* of loop on j */
+end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
+<p>这一步也非常简单，只需要将计算后的X前16字节进行输出就可以了</p>
+<h2 id="3-示例讲解">3 示例讲解</h2>
+<p><a href="#image-7e1a6be8833450400e14241b45837caa" class="lightbox-link"><img src="../Hash/MD2_Case.png?width=60pc" alt="MD2案例" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-7e1a6be8833450400e14241b45837caa"><img src="../Hash/MD2_Case.png?width=60pc" alt="MD2案例" class="lightbox-image" loading="lazy"></a></p>
+<h2 id="4-代码实现">4 代码实现</h2>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define HASH_BLOCK_SIZE     16
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_DIGEST_SIZE    16
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_ROUND_NUM      18
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define MD2_CHECKSUM_SIZE   16
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define ASSERT_RETURN_INT(x, d) if(!(x)) { return d; }
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* The S Box of MD2 are generated from Pi digits.
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">S</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x29</span><span class="p">,</span> <span class="mh">0x2E</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0xC9</span><span class="p">,</span> <span class="mh">0xA2</span><span class="p">,</span> <span class="mh">0xD8</span><span class="p">,</span> <span class="mh">0x7C</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x3D</span><span class="p">,</span> <span class="mh">0x36</span><span class="p">,</span> <span class="mh">0x54</span><span class="p">,</span> <span class="mh">0xA1</span><span class="p">,</span> <span class="mh">0xEC</span><span class="p">,</span> <span class="mh">0xF0</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x13</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x62</span><span class="p">,</span> <span class="mh">0xA7</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">,</span> <span class="mh">0xF3</span><span class="p">,</span> <span class="mh">0xC0</span><span class="p">,</span> <span class="mh">0xC7</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">,</span> <span class="mh">0x8C</span><span class="p">,</span> <span class="mh">0x98</span><span class="p">,</span> <span class="mh">0x93</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0xD9</span><span class="p">,</span> <span class="mh">0xBC</span><span class="p">,</span> <span class="mh">0x4C</span><span class="p">,</span> <span class="mh">0x82</span><span class="p">,</span> <span class="mh">0xCA</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x1E</span><span class="p">,</span> <span class="mh">0x9B</span><span class="p">,</span> <span class="mh">0x57</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0xFD</span><span class="p">,</span> <span class="mh">0xD4</span><span class="p">,</span> <span class="mh">0xE0</span><span class="p">,</span> <span class="mh">0x16</span><span class="p">,</span> <span class="mh">0x67</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0x6F</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x8A</span><span class="p">,</span> <span class="mh">0x17</span><span class="p">,</span> <span class="mh">0xE5</span><span class="p">,</span> <span class="mh">0x12</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xBE</span><span class="p">,</span> <span class="mh">0x4E</span><span class="p">,</span> <span class="mh">0xC4</span><span class="p">,</span> <span class="mh">0xD6</span><span class="p">,</span> <span class="mh">0xDA</span><span class="p">,</span> <span class="mh">0x9E</span><span class="p">,</span> <span class="mh">0xDE</span><span class="p">,</span> <span class="mh">0x49</span><span class="p">,</span> <span class="mh">0xA0</span><span class="p">,</span> <span class="mh">0xFB</span><span class="p">,</span> <span class="mh">0xF5</span><span class="p">,</span> <span class="mh">0x8E</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0x2F</span><span class="p">,</span> <span class="mh">0xEE</span><span class="p">,</span> <span class="mh">0x7A</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xA9</span><span class="p">,</span> <span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x79</span><span class="p">,</span> <span class="mh">0x91</span><span class="p">,</span> <span class="mh">0x15</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x07</span><span class="p">,</span> <span class="mh">0x3F</span><span class="p">,</span> <span class="mh">0x94</span><span class="p">,</span> <span class="mh">0xC2</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x89</span><span class="p">,</span> <span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x5F</span><span class="p">,</span> <span class="mh">0x21</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x80</span><span class="p">,</span> <span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0x5D</span><span class="p">,</span> <span class="mh">0x9A</span><span class="p">,</span> <span class="mh">0x5A</span><span class="p">,</span> <span class="mh">0x90</span><span class="p">,</span> <span class="mh">0x32</span><span class="p">,</span> <span class="mh">0x27</span><span class="p">,</span> <span class="mh">0x35</span><span class="p">,</span> <span class="mh">0x3E</span><span class="p">,</span> <span class="mh">0xCC</span><span class="p">,</span> <span class="mh">0xE7</span><span class="p">,</span> <span class="mh">0xBF</span><span class="p">,</span> <span class="mh">0xF7</span><span class="p">,</span> <span class="mh">0x97</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0x19</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0xB3</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0xA5</span><span class="p">,</span> <span class="mh">0xB5</span><span class="p">,</span> <span class="mh">0xD1</span><span class="p">,</span> <span class="mh">0xD7</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x92</span><span class="p">,</span> <span class="mh">0x2A</span><span class="p">,</span> <span class="mh">0xAC</span><span class="p">,</span> <span class="mh">0x56</span><span class="p">,</span> <span class="mh">0xAA</span><span class="p">,</span> <span class="mh">0xC6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x4F</span><span class="p">,</span> <span class="mh">0xB8</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">,</span> <span class="mh">0xD2</span><span class="p">,</span> <span class="mh">0x96</span><span class="p">,</span> <span class="mh">0xA4</span><span class="p">,</span> <span class="mh">0x7D</span><span class="p">,</span> <span class="mh">0xB6</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0xFC</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0xE2</span><span class="p">,</span> <span class="mh">0x9C</span><span class="p">,</span> <span class="mh">0x74</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">,</span> <span class="mh">0xF1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x9D</span><span class="p">,</span> <span class="mh">0x70</span><span class="p">,</span> <span class="mh">0x59</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="mh">0x71</span><span class="p">,</span> <span class="mh">0x87</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x86</span><span class="p">,</span> <span class="mh">0x5B</span><span class="p">,</span> <span class="mh">0xCF</span><span class="p">,</span> <span class="mh">0x65</span><span class="p">,</span> <span class="mh">0xE6</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0xA8</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x1B</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x25</span><span class="p">,</span> <span class="mh">0xAD</span><span class="p">,</span> <span class="mh">0xAE</span><span class="p">,</span> <span class="mh">0xB0</span><span class="p">,</span> <span class="mh">0xB9</span><span class="p">,</span> <span class="mh">0xF6</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x46</span><span class="p">,</span> <span class="mh">0x61</span><span class="p">,</span> <span class="mh">0x69</span><span class="p">,</span> <span class="mh">0x34</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x0F</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x47</span><span class="p">,</span> <span class="mh">0xA3</span><span class="p">,</span> <span class="mh">0x23</span><span class="p">,</span> <span class="mh">0xDD</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0xAF</span><span class="p">,</span> <span class="mh">0x3A</span><span class="p">,</span> <span class="mh">0xC3</span><span class="p">,</span> <span class="mh">0x5C</span><span class="p">,</span> <span class="mh">0xF9</span><span class="p">,</span> <span class="mh">0xCE</span><span class="p">,</span> <span class="mh">0xBA</span><span class="p">,</span> <span class="mh">0xC5</span><span class="p">,</span> <span class="mh">0xEA</span><span class="p">,</span> <span class="mh">0x26</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x53</span><span class="p">,</span> <span class="mh">0x0D</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x85</span><span class="p">,</span> <span class="mh">0x28</span><span class="p">,</span> <span class="mh">0x84</span><span class="p">,</span> <span class="mh">0x09</span><span class="p">,</span> <span class="mh">0xD3</span><span class="p">,</span> <span class="mh">0xDF</span><span class="p">,</span> <span class="mh">0xCD</span><span class="p">,</span> <span class="mh">0xF4</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0x81</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0x52</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0xDC</span><span class="p">,</span> <span class="mh">0x37</span><span class="p">,</span> <span class="mh">0xC8</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0xC1</span><span class="p">,</span> <span class="mh">0xAB</span><span class="p">,</span> <span class="mh">0xFA</span><span class="p">,</span> <span class="mh">0x24</span><span class="p">,</span> <span class="mh">0xE1</span><span class="p">,</span> <span class="mh">0x7B</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0xBD</span><span class="p">,</span> <span class="mh">0xB1</span><span class="p">,</span> <span class="mh">0x4A</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x78</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span> <span class="mh">0x95</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0xE3</span><span class="p">,</span> <span class="mh">0x63</span><span class="p">,</span> <span class="mh">0xE8</span><span class="p">,</span> <span class="mh">0x6D</span><span class="p">,</span> <span class="mh">0xE9</span><span class="p">,</span> <span class="mh">0xCB</span><span class="p">,</span> <span class="mh">0xD5</span><span class="p">,</span> <span class="mh">0xFE</span><span class="p">,</span> <span class="mh">0x3B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x1D</span><span class="p">,</span> <span class="mh">0x39</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xF2</span><span class="p">,</span> <span class="mh">0xEF</span><span class="p">,</span> <span class="mh">0xB7</span><span class="p">,</span> <span class="mh">0x0E</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x58</span><span class="p">,</span> <span class="mh">0xD0</span><span class="p">,</span> <span class="mh">0xE4</span><span class="p">,</span> <span class="mh">0xA6</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x72</span><span class="p">,</span> <span class="mh">0xF8</span><span class="p">,</span> <span class="mh">0xEB</span><span class="p">,</span> <span class="mh">0x75</span><span class="p">,</span> <span class="mh">0x4B</span><span class="p">,</span> <span class="mh">0x0A</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x31</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span> <span class="mh">0xB4</span><span class="p">,</span> <span class="mh">0x8F</span><span class="p">,</span> <span class="mh">0xED</span><span class="p">,</span> <span class="mh">0x1F</span><span class="p">,</span> <span class="mh">0x1A</span><span class="p">,</span> <span class="mh">0xDB</span><span class="p">,</span> <span class="mh">0x99</span><span class="p">,</span> <span class="mh">0x8D</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x9F</span><span class="p">,</span> <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x83</span><span class="p">,</span> <span class="mh">0x14</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">md2</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">inlen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ASSERT_RETURN_INT</span><span class="p">(</span><span class="n">out</span> <span class="o">&amp;&amp;</span> <span class="n">in</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">inlen</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 1: 字节填充(Append Padding Bytes)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 假设数据长度为m, 则需要填充16 - (m mod 16)个字节的数据，填充内容为16 - (m mod 16).
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">iLen</span> <span class="o">=</span> <span class="p">(</span><span class="n">inlen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">M</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">iLen</span> <span class="o">+</span> <span class="n">MD2_CHECKSUM_SIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">inlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">inlen</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iLen</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">iLen</span> <span class="o">-</span> <span class="n">inlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 2: 添加校验和(Append Checksum)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">C</span><span class="p">[</span><span class="n">MD2_CHECKSUM_SIZE</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MD2_CHECKSUM_SIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iLen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span> <span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">^</span> <span class="n">S</span><span class="p">[</span><span class="n">c</span> <span class="o">^</span> <span class="n">L</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">L</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="n">iLen</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 3: 初始化MD Buffer(Initialize MD Buffer):
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">X</span><span class="p">[</span><span class="mi">48</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">48</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 4: 处理消息块(Process Message in 16-Byte Blocks)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">iLen</span> <span class="o">+</span> <span class="mi">16</span><span class="p">)</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Copy block i into X. */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">X</span><span class="p">[</span><span class="mi">16</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span> <span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">X</span><span class="p">[</span><span class="mi">32</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">16</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">^</span> <span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do 18 rounds. */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">HASH_ROUND_NUM</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="cm">/* Round j */</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">48</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">t</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">^</span> <span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">HASH_DIGEST_SIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">digest</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">md2</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/md/index.html">MD</a>
+</div>
+            </header>
+<h1 id="2-md4-算法">2 MD4 算法</h1>
+
+<p>原文来自：https://www.cnblogs.com/Kingfans/p/16552308.html</p>
+<h2 id="一基本介绍">一、基本介绍</h2>
+<p>MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD4算法的实现原理。</p>
+<p>1990 年，罗纳德·李维斯特教授开发出较之 MD2 算法有着更高安全性的 MD4 算法。在这个算法中，我们仍需对信息进行数据补位。不同的是，这种补位使其信息的字节长度加上 448 个字节后能成为 512 的倍数（信息字节长度 mod 512 = 448）。此外，关于 MD4 算法的处理与 MD2 算法又有很大差别。但最终仍旧是会获得一个 128 位的散列值。MD4 算法对后续消息摘要算法起到了推动作用，许多比较有名的消息摘要算法都是在 MD4 算法的基础上发展而来的，如 MD5、SHA-1、RIPE-MD 和 HAVAL 算法等。</p>
+<h2 id="二实现原理">二、实现原理</h2>
+<p>有关 MD4 算法详情请参见 RFC 1320 <a href="http://www.ietf.org/rfc/rfc1320.txt" target="_blank">http://www.ietf.org/rfc/rfc1320.txt</a>，RFC 1320 是MD4算法的官方文档，其实现原理共分为5步：</p>
+<h3 id="第1步字节填充append-padding-bytes">第1步：字节填充(Append Padding Bytes)</h3>
+<p>数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。</p>
+<h3 id="第2步追加长度信息append-length">第2步：追加长度信息(Append Length)</h3>
+<p>数据比特位的数据长度追加到最后8字节中。</p>
+<h3 id="第3步初始化md-bufferinitialize-md-buffer">第3步：初始化MD Buffer(Initialize MD Buffer)</h3>
+<p>这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>1
+2
+3
+4
+uint32_t A = 0x67452301;    // [ 0x01, 0x23, 0x45, 0x67 ]
+uint32_t B = 0xEFCDAB89;    // [ 0x89, 0xAB, 0xCD, 0xEF ]
+uint32_t C = 0x98BADCFE;    // [ 0xFE, 0xDC, 0xBA, 0x98 ]
+uint32_t D = 0x10325476;    // [ 0x76, 0x54, 0x32, 0x10 ]   </code></pre></div><h3 id="第4步处理消息块process-message-in-16-byte-blocks">第4步：处理消息块(Process Message in 16-Byte Blocks)</h3>
+<p>这个是MD4算法最核心的部分了，对第2步组装数据进行分块依次处理。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>Process each 16-word block. */
+For i = 0 to N/16-1 do
+ 
+  /* Copy block i into X. */
+  For j = 0 to 15 do
+    Set X[j] to M[i*16+j].
+  end /* of loop on j */
+ 
+  /* Save A as AA, B as BB, C as CC, and D as DD. */
+  AA = A
+  BB = B
+  CC = C
+  DD = D
+ 
+  /* Round 1. */
+  /* Let [abcd k s] denote the operation
+       a = (a + F(b,c,d) + X[k]) &lt;&lt;&lt; s. */
+  /* Do the following 16 operations. */
+  [ABCD  0  3]  [DABC  1  7]  [CDAB  2 11]  [BCDA  3 19]
+  [ABCD  4  3]  [DABC  5  7]  [CDAB  6 11]  [BCDA  7 19]
+  [ABCD  8  3]  [DABC  9  7]  [CDAB 10 11]  [BCDA 11 19]
+  [ABCD 12  3]  [DABC 13  7]  [CDAB 14 11]  [BCDA 15 19]
+ 
+  /* Round 2. */
+  /* Let [abcd k s] denote the operation
+       a = (a + G(b,c,d) + X[k] + 5A827999) &lt;&lt;&lt; s. */
+  /* Do the following 16 operations. */
+  [ABCD  0  3]  [DABC  4  5]  [CDAB  8  9]  [BCDA 12 13]
+  [ABCD  1  3]  [DABC  5  5]  [CDAB  9  9]  [BCDA 13 13]
+  [ABCD  2  3]  [DABC  6  5]  [CDAB 10  9]  [BCDA 14 13]
+  [ABCD  3  3]  [DABC  7  5]  [CDAB 11  9]  [BCDA 15 13]
+ 
+  /* Round 3. */
+  /* Let [abcd k s] denote the operation
+       a = (a + H(b,c,d) + X[k] + 6ED9EBA1) &lt;&lt;&lt; s. */
+  /* Do the following 16 operations. */
+  [ABCD  0  3]  [DABC  8  9]  [CDAB  4 11]  [BCDA 12 15]
+  [ABCD  2  3]  [DABC 10  9]  [CDAB  6 11]  [BCDA 14 15]
+  [ABCD  1  3]  [DABC  9  9]  [CDAB  5 11]  [BCDA 13 15]
+  [ABCD  3  3]  [DABC 11  9]  [CDAB  7 11]  [BCDA 15 15]
+ 
+  /* Then perform the following additions. (That is, increment each
+     of the four registers by the value it had before this block
+     was started.) */
+  A = A + AA
+  B = B + BB
+  C = C + CC
+  D = D + DD
+ 
+end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
+<p>这一步也非常简单，只需要将计算后的A、B、C、D进行拼接输出即可。</p>
+<h2 id="三示例讲解">三、示例讲解</h2>
+<p><a href="#image-ed92f6f067ef4d87bf6452515d9b85ee" class="lightbox-link"><img src="../Hash/MD4_Case.png?width=60pc" alt="MD4案例" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-ed92f6f067ef4d87bf6452515d9b85ee"><img src="../Hash/MD4_Case.png?width=60pc" alt="MD4案例" class="lightbox-image" loading="lazy"></a></p>
+<h2 id="代码实现">代码实现</h2>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define HASH_BLOCK_SIZE         64  </span><span class="cm">/* 512 bits = 64 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_LEN_SIZE           8   </span><span class="cm">/* 64 bits =  8 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_LEN_OFFSET         56  </span><span class="cm">/* 64 bytes - 8 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_DIGEST_SIZE        16  </span><span class="cm">/* 128 bits = 16 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_ROUND_NUM          64
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span>       <span class="kt">uint8_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">short</span> <span class="kt">int</span>  <span class="kt">uint16_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">int</span>        <span class="kt">uint32_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span>  <span class="kt">uint64_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">F</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Y</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="o">~</span><span class="n">X</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">G</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Y</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">Y</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">H</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">X</span> <span class="o">^</span> <span class="n">Y</span> <span class="o">^</span> <span class="n">Z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* 循环向左移动offset个单位 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">MoveLeft</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">offset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&lt;&lt;</span> <span class="n">offset</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">offset</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Round1</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">A</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">B</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">C</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">D</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">F</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Round2</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">A</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">B</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">C</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">D</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">G</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span> <span class="o">+</span> <span class="mh">0x5A827999</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Round3</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">A</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">B</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">C</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">D</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">H</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span> <span class="o">+</span> <span class="mh">0x6ED9EBA1</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define ASSERT_RETURN_INT(x, d) if(!(x)) { return d; }
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">md4</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">inlen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ASSERT_RETURN_INT</span><span class="p">(</span><span class="n">out</span> <span class="o">&amp;&amp;</span> <span class="n">in</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">inlen</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 1: 字节填充(Append Padding Bytes)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">iX</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">iY</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">%</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iX</span> <span class="o">=</span> <span class="p">(</span><span class="n">iY</span> <span class="o">&lt;</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">)</span> <span class="o">?</span> <span class="nl">iX</span> <span class="p">:</span> <span class="p">(</span><span class="n">iX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">iLen</span> <span class="o">=</span> <span class="p">(</span><span class="n">iX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">M</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">iLen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">inlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 先补上1个1比特+7个0比特
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">M</span><span class="p">[</span><span class="n">inlen</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 再补上(k-7)个0比特
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">iX</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 2: 追加长度信息(Append Length)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint64_t</span> <span class="o">*</span><span class="n">pLen</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint64_t</span><span class="o">*</span><span class="p">)(</span><span class="n">M</span> <span class="o">+</span> <span class="p">(</span><span class="n">iX</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">pLen</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// Step 3. 初始化MD Buffer(Initialize MD Buffer)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">A</span> <span class="o">=</span> <span class="mh">0x67452301</span><span class="p">;</span>    <span class="c1">// [ 0x01, 0x23, 0x45, 0x67 ]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">B</span> <span class="o">=</span> <span class="mh">0xEFCDAB89</span><span class="p">;</span>    <span class="c1">// [ 0x89, 0xAB, 0xCD, 0xEF ]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">C</span> <span class="o">=</span> <span class="mh">0x98BADCFE</span><span class="p">;</span>    <span class="c1">// [ 0xFE, 0xDC, 0xBA, 0x98 ]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">D</span> <span class="o">=</span> <span class="mh">0x10325476</span><span class="p">;</span>    <span class="c1">// [ 0x76, 0x54, 0x32, 0x10 ]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">X</span><span class="p">[</span><span class="n">HASH_BLOCK_SIZE</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 4: 处理消息块(Process Message in 64-Byte Blocks)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iLen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Copy block i into X. */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">M</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="o">/</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="o">*</span><span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Save A as AA, B as BB, C as CC, and D as DD. */</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">AA</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">BB</span> <span class="o">=</span> <span class="n">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">CC</span> <span class="o">=</span> <span class="n">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">DD</span> <span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Round 1. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Let [abcd k s] denote the operation
+</span></span></span><span class="line"><span class="cl"><span class="cm">        a = (a + F(b,c,d) + X[k]) &lt;&lt;&lt; s. */</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do the following 16 operations.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  0  3][DABC  1  7][CDAB  2 11][BCDA  3 19]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  4  3][DABC  5  7][CDAB  6 11][BCDA  7 19]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  8  3][DABC  9  7][CDAB 10 11][BCDA 11 19]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD 12  3][DABC 13  7][CDAB 14 11][BCDA 15 19]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">7</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">19</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="mi">7</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="mi">19</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="mi">7</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="mi">19</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="mi">7</span><span class="p">);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="mi">19</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Round 2. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Let [abcd k s] denote the operation
+</span></span></span><span class="line"><span class="cl"><span class="cm">        a = (a + G(b,c,d) + X[k] + 5A827999) &lt;&lt;&lt; s. */</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do the following 16 operations.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  0  3][DABC  4  5][CDAB  8  9][BCDA 12 13]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  1  3][DABC  5  5][CDAB  9  9][BCDA 13 13]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  2  3][DABC  6  5][CDAB 10  9][BCDA 14 13]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  3  3][DABC  7  5][CDAB 11  9][BCDA 15 13]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="mi">13</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="mi">5</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="mi">13</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="mi">5</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="mi">13</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="mi">5</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="mi">13</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Round 3. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Let [abcd k s] denote the operation
+</span></span></span><span class="line"><span class="cl"><span class="cm">        a = (a + H(b,c,d) + X[k] + 6ED9EBA1) &lt;&lt;&lt; s. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do the following 16 operations.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  0  3][DABC  8  9][CDAB  4 11][BCDA 12 15]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  2  3][DABC 10  9][CDAB  6 11][BCDA 14 15]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  1  3][DABC  9  9][CDAB  5 11][BCDA 13 15]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  3  3][DABC 11  9][CDAB  7 11][BCDA 15 15]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="mi">9</span><span class="p">);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="mi">11</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Then perform the following additions. (That is, increment each
+</span></span></span><span class="line"><span class="cl"><span class="cm">        of the four registers by the value it had before this block
+</span></span></span><span class="line"><span class="cl"><span class="cm">        was started.) */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">AA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="n">BB</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">C</span> <span class="o">=</span> <span class="n">C</span> <span class="o">+</span> <span class="n">CC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="n">DD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 5: 输出ABCD
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span>  <span class="o">&amp;</span><span class="n">A</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span>  <span class="o">&amp;</span><span class="n">B</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">8</span><span class="p">,</span>  <span class="o">&amp;</span><span class="n">C</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">12</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">D</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">digest</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">md4</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/md/index.html">MD</a>
+</div>
+            </header>
+<h1 id="3-md5-算法">3 MD5 算法</h1>
+
+<p>原文来自：https://www.cnblogs.com/Kingfans/p/16554047.html</p>
+<h2 id="一基本介绍">一、基本介绍</h2>
+<p>MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD5算法的实现原理。</p>
+<p>1991年，继 MD4 算法后，罗纳德·李维斯特教授开发了 MD5 算法，将 MD 算法推向成熟。MD5 算法经 MD2、MD3 和 MD4 算法发展而来，算法复杂程度和安全强度大大提高。但不管是 MD2、MD4 还是 MD5 算法，其算法的最终结果均是产生一个 128 位的消息摘要，这也是 MD 系列算法的特点。MD5 算法执行效率略次于 MD4 算法，但在安全性方面，MD5 算法更胜一筹。随着计算机技术的发展和计算水平的不断提高，MD5 算法暴露出来的漏洞也越来越多。1996 年后被证实存在弱点，可以被加以破解，对于需要高度安全性的数据，专家一般建议改用其他算法，如 SHA-2。2004 年，证实 MD5 算法无法防止碰撞（collision），因此不适用于安全性认证，如 SSL 公开密钥认证或是数字签名等用途。</p>
+<h2 id="二实现原理">二、实现原理</h2>
+<p>有关 MD5 算法详情请参见 RFC 1321 <a href="http://www.ietf.org/rfc/rfc1321.txt" target="_blank">http://www.ietf.org/rfc/rfc1321.txt</a>，RFC 1321 是MD5算法的官方文档，其实现原理共分为5步：</p>
+<h3 id="第1步字节填充append-padding-bytes">第1步：字节填充(Append Padding Bytes)</h3>
+<p>数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。</p>
+<h3 id="第2步追加长度信息append-length">第2步：追加长度信息(Append Length)</h3>
+<p>数据比特位的数据长度追加到最后8字节中。</p>
+<h3 id="第3步初始化md-bufferinitialize-md-buffer">第3步：初始化MD Buffer(Initialize MD Buffer)</h3>
+<p>这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>uint32_t A = 0x67452301;    // [ 0x01, 0x23, 0x45, 0x67 ]
+uint32_t B = 0xEFCDAB89;    // [ 0x89, 0xAB, 0xCD, 0xEF ]
+uint32_t C = 0x98BADCFE;    // [ 0xFE, 0xDC, 0xBA, 0x98 ]
+uint32_t D = 0x10325476;    // [ 0x76, 0x54, 0x32, 0x10 ]</code></pre></div><p>以上操作与md4完全一致。</p>
+<h3 id="第4步处理消息块process-message-in-16-byte-blocks">第4步：处理消息块(Process Message in 16-Byte Blocks)</h3>
+<p>这个是MD5算法最核心的部分了，对第2步组装数据进行分块依次处理。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>/* Process each 16-word block. */
+For i = 0 to N/16-1 do
+ 
+  /* Copy block i into X. */
+  For j = 0 to 15 do
+    Set X[j] to M[i*16+j].
+  end /* of loop on j */
+ 
+  /* Save A as AA, B as BB, C as CC, and D as DD. */
+  AA = A
+  BB = B
+  CC = C
+  DD = D
+ 
+  /* Round 1. */
+  /* Let [abcd k s i] denote the operation
+       a = b + ((a + F(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */
+  /* Do the following 16 operations. */
+  [ABCD  0  7  1]  [DABC  1 12  2]  [CDAB  2 17  3]  [BCDA  3 22  4]
+  [ABCD  4  7  5]  [DABC  5 12  6]  [CDAB  6 17  7]  [BCDA  7 22  8]
+  [ABCD  8  7  9]  [DABC  9 12 10]  [CDAB 10 17 11]  [BCDA 11 22 12]
+  [ABCD 12  7 13]  [DABC 13 12 14]  [CDAB 14 17 15]  [BCDA 15 22 16]
+ 
+  /* Round 2. */
+  /* Let [abcd k s i] denote the operation
+       a = b + ((a + G(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */
+  /* Do the following 16 operations. */
+  [ABCD  1  5 17]  [DABC  6  9 18]  [CDAB 11 14 19]  [BCDA  0 20 20]
+  [ABCD  5  5 21]  [DABC 10  9 22]  [CDAB 15 14 23]  [BCDA  4 20 24]
+  [ABCD  9  5 25]  [DABC 14  9 26]  [CDAB  3 14 27]  [BCDA  8 20 28]
+  [ABCD 13  5 29]  [DABC  2  9 30]  [CDAB  7 14 31]  [BCDA 12 20 32]
+ 
+  /* Round 3. */
+  /* Let [abcd k s t] denote the operation
+       a = b + ((a + H(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */
+  /* Do the following 16 operations. */
+  [ABCD  5  4 33]  [DABC  8 11 34]  [CDAB 11 16 35]  [BCDA 14 23 36]
+  [ABCD  1  4 37]  [DABC  4 11 38]  [CDAB  7 16 39]  [BCDA 10 23 40]
+  [ABCD 13  4 41]  [DABC  0 11 42]  [CDAB  3 16 43]  [BCDA  6 23 44]
+  [ABCD  9  4 45]  [DABC 12 11 46]  [CDAB 15 16 47]  [BCDA  2 23 48]
+ 
+  /* Round 4. */
+  /* Let [abcd k s t] denote the operation
+       a = b + ((a + I(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */
+  /* Do the following 16 operations. */
+  [ABCD  0  6 49]  [DABC  7 10 50]  [CDAB 14 15 51]  [BCDA  5 21 52]
+  [ABCD 12  6 53]  [DABC  3 10 54]  [CDAB 10 15 55]  [BCDA  1 21 56]
+  [ABCD  8  6 57]  [DABC 15 10 58]  [CDAB  6 15 59]  [BCDA 13 21 60]
+  [ABCD  4  6 61]  [DABC 11 10 62]  [CDAB  2 15 63]  [BCDA  9 21 64]
+ 
+  /* Then perform the following additions. (That is increment each
+     of the four registers by the value it had before this block
+     was started.) */
+  A = A + AA
+  B = B + BB
+  C = C + CC
+  D = D + DD
+ 
+end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
+<p>这一步也非常简单，只需要将计算后的A、B、C、D进行拼接输出即可。</p>
+<h2 id="三示例讲解">三、示例讲解</h2>
+<p><a href="#image-6253bc52ceacabd20a01f195edef969e" class="lightbox-link"><img src="../Hash/MD5_Case.png?width=60pc" alt="MD5_Case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-6253bc52ceacabd20a01f195edef969e"><img src="../Hash/MD5_Case.png?width=60pc" alt="MD5_Case" class="lightbox-image" loading="lazy"></a></p>
+<h2 id="四代码实现">四、代码实现</h2>
+<p>以下为C/C++代码实现：</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define HASH_BLOCK_SIZE         64  </span><span class="cm">/* 512 bits = 64 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_LEN_SIZE           8   </span><span class="cm">/* 64 bits =  8 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_LEN_OFFSET         56  </span><span class="cm">/* 64 bytes - 8 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_DIGEST_SIZE        16  </span><span class="cm">/* 128 bits = 16 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span>       <span class="kt">uint8_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">short</span> <span class="kt">int</span>  <span class="kt">uint16_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">int</span>        <span class="kt">uint32_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span>  <span class="kt">uint64_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* T table */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="n">T</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* Round 1 */</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xD76AA478</span><span class="p">,</span> <span class="mh">0xE8C7B756</span><span class="p">,</span> <span class="mh">0x242070DB</span><span class="p">,</span> <span class="mh">0xC1BDCEEE</span><span class="p">,</span> <span class="mh">0xF57C0FAF</span><span class="p">,</span> <span class="mh">0x4787C62A</span><span class="p">,</span> <span class="mh">0xA8304613</span><span class="p">,</span> <span class="mh">0xFD469501</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x698098D8</span><span class="p">,</span> <span class="mh">0x8B44F7AF</span><span class="p">,</span> <span class="mh">0xFFFF5BB1</span><span class="p">,</span> <span class="mh">0x895CD7BE</span><span class="p">,</span> <span class="mh">0x6B901122</span><span class="p">,</span> <span class="mh">0xFD987193</span><span class="p">,</span> <span class="mh">0xA679438E</span><span class="p">,</span> <span class="mh">0x49B40821</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* ROUND 2 */</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xF61E2562</span><span class="p">,</span> <span class="mh">0xC040B340</span><span class="p">,</span> <span class="mh">0x265E5A51</span><span class="p">,</span> <span class="mh">0xE9B6C7AA</span><span class="p">,</span> <span class="mh">0xD62F105D</span><span class="p">,</span> <span class="mh">0x02441453</span><span class="p">,</span> <span class="mh">0xD8A1E681</span><span class="p">,</span> <span class="mh">0xE7D3FBC8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x21E1CDE6</span><span class="p">,</span> <span class="mh">0xC33707D6</span><span class="p">,</span> <span class="mh">0xF4D50D87</span><span class="p">,</span> <span class="mh">0x455A14ED</span><span class="p">,</span> <span class="mh">0xA9E3E905</span><span class="p">,</span> <span class="mh">0xFCEFA3F8</span><span class="p">,</span> <span class="mh">0x676F02D9</span><span class="p">,</span> <span class="mh">0x8D2A4C8A</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* ROUND 3 */</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xFFFA3942</span><span class="p">,</span> <span class="mh">0x8771F681</span><span class="p">,</span> <span class="mh">0x6D9D6122</span><span class="p">,</span> <span class="mh">0xFDE5380C</span><span class="p">,</span> <span class="mh">0xA4BEEA44</span><span class="p">,</span> <span class="mh">0x4BDECFA9</span><span class="p">,</span> <span class="mh">0xF6BB4B60</span><span class="p">,</span> <span class="mh">0xBEBFBC70</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x289B7EC6</span><span class="p">,</span> <span class="mh">0xEAA127FA</span><span class="p">,</span> <span class="mh">0xD4EF3085</span><span class="p">,</span> <span class="mh">0x04881D05</span><span class="p">,</span> <span class="mh">0xD9D4D039</span><span class="p">,</span> <span class="mh">0xE6DB99E5</span><span class="p">,</span> <span class="mh">0x1FA27CF8</span><span class="p">,</span> <span class="mh">0xC4AC5665</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* ROUND 4 */</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xF4292244</span><span class="p">,</span> <span class="mh">0x432AFF97</span><span class="p">,</span> <span class="mh">0xAB9423A7</span><span class="p">,</span> <span class="mh">0xFC93A039</span><span class="p">,</span> <span class="mh">0x655B59C3</span><span class="p">,</span> <span class="mh">0x8F0CCC92</span><span class="p">,</span> <span class="mh">0xFFEFF47D</span><span class="p">,</span> <span class="mh">0x85845DD1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x6FA87E4F</span><span class="p">,</span> <span class="mh">0xFE2CE6E0</span><span class="p">,</span> <span class="mh">0xA3014314</span><span class="p">,</span> <span class="mh">0x4E0811A1</span><span class="p">,</span> <span class="mh">0xF7537E82</span><span class="p">,</span> <span class="mh">0xBD3AF235</span><span class="p">,</span> <span class="mh">0x2AD7D2BB</span><span class="p">,</span> <span class="mh">0xEB86D391</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">F</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Y</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="o">~</span><span class="n">X</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">G</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">Y</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">Z</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">H</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">X</span> <span class="o">^</span> <span class="n">Y</span> <span class="o">^</span> <span class="n">Z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">I</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Y</span> <span class="o">^</span> <span class="p">(</span> <span class="n">X</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="n">Z</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* 循环向左移动offset个比特位 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">MoveLeft</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">offset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">&lt;&lt;</span> <span class="n">offset</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">offset</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Round1</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">A</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">B</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">C</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">D</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">N</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">B</span> <span class="o">+</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">F</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span> <span class="o">+</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Round2</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">A</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">B</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">C</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">D</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">N</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">B</span> <span class="o">+</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">G</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span> <span class="o">+</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Round3</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">A</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">B</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">C</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">D</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">N</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">B</span> <span class="o">+</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">H</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span> <span class="o">+</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Round4</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">A</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">B</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">C</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">D</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">N</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">B</span> <span class="o">+</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">I</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span> <span class="o">+</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define ASSERT_RETURN_INT(x, d) if(!(x)) { return d; }
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">md5</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">inlen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ASSERT_RETURN_INT</span><span class="p">(</span><span class="n">out</span> <span class="o">&amp;&amp;</span> <span class="n">in</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">inlen</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 1: 字节填充(Append Padding Bytes)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">iX</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">iY</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">%</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iX</span> <span class="o">=</span> <span class="p">(</span><span class="n">iY</span> <span class="o">&lt;</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">)</span> <span class="o">?</span> <span class="nl">iX</span> <span class="p">:</span> <span class="p">(</span><span class="n">iX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">iLen</span> <span class="o">=</span> <span class="p">(</span><span class="n">iX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">M</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">iLen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">inlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 先补上1个1比特+7个0比特
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">M</span><span class="p">[</span><span class="n">inlen</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 再补上(k-7)个0比特
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">iX</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 2: 追加长度信息(Append Length)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint64_t</span> <span class="o">*</span><span class="n">pLen</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint64_t</span><span class="o">*</span><span class="p">)(</span><span class="n">M</span> <span class="o">+</span> <span class="p">(</span><span class="n">iX</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">pLen</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// Step 3. 初始化MD Buffer(Initialize MD Buffer)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">A</span> <span class="o">=</span> <span class="mh">0x67452301</span><span class="p">;</span>    <span class="c1">// 0x01, 0x23, 0x45, 0x67
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">B</span> <span class="o">=</span> <span class="mh">0xEFCDAB89</span><span class="p">;</span>    <span class="c1">// 0x89, 0xAB, 0xCD, 0xEF
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">C</span> <span class="o">=</span> <span class="mh">0x98BADCFE</span><span class="p">;</span>    <span class="c1">// 0xFE, 0xDC, 0xBA, 0x98
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">D</span> <span class="o">=</span> <span class="mh">0x10325476</span><span class="p">;</span>    <span class="c1">// 0x76, 0x54, 0x32, 0x10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">X</span><span class="p">[</span><span class="n">HASH_BLOCK_SIZE</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 4: 处理消息块(Process Message in 64-Byte Blocks)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iLen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Copy block i into X. */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">M</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">X</span><span class="p">[</span><span class="n">j</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="o">*</span><span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Save A as AA, B as BB, C as CC, and D as DD. */</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">AA</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">BB</span> <span class="o">=</span> <span class="n">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">CC</span> <span class="o">=</span> <span class="n">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">DD</span> <span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Round 1. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Let [abcd k s i] denote the operation
+</span></span></span><span class="line"><span class="cl"><span class="cm">            a = b + ((a + F(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do the following 16 operations.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  0  7  1][DABC  1 12  2][CDAB  2 17  3][BCDA  3 22  4]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  4  7  5][DABC  5 12  6][CDAB  6 17  7][BCDA  7 22  8]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  8  7  9][DABC  9 12 10][CDAB 10 17 11][BCDA 11 22 12]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD 12  7 13][DABC 13 12 14][CDAB 14 17 15][BCDA 15 22 16]
+</span></span></span><span class="line"><span class="cl"><span class="cm">         
+</span></span></span><span class="line"><span class="cl"><span class="cm">        此处T[i]有问题 应该是i-1 索引下标从0开始
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="mi">7</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="mi">12</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="mi">17</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>  <span class="mi">22</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>  <span class="mi">7</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>  <span class="mi">12</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>  <span class="mi">17</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">6</span><span class="p">]);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span>  <span class="mi">22</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span>  <span class="mi">7</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">8</span><span class="p">]);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span>  <span class="mi">12</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">9</span><span class="p">]);</span>  <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">17</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">10</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="mi">22</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">11</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="mi">7</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">12</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="mi">12</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">13</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="mi">17</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">14</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round1</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="mi">22</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">15</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Round 2. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Let [abcd k s i] denote the operation
+</span></span></span><span class="line"><span class="cl"><span class="cm">            a = b + ((a + G(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do the following 16 operations.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  1  5 17][DABC  6  9 18][CDAB 11 14 19][BCDA  0 20 20]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  5  5 21][DABC 10  9 22][CDAB 15 14 23][BCDA  4 20 24]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  9  5 25][DABC 14  9 26][CDAB  3 14 27][BCDA  8 20 28]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD 13  5 29][DABC  2  9 30][CDAB  7 14 31][BCDA 12 20 32]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="mi">5</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">16</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>  <span class="mi">9</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">17</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="mi">14</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">18</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="mi">20</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">19</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>  <span class="mi">5</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">20</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">9</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">21</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="mi">14</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">22</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>  <span class="mi">20</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">23</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span>  <span class="mi">5</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">24</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="mi">9</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">25</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>  <span class="mi">14</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">26</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span>  <span class="mi">20</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">27</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="mi">5</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">28</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="mi">9</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">29</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span>  <span class="mi">14</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">30</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round2</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="mi">20</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">31</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Round 3. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Let [abcd k s t] denote the operation
+</span></span></span><span class="line"><span class="cl"><span class="cm">            a = b + ((a + H(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do the following 16 operations.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  5  4 33][DABC  8 11 34][CDAB 11 16 35][BCDA 14 23 36]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  1  4 37][DABC  4 11 38][CDAB  7 16 39][BCDA 10 23 40]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD 13  4 41][DABC  0 11 42][CDAB  3 16 43][BCDA  6 23 44]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  9  4 45][DABC 12 11 46][CDAB 15 16 47][BCDA  2 23 48]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>  <span class="mi">4</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">32</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span>  <span class="mi">11</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">33</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="mi">16</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">34</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="mi">23</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">35</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="mi">4</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">36</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>  <span class="mi">11</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">37</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span>  <span class="mi">16</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">38</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">23</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">39</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">40</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="mi">11</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">41</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>  <span class="mi">16</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">42</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>  <span class="mi">23</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">43</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span>  <span class="mi">4</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">44</span><span class="p">]);</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="mi">11</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">45</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="mi">16</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">46</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round3</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="mi">23</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">47</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Round 4. */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Let [abcd k s t] denote the operation
+</span></span></span><span class="line"><span class="cl"><span class="cm">            a = b + ((a + I(b,c,d) + X[k] + T[i]) &lt;&lt;&lt; s). */</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Do the following 16 operations.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  0  6 49][DABC  7 10 50][CDAB 14 15 51][BCDA  5 21 52]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD 12  6 53][DABC  3 10 54][CDAB 10 15 55][BCDA  1 21 56]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  8  6 57][DABC 15 10 58][CDAB  6 15 59][BCDA 13 21 60]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        [ABCD  4  6 61][DABC 11 10 62][CDAB  2 15 63][BCDA  9 21 64]
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="mi">6</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">48</span><span class="p">]);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span>  <span class="mi">10</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">49</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="mi">15</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">50</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>  <span class="mi">21</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">51</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">52</span><span class="p">]);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>  <span class="mi">10</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">53</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">15</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">54</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="mi">21</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">55</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span>  <span class="mi">6</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">56</span><span class="p">]);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="mi">10</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">57</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>  <span class="mi">15</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">58</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="mi">21</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">59</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>  <span class="mi">6</span><span class="p">,</span>  <span class="n">T</span><span class="p">[</span><span class="mi">60</span><span class="p">]);</span>  <span class="n">D</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="mi">10</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">61</span><span class="p">]);</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="mi">15</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">62</span><span class="p">]);</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Round4</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span>  <span class="mi">21</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">63</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Then perform the following additions. (That is, increment each
+</span></span></span><span class="line"><span class="cl"><span class="cm">        of the four registers by the value it had before this block
+</span></span></span><span class="line"><span class="cl"><span class="cm">        was started.) */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">AA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="n">BB</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">C</span> <span class="o">=</span> <span class="n">C</span> <span class="o">+</span> <span class="n">CC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="n">DD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 5: 输出ABCD
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">A</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">B</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">8</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">C</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">12</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">D</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">digest</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">md5</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+</div>
+            </header>
+<h1 id="2-签名算法">2 签名算法</h1>
+
+<p>原文来自：https://www.cnblogs.com/Kingfans/p/16546386.html</p>
+<h2 id="简介">简介</h2>
+<p>SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。</p>
+<h2 id="sha系列家族">SHA系列家族</h2>
+<p>　　
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../1_algorithms/2_hash/2_sha/1_sha1/index.html">1 SHA1 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/2_sha2_224/index.html">2 SHA2-224 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/3_sha2_256/index.html">3 SHA2-256 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/4_sha2_384/index.html">4 SHA2-384 算法</a></li>
+<li><a href="../1_algorithms/2_hash/2_sha/5_sha2_512/index.html">5 SHA2-512 算法</a></li>
+</ul></p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">2 签名算法 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/sha/index.html">SHA</a>
+</div>
+            </header>
+<h1 id="1-sha1-算法">1 SHA1 算法</h1>
+
+<p>原文来自</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/sha/index.html">SHA</a>
+</div>
+            </header>
+<h1 id="2-sha2-224-算法">2 SHA2-224 算法</h1>
+
+<p>原文来自</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/sha/index.html">SHA</a>
+</div>
+            </header>
+<h1 id="3-sha2-256-算法">3 SHA2-256 算法</h1>
+
+<p>原文来自</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/sha/index.html">SHA</a>
+</div>
+            </header>
+<h1 id="4-sha2-384-算法">4 SHA2-384 算法</h1>
+
+<p>原文来自</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+  <a class="tag-link" href="../tags/sha/index.html">SHA</a>
+</div>
+            </header>
+<h1 id="5-sha2-512-算法">5 SHA2-512 算法</h1>
+
+<p>原文来自</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/crc/index.html">CRC</a>
+  <a class="tag-link" href="../tags/hash/index.html">Hash</a>
+</div>
+            </header>
+<h1 id="3-crc-哈希函数">3 CRC 哈希函数</h1>
+
+<h2 id="crc-系列算法">CRC 系列算法</h2>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="3-位运算快速算法">3 位运算快速算法</h1>
+
+<h2 id="位运算符">位运算符</h2>
+<hr>
+<ul>
+<li>&amp; 位与： 0 &amp; 0 = 0 ; 0 &amp; 1 = 0 ; 1 &amp; 0 = 0 ;1 &amp; 1 = 1 ; 同为 1 时， 结果为 1。</li>
+<li>| 位或： 0 | 0 = 0 ; 0 | 1 = 1 ; 1 | 0 = 1 ;1 | 1 = 1 ; 存在 1 时， 结果为 1。</li>
+<li>^ 位异或： 0 &amp; 0 = 0 ; 0 &amp; 1 = 1 ; 1 &amp; 0 = 1 ;1 &amp; 1 = 0 ; 值相异时， 结果为 1。</li>
+<li>~ 位反： ~ 0 = 1 ; ~ 1 = 0 ;</li>
+<li>&laquo; 左移:</li>
+<li>&gt;&gt; 逻辑右移：</li>
+<li>&gt;&raquo; 算术右移：</li>
+</ul>
+<h2 id="目录">目录</h2>
+<hr>
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../1_algorithms/3_bitwise/1_average/index.html">1 快速平均值</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/3_bitwise/2_bitfield/index.html">2 位域值提取</a><ul>
+	</ul></li>
+<li><a href="../1_algorithms/3_bitwise/3_intmaxmin/index.html">3 使用按位运算计算INT_MAX和INT_MIN</a><ul>
+	</ul></li>
+</ul>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">3 位运算快速算法 的子部分</h1>
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/bitwise/index.html">Bitwise</a>
+</div>
+            </header>
+<h1 id="1-快速平均值">1 快速平均值</h1>
+
+<h2 id="符号定义">符号定义</h2>
+<hr>
+<ul>
+<li>a :待运算的值</li>
+<li>b :待运算的值</li>
+<li>r :运算结果</li>
+</ul>
+<h2 id="计算">计算</h2>
+<hr>
+<pre><code>r = (a + b) &gt;&gt; 1
+</code></pre>
+<h2 id="总结">总结</h2>
+<hr>
+<p>&gt;&gt; 1 ,相当于 除 2。</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/bitwise/index.html">Bitwise</a>
+</div>
+            </header>
+<h1 id="2-位域值提取">2 位域值提取</h1>
+
+<h2 id="位域定义">位域定义</h2>
+<p>C语言中的位域定义：</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Bits</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="nl">b2</span><span class="p">:</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="nl">b4</span><span class="p">:</span><span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div><p>提取位域定义的值算法如下：</p>
+<h2 id="符号定义">符号定义：</h2>
+<ul>
+<li>w :定义的位宽，如 b2 的位宽为 2 bit；</li>
+<li>p :位域字段的位偏移，如 b2 的位偏移为 0，b4 的位偏移为 2；</li>
+<li>v :位域字段所在的整体数据值，如 b2 就在 uint32_t 的数据上；</li>
+<li>r :计算的结果；</li>
+</ul>
+<h3 id="第1步计算位域掩码">第1步：计算位域掩码</h3>
+<pre><code>mask = (1 &lt;&lt; w) - 1
+</code></pre>
+<h3 id="第2步逻辑右移">第2步：逻辑右移</h3>
+<pre><code>tv = v &gt;&gt; p
+</code></pre>
+<h3 id="第3步截取域至">第3步：截取域至</h3>
+<pre><code>v = tv &amp; mask
+</code></pre>
+<h3 id="总结">总结</h3>
+<pre><code>r = (v &gt;&gt; p) &amp; ( (1 &lt;&lt; w) - 1)
+</code></pre>
+<p>如果v是有符号数，就需要进行符号扩展。</p>
+<h3 id="符号扩展">符号扩展</h3>
+<h3 id="第1步计算符号掩码">第1步：计算符号掩码</h3>
+<pre><code>smask = 1 &lt;&lt; (w-1)
+</code></pre>
+<h3 id="第2步计算符号位值">第2步：计算符号位值</h3>
+<pre><code>signed = r &amp; smask
+</code></pre>
+<h3 id="第3步符号扩展">第3步：符号扩展</h3>
+<p>signed != 0 ? ( r = r | (-1 &laquo; w) ) : r</p>
+<h3 id="总结-1">总结</h3>
+<p>( (1 &laquo; (w-1)) &amp; r) != 0 ? ( r = r | (-1 &laquo; w) ) : r</p>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+<div class="tags">
+  <a class="tag-link" href="../tags/bitwise/index.html">Bitwise</a>
+</div>
+            </header>
+<h1 id="3-使用按位运算计算int_max和int_min">3 使用按位运算计算INT_MAX和INT_MIN</h1>
+
+<h2 id="假设">假设</h2>
+<p>假设您有一个 32 位系统：</p>
+<ul>
+<li>INT_MAX是 01111111111111111111111111111111 ；</li>
+<li>INT_MIN是 10000000000000000000000000000000 ；</li>
+</ul>
+<p>0 和 1 分别位于最高有效位位置，分别表示符号位。</p>
+<p>计算INT_MAX和INT_MIN 在 C/C++ 中：
+数字 0 表示为 000&hellip;000（32个）。</p>
+<h2 id="原理">原理</h2>
+<p>我们计算 0 的 NOT 得到一个有 32 个 1 的数字。这个数字不等于INT_MAX因为符号位是1，即负数。
+现在，这个数字的右移将产生011&hellip;111 这是INT_MAX。
+将INT_MAX 按位取反 就得到INT_MIN。</p>
+<h2 id="代码">代码</h2>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">max</span> <span class="o">=</span> <span class="o">~</span><span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">max</span> <span class="o">=</span> <span class="n">max</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="o">~</span><span class="n">max</span><span class="p">;</span> 
+</span></span></code></pre></div>
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+          </section>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="../js/clipboard.min.js?1696231135" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1696231135" defer></script>
+    <script src="../js/theme.js?1696231135" defer></script>
+  </body>
+</html>

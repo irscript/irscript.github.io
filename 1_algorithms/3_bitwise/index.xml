@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3 位运算快速算法 on 巨人之海</title>
+    <link>https://irscript.github.io/1_algorithms/3_bitwise/index.html</link>
+    <description>Recent content in 3 位运算快速算法 on 巨人之海</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://irscript.github.io/1_algorithms/3_bitwise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1 快速平均值</title>
+      <link>https://irscript.github.io/1_algorithms/3_bitwise/1_average/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/1_algorithms/3_bitwise/1_average/index.html</guid>
+      <description>符号定义 a :待运算的值 b :待运算的值 r :运算结果 计算 r = (a + b) &amp;gt;&amp;gt; 1总结 &amp;gt;&amp;gt; 1 ,相当于 除 2。</description>
+    </item>
+    <item>
+      <title>2 位域值提取</title>
+      <link>https://irscript.github.io/1_algorithms/3_bitwise/2_bitfield/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/1_algorithms/3_bitwise/2_bitfield/index.html</guid>
+      <description>位域定义 C语言中的位域定义：
+struct Bits{ uint32_t b2:2; uint32_t b4:4; };提取位域定义的值算法如下：
+符号定义： w :定义的位宽，如 b2 的位宽为 2 bit； p :位域字段的位偏移，如 b2 的位偏移为 0，b4 的位偏移为 2； v :位域字段所在的整体数据值，如 b2 就在 uint32_t 的数据上； r :计算的结果； 第1步：计算位域掩码 mask = (1 &amp;lt;&amp;lt; w) - 1第2步：逻辑右移 tv = v &amp;gt;&amp;gt; p第3步：截取域至 v = tv &amp;amp; mask总结 r = (v &amp;gt;&amp;gt; p) &amp;amp; ( (1 &amp;lt;&amp;lt; w) - 1)如果v是有符号数，就需要进行符号扩展。
+符号扩展 第1步：计算符号掩码 smask = 1 &amp;lt;&amp;lt; (w-1)第2步：计算符号位值 signed = r &amp;amp; smask第3步：符号扩展 signed !</description>
+    </item>
+    <item>
+      <title>3 使用按位运算计算INT_MAX和INT_MIN</title>
+      <link>https://irscript.github.io/1_algorithms/3_bitwise/3_intmaxmin/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/1_algorithms/3_bitwise/3_intmaxmin/index.html</guid>
+      <description>假设 假设您有一个 32 位系统：
+INT_MAX是 01111111111111111111111111111111 ； INT_MIN是 10000000000000000000000000000000 ； 0 和 1 分别位于最高有效位位置，分别表示符号位。
+计算INT_MAX和INT_MIN 在 C/C++ 中： 数字 0 表示为 000&amp;hellip;000（32个）。
+原理 我们计算 0 的 NOT 得到一个有 32 个 1 的数字。这个数字不等于INT_MAX因为符号位是1，即负数。 现在，这个数字的右移将产生011&amp;hellip;111 这是INT_MAX。 将INT_MAX 按位取反 就得到INT_MIN。
+代码 unsigned int max = 0; max = ~max; max = max &amp;gt;&amp;gt; 1; int min = ~max; </description>
+    </item>
+  </channel>
+</rss>

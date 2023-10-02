@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Relearn 5.20.0">
+    <meta name="description" content="站在巨人的肩膀上">
+    <meta name="author" content="月明之都">
+    <title>2 段节格式 :: 巨人之海</title>
+    <link href="https://irscript.github.io/6_format/1_general/2_segmentformat/index.html" rel="canonical" type="text/html" title="2 段节格式 :: 巨人之海">
+    <link href="../../../6_format/1_general/2_segmentformat/index.xml" rel="alternate" type="application/rss+xml" title="2 段节格式 :: 巨人之海"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1696231135" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1696231135" rel="stylesheet">
+    <link href="../../../css/fonts.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696231135" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1696231135" rel="stylesheet">
+    <link href="../../../css/theme-auto.css?1696231135" rel="stylesheet" id="variant-style">
+    <link href="../../../css/variant.css?1696231135" rel="stylesheet">
+    <link href="../../../css/print.css?1696231135" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1696231135" rel="stylesheet">
+    <link href="../../../css/ie.css?1696231135" rel="stylesheet">
+    <script src="../../../js/url.js?1696231135"></script>
+    <script src="../../../js/variant.js?1696231135"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      window.index_js_url="../../../index.search.js";
+      var root_url="../../../";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = '复制到剪贴板';
+      window.T_Copied_to_clipboard = '复制到剪贴板！';
+      window.T_Copy_link_to_clipboard = '将链接复制到剪贴板';
+      window.T_Link_copied_to_clipboard = '链接复制到剪贴板！';
+      window.T_No_results_found = '找不到\u0022{0}\u0022的结果';
+      window.T_N_results_found = '为\u0022{0}\u0022找到 {1} 个结果';
+      // some further base stuff
+      var baseUriFull='https:\/\/irscript.github.io/';
+      window.variants && variants.init( [ 'auto', 'relearn-bright', 'relearn-light', 'relearn-dark', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+    </script>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../6_format/1_general/2_segmentformat/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" class="topbar-link" title='导航 (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/index.html"><span itemprop="name">文件数据格式</span></a><meta itemprop="position" content="2"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/1_general/index.html"><span itemprop="name">1 通用格式设计</span></a><meta itemprop="position" content="3"> &gt; </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">2 段节格式</span><meta itemprop="position" content="4"></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="2-段节格式">2 段节格式</h1>
+
+<hr>
+<p>分段(或叫分节，后续默认叫法为分段)的二进制文件格式是比较常见的，比如编译器 GCC 输出的目标文件一般为 ELF 的分段文件。</p>
+<h2 id="1-整体结构">1 整体结构</h2>
+<hr>
+<p>这类文件一般采用 <em><strong>文件头 + 分段</strong></em> 的结构：</p>
+<pre><code>file header 
+section 0
+section 1
+....
+section N
+</code></pre>
+<p>文件头设计方法在 <strong><a href="../../../6_format/1_general/1_fileheader/">文件头</a></strong> 中介绍，本章节主要描述分段式存储数据的方法。</p>
+<h2 id="2-分段方法">2 分段方法</h2>
+<hr>
+<p>一般有两种结构：</p>
+<ul>
+<li>分散式：在分区的头部的描述分段的大小等信息。</li>
+<li>段表式：存在统一的结构描述分段的大小、相对偏移等信息。</li>
+</ul>
+<h3 id="分散式">分散式</h3>
+<p>分散式分结构在分区的头部的描述分段的大小等信息，然后各个分段首尾相连的，分段写入。</p>
+<p>分段的每一个段的结构通常是：</p>
+<pre><code>tag + length
+section data
+</code></pre>
+<p>tag 和 length 合起来是分区头部，描述分段中的数据标识，后面紧跟着体数据。</p>
+<p>tag 一般是一个整数，用来标识分区的类型。不同的分区用不同的 tag 值表示，不同的分区种类可以使用不同的读取方式。</p>
+<p>整体结构如下：</p>
+<pre><code>file header 
+section 0
+            tag     //section 0 的标识
+            length  //section 0 的数据长度
+            data[]  //section 0 的数据
+section 1
+....
+section N
+</code></pre>
+<h3 id="段表式">段表式</h3>
+<p>段表式的结构是有一个描述分段信息的段表，后面存储各个分区的数据。</p>
+<p>主要优点就是，可以通过段描述表(简称段表)快速的访问分段的内容，其格式如下。</p>
+<pre><code>section table
+section 0
+section 1
+....
+section N
+</code></pre>
+<p>段表一般描述分段的类型、数据长度、相对偏移等，结构如下。</p>
+<pre><code>kind
+length
+offset
+</code></pre>
+<p>C 语言定义如下：</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">SegTabItem</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uint32</span> <span class="n">kind</span><span class="p">;</span>    <span class="c1">//类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint32</span> <span class="n">length</span><span class="p">;</span>  <span class="c1">//数据长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint32</span> <span class="n">offset</span><span class="p">;</span>  <span class="c1">//相对偏移
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></div><p>整体结构如下：</p>
+<pre><code>file header 
+section table
+                kind    //section 0 的类型
+                length  //section 0 的数据长度
+                offset  //section 0 的相对偏移
+                kind    //section 1 的类型
+                length  //section 1 的数据长度
+                offset  //section 1 的相对偏移
+                ...
+                kind    //section N 的类型
+                length  //section N 的数据长度
+                offset  //section N 的相对偏移
+section 0
+section 1
+....
+section N</code></pre>
+
+            <footer class="footline">
+
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1696231135" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1696231135" defer></script>
+    <script src="../../../js/theme.js?1696231135" defer></script>
+  </body>
+</html>
