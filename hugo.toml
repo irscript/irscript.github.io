@@ -52,7 +52,7 @@ title = "巨人之海"
 
 [params]
     alwaysopen = false
-    editURL = "https://irscript.github.io/content/"
+    editURL = "https://github.com/irscript/irscript.github.io/content/"
     description = "站在巨人的肩膀上"
     author = "月明之都"
     showVisitedLinks = true
