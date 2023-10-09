@@ -11,19 +11,19 @@
     <link href="https://irscript.github.io/1_algorithms/2_hash/1_md/index.html" rel="canonical" type="text/html" title="1 消息摘要算法 :: 巨人之海">
     <link href="../../../1_algorithms/2_hash/1_md/index.xml" rel="alternate" type="application/rss+xml" title="1 消息摘要算法 :: 巨人之海"><link rel="icon" href="../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet"></noscript>
-    <link href="../../../css/nucleus.css?1696231135" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696231135" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1696231135" rel="stylesheet">
-    <link href="../../../css/fonts.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696231135" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1696231135" rel="stylesheet">
-    <link href="../../../css/theme-auto.css?1696231135" rel="stylesheet" id="variant-style">
-    <link href="../../../css/variant.css?1696231135" rel="stylesheet">
-    <link href="../../../css/print.css?1696231135" rel="stylesheet" media="print">
-    <link href="../../../css/format-print.css?1696231135" rel="stylesheet">
-    <link href="../../../css/ie.css?1696231135" rel="stylesheet">
-    <script src="../../../js/url.js?1696231135"></script>
-    <script src="../../../js/variant.js?1696231135"></script>
+    <link href="../../../css/fontawesome-all.min.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696850783" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1696850783" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696850783" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1696850783" rel="stylesheet">
+    <link href="../../../css/fonts.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696850783" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1696850783" rel="stylesheet">
+    <link href="../../../css/theme-auto.css?1696850783" rel="stylesheet" id="variant-style">
+    <link href="../../../css/variant.css?1696850783" rel="stylesheet">
+    <link href="../../../css/print.css?1696850783" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1696850783" rel="stylesheet">
+    <link href="../../../css/ie.css?1696850783" rel="stylesheet">
+    <script src="../../../js/url.js?1696850783"></script>
+    <script src="../../../js/variant.js?1696850783"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -149,8 +149,8 @@ For i = 0 to N&#39;/16-1 do
 end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
 <p>这一步也非常简单，只需要将计算后的X前16字节进行输出就可以了</p>
 <h2 id="3-示例讲解">3 示例讲解</h2>
-<p><a href="#image-7e1a6be8833450400e14241b45837caa" class="lightbox-link"><img src="../../../Hash/MD2_Case.png?width=60pc" alt="MD2案例" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-7e1a6be8833450400e14241b45837caa"><img src="../../../Hash/MD2_Case.png?width=60pc" alt="MD2案例" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-6bbf50657d5618a1ecb03ac9edd079c8" class="lightbox-link"><img src="../../../Hash/MD2_Case.png?width=60pc" alt="MD2案例" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-6bbf50657d5618a1ecb03ac9edd079c8"><img src="../../../Hash/MD2_Case.png?width=60pc" alt="MD2案例" class="lightbox-image" loading="lazy"></a></p>
 <h2 id="4-代码实现">4 代码实现</h2>
 <div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
@@ -345,8 +345,8 @@ For i = 0 to N/16-1 do
 end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
 <p>这一步也非常简单，只需要将计算后的A、B、C、D进行拼接输出即可。</p>
 <h2 id="三示例讲解">三、示例讲解</h2>
-<p><a href="#image-ed92f6f067ef4d87bf6452515d9b85ee" class="lightbox-link"><img src="../../../Hash/MD4_Case.png?width=60pc" alt="MD4案例" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-ed92f6f067ef4d87bf6452515d9b85ee"><img src="../../../Hash/MD4_Case.png?width=60pc" alt="MD4案例" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-cb8c27ca8eb87909f27c480a7397603d" class="lightbox-link"><img src="../../../Hash/MD4_Case.png?width=60pc" alt="MD4案例" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-cb8c27ca8eb87909f27c480a7397603d"><img src="../../../Hash/MD4_Case.png?width=60pc" alt="MD4案例" class="lightbox-image" loading="lazy"></a></p>
 <h2 id="代码实现">代码实现</h2>
 <div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
@@ -612,8 +612,8 @@ For i = 0 to N/16-1 do
 end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
 <p>这一步也非常简单，只需要将计算后的A、B、C、D进行拼接输出即可。</p>
 <h2 id="三示例讲解">三、示例讲解</h2>
-<p><a href="#image-6253bc52ceacabd20a01f195edef969e" class="lightbox-link"><img src="../../../Hash/MD5_Case.png?width=60pc" alt="MD5_Case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-6253bc52ceacabd20a01f195edef969e"><img src="../../../Hash/MD5_Case.png?width=60pc" alt="MD5_Case" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-5463479b28ca37de7c08b87b1e2ff483" class="lightbox-link"><img src="../../../Hash/MD5_Case.png?width=60pc" alt="MD5_Case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: 60pc;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-5463479b28ca37de7c08b87b1e2ff483"><img src="../../../Hash/MD5_Case.png?width=60pc" alt="MD5_Case" class="lightbox-image" loading="lazy"></a></p>
 <h2 id="四代码实现">四、代码实现</h2>
 <p>以下为C/C++代码实现：</p>
 <div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
@@ -833,8 +833,8 @@ end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：
         </div>
       </main>
     </div>
-    <script src="../../../js/clipboard.min.js?1696231135" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1696231135" defer></script>
-    <script src="../../../js/theme.js?1696231135" defer></script>
+    <script src="../../../js/clipboard.min.js?1696850783" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1696850783" defer></script>
+    <script src="../../../js/theme.js?1696850783" defer></script>
   </body>
 </html>

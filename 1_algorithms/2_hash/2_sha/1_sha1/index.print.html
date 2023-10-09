@@ -11,19 +11,19 @@
     <link href="https://irscript.github.io/1_algorithms/2_hash/2_sha/1_sha1/index.html" rel="canonical" type="text/html" title="1 SHA1 算法 :: 巨人之海">
     <link href="../../../../1_algorithms/2_hash/2_sha/1_sha1/index.xml" rel="alternate" type="application/rss+xml" title="1 SHA1 算法 :: 巨人之海"><link rel="icon" href="../../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1696231135" rel="stylesheet"></noscript>
-    <link href="../../../../css/nucleus.css?1696231135" rel="stylesheet">
-    <link href="../../../../css/auto-complete.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1696231135" rel="stylesheet"></noscript>
-    <link href="../../../../css/perfect-scrollbar.min.css?1696231135" rel="stylesheet">
-    <link href="../../../../css/fonts.css?1696231135" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1696231135" rel="stylesheet"></noscript>
-    <link href="../../../../css/theme.css?1696231135" rel="stylesheet">
-    <link href="../../../../css/theme-auto.css?1696231135" rel="stylesheet" id="variant-style">
-    <link href="../../../../css/variant.css?1696231135" rel="stylesheet">
-    <link href="../../../../css/print.css?1696231135" rel="stylesheet" media="print">
-    <link href="../../../../css/format-print.css?1696231135" rel="stylesheet">
-    <link href="../../../../css/ie.css?1696231135" rel="stylesheet">
-    <script src="../../../../js/url.js?1696231135"></script>
-    <script src="../../../../js/variant.js?1696231135"></script>
+    <link href="../../../../css/fontawesome-all.min.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1696850783" rel="stylesheet"></noscript>
+    <link href="../../../../css/nucleus.css?1696850783" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1696850783" rel="stylesheet"></noscript>
+    <link href="../../../../css/perfect-scrollbar.min.css?1696850783" rel="stylesheet">
+    <link href="../../../../css/fonts.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1696850783" rel="stylesheet"></noscript>
+    <link href="../../../../css/theme.css?1696850783" rel="stylesheet">
+    <link href="../../../../css/theme-auto.css?1696850783" rel="stylesheet" id="variant-style">
+    <link href="../../../../css/variant.css?1696850783" rel="stylesheet">
+    <link href="../../../../css/print.css?1696850783" rel="stylesheet" media="print">
+    <link href="../../../../css/format-print.css?1696850783" rel="stylesheet">
+    <link href="../../../../css/ie.css?1696850783" rel="stylesheet">
+    <script src="../../../../js/url.js?1696850783"></script>
+    <script src="../../../../js/variant.js?1696850783"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -73,8 +73,249 @@
             </header>
 <h1 id="1-sha1-算法">1 SHA1 算法</h1>
 
-<p>原文来自</p>
-
+<p>原文来自：<a href="https://www.cnblogs.com/Kingfans/p/16561821.html" target="_blank">https://www.cnblogs.com/Kingfans/p/16561821.html</a></p>
+<h2 id="一基本介绍">一、基本介绍</h2>
+<p>SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。</p>
+<p>SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。</p>
+<h2 id="二实现原理">二、实现原理</h2>
+<p>有关 SHA1 算法详情请参见 RFC 3174 <a href="http://www.ietf.org/rfc/rfc3174.txt" target="_blank">http://www.ietf.org/rfc/rfc3174.txt</a>。</p>
+<p>RFC 3174 是SHA1算法的官方文档，（建议了解SHA1算法前，先了解下MD4 md4算法实现原理深剖 ）其实现原理共分为5步：</p>
+<h3 id="第1步字节填充append-padding-bytes">第1步：字节填充(Append Padding Bytes)</h3>
+<p>数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。</p>
+<h3 id="第2步追加长度信息append-length">第2步：追加长度信息(Append Length)</h3>
+<p>数据比特位的数据长度追加到最后8字节中。【注意字节顺序与MD4不同 大小端之分】</p>
+<h3 id="第3步初始化md-bufferinitialize-md-buffer">第3步：初始化MD Buffer(Initialize MD Buffer)</h3>
+<p>这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。【注意相对于MD4 添加了H4】</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">H0</span> <span class="o">=</span> <span class="mh">0x67452301</span><span class="p">;</span>   <span class="c1">// 0x01, 0x23, 0x45, 0x67
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">uint32_t</span> <span class="n">H1</span> <span class="o">=</span> <span class="mh">0xEFCDAB89</span><span class="p">;</span>   <span class="c1">// 0x89, 0xAB, 0xCD, 0xEF
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">uint32_t</span> <span class="n">H2</span> <span class="o">=</span> <span class="mh">0x98BADCFE</span><span class="p">;</span>   <span class="c1">// 0xFE, 0xDC, 0xBA, 0x98
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">uint32_t</span> <span class="n">H3</span> <span class="o">=</span> <span class="mh">0x10325476</span><span class="p">;</span>   <span class="c1">// 0x76, 0x54, 0x32, 0x10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">uint32_t</span> <span class="n">H4</span> <span class="o">=</span> <span class="mh">0xC3D2E1F0</span><span class="p">;</span>   <span class="c1">// 0xF0, 0xE1, 0xD2, 0xC3
+</span></span></span></code></pre></div><h3 id="第4步处理消息块process-message-in-16-byte-blocks">第4步：处理消息块(Process Message in 16-Byte Blocks)</h3>
+<p>这个是SHA1算法最核心的部分了，对第2步组装数据进行分块依次处理。</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>/* Process each 16-word block. */
+ For i = 0 to N/16-1 do
+ 
+     /* Copy block i into X. */
+     For j = 0 to 15 do
+         Set X[j] to M[i*16+j].
+     end /* of loop on j */
+ 
+ a. Divide M(i) into 16 words W(0), W(1), ... , W(15), where W(0) is the left-most word.
+ 
+ b. For t = 16 to 79 let
+     W(t) = S^1(W(t-3) XOR W(t-8) XOR W(t-14) XOR W(t-16)).
+ 
+ c. Let A = H0, B = H1, C = H2, D = H3, E = H4.
+ 
+ d. For t = 0 to 79 do
+      
+     TEMP = S^5(A) + f(t;B,C,D) + E + W(t) + K(t);
+ 
+     E = D;  D = C;  C = S^30(B);  B = A; A = TEMP;
+ 
+ e. Let H0 = H0 + A, H1 = H1 + B, H2 = H2 + C, H3 = H3 + D, H4 = H4 + E.
+ 
+end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
+<p>这一步也非常简单，只需要将计算后的H0、H1、H2、H3、H4进行拼接输出即可。</p>
+<p>三、示例讲解
+<a href="#image-0806dab71a972191722bd2e022efba30" class="lightbox-link"><img src="../../../../Hash/SHA1_Case.png" alt="SHA1-case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-0806dab71a972191722bd2e022efba30"><img src="../../../../Hash/SHA1_Case.png" alt="SHA1-case" class="lightbox-image" loading="lazy"></a></p>
+<p>四、代码实现
+以下为C/C++代码实现：</p>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define HASH_BLOCK_SIZE         64  </span><span class="cm">/* 512 bits = 64 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_LEN_SIZE           8   </span><span class="cm">/* 64 bits =  8 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_LEN_OFFSET         56  </span><span class="cm">/* 64 bytes - 8 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_DIGEST_SIZE        16  </span><span class="cm">/* 128 bits = 16 bytes */</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define HASH_ROUND_NUM          80 
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span>       <span class="kt">uint8_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">short</span> <span class="kt">int</span>  <span class="kt">uint16_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">int</span>        <span class="kt">uint32_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span>  <span class="kt">uint64_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* Swap bytes in 32 bit value. 0x01234567 -&gt; 0x67452301 */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define __bswap_32(x)    \
+</span></span></span><span class="line"><span class="cl"><span class="cp">     ((((x) &amp; 0xff000000) &gt;&gt; 24)  \
+</span></span></span><span class="line"><span class="cl"><span class="cp">     | (((x) &amp; 0x00ff0000) &gt;&gt;  8) \
+</span></span></span><span class="line"><span class="cl"><span class="cp">     | (((x) &amp; 0x0000ff00) &lt;&lt;  8) \
+</span></span></span><span class="line"><span class="cl"><span class="cp">     | (((x) &amp; 0x000000ff) &lt;&lt; 24))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* SHA1 Constants */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="n">K</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x5A827999</span><span class="p">,</span>     <span class="cm">/* [0,  19] */</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x6ED9EBA1</span><span class="p">,</span>     <span class="cm">/* [20, 39] */</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x8F1BBCDC</span><span class="p">,</span>     <span class="cm">/* [40, 59] */</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0xCA62C1D6</span>      <span class="cm">/* [60, 79] */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/*                  f(X, Y, Z)                      */</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* [0,  19] */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Ch</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Y</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="o">~</span><span class="n">X</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* [20, 39] */</span>  <span class="cm">/* [60, 79] */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Parity</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">X</span> <span class="o">^</span> <span class="n">Y</span> <span class="o">^</span> <span class="n">Z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* [40, 59] */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">Maj</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">Z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Y</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">Y</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* 循环向左移动offset个比特位 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint32_t</span> <span class="nf">MoveLeft</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">X</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">offset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">&lt;&lt;</span> <span class="n">offset</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">offset</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cp">#define ASSERT_RETURN_INT(x, d) if(!(x)) { return d; }
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sha1</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">inlen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ASSERT_RETURN_INT</span><span class="p">(</span><span class="n">out</span> <span class="o">&amp;&amp;</span> <span class="n">in</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">inlen</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 1: 字节填充(Append Padding Bytes)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">iX</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">iY</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">%</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iX</span> <span class="o">=</span> <span class="p">(</span><span class="n">iY</span> <span class="o">&lt;</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">)</span> <span class="o">?</span> <span class="nl">iX</span> <span class="p">:</span> <span class="p">(</span><span class="n">iX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">iLen</span> <span class="o">=</span> <span class="p">(</span><span class="n">iX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">X</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">iLen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memcpy</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">inlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 先补上1个1比特+7个0比特
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">X</span><span class="p">[</span><span class="n">inlen</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 再补上(k-7)个0比特
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">iX</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 2: 追加长度信息(Append Length)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pLen</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint64_t</span><span class="o">*</span><span class="p">)(</span><span class="n">X</span> <span class="o">+</span> <span class="p">(</span><span class="n">iX</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">HASH_LEN_OFFSET</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">iTempLen</span> <span class="o">=</span> <span class="n">inlen</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pTempLen</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">iTempLen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pLen</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span> <span class="n">pLen</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="n">pLen</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>  <span class="n">pLen</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pLen</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="n">pLen</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="n">pLen</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>  <span class="n">pLen</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">pTempLen</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// Step 3. 初始化MD Buffer(Initialize MD Buffer)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">H0</span> <span class="o">=</span> <span class="mh">0x67452301</span><span class="p">;</span>   <span class="c1">// 0x01, 0x23, 0x45, 0x67
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">H1</span> <span class="o">=</span> <span class="mh">0xEFCDAB89</span><span class="p">;</span>   <span class="c1">// 0x89, 0xAB, 0xCD, 0xEF
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">H2</span> <span class="o">=</span> <span class="mh">0x98BADCFE</span><span class="p">;</span>   <span class="c1">// 0xFE, 0xDC, 0xBA, 0x98
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">H3</span> <span class="o">=</span> <span class="mh">0x10325476</span><span class="p">;</span>   <span class="c1">// 0x76, 0x54, 0x32, 0x10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">H4</span> <span class="o">=</span> <span class="mh">0xC3D2E1F0</span><span class="p">;</span>   <span class="c1">// 0xF0, 0xE1, 0xD2, 0xC3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">M</span><span class="p">[</span><span class="n">HASH_BLOCK_SIZE</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">W</span><span class="p">[</span><span class="n">HASH_ROUND_NUM</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 4: 处理消息块(Process Message in 64-Byte Blocks)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iLen</span> <span class="o">/</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Copy block i into X. */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">HASH_BLOCK_SIZE</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint64_t</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">HASH_BLOCK_SIZE</span> <span class="o">+</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">M</span><span class="p">[</span><span class="n">j</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">X</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/*  a. Divide M(i) into 16 words W(0), W(1), ..., W(15), where W(0) is the left - most word. */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">t</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/*  b. For t = 16 to 79 let
+</span></span></span><span class="line"><span class="cl"><span class="cm">        W(t) = S^1(W(t-3) XOR W(t-8) XOR W(t-14) XOR W(t-16)). */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">79</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span> <span class="o">^</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">8</span><span class="p">]</span> <span class="o">^</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">14</span><span class="p">]</span> <span class="o">^</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">16</span><span class="p">],</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/*  c. Let A = H0, B = H1, C = H2, D = H3, E = H4. */</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">A</span> <span class="o">=</span> <span class="n">H0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">B</span> <span class="o">=</span> <span class="n">H1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">C</span> <span class="o">=</span> <span class="n">H2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">D</span> <span class="o">=</span> <span class="n">H3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint32_t</span> <span class="n">E</span> <span class="o">=</span> <span class="n">H4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/*  d. For t = 0 to 79 do
+</span></span></span><span class="line"><span class="cl"><span class="cm">        TEMP = S^5(A) + f(t;B,C,D) + E + W(t) + K(t);
+</span></span></span><span class="line"><span class="cl"><span class="cm">        E = D;  D = C;  C = S^30(B);  B = A; A = TEMP; */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint32_t</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">Ch</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">E</span> <span class="o">+</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">E</span> <span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">D</span> <span class="o">=</span> <span class="n">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">C</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">39</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint32_t</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">Parity</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">E</span> <span class="o">+</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">E</span> <span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">D</span> <span class="o">=</span> <span class="n">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">C</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">59</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint32_t</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">Maj</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">E</span> <span class="o">+</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">K</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">E</span> <span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">D</span> <span class="o">=</span> <span class="n">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">C</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">79</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint32_t</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">Parity</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">E</span> <span class="o">+</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">K</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">E</span> <span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">D</span> <span class="o">=</span> <span class="n">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">C</span> <span class="o">=</span> <span class="n">MoveLeft</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/*  e. Let H0 = H0 + A, H1 = H1 + B, H2 = H2 + C, H3 = H3 + D, H4 = H4 + E. */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">H0</span> <span class="o">=</span> <span class="n">H0</span> <span class="o">+</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">H1</span> <span class="o">=</span> <span class="n">H1</span> <span class="o">+</span> <span class="n">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">H2</span> <span class="o">=</span> <span class="n">H2</span> <span class="o">+</span> <span class="n">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">H3</span> <span class="o">=</span> <span class="n">H3</span> <span class="o">+</span> <span class="n">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">H4</span> <span class="o">=</span> <span class="n">H4</span> <span class="o">+</span> <span class="n">E</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// step 5: 输出ABCD
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">pOut</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="o">*</span><span class="p">)</span><span class="n">out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pOut</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">__bswap_32</span><span class="p">(</span><span class="n">H0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pOut</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">__bswap_32</span><span class="p">(</span><span class="n">H1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pOut</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">__bswap_32</span><span class="p">(</span><span class="n">H2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pOut</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">__bswap_32</span><span class="p">(</span><span class="n">H3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pOut</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">__bswap_32</span><span class="p">(</span><span class="n">H4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">digest</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">sha1</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
             <footer class="footline">
 
             </footer>
@@ -83,8 +324,8 @@
         </div>
       </main>
     </div>
-    <script src="../../../../js/clipboard.min.js?1696231135" defer></script>
-    <script src="../../../../js/perfect-scrollbar.min.js?1696231135" defer></script>
-    <script src="../../../../js/theme.js?1696231135" defer></script>
+    <script src="../../../../js/clipboard.min.js?1696850783" defer></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1696850783" defer></script>
+    <script src="../../../../js/theme.js?1696850783" defer></script>
   </body>
 </html>
