@@ -1,6 +1,6 @@
 +++
 tags = ["Bitwise"]
-title = '3 使用按位运算计算INT_MAX和INT_MIN'
+title = '3 INT_MAX和INT_MIN'
 weight = 3
 +++
 

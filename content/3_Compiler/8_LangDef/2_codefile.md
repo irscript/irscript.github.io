@@ -14,14 +14,15 @@ weight = 2
 	package pkg.pkg2;
 ### 依赖单元
 
-	Import file=“dir/file.ext” as file ;
+	Import file=“dir/file.ext”;
+    Import file2=“dir/file2.ext”;
 
 或者
 
 	Import{
 
-		 ile=“dir/file.ext” as file ;
-		 ile2=“dir/file2.ext” as file2  ;
+		file=“dir/file.ext” ;
+		file2=“dir/file2.ext”;
 	}
 
 
