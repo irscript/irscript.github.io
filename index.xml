@@ -12,7 +12,7 @@
       <link>https://irscript.github.io/1_algorithms/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://irscript.github.io/1_algorithms/index.html</guid>
-      <description>目录 1 整数对齐 2 哈希函数 1 消息摘要算法 1 MD2 算法 2 MD4 算法 3 MD5 算法 2 签名算法 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 3 CRC 哈希函数 3 位运算快速算法 1 快速平均值 2 位域值提取 3 使用按位运算计算INT_MAX和INT_MIN </description>
+      <description>目录 1 整数对齐 2 哈希函数 1 消息摘要算法 1 MD2 算法 2 MD4 算法 3 MD5 算法 2 签名算法 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 3 CRC 哈希函数 3 快速位算法 1 快速平均值 2 位域值提取 3 INT_MAX和INT_MIN 4 应用 n &amp;#43; (~n) = -1 5 应用 n ^ n = 0 和 n ^ 0 = n 6 应用 x&amp;amp;(x-1) 7 应用 2的次方 8 取两数的最 大/小 值 </description>
     </item>
     <item>
       <title>数据结构</title>

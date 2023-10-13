@@ -11,19 +11,19 @@
     <link href="https://irscript.github.io/1_algorithms/2_hash/2_sha/index.html" rel="canonical" type="text/html" title="2 签名算法 :: 巨人之海">
     <link href="../../../1_algorithms/2_hash/2_sha/index.xml" rel="alternate" type="application/rss+xml" title="2 签名算法 :: 巨人之海"><link rel="icon" href="../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696850783" rel="stylesheet"></noscript>
-    <link href="../../../css/nucleus.css?1696850783" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696850783" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1696850783" rel="stylesheet">
-    <link href="../../../css/fonts.css?1696850783" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696850783" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1696850783" rel="stylesheet">
-    <link href="../../../css/theme-auto.css?1696850783" rel="stylesheet" id="variant-style">
-    <link href="../../../css/variant.css?1696850783" rel="stylesheet">
-    <link href="../../../css/print.css?1696850783" rel="stylesheet" media="print">
-    <link href="../../../css/format-print.css?1696850783" rel="stylesheet">
-    <link href="../../../css/ie.css?1696850783" rel="stylesheet">
-    <script src="../../../js/url.js?1696850783"></script>
-    <script src="../../../js/variant.js?1696850783"></script>
+    <link href="../../../css/fontawesome-all.min.css?1697199090" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1697199090" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1697199090" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1697199090" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1697199090" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1697199090" rel="stylesheet">
+    <link href="../../../css/fonts.css?1697199090" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1697199090" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1697199090" rel="stylesheet">
+    <link href="../../../css/theme-auto.css?1697199090" rel="stylesheet" id="variant-style">
+    <link href="../../../css/variant.css?1697199090" rel="stylesheet">
+    <link href="../../../css/print.css?1697199090" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1697199090" rel="stylesheet">
+    <link href="../../../css/ie.css?1697199090" rel="stylesheet">
+    <script src="../../../js/url.js?1697199090"></script>
+    <script src="../../../js/variant.js?1697199090"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -148,8 +148,8 @@
 end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：输出(Output)</h3>
 <p>这一步也非常简单，只需要将计算后的H0、H1、H2、H3、H4进行拼接输出即可。</p>
 <p>三、示例讲解
-<a href="#image-0806dab71a972191722bd2e022efba30" class="lightbox-link"><img src="../../../Hash/SHA1_Case.png" alt="SHA1-case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-0806dab71a972191722bd2e022efba30"><img src="../../../Hash/SHA1_Case.png" alt="SHA1-case" class="lightbox-image" loading="lazy"></a></p>
+<a href="#image-31cc9cde1c79ca95233925e3410f5934" class="lightbox-link"><img src="../../../Hash/SHA1_Case.png" alt="SHA1-case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-31cc9cde1c79ca95233925e3410f5934"><img src="../../../Hash/SHA1_Case.png" alt="SHA1-case" class="lightbox-image" loading="lazy"></a></p>
 <p>四、代码实现
 以下为C/C++代码实现：</p>
 <div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
@@ -365,8 +365,8 @@ end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：
 <p>SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。本文介绍SHA2-224算法的实现原理。</p>
 <h2 id="二实现原理">二、实现原理</h2>
 <p>有关 SHA2-224 算法详情请参见 NIST.FIPS.180-4 。</p>
-<p><a href="#image-cd4e6c93d3298265230068d734fa4769" class="lightbox-link"><img src="../../../Hash/SHA2_224.png" alt="SHA2-224" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-cd4e6c93d3298265230068d734fa4769"><img src="../../../Hash/SHA2_224.png" alt="SHA2-224" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-18d823615459b3f5481826aaf92c629b" class="lightbox-link"><img src="../../../Hash/SHA2_224.png" alt="SHA2-224" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-18d823615459b3f5481826aaf92c629b"><img src="../../../Hash/SHA2_224.png" alt="SHA2-224" class="lightbox-image" loading="lazy"></a></p>
 <p>NIST.FIPS.180-4 是SHA2-224算法的官方文档，（建议了解SHA2-224算法前，先了解下SHA2-256 sha2-256算法实现原理深剖 ）其实现原理共分为5步：</p>
 <h3 id="第1步字节填充append-padding-bytes">第1步：字节填充(Append Padding Bytes)</h3>
 <p>数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。</p>
@@ -383,8 +383,8 @@ end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：
 </span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">H6</span> <span class="o">=</span> <span class="mh">0x64F98FA7</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">H7</span> <span class="o">=</span> <span class="mh">0xBEFA4FA4</span><span class="p">;</span></span></span></code></pre></div><h3 id="第4步处理消息块process-message-in-16-byte-blocks">第4步：处理消息块(Process Message in 16-Byte Blocks)</h3>
 <p>这个是SHA2-224算法最核心的部分了，对第2步组装数据进行分块依次处理。</p>
-<p><a href="#image-70c4e8d8af22366435b88fc460c5595b" class="lightbox-link"><img src="../../../Hash/SHA2_224_PMB.png" alt="SHA2-224-PMB" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-70c4e8d8af22366435b88fc460c5595b"><img src="../../../Hash/SHA2_224_PMB.png" alt="SHA2-224-PMB" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-ec8eb71d7debfb0feed3cfd4766266c0" class="lightbox-link"><img src="../../../Hash/SHA2_224_PMB.png" alt="SHA2-224-PMB" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-ec8eb71d7debfb0feed3cfd4766266c0"><img src="../../../Hash/SHA2_224_PMB.png" alt="SHA2-224-PMB" class="lightbox-image" loading="lazy"></a></p>
 <h3 id="第5步输出output">第5步：输出(Output)</h3>
 <p>这一步也非常简单，只需要将计算后的H0、H1、H2、H3、H4、H5、H6进行拼接输出即可。</p>
 <h2 id="三示例讲解">三、示例讲解</h2>
@@ -622,8 +622,8 @@ end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：
 <p>SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。本文介绍SHA2-256算法的实现原理。</p>
 <h2 id="二实现原理">二、实现原理</h2>
 <p>有关 SHA2-256 算法详情请参见 <a href="https://www.docin.com/p-274266659.html" target="_blank">NIST.FIPS.180-4</a> 。</p>
-<p><a href="#image-fefe8c3919bb2b970ecd059ef492576f" class="lightbox-link"><img src="../../../Hash/SHA2_256.png" alt="Alt text" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-fefe8c3919bb2b970ecd059ef492576f"><img src="../../../Hash/SHA2_256.png" alt="Alt text" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-12dfd939e648086073cc36dda9919fcb" class="lightbox-link"><img src="../../../Hash/SHA2_256.png" alt="Alt text" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-12dfd939e648086073cc36dda9919fcb"><img src="../../../Hash/SHA2_256.png" alt="Alt text" class="lightbox-image" loading="lazy"></a></p>
 <p>NIST.FIPS.180-4 是SHA2-256算法的官方文档，（建议了解SHA2-256算法前，先了解下SHA1 sha1算法实现原理深剖 ）其实现原理共分为5步：</p>
 <h3 id="第1步字节填充append-padding-bytes">第1步：字节填充(Append Padding Bytes)</h3>
 <p>数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。</p>
@@ -640,13 +640,13 @@ end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：
 </span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">H6</span> <span class="o">=</span> <span class="mh">0x1F83D9AB</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">H7</span> <span class="o">=</span> <span class="mh">0x5BE0CD19</span><span class="p">;</span></span></span></code></pre></div><h3 id="第4步处理消息块process-message-in-16-byte-blocks">第4步：处理消息块(Process Message in 16-Byte Blocks)</h3>
 <p>这个是SHA2-256算法最核心的部分了，对第2步组装数据进行分块依次处理。</p>
-<p><a href="#image-8041472d3fe06066cb487f3374c0732f" class="lightbox-link"><img src="../../../Hash/SHA2_256_PMB.png" alt="SHA2-256-PMB" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-8041472d3fe06066cb487f3374c0732f"><img src="../../../Hash/SHA2_256_PMB.png" alt="SHA2-256-PMB" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-ccfe063640170afeeca8d70c7f1efb18" class="lightbox-link"><img src="../../../Hash/SHA2_256_PMB.png" alt="SHA2-256-PMB" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-ccfe063640170afeeca8d70c7f1efb18"><img src="../../../Hash/SHA2_256_PMB.png" alt="SHA2-256-PMB" class="lightbox-image" loading="lazy"></a></p>
 <h3 id="第5步输出output">第5步：输出(Output)</h3>
 <p>这一步也非常简单，只需要将计算后的H0、H1、H2、H3、H4、H5、H6、H7进行拼接输出即可。</p>
 <h2 id="三示例讲解">三、示例讲解</h2>
-<p><a href="#image-245774020513fc47d2986e8ee526b899" class="lightbox-link"><img src="../../../Hash/SHA2_256_case.png" alt="SHA2-256-case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="image-245774020513fc47d2986e8ee526b899"><img src="../../../Hash/SHA2_256_case.png" alt="SHA2-256-case" class="lightbox-image" loading="lazy"></a></p>
+<p><a href="#image-12f39da235285c163aae4c55b3b20649" class="lightbox-link"><img src="../../../Hash/SHA2_256_case.png" alt="SHA2-256-case" class="figure-image bg-white border lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="image-12f39da235285c163aae4c55b3b20649"><img src="../../../Hash/SHA2_256_case.png" alt="SHA2-256-case" class="lightbox-image" loading="lazy"></a></p>
 <h2 id="四代码实现">四、代码实现</h2>
 <p>以下为C/C++代码实现：</p>
 <div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
@@ -902,8 +902,8 @@ end /* of loop on i */</code></pre></div><h3 id="第5步输出output">第5步：
         </div>
       </main>
     </div>
-    <script src="../../../js/clipboard.min.js?1696850783" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1696850783" defer></script>
-    <script src="../../../js/theme.js?1696850783" defer></script>
+    <script src="../../../js/clipboard.min.js?1697199090" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1697199090" defer></script>
+    <script src="../../../js/theme.js?1697199090" defer></script>
   </body>
 </html>

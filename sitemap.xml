@@ -140,6 +140,9 @@
     <loc>https://irscript.github.io/1_algorithms/2_hash/3_crc/index.html</loc>
   </url>
   <url>
+    <loc>https://irscript.github.io/1_algorithms/3_bitwise/3_intmaxmin/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/1_algorithms/2_hash/1_md/3_md5/index.html</loc>
   </url>
   <url>
@@ -150,9 +153,6 @@
   </url>
   <url>
     <loc>https://irscript.github.io/6_format/3_color/3_yuv/index.html</loc>
-  </url>
-  <url>
-    <loc>https://irscript.github.io/1_algorithms/3_bitwise/3_intmaxmin/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/1_algorithms/3_bitwise/index.html</loc>
@@ -181,6 +181,9 @@
     <loc>https://irscript.github.io/6_format/4_compress/index.html</loc>
   </url>
   <url>
+    <loc>https://irscript.github.io/1_algorithms/3_bitwise/4_application/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/3_compiler/4_optimize/index.html</loc>
   </url>
   <url>
@@ -207,6 +210,9 @@
     <loc>https://irscript.github.io/6_format/5_picture/index.html</loc>
   </url>
   <url>
+    <loc>https://irscript.github.io/1_algorithms/3_bitwise/5_application2/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/5_os/index.html</loc>
   </url>
   <url>
@@ -218,6 +224,9 @@
   </url>
   <url>
     <loc>https://irscript.github.io/6_format/6_video/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/1_algorithms/3_bitwise/6_application3/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/3_compiler/6_ir/index.html</loc>
@@ -237,11 +246,17 @@
     <loc>https://irscript.github.io/6_format/7_audio/index.html</loc>
   </url>
   <url>
+    <loc>https://irscript.github.io/1_algorithms/3_bitwise/7_2pow/index.html</loc>
+  </url>
+  <url>
     <loc>https://irscript.github.io/3_compiler/8_langdef/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
     <loc>https://irscript.github.io/6_format/8_model/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/1_algorithms/3_bitwise/8_maxmin/index.html</loc>
   </url>
   <url>
     <loc>https://irscript.github.io/3_compiler/9_bcf/index.html</loc>

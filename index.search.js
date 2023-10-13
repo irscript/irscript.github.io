@@ -124,7 +124,7 @@ var relearn_search_index = [
     "uri": "/1_algorithms/1_align/index.html"
   },
   {
-    "content": "目录 1 整数对齐 2 哈希函数 1 消息摘要算法 1 MD2 算法 2 MD4 算法 3 MD5 算法 2 签名算法 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 3 CRC 哈希函数 3 位运算快速算法 1 快速平均值 2 位域值提取 3 使用按位运算计算INT_MAX和INT_MIN ",
+    "content": "目录 1 整数对齐 2 哈希函数 1 消息摘要算法 1 MD2 算法 2 MD4 算法 3 MD5 算法 2 签名算法 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 3 CRC 哈希函数 3 快速位算法 1 快速平均值 2 位域值提取 3 INT_MAX和INT_MIN 4 应用 n + (~n) = -1 5 应用 n ^ n = 0 和 n ^ 0 = n 6 应用 x\u0026(x-1) 7 应用 2的次方 8 取两数的最 大/小 值 ",
     "description": "",
     "tags": null,
     "title": "算法",
@@ -308,6 +308,15 @@ var relearn_search_index = [
     "uri": "/1_algorithms/2_hash/3_crc/index.html"
   },
   {
+    "content": "假设 假设您有一个 32 位系统：\nINT_MAX是 01111111111111111111111111111111 ； INT_MIN是 10000000000000000000000000000000 ； 0 和 1 分别位于最高有效位位置，分别表示符号位。\n计算INT_MAX和INT_MIN 在 C/C++ 中： 数字 0 表示为 000…000（32个）。\n原理 我们计算 0 的 NOT 得到一个有 32 个 1 的数字。这个数字不等于INT_MAX因为符号位是1，即负数。 现在，这个数字的右移将产生011…111 这是INT_MAX。 将INT_MAX 按位取反 就得到INT_MIN。\n代码 unsigned int max = 0; max = ~max; max = max \u003e\u003e 1; int min = ~max; ",
+    "description": "",
+    "tags": [
+      "Bitwise"
+    ],
+    "title": "3 INT_MAX和INT_MIN",
+    "uri": "/1_algorithms/3_bitwise/3_intmaxmin/index.html"
+  },
+  {
     "content": "原文来自：https://www.cnblogs.com/Kingfans/p/16554047.html\n一、基本介绍 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD5算法的实现原理。\n1991年，继 MD4 算法后，罗纳德·李维斯特教授开发了 MD5 算法，将 MD 算法推向成熟。MD5 算法经 MD2、MD3 和 MD4 算法发展而来，算法复杂程度和安全强度大大提高。但不管是 MD2、MD4 还是 MD5 算法，其算法的最终结果均是产生一个 128 位的消息摘要，这也是 MD 系列算法的特点。MD5 算法执行效率略次于 MD4 算法，但在安全性方面，MD5 算法更胜一筹。随着计算机技术的发展和计算水平的不断提高，MD5 算法暴露出来的漏洞也越来越多。1996 年后被证实存在弱点，可以被加以破解，对于需要高度安全性的数据，专家一般建议改用其他算法，如 SHA-2。2004 年，证实 MD5 算法无法防止碰撞（collision），因此不适用于安全性认证，如 SSL 公开密钥认证或是数字签名等用途。\n二、实现原理 有关 MD5 算法详情请参见 RFC 1321 http://www.ietf.org/rfc/rfc1321.txt，RFC 1321 是MD5算法的官方文档，其实现原理共分为5步：\n第1步：字节填充(Append Padding Bytes) 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。\n第2步：追加长度信息(Append Length) 数据比特位的数据长度追加到最后8字节中。\n第3步：初始化MD Buffer(Initialize MD Buffer) 这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。\nuint32_t A = 0x67452301; // [ 0x01, 0x23, 0x45, 0x67 ]\ruint32_t B = 0xEFCDAB89; // [ 0x89, 0xAB, 0xCD, 0xEF ]\ruint32_t C = 0x98BADCFE; // [ 0xFE, 0xDC, 0xBA, 0x98 ]\ruint32_t D = 0x10325476; // [ 0x76, 0x54, 0x32, 0x10 ]以上操作与md4完全一致。\n第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是MD5算法最核心的部分了，对第2步组装数据进行分块依次处理。\n/* Process each 16-word block. */\rFor i = 0 to N/16-1 do\r/* Copy block i into X. */\rFor j = 0 to 15 do\rSet X[j] to M[i*16+j].\rend /* of loop on j */\r/* Save A as AA, B as BB, C as CC, and D as DD. */\rAA = A\rBB = B\rCC = C\rDD = D\r/* Round 1. */\r/* Let [abcd k s i] denote the operation\ra = b + ((a + F(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */\r/* Do the following 16 operations. */\r[ABCD 0 7 1] [DABC 1 12 2] [CDAB 2 17 3] [BCDA 3 22 4]\r[ABCD 4 7 5] [DABC 5 12 6] [CDAB 6 17 7] [BCDA 7 22 8]\r[ABCD 8 7 9] [DABC 9 12 10] [CDAB 10 17 11] [BCDA 11 22 12]\r[ABCD 12 7 13] [DABC 13 12 14] [CDAB 14 17 15] [BCDA 15 22 16]\r/* Round 2. */\r/* Let [abcd k s i] denote the operation\ra = b + ((a + G(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */\r/* Do the following 16 operations. */\r[ABCD 1 5 17] [DABC 6 9 18] [CDAB 11 14 19] [BCDA 0 20 20]\r[ABCD 5 5 21] [DABC 10 9 22] [CDAB 15 14 23] [BCDA 4 20 24]\r[ABCD 9 5 25] [DABC 14 9 26] [CDAB 3 14 27] [BCDA 8 20 28]\r[ABCD 13 5 29] [DABC 2 9 30] [CDAB 7 14 31] [BCDA 12 20 32]\r/* Round 3. */\r/* Let [abcd k s t] denote the operation\ra = b + ((a + H(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */\r/* Do the following 16 operations. */\r[ABCD 5 4 33] [DABC 8 11 34] [CDAB 11 16 35] [BCDA 14 23 36]\r[ABCD 1 4 37] [DABC 4 11 38] [CDAB 7 16 39] [BCDA 10 23 40]\r[ABCD 13 4 41] [DABC 0 11 42] [CDAB 3 16 43] [BCDA 6 23 44]\r[ABCD 9 4 45] [DABC 12 11 46] [CDAB 15 16 47] [BCDA 2 23 48]\r/* Round 4. */\r/* Let [abcd k s t] denote the operation\ra = b + ((a + I(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */\r/* Do the following 16 operations. */\r[ABCD 0 6 49] [DABC 7 10 50] [CDAB 14 15 51] [BCDA 5 21 52]\r[ABCD 12 6 53] [DABC 3 10 54] [CDAB 10 15 55] [BCDA 1 21 56]\r[ABCD 8 6 57] [DABC 15 10 58] [CDAB 6 15 59] [BCDA 13 21 60]\r[ABCD 4 6 61] [DABC 11 10 62] [CDAB 2 15 63] [BCDA 9 21 64]\r/* Then perform the following additions. (That is increment each\rof the four registers by the value it had before this block\rwas started.) */\rA = A + AA\rB = B + BB\rC = C + CC\rD = D + DD\rend /* of loop on i */第5步：输出(Output) 这一步也非常简单，只需要将计算后的A、B、C、D进行拼接输出即可。\n三、示例讲解 四、代码实现 以下为C/C++代码实现：\n#include \u003cstring.h\u003e #include \u003cstdio.h\u003e #define HASH_BLOCK_SIZE 64 /* 512 bits = 64 bytes */ #define HASH_LEN_SIZE 8 /* 64 bits = 8 bytes */ #define HASH_LEN_OFFSET 56 /* 64 bytes - 8 bytes */ #define HASH_DIGEST_SIZE 16 /* 128 bits = 16 bytes */ typedef unsigned char uint8_t; typedef unsigned short int uint16_t; typedef unsigned int uint32_t; typedef unsigned long long uint64_t; /* T table */ static uint32_t T[64] = { /* Round 1 */ 0xD76AA478, 0xE8C7B756, 0x242070DB, 0xC1BDCEEE, 0xF57C0FAF, 0x4787C62A, 0xA8304613, 0xFD469501, 0x698098D8, 0x8B44F7AF, 0xFFFF5BB1, 0x895CD7BE, 0x6B901122, 0xFD987193, 0xA679438E, 0x49B40821, /* ROUND 2 */ 0xF61E2562, 0xC040B340, 0x265E5A51, 0xE9B6C7AA, 0xD62F105D, 0x02441453, 0xD8A1E681, 0xE7D3FBC8, 0x21E1CDE6, 0xC33707D6, 0xF4D50D87, 0x455A14ED, 0xA9E3E905, 0xFCEFA3F8, 0x676F02D9, 0x8D2A4C8A, /* ROUND 3 */ 0xFFFA3942, 0x8771F681, 0x6D9D6122, 0xFDE5380C, 0xA4BEEA44, 0x4BDECFA9, 0xF6BB4B60, 0xBEBFBC70, 0x289B7EC6, 0xEAA127FA, 0xD4EF3085, 0x04881D05, 0xD9D4D039, 0xE6DB99E5, 0x1FA27CF8, 0xC4AC5665, /* ROUND 4 */ 0xF4292244, 0x432AFF97, 0xAB9423A7, 0xFC93A039, 0x655B59C3, 0x8F0CCC92, 0xFFEFF47D, 0x85845DD1, 0x6FA87E4F, 0xFE2CE6E0, 0xA3014314, 0x4E0811A1, 0xF7537E82, 0xBD3AF235, 0x2AD7D2BB, 0xEB86D391 }; static uint32_t F(uint32_t X, uint32_t Y, uint32_t Z) { return (X \u0026 Y) | ((~X) \u0026 Z); } static uint32_t G(uint32_t X, uint32_t Y, uint32_t Z) { return (X \u0026 Z) | (Y \u0026 (~Z)); } static uint32_t H(uint32_t X, uint32_t Y, uint32_t Z) { return X ^ Y ^ Z; } static uint32_t I(uint32_t X, uint32_t Y, uint32_t Z) { return Y ^ ( X | (~Z)); } /* 循环向左移动offset个比特位 */ static uint32_t MoveLeft(uint32_t X, uint8_t offset) { uint32_t res = (X \u003c\u003c offset) | (X \u003e\u003e (32 - offset)); return res; } static uint32_t Round1(uint32_t A, uint32_t B, uint32_t C, uint32_t D, uint32_t M, uint32_t N, uint32_t T) { return B + MoveLeft(A + F(B, C, D) + M + T, N); } static uint32_t Round2(uint32_t A, uint32_t B, uint32_t C, uint32_t D, uint32_t M, uint32_t N, uint32_t T) { return B + MoveLeft(A + G(B, C, D) + M + T, N); } static uint32_t Round3(uint32_t A, uint32_t B, uint32_t C, uint32_t D, uint32_t M, uint32_t N, uint32_t T) { return B + MoveLeft(A + H(B, C, D) + M + T, N); } static uint32_t Round4(uint32_t A, uint32_t B, uint32_t C, uint32_t D, uint32_t M, uint32_t N, uint32_t T) { return B + MoveLeft(A + I(B, C, D) + M + T, N); } #define ASSERT_RETURN_INT(x, d) if(!(x)) { return d; } int md5(unsigned char *out, const unsigned char* in, const int inlen) { ASSERT_RETURN_INT(out \u0026\u0026 in \u0026\u0026 (inlen \u003e= 0), 1); int i = 0, j = 0; // step 1: 字节填充(Append Padding Bytes) // 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数 int iX = inlen / HASH_BLOCK_SIZE; int iY = inlen % HASH_BLOCK_SIZE; iX = (iY \u003c HASH_LEN_OFFSET) ? iX : (iX + 1); int iLen = (iX + 1) * HASH_BLOCK_SIZE; unsigned char* M = malloc(iLen); memcpy(M, in, inlen); // 先补上1个1比特+7个0比特 M[inlen] = 0x80; // 再补上(k-7)个0比特 for (i = inlen + 1; i \u003c (iX * HASH_BLOCK_SIZE + HASH_LEN_OFFSET); i++) { M[i] = 0; } // step 2: 追加长度信息(Append Length) uint64_t *pLen = (uint64_t*)(M + (iX * HASH_BLOCK_SIZE + HASH_LEN_OFFSET)); *pLen = inlen \u003c\u003c 3; // Step 3. 初始化MD Buffer(Initialize MD Buffer) uint32_t A = 0x67452301; // 0x01, 0x23, 0x45, 0x67 uint32_t B = 0xEFCDAB89; // 0x89, 0xAB, 0xCD, 0xEF uint32_t C = 0x98BADCFE; // 0xFE, 0xDC, 0xBA, 0x98 uint32_t D = 0x10325476; // 0x76, 0x54, 0x32, 0x10 uint32_t X[HASH_BLOCK_SIZE / 4] = { 0 }; // step 4: 处理消息块(Process Message in 64-Byte Blocks) for (i = 0; i \u003c iLen / HASH_BLOCK_SIZE; i++) { /* Copy block i into X. */ for (j = 0; j \u003c HASH_BLOCK_SIZE; j = j + 4) { uint32_t* temp = \u0026M[i * HASH_BLOCK_SIZE + j]; X[j / 4] = *temp; } /* Save A as AA, B as BB, C as CC, and D as DD. */ uint32_t AA = A; uint32_t BB = B; uint32_t CC = C; uint32_t DD = D; /* Round 1. */ /* Let [abcd k s i] denote the operation a = b + ((a + F(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */ /* Do the following 16 operations. [ABCD 0 7 1][DABC 1 12 2][CDAB 2 17 3][BCDA 3 22 4] [ABCD 4 7 5][DABC 5 12 6][CDAB 6 17 7][BCDA 7 22 8] [ABCD 8 7 9][DABC 9 12 10][CDAB 10 17 11][BCDA 11 22 12] [ABCD 12 7 13][DABC 13 12 14][CDAB 14 17 15][BCDA 15 22 16] 此处T[i]有问题 应该是i-1 索引下标从0开始 */ A = Round1(A, B, C, D, X[0], 7, T[0]); D = Round1(D, A, B, C, X[1], 12, T[1]); C = Round1(C, D, A, B, X[2], 17, T[2]); B = Round1(B, C, D, A, X[3], 22, T[3]); A = Round1(A, B, C, D, X[4], 7, T[4]); D = Round1(D, A, B, C, X[5], 12, T[5]); C = Round1(C, D, A, B, X[6], 17, T[6]); B = Round1(B, C, D, A, X[7], 22, T[7]); A = Round1(A, B, C, D, X[8], 7, T[8]); D = Round1(D, A, B, C, X[9], 12, T[9]); C = Round1(C, D, A, B, X[10], 17, T[10]); B = Round1(B, C, D, A, X[11], 22, T[11]); A = Round1(A, B, C, D, X[12], 7, T[12]); D = Round1(D, A, B, C, X[13], 12, T[13]); C = Round1(C, D, A, B, X[14], 17, T[14]); B = Round1(B, C, D, A, X[15], 22, T[15]); /* Round 2. */ /* Let [abcd k s i] denote the operation a = b + ((a + G(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */ /* Do the following 16 operations. [ABCD 1 5 17][DABC 6 9 18][CDAB 11 14 19][BCDA 0 20 20] [ABCD 5 5 21][DABC 10 9 22][CDAB 15 14 23][BCDA 4 20 24] [ABCD 9 5 25][DABC 14 9 26][CDAB 3 14 27][BCDA 8 20 28] [ABCD 13 5 29][DABC 2 9 30][CDAB 7 14 31][BCDA 12 20 32] */ A = Round2(A, B, C, D, X[1], 5, T[16]); D = Round2(D, A, B, C, X[6], 9, T[17]); C = Round2(C, D, A, B, X[11], 14, T[18]); B = Round2(B, C, D, A, X[0], 20, T[19]); A = Round2(A, B, C, D, X[5], 5, T[20]); D = Round2(D, A, B, C, X[10], 9, T[21]); C = Round2(C, D, A, B, X[15], 14, T[22]); B = Round2(B, C, D, A, X[4], 20, T[23]); A = Round2(A, B, C, D, X[9], 5, T[24]); D = Round2(D, A, B, C, X[14], 9, T[25]); C = Round2(C, D, A, B, X[3], 14, T[26]); B = Round2(B, C, D, A, X[8], 20, T[27]); A = Round2(A, B, C, D, X[13], 5, T[28]); D = Round2(D, A, B, C, X[2], 9, T[29]); C = Round2(C, D, A, B, X[7], 14, T[30]); B = Round2(B, C, D, A, X[12], 20, T[31]); /* Round 3. */ /* Let [abcd k s t] denote the operation a = b + ((a + H(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */ /* Do the following 16 operations. [ABCD 5 4 33][DABC 8 11 34][CDAB 11 16 35][BCDA 14 23 36] [ABCD 1 4 37][DABC 4 11 38][CDAB 7 16 39][BCDA 10 23 40] [ABCD 13 4 41][DABC 0 11 42][CDAB 3 16 43][BCDA 6 23 44] [ABCD 9 4 45][DABC 12 11 46][CDAB 15 16 47][BCDA 2 23 48] */ A = Round3(A, B, C, D, X[5], 4, T[32]); D = Round3(D, A, B, C, X[8], 11, T[33]); C = Round3(C, D, A, B, X[11], 16, T[34]); B = Round3(B, C, D, A, X[14], 23, T[35]); A = Round3(A, B, C, D, X[1], 4, T[36]); D = Round3(D, A, B, C, X[4], 11, T[37]); C = Round3(C, D, A, B, X[7], 16, T[38]); B = Round3(B, C, D, A, X[10], 23, T[39]); A = Round3(A, B, C, D, X[13], 4, T[40]); D = Round3(D, A, B, C, X[0], 11, T[41]); C = Round3(C, D, A, B, X[3], 16, T[42]); B = Round3(B, C, D, A, X[6], 23, T[43]); A = Round3(A, B, C, D, X[9], 4, T[44]); D = Round3(D, A, B, C, X[12], 11, T[45]); C = Round3(C, D, A, B, X[15], 16, T[46]); B = Round3(B, C, D, A, X[2], 23, T[47]); /* Round 4. */ /* Let [abcd k s t] denote the operation a = b + ((a + I(b,c,d) + X[k] + T[i]) \u003c\u003c\u003c s). */ /* Do the following 16 operations. [ABCD 0 6 49][DABC 7 10 50][CDAB 14 15 51][BCDA 5 21 52] [ABCD 12 6 53][DABC 3 10 54][CDAB 10 15 55][BCDA 1 21 56] [ABCD 8 6 57][DABC 15 10 58][CDAB 6 15 59][BCDA 13 21 60] [ABCD 4 6 61][DABC 11 10 62][CDAB 2 15 63][BCDA 9 21 64] */ A = Round4(A, B, C, D, X[0], 6, T[48]); D = Round4(D, A, B, C, X[7], 10, T[49]); C = Round4(C, D, A, B, X[14], 15, T[50]); B = Round4(B, C, D, A, X[5], 21, T[51]); A = Round4(A, B, C, D, X[12], 6, T[52]); D = Round4(D, A, B, C, X[3], 10, T[53]); C = Round4(C, D, A, B, X[10], 15, T[54]); B = Round4(B, C, D, A, X[1], 21, T[55]); A = Round4(A, B, C, D, X[8], 6, T[56]); D = Round4(D, A, B, C, X[15], 10, T[57]); C = Round4(C, D, A, B, X[6], 15, T[58]); B = Round4(B, C, D, A, X[13], 21, T[59]); A = Round4(A, B, C, D, X[4], 6, T[60]); D = Round4(D, A, B, C, X[11], 10, T[61]); C = Round4(C, D, A, B, X[2], 15, T[62]); B = Round4(B, C, D, A, X[9], 21, T[63]); /* Then perform the following additions. (That is, increment each of the four registers by the value it had before this block was started.) */ A = A + AA; B = B + BB; C = C + CC; D = D + DD; } // step 5: 输出ABCD memcpy(out + 0, \u0026A, 4); memcpy(out + 4, \u0026B, 4); memcpy(out + 8, \u0026C, 4); memcpy(out + 12, \u0026D, 4); free(M); return 0; } int main() { unsigned char digest[16] = { 0 }; md5(digest, \"Hello World!\", strlen(\"Hello World!\")); return 0; }",
     "description": "",
     "tags": [
@@ -342,19 +351,10 @@ var relearn_search_index = [
     "uri": "/6_format/3_color/3_yuv/index.html"
   },
   {
-    "content": "假设 假设您有一个 32 位系统：\nINT_MAX是 01111111111111111111111111111111 ； INT_MIN是 10000000000000000000000000000000 ； 0 和 1 分别位于最高有效位位置，分别表示符号位。\n计算INT_MAX和INT_MIN 在 C/C++ 中： 数字 0 表示为 000…000（32个）。\n原理 我们计算 0 的 NOT 得到一个有 32 个 1 的数字。这个数字不等于INT_MAX因为符号位是1，即负数。 现在，这个数字的右移将产生011…111 这是INT_MAX。 将INT_MAX 按位取反 就得到INT_MIN。\n代码 unsigned int max = 0; max = ~max; max = max \u003e\u003e 1; int min = ~max; ",
-    "description": "",
-    "tags": [
-      "Bitwise"
-    ],
-    "title": "3 使用按位运算计算INT_MAX和INT_MIN",
-    "uri": "/1_algorithms/3_bitwise/3_intmaxmin/index.html"
-  },
-  {
-    "content": "位运算符 \u0026 位与： 0 \u0026 0 = 0 ; 0 \u0026 1 = 0 ; 1 \u0026 0 = 0 ;1 \u0026 1 = 1 ; 同为 1 时， 结果为 1。 | 位或： 0 | 0 = 0 ; 0 | 1 = 1 ; 1 | 0 = 1 ;1 | 1 = 1 ; 存在 1 时， 结果为 1。 ^ 位异或： 0 \u0026 0 = 0 ; 0 \u0026 1 = 1 ; 1 \u0026 0 = 1 ;1 \u0026 1 = 0 ; 值相异时， 结果为 1。 ~ 位反： ~ 0 = 1 ; ~ 1 = 0 ; « 左移: \u003e\u003e 逻辑右移： \u003e» 算术右移： 目录 1 快速平均值 2 位域值提取 3 使用按位运算计算INT_MAX和INT_MIN ",
+    "content": "位运算符 \u0026 位与： 0 \u0026 0 = 0 ; 0 \u0026 1 = 0 ; 1 \u0026 0 = 0 ;1 \u0026 1 = 1 ; 同为 1 时， 结果为 1。 | 位或： 0 | 0 = 0 ; 0 | 1 = 1 ; 1 | 0 = 1 ;1 | 1 = 1 ; 存在 1 时， 结果为 1。 ^ 位异或： 0 \u0026 0 = 0 ; 0 \u0026 1 = 1 ; 1 \u0026 0 = 1 ;1 \u0026 1 = 0 ; 值相异时， 结果为 1。 ~ 位反： ~ 0 = 1 ; ~ 1 = 0 ; « 左移: \u003e\u003e 逻辑右移： \u003e» 算术右移： 位运算特性 与（\u0026）运算 一个数n与0进行与运算，值为0，n \u0026 0 = 0。\r一个数n与-1进行与运算，值为n，n \u0026 -1 = n。\r一个数n与自己进行与运算，值为n，n \u0026 n = n。\r或（|）运算 一个数n与0进行或运算，值为n，n | 0 = n。\r一个数n与-1进行或运算，值为-1，n | -1 = -1。\r非（~）运算 对二进制的每一位都按位取反。\r对于数n，n + (~n) = -1。\r异或（^）运算 运算的二进位结果，相异为1，相同为0。\n一个数n与0异或，值为n，n ^ 0 = n。\r一个数n与-1异或，值为~n，n ^ -1 = ~n。\r一个数n与自己异或，值为0，n ^ n = 0。\r左移（«）和右移（»）运算 向左进行移位操作，高位丢弃，低位补 0\r向右进行移位操作，对无符号数，高位补 0，对于有符号数，高位补符号位\r应用 1 快速平均值 2 位域值提取 3 INT_MAX和INT_MIN 4 应用 n + (~n) = -1 5 应用 n ^ n = 0 和 n ^ 0 = n 6 应用 x\u0026(x-1) 7 应用 2的次方 8 取两数的最 大/小 值 ",
     "description": "",
     "tags": null,
-    "title": "3 位运算快速算法",
+    "title": "3 快速位算法",
     "uri": "/1_algorithms/3_bitwise/index.html"
   },
   {
@@ -408,6 +408,15 @@ var relearn_search_index = [
     "tags": null,
     "title": "4 压缩格式",
     "uri": "/6_format/4_compress/index.html"
+  },
+  {
+    "content": "原理 设整数 n 类型为 int_8，值为 3，则 3 + (~3) = 0000 0011 + 1111 1100 = 1111 1111 = -1，所以引出非运算的基础公式 n + (~n) = -1，也可以将 n ^ -1 = ~n 带入。\n位运算实现n+1与n-1 对n + (~n) = -1进行等式变换可得：\nint n; ~n = -(n + 1); n + 1 = -~n; n - 1 = ~-n;\t// 假设n = -n，可推出此等式 取相反数 一个数的相反数等于其按位取反后再加1，对上等式变换推出：\nint n; -n = ~n + 1;取绝对值 这一块内容也用到了n ^ 0 = n 和 n ^ -1 = ~n：\n若 n 为非负数，则 n » 31 = 0，所以 abs = n ^ 0 - 0 = n。 若 n 为负数，则 n » 31 = -1，所以 abs = n ^ (-1) + 1 = ~n + 1 = -1 - n + 1 = -n。 int abs, n; abs = (n ^ (n \u003e\u003e 31)) - (n \u003e\u003e 31)",
+    "description": "",
+    "tags": [
+      "Bitwise"
+    ],
+    "title": "4 应用 n + (~n) = -1",
+    "uri": "/1_algorithms/3_bitwise/4_application/index.html"
   },
   {
     "content": "",
@@ -469,6 +478,15 @@ var relearn_search_index = [
     "uri": "/6_format/5_picture/index.html"
   },
   {
+    "content": "交换两个数的值 不需要第三个临时变量，交换两个数的值\nint a, b; a ^= b;\t// a = a ^ b; b ^= a;\t// b = b ^ a = b ^ a ^ b = (b ^ b) ^ a = 0 ^ a = a a ^= b;\t// a = a ^ b = a ^ a ^ b = 0 ^ b = b 代替特定的条件赋值 如果 x = a，则 a ^ b ^ x = 0 ^ b；如果 x = b，则 a ^ b ^ x = 0 ^ a；\n所以下列代码可等价于：x = a ^ b ^ x。\nint a, b, x; if(x == a) x = b; else if(x == b) x = a; // 上面代码等价于 x = a ^ b ^ x",
+    "description": "",
+    "tags": [
+      "Bitwise"
+    ],
+    "title": "5 应用 n ^ n = 0 和 n ^ 0 = n",
+    "uri": "/1_algorithms/3_bitwise/5_application2/index.html"
+  },
+  {
     "content": "待续 ",
     "description": "",
     "tags": null,
@@ -495,6 +513,15 @@ var relearn_search_index = [
     "tags": null,
     "title": "6 视频格式",
     "uri": "/6_format/6_video/index.html"
+  },
+  {
+    "content": "原理 x\u0026(x-1)可以消除数字x二进制表示的最后一个1，如：\nint x = 0xf6; printf(\"%x\\n\", x);\t//0b11110110 printf(\"%x\\n\", x\u0026(x-1));\t//0b11110100 判断一个正数是不是2的次幂 如果一个正数是2的次幂，则这个数的二进制表示中只含有一个1。\nint x; if(x\u0026(x-1)){ //x至少含有两个1，所以不是2的次幂 } 计算一个数的二进制含有多少个1 x中的最后一个1可以通过操作x = x\u0026(x-1)循环消去，当最后x值为0时，便可以求出二进制中1的个数。\nint x, total; while(x \u003e 0){ x = x\u0026(x-1); total++; }",
+    "description": "",
+    "tags": [
+      "Bitwise"
+    ],
+    "title": "6 应用  x\u0026(x-1)",
+    "uri": "/1_algorithms/3_bitwise/6_application3/index.html"
   },
   {
     "content": "",
@@ -532,6 +559,15 @@ var relearn_search_index = [
     "uri": "/6_format/7_audio/index.html"
   },
   {
+    "content": "整数对2的乘/除法 整数 n 向右移一位，相当于将 n 除以 2；数 n 向左移一位，相当于将 n 乘以 2。\nint n = 2; n \u003e\u003e 1; // 1 n \u003c\u003c 1; // 4 n 对“2的次方”取余 m 是2的次方，则其二进制数只有一个1，如 4 =\u003e 0100，8 =\u003e 1000。m-1 之后，原本 m 二进制的1变成0，原本1后面的0全变成1，如 4-1 = 3 =\u003e 0011，8-1 = 7 =\u003e 0111。\n2 ^ 0 = 1\n2 ^ 1 = 2\n2 ^ 2 = 4\n2^ 3 = 8\n2 ^ 4 = 16\n2 ^ 5 = 32\n…\n可以看出 2^(q + 1) 永远都是 2^q 的整数倍，而 2^q 比 2^(q - 1)+2^(q - 2) … + 2^0 的和还要大 1。\n假设 m = 2^q ，q 为正整数。n 的二进制数中，第[ n 的最高位, q ]位的和是 m 的整数倍，而第[ q-1, 0 ]位的和是 n/m 的余数，也就是说将n的二进制数的第[ q-1, 0 ]位截取，即可得到 n/m 的余数。\nm = 2^q ， m − 1 = 2^(q - 1)+2^(q - 2) … + 2^0 =\u003e 00011…1（[ q-1, 0 ]位全为1），所以 n \u0026 (m - 1) 的值为 n/m 的余数。\nint mod, n, m; // m是2的次方，如4,8等 mod = n \u0026 (m - 1);将 n 以“2的次方”倍数最小补全 有 n 和 m 两数，m 为2的次方，找到大于等于 n 且正好是 m 整数倍的最小数。\n假设 m = 2^q ，则 m 的倍数的二进制数中，第 q 位为1，其余位全为 0；(m - 1) 的二进制数中[ q-1, 0 ]位全为 1，其余位全为 0。\n所以有两种情况：\n如果n的二进制数中[ q-1, 0 ]位全为 0，则 n 就是 m 整数倍的最小数； 如果n的二进制数中[ q-1, 0 ]位不全为 0，在第 q 位上加 1，所得结果就是 m 整数倍的最小数。 现给 n 加上一个[ q-1, 0 ]位全为 1，其余位全为 0 的数（ m-1 就是这个数），并将所得结果的[ q-1, 0 ]位全部置为 0（结果与 ~(m - 1) 相与即可），便可满足这两种情况。\nint min, n, m; min = (n + m - 1) \u0026 ~(m - 1);",
+    "description": "",
+    "tags": [
+      "Bitwise"
+    ],
+    "title": "7 应用 2的次方",
+    "uri": "/1_algorithms/3_bitwise/7_2pow/index.html"
+  },
+  {
     "content": "air语言是C语法系的编程语言，提供面向对象、函数式、模板等高级语言功能。\n目录 1 语法定义 2 代码结构 3 关键字 4 操作符 5 类型系统 ",
     "description": "",
     "tags": null,
@@ -544,6 +580,15 @@ var relearn_search_index = [
     "tags": null,
     "title": "8 模型3D",
     "uri": "/6_format/8_model/index.html"
+  },
+  {
+    "content": "原理 如果 a \u003e= b，则 a - b \u003e= 0 且 ~(a - b) \u003c 0，所以 ((a - b) » 31) = 0 且 (~(a - b) » 31) = -1。 如果 a \u003c b，则 a - b \u003c 0 且 ~(a - b) \u003e= 0，所以 ((a - b) » 31) = -1 且 (~(a - b) » 31) = 0。 实现 int max(int a, int b){ return (b \u0026 ((a - b) \u003e\u003e 31)) | (a \u0026 (~(a - b) \u003e\u003e 31)); } int min(int a, int b){ return (a \u0026 ((a - b) \u003e\u003e 31)) | (b \u0026 (~(a - b) \u003e\u003e 31)); }",
+    "description": "",
+    "tags": [
+      "Bitwise"
+    ],
+    "title": "8 取两数的最 大/小 值",
+    "uri": "/1_algorithms/3_bitwise/8_maxmin/index.html"
   },
   {
     "content": "字节码文件的设计是虚拟机资源加载的核心，其中的设计会影响到虚拟机指令集的设计。\n目录 ",
@@ -581,7 +626,7 @@ var relearn_search_index = [
     "uri": "/tags/index.html"
   },
   {
-    "content": " 技术收集、随笔、总结。\n目录 存在以下分类： 算法 1 整数对齐 2 哈希函数 3 位运算快速算法 数据结构 链表 编译原理 1 词法分析 2 语法分析 3 语义分析 4 中间优化 5 目标生成 6 中间代码 7 指令集 8 语言定义 9 字节码文件格式 10 虚拟机设计与实现 图形图像 操作系统 数据格式 1 通用格式设计 2 程序格式 3 颜色格式 4 压缩格式 5 图片格式 6 视频格式 7 音频格式 8 模型3D 网址收藏 文件格式相关 文件格式汇编: https://www.moon-soft.com/program/FORMAT/ 算法相关 加解密算法: https://www.cnblogs.com/Kingfans/category/2198205.html 快速位运算算法: http://graphics.stanford.edu/~seander/bithacks.html x86/x64指令相关 x86-64的指令编码入门: https://blog.csdn.net/JimFire/article/details/112652145 x86_64指令编码方式: https://zhuanlan.zhihu.com/p/464774687 X86 Opcode and Instruction Reference: http://ref.x86asm.net/geek64.html X86-64_Instruction_Encoding: https://wiki.osdev.org/X86-64_Instruction_Encoding 游戏引擎相关 游戏引擎 浅入浅出: https://www.thisisgame.com.cn/tutorial?book=cpp-game-engine-book\u0026lang=zh\u0026md=Introduction.md ",
+    "content": " 技术收集、随笔、总结。\n目录 存在以下分类： 算法 1 整数对齐 2 哈希函数 3 快速位算法 数据结构 链表 编译原理 1 词法分析 2 语法分析 3 语义分析 4 中间优化 5 目标生成 6 中间代码 7 指令集 8 语言定义 9 字节码文件格式 10 虚拟机设计与实现 图形图像 操作系统 数据格式 1 通用格式设计 2 程序格式 3 颜色格式 4 压缩格式 5 图片格式 6 视频格式 7 音频格式 8 模型3D 网址收藏 文件格式相关 文件格式汇编: https://www.moon-soft.com/program/FORMAT/ 算法相关 加解密算法: https://www.cnblogs.com/Kingfans/category/2198205.html 快速位运算算法: http://graphics.stanford.edu/~seander/bithacks.html x86/x64指令相关 x86-64的指令编码入门: https://blog.csdn.net/JimFire/article/details/112652145 x86_64指令编码方式: https://zhuanlan.zhihu.com/p/464774687 X86 Opcode and Instruction Reference: http://ref.x86asm.net/geek64.html X86-64_Instruction_Encoding: https://wiki.osdev.org/X86-64_Instruction_Encoding 游戏引擎相关 游戏引擎 浅入浅出: https://www.thisisgame.com.cn/tutorial?book=cpp-game-engine-book\u0026lang=zh\u0026md=Introduction.md ",
     "description": "",
     "tags": null,
     "title": "主页",

@@ -7,22 +7,22 @@
     <meta name="generator" content="Relearn 5.20.0">
     <meta name="description" content="站在巨人的肩膀上">
     <meta name="author" content="月明之都">
-    <title>3 位运算快速算法 :: 巨人之海</title>
-    <link href="../../1_algorithms/3_bitwise/index.xml" rel="alternate" type="application/rss+xml" title="3 位运算快速算法 :: 巨人之海">
-    <link href="../../1_algorithms/3_bitwise/index.print.html" rel="alternate" type="text/html" title="3 位运算快速算法 :: 巨人之海"><link rel="icon" href="../../images/favicon.png" type="image/png">
+    <title>3 快速位算法 :: 巨人之海</title>
+    <link href="../../1_algorithms/3_bitwise/index.xml" rel="alternate" type="application/rss+xml" title="3 快速位算法 :: 巨人之海">
+    <link href="../../1_algorithms/3_bitwise/index.print.html" rel="alternate" type="text/html" title="3 快速位算法 :: 巨人之海"><link rel="icon" href="../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../css/fontawesome-all.min.css?1696850782" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1696850782" rel="stylesheet"></noscript>
-    <link href="../../css/nucleus.css?1696850782" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1696850782" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1696850782" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1696850782" rel="stylesheet">
-    <link href="../../css/fonts.css?1696850782" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1696850782" rel="stylesheet"></noscript>
-    <link href="../../css/theme.css?1696850782" rel="stylesheet">
-    <link href="../../css/theme-auto.css?1696850782" rel="stylesheet" id="variant-style">
-    <link href="../../css/variant.css?1696850782" rel="stylesheet">
-    <link href="../../css/print.css?1696850782" rel="stylesheet" media="print">
-    <link href="../../css/ie.css?1696850782" rel="stylesheet">
-    <script src="../../js/url.js?1696850782"></script>
-    <script src="../../js/variant.js?1696850782"></script>
+    <link href="../../css/fontawesome-all.min.css?1697199090" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1697199090" rel="stylesheet"></noscript>
+    <link href="../../css/nucleus.css?1697199090" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1697199090" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1697199090" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1697199090" rel="stylesheet">
+    <link href="../../css/fonts.css?1697199090" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1697199090" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1697199090" rel="stylesheet">
+    <link href="../../css/theme-auto.css?1697199090" rel="stylesheet" id="variant-style">
+    <link href="../../css/variant.css?1697199090" rel="stylesheet">
+    <link href="../../css/print.css?1697199090" rel="stylesheet" media="print">
+    <link href="../../css/ie.css?1697199090" rel="stylesheet">
+    <script src="../../js/url.js?1697199090"></script>
+    <script src="../../js/variant.js?1697199090"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -71,14 +71,23 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">主页</span></a><meta itemprop="position" content="1"> &gt; </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../1_algorithms/index.html"><span itemprop="name">算法</span></a><meta itemprop="position" content="2"> &gt; </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">3 位运算快速算法</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">3 快速位算法</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
             <div class="toc-wrapper"><nav id="TableOfContents">
   <ul>
     <li><a href="#位运算符">位运算符</a></li>
-    <li><a href="#目录">目录</a></li>
+    <li><a href="#位运算特性">位运算特性</a>
+      <ul>
+        <li><a href="#与运算">与（&amp;）运算</a></li>
+        <li><a href="#或运算">或（|）运算</a></li>
+        <li><a href="#非运算">非（~）运算</a></li>
+        <li><a href="#异或运算">异或（^）运算</a></li>
+        <li><a href="#左移和右移运算">左移（&laquo;）和右移（&raquo;）运算</a></li>
+      </ul>
+    </li>
+    <li><a href="#应用">应用</a></li>
   </ul>
 </nav>
             </div>
@@ -90,7 +99,7 @@
           <article class="default">
             <header class="headline">
             </header>
-<h1 id="3-位运算快速算法">3 位运算快速算法</h1>
+<h1 id="3-快速位算法">3 快速位算法</h1>
 
 <h2 id="位运算符">位运算符</h2>
 <hr>
@@ -103,7 +112,32 @@
 <li>&gt;&gt; 逻辑右移：</li>
 <li>&gt;&raquo; 算术右移：</li>
 </ul>
-<h2 id="目录">目录</h2>
+<h2 id="位运算特性">位运算特性</h2>
+<hr>
+<h3 id="与运算">与（&amp;）运算</h3>
+<pre><code>一个数n与0进行与运算，值为0，n &amp; 0 = 0。
+一个数n与-1进行与运算，值为n，n &amp; -1 = n。
+一个数n与自己进行与运算，值为n，n &amp; n = n。
+</code></pre>
+<h3 id="或运算">或（|）运算</h3>
+<pre><code>一个数n与0进行或运算，值为n，n | 0 = n。
+一个数n与-1进行或运算，值为-1，n | -1 = -1。
+</code></pre>
+<h3 id="非运算">非（~）运算</h3>
+<pre><code>对二进制的每一位都按位取反。
+对于数n，n + (~n) = -1。
+</code></pre>
+<h3 id="异或运算">异或（^）运算</h3>
+<p>运算的二进位结果，相异为1，相同为0。</p>
+<pre><code>一个数n与0异或，值为n，n ^ 0 = n。
+一个数n与-1异或，值为~n，n ^ -1 = ~n。
+一个数n与自己异或，值为0，n ^ n = 0。
+</code></pre>
+<h3 id="左移和右移运算">左移（&laquo;）和右移（&raquo;）运算</h3>
+<pre><code>向左进行移位操作，高位丢弃，低位补 0
+向右进行移位操作，对无符号数，高位补 0，对于有符号数，高位补符号位
+</code></pre>
+<h2 id="应用">应用</h2>
 <hr>
 
 <ul class="children children-li children-sort-weight">
@@ -112,7 +146,17 @@
 	</ul></li>
 <li><a href="../../1_algorithms/3_bitwise/2_bitfield/index.html">2 位域值提取</a><ul>
 	</ul></li>
-<li><a href="../../1_algorithms/3_bitwise/3_intmaxmin/index.html">3 使用按位运算计算INT_MAX和INT_MIN</a><ul>
+<li><a href="../../1_algorithms/3_bitwise/3_intmaxmin/index.html">3 INT_MAX和INT_MIN</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/3_bitwise/4_application/index.html">4 应用 n &#43; (~n) = -1</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/3_bitwise/5_application2/index.html">5 应用 n ^ n = 0 和 n ^ 0 = n</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/3_bitwise/6_application3/index.html">6 应用  x&amp;(x-1)</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/3_bitwise/7_2pow/index.html">7 应用 2的次方</a><ul>
+	</ul></li>
+<li><a href="../../1_algorithms/3_bitwise/8_maxmin/index.html">8 取两数的最 大/小 值</a><ul>
 	</ul></li>
 </ul>
 
@@ -138,12 +182,12 @@
         <script>
           var contentLangs=['zh'];
         </script>
-        <script src="../../js/auto-complete.js?1696850783" defer></script>
-        <script src="../../js/lunr/lunr.min.js?1696850783" defer></script>
-        <script src="../../js/lunr/lunr.stemmer.support.min.js?1696850783" defer></script>
-        <script src="../../js/lunr/lunr.multi.min.js?1696850783" defer></script>
-        <script src="../../js/lunr/lunr.zh.min.js?1696850783" defer></script>
-        <script src="../../js/search.js?1696850783" defer></script>
+        <script src="../../js/auto-complete.js?1697199090" defer></script>
+        <script src="../../js/lunr/lunr.min.js?1697199090" defer></script>
+        <script src="../../js/lunr/lunr.stemmer.support.min.js?1697199090" defer></script>
+        <script src="../../js/lunr/lunr.multi.min.js?1697199090" defer></script>
+        <script src="../../js/lunr/lunr.zh.min.js?1697199090" defer></script>
+        <script src="../../js/search.js?1697199090" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <hr class="padding">
@@ -165,10 +209,15 @@
           <li data-nav-id="/1_algorithms/2_hash/2_sha/4_sha2_384/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/2_sha/4_sha2_384/index.html">4 SHA2-384 算法<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/1_algorithms/2_hash/2_sha/5_sha2_512/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/2_sha/5_sha2_512/index.html">5 SHA2-512 算法<i class="fas fa-check read-icon"></i></a></li></ul></li>
           <li data-nav-id="/1_algorithms/2_hash/3_crc/index.html" class=""><a class="padding" href="../../1_algorithms/2_hash/3_crc/index.html">3 CRC 哈希函数<i class="fas fa-check read-icon"></i></a></li></ul></li>
-          <li data-nav-id="/1_algorithms/3_bitwise/index.html" class="active parent "><input type="checkbox" id="section-50e71911e06154beb6d0cb1165fd5aa3" aria-controls="subsections-50e71911e06154beb6d0cb1165fd5aa3" checked><label for="section-50e71911e06154beb6d0cb1165fd5aa3"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单3 位运算快速算法</span></label><a class="padding" href="../../1_algorithms/3_bitwise/index.html">3 位运算快速算法<i class="fas fa-check read-icon"></i></a><ul id="subsections-50e71911e06154beb6d0cb1165fd5aa3" class="morespace collapsible-menu">
+          <li data-nav-id="/1_algorithms/3_bitwise/index.html" class="active parent "><input type="checkbox" id="section-50e71911e06154beb6d0cb1165fd5aa3" aria-controls="subsections-50e71911e06154beb6d0cb1165fd5aa3" checked><label for="section-50e71911e06154beb6d0cb1165fd5aa3"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单3 快速位算法</span></label><a class="padding" href="../../1_algorithms/3_bitwise/index.html">3 快速位算法<i class="fas fa-check read-icon"></i></a><ul id="subsections-50e71911e06154beb6d0cb1165fd5aa3" class="morespace collapsible-menu">
           <li data-nav-id="/1_algorithms/3_bitwise/1_average/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/1_average/index.html">1 快速平均值<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/1_algorithms/3_bitwise/2_bitfield/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/2_bitfield/index.html">2 位域值提取<i class="fas fa-check read-icon"></i></a></li>
-          <li data-nav-id="/1_algorithms/3_bitwise/3_intmaxmin/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/3_intmaxmin/index.html">3 使用按位运算计算INT_MAX和INT_MIN<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/3_intmaxmin/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/3_intmaxmin/index.html">3 INT_MAX和INT_MIN<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/4_application/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/4_application/index.html">4 应用 n &#43; (~n) = -1<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/5_application2/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/5_application2/index.html">5 应用 n ^ n = 0 和 n ^ 0 = n<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/6_application3/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/6_application3/index.html">6 应用  x&amp;(x-1)<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/7_2pow/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/7_2pow/index.html">7 应用 2的次方<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_algorithms/3_bitwise/8_maxmin/index.html" class=""><a class="padding" href="../../1_algorithms/3_bitwise/8_maxmin/index.html">8 取两数的最 大/小 值<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li>
           <li data-nav-id="/2_struct/index.html" class=""><input type="checkbox" id="section-2d758bde77d047a405ef5f0ea6305cca" aria-controls="subsections-2d758bde77d047a405ef5f0ea6305cca"><label for="section-2d758bde77d047a405ef5f0ea6305cca"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单数据结构</span></label><a class="padding" href="../../2_struct/index.html">数据结构<i class="fas fa-check read-icon"></i></a><ul id="subsections-2d758bde77d047a405ef5f0ea6305cca" class="morespace collapsible-menu">
           <li data-nav-id="/2_struct/list/index.html" class=""><input type="checkbox" id="section-6e430b5cea65fabb7835cc66a71f75b4" aria-controls="subsections-6e430b5cea65fabb7835cc66a71f75b4"><label for="section-6e430b5cea65fabb7835cc66a71f75b4"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">子菜单链表</span></label><a class="padding" href="../../2_struct/list/index.html">链表<i class="fas fa-check read-icon"></i></a><ul id="subsections-6e430b5cea65fabb7835cc66a71f75b4" class="morespace collapsible-menu">
           <li data-nav-id="/2_struct/list/singlelinkedlist/index.html" class=""><a class="padding" href="../../2_struct/list/singlelinkedlist/index.html">单向节点链表<i class="fas fa-check read-icon"></i></a></li>
@@ -296,8 +345,8 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1696850783" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1696850783" defer></script>
-    <script src="../../js/theme.js?1696850783" defer></script>
+    <script src="../../js/clipboard.min.js?1697199090" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1697199090" defer></script>
+    <script src="../../js/theme.js?1697199090" defer></script>
   </body>
 </html>
