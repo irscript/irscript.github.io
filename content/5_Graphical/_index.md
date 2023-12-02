@@ -1,5 +1,5 @@
 +++
-title = "操作系统"
+title = "图形图像"
 weight = 5
 +++
 
