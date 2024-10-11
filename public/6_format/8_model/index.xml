@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>8 模型3D on </title>
-    <link>http://localhost:1313/6_format/8_model/index.html</link>
-    <description>Recent content in 8 模型3D on </description>
+    <title>模型3D on </title>
+    <link>https://irscript.github.io/6_format/8_model/index.html</link>
+    <description>Recent content in 模型3D on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/6_format/8_model/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/6_format/8_model/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

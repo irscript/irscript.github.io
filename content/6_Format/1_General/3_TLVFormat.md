@@ -1,5 +1,5 @@
 +++
-title = "3 TLV格式"
+title = "TLV格式"
 weight = 3
 +++
 

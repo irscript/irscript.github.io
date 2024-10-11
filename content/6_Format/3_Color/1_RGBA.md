@@ -1,4 +1,4 @@
 +++
-title = "1 RGBA"
+title = "RGBA"
 weight = 1
 +++

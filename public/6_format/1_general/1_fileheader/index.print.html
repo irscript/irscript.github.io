@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.124.0">
@@ -8,7 +8,7 @@
     <meta name="description" content="个人博客">
     <meta name="author" content="irscript">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="1 文件头">
+    <meta name="twitter:title" content="文件头">
     <meta name="twitter:description" content="描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。
 顾名思义，即是将文件的整体信息通常放在文件的开头。
 在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 文件头。
@@ -26,7 +26,7 @@
 读取和存储的字节序不一致就会导致程序出错。
 5 通用结构 通用结构定义如下：
 struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32 mEndian; //字节序 uint32 mVersion; //文件版本 ... };">
-    <meta property="og:title" content="1 文件头">
+    <meta property="og:title" content="文件头">
     <meta property="og:description" content="描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。
 顾名思义，即是将文件的整体信息通常放在文件的开头。
 在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 文件头。
@@ -45,31 +45,31 @@ struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32
 5 通用结构 通用结构定义如下：
 struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32 mEndian; //字节序 uint32 mVersion; //文件版本 ... };">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://localhost:1313/6_format/1_general/1_fileheader/index.html">
-    <meta property="article:section" content="1 通用格式设计">
-    <title>1 文件头</title>
-    <link href="http://localhost:1313/6_format/1_general/1_fileheader/index.html" rel="canonical" type="text/html" title="1 文件头">
-    <link href="../../../6_format/1_general/1_fileheader/index.xml" rel="alternate" type="application/rss+xml" title="1 文件头"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <meta property="og:url" content="https://irscript.github.io/6_format/1_general/1_fileheader/index.html">
+    <meta property="article:section" content="通用格式设计">
+    <title>文件头</title>
+    <link href="https://irscript.github.io/6_format/1_general/1_fileheader/index.html" rel="canonical" type="text/html" title="文件头">
+    <link href="../../../6_format/1_general/1_fileheader/index.xml" rel="alternate" type="application/rss+xml" title="文件头"><link rel="icon" href="../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
-    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
-    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
-    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
-    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
-    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
-    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
-    <script src="../../../js/url.js?1728629534"></script>
-    <script src="../../../js/variant.js?1728629534"></script>
+    <link href="../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728634411" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728634411" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728634411" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728634411" rel="stylesheet">
+    <link href="../../../css/print.css?1728634411" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728634411" rel="stylesheet">
+    <link href="../../../css/ie.css?1728634411" rel="stylesheet">
+    <script src="../../../js/url.js?1728634411"></script>
+    <script src="../../../js/variant.js?1728634411"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..';
       window.relearn.relBaseUri='..\/..\/..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.absBaseUri='https:\/\/irscript.github.io';
       window.index_js_url="../../../index.search.js";
       // variant stuff
       window.relearn.themeVariantModifier='';
@@ -166,8 +166,8 @@ struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/index.html"><span itemprop="name">数据格式</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/1_general/index.html"><span itemprop="name">1 通用格式设计</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">1 文件头</span><meta itemprop="position" content="3"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/1_general/index.html"><span itemprop="name">通用格式设计</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">文件头</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
           </div>
@@ -180,7 +180,7 @@ struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32
   <header class="headline">
   </header>
   
-  <h1 id="1-文件头"> 1.1 1 文件头</h1>
+  <h1 id="文件头"> 1.1 文件头</h1>
   <hr />
 
   <hr>
@@ -223,8 +223,8 @@ struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32
         </div>
       </main>
     </div>
-    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
-    <script src="../../../js/theme.js?1728629534" defer></script>
+    <script src="../../../js/clipboard.min.js?1728634411" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728634411" defer></script>
+    <script src="../../../js/theme.js?1728634411" defer></script>
   </body>
 </html>

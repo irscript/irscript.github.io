@@ -1,372 +1,372 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/1_lexer/1_tokendef/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/1_lexer/1_tokendef/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/1_lexer/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/1_lexer/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/1_typesystem/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/1_typesystem/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/8_langdef/1_langdef/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/1_struct/list/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/1_struct/list/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/1_struct/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/1_struct/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/8_langdef/1_langdef/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/2_program/1_elf/index.html</loc>
+    <loc>https://irscript.github.io/6_format/2_program/1_elf/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/2_program/1_elf/1_elf32/index.html</loc>
+    <loc>https://irscript.github.io/6_format/2_program/1_elf/1_elf32/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/1_md/1_md2/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/1_md/1_md2/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/3_color/1_rgba/index.html</loc>
+    <loc>https://irscript.github.io/6_format/3_color/1_rgba/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/2_sha/1_sha1/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/2_sha/1_sha1/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/1_average/index.html</loc>
+    <loc>https://irscript.github.io/1_note/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/1_general/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/1_badge/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/1_general/1_fileheader/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/1_average/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/1_md/index.html</loc>
+    <loc>https://irscript.github.io/6_format/1_general/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/1_align/index.html</loc>
+    <loc>https://irscript.github.io/1_note/1_link/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/1_note/index.html</loc>
+    <loc>https://irscript.github.io/6_format/1_general/1_fileheader/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/1_badge/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/1_md/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/1_note/1_link/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/3_children/child/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/3_children/child/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/3_children/child/child_page/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/3_children/child/child_page/index.html</loc>
-  </url>
-  <url>
-    <loc>http://localhost:1313/5_book/1_compiler/1_lexer/2_lexer/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/1_lexer/2_lexer/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/2_astnode/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/2_astnode/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/8_langdef/2_codefile/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/8_langdef/2_codefile/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/1_struct/list/singlelinkedlist/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/1_struct/list/singlelinkedlist/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/2_program/1_elf/2_elf64/index.html</loc>
+    <loc>https://irscript.github.io/6_format/2_program/1_elf/2_elf64/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/3_color/2_hsl/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/2_git/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/1_md/2_md4/index.html</loc>
+    <loc>https://irscript.github.io/6_format/3_color/2_hsl/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/2_sha/2_sha2_224/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/1_md/2_md4/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/2_program/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/2_sha/2_sha2_224/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/1_general/2_segmentformat/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/2_button/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/index.html</loc>
+    <loc>https://irscript.github.io/6_format/2_program/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/2_sha/index.html</loc>
+    <loc>https://irscript.github.io/6_format/1_general/2_segmentformat/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/2_bitfield/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/2_sha/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/2_git/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/2_bitfield/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/2_button/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/2_align/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/3_children/child_page2/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/3_children/child_page2/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/3_fileunit/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/1_lexer/3_project/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/3_fileunit/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/8_langdef/3_keyword/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/1_lexer/3_project/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/7_instruction/3_mixedinsset/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/8_langdef/3_keyword/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/7_instruction/3_mixedinsset/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/1_struct/list/doublelinkedlist/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/1_struct/list/doublelinkedlist/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/3_crc/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/3_crc/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/3_intmaxmin/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/3_intmaxmin/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/1_md/3_md5/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/3_markdown/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/2_sha/3_sha2_256/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/1_md/3_md5/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/1_general/3_tlvformat/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/2_sha/3_sha2_256/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/3_color/3_yuv/index.html</loc>
+    <loc>https://irscript.github.io/6_format/1_general/3_tlvformat/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/index.html</loc>
+    <loc>https://irscript.github.io/6_format/3_color/3_yuv/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/3_color/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/3_analysis/index.html</loc>
+    <loc>https://irscript.github.io/6_format/3_color/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/3_markdown/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/3_analysis/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/3_project/index.html</loc>
+    <loc>https://irscript.github.io/3_project/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/3_children/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/3_children/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/8_langdef/4_operator/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/8_langdef/4_operator/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/4_parserbase/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/4_parserbase/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/2_sha/4_sha2_384/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/2_sha/4_sha2_384/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/3_color/4_xyz/index.html</loc>
+    <loc>https://irscript.github.io/6_format/3_color/4_xyz/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/4_compress/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/4_application/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/4_optimize/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/4_expand/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/index.html</loc>
+    <loc>https://irscript.github.io/6_format/4_compress/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/4_expand/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/4_application/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/5_parserexp/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/4_optimize/index.html</loc>
+  </url>
+  <url>
+    <loc>https://irscript.github.io/5_book/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/8_langdef/5_typesystem/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/5_parserexp/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/8_langdef/5_typesystem/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/3_color/5_lab/index.html</loc>
+    <loc>https://irscript.github.io/6_format/3_color/5_lab/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/2_hash/2_sha/5_sha2_512/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/3_hash/2_sha/5_sha2_512/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/5_target/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/5_highlight/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/5_picture/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/5_target/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/5_application2/index.html</loc>
+    <loc>https://irscript.github.io/6_format/5_picture/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/5_highlight/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/5_application2/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/6_parserdecl/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/6_parserdecl/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/3_color/6_cmyk/index.html</loc>
+    <loc>https://irscript.github.io/6_format/3_color/6_cmyk/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/6_video/index.html</loc>
+    <loc>https://irscript.github.io/6_format/6_video/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/6_application3/index.html</loc>
+    <loc>https://irscript.github.io/6_format/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/6_ir/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/6_icon/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/6_application3/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/6_icon/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/6_ir/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/2_parser/7_parserdecl2/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/2_parser/7_parserdecl2/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/7_instruction/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/7_instruction/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/7_audio/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/7_include/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/7_2pow/index.html</loc>
+    <loc>https://irscript.github.io/7_plat/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/7_include/index.html</loc>
+    <loc>https://irscript.github.io/6_format/7_audio/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/7_plat/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/7_2pow/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/5_book/1_compiler/8_langdef/index.html</loc>
+    <loc>https://irscript.github.io/5_book/1_compiler/8_langdef/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/6_format/8_model/index.html</loc>
+    <loc>https://irscript.github.io/6_format/8_model/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/8_maxmin/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/8_maxmin/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/8_math/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/8_math/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/2_algorithm/3_bitwise/9_rotateshift/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/9_mermaid/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/9_mermaid/index.html</loc>
+    <loc>https://irscript.github.io/2_algorithm/4_bitwise/9_rotateshift/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/10_notice/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/10_notice/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/11_siteparam/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/11_siteparam/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/12_tab/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/12_tab/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/4_tools/1_theme/13_tabs/index.html</loc>
+    <loc>https://irscript.github.io/4_tools/1_theme/13_tabs/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/cxx/index.html</loc>
+    <loc>https://irscript.github.io/tags/cxx/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/list/index.html</loc>
+    <loc>https://irscript.github.io/tags/list/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/index.html</loc>
+    <loc>https://irscript.github.io/tags/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/index.html</loc>
+    <loc>https://irscript.github.io/index.html</loc>
     <lastmod>2023-09-14T21:30:02+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/align/index.html</loc>
+    <loc>https://irscript.github.io/tags/align/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/bitwise/index.html</loc>
+    <loc>https://irscript.github.io/tags/bitwise/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/categories/index.html</loc>
+    <loc>https://irscript.github.io/categories/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/crc/index.html</loc>
+    <loc>https://irscript.github.io/tags/crc/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/hash/index.html</loc>
+    <loc>https://irscript.github.io/tags/hash/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/md/index.html</loc>
+    <loc>https://irscript.github.io/tags/md/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/sha/index.html</loc>
+    <loc>https://irscript.github.io/tags/sha/index.html</loc>
   </url>
 </urlset>

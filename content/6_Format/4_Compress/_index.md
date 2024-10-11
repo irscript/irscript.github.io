@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "4 压缩格式"
+title = "压缩格式"
 weight = 4
 +++
 

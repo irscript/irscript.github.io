@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "8 模型3D"
+title = "模型3D"
 weight = 8
 +++
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.124.0">
@@ -8,44 +8,44 @@
     <meta name="description" content="个人博客">
     <meta name="author" content="irscript">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="4 操作符">
+    <meta name="twitter:title" content="操作符">
     <meta name="twitter:description" content="成员访问操作符 成员访问操作符的优先级最高。
 成员访问操作符 优先级 注解 . 0 成员访问 .? 0 带null检查的成员访问 一元操作符 一元操作符优先级一致，主要查看其声明的先后顺序。
 一元操作符 优先级 注解 ~ -10 按位取反 ! -10 逻辑取反 - -10 符号取反 &#43; -10 取绝对值 &#43;&#43; -10 自增 -- -10 自减 二元操作符 在语法解析表达式中，二元表达式最复杂的。
 二元操作符 优先级 注解 * -20 乘运算操作符 / -20 除运算操作符 % -20 模运算操作符 &#43; -30 加运算操作符 - -30 减运算操作符 &lt;&lt; -40 左移操作符 &gt;&gt; -40 逻辑右移操作符 &gt;&gt;&gt; -40 算术右移操作符 &lt; -50 小于操作符 &lt;= -50 小于等于操作符 &gt; -50 大于于操作符 &gt;= -50 大于等于操作符 == -60 等于操作符 !">
-    <meta property="og:title" content="4 操作符">
+    <meta property="og:title" content="操作符">
     <meta property="og:description" content="成员访问操作符 成员访问操作符的优先级最高。
 成员访问操作符 优先级 注解 . 0 成员访问 .? 0 带null检查的成员访问 一元操作符 一元操作符优先级一致，主要查看其声明的先后顺序。
 一元操作符 优先级 注解 ~ -10 按位取反 ! -10 逻辑取反 - -10 符号取反 &#43; -10 取绝对值 &#43;&#43; -10 自增 -- -10 自减 二元操作符 在语法解析表达式中，二元表达式最复杂的。
 二元操作符 优先级 注解 * -20 乘运算操作符 / -20 除运算操作符 % -20 模运算操作符 &#43; -30 加运算操作符 - -30 减运算操作符 &lt;&lt; -40 左移操作符 &gt;&gt; -40 逻辑右移操作符 &gt;&gt;&gt; -40 算术右移操作符 &lt; -50 小于操作符 &lt;= -50 小于等于操作符 &gt; -50 大于于操作符 &gt;= -50 大于等于操作符 == -60 等于操作符 !">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://localhost:1313/5_book/1_compiler/8_langdef/4_operator/index.html">
-    <meta property="article:section" content="8 语言定义">
+    <meta property="og:url" content="https://irscript.github.io/5_book/1_compiler/8_langdef/4_operator/index.html">
+    <meta property="article:section" content="语言定义">
     <meta property="article:published_time" content="2023-09-14T21:30:02+08:00">
     <meta property="article:modified_time" content="2023-09-14T21:30:02+08:00">
-    <title>4 操作符</title>
-    <link href="http://localhost:1313/5_book/1_compiler/8_langdef/4_operator/index.html" rel="canonical" type="text/html" title="4 操作符">
-    <link href="../../../../5_book/1_compiler/8_langdef/4_operator/index.xml" rel="alternate" type="application/rss+xml" title="4 操作符"><link rel="icon" href="../../../../images/favicon.png" type="image/png">
+    <title>操作符</title>
+    <link href="https://irscript.github.io/5_book/1_compiler/8_langdef/4_operator/index.html" rel="canonical" type="text/html" title="操作符">
+    <link href="../../../../5_book/1_compiler/8_langdef/4_operator/index.xml" rel="alternate" type="application/rss+xml" title="操作符"><link rel="icon" href="../../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../../css/nucleus.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../../css/theme.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
-    <link href="../../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="../../../../css/variant.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/print.css?1728629534" rel="stylesheet" media="print">
-    <link href="../../../../css/format-print.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/ie.css?1728629534" rel="stylesheet">
-    <script src="../../../../js/url.js?1728629534"></script>
-    <script src="../../../../js/variant.js?1728629534"></script>
+    <link href="../../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../../css/nucleus.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../../css/perfect-scrollbar.min.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/fonts.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../../css/theme.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/theme-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-style">
+    <link href="../../../../css/chroma-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../../css/variant.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/print.css?1728634411" rel="stylesheet" media="print">
+    <link href="../../../../css/format-print.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/ie.css?1728634411" rel="stylesheet">
+    <script src="../../../../js/url.js?1728634411"></script>
+    <script src="../../../../js/variant.js?1728634411"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..\/..';
       window.relearn.relBaseUri='..\/..\/..\/..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.absBaseUri='https:\/\/irscript.github.io';
       window.index_js_url="../../../../index.search.js";
       // variant stuff
       window.relearn.themeVariantModifier='';
@@ -143,8 +143,8 @@
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/index.html"><span itemprop="name">教程系列</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/index.html"><span itemprop="name">编译原理</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/8_langdef/index.html"><span itemprop="name">8 语言定义</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">4 操作符</span><meta itemprop="position" content="4"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/8_langdef/index.html"><span itemprop="name">语言定义</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">操作符</span><meta itemprop="position" content="4"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
           </div>
@@ -157,7 +157,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="4-操作符"> 8.4 4 操作符</h1>
+  <h1 id="操作符"> 8.4 操作符</h1>
   <hr />
 
   <h2 id="成员访问操作符">成员访问操作符</h2>
@@ -525,8 +525,8 @@
         </div>
       </main>
     </div>
-    <script src="../../../../js/clipboard.min.js?1728629534" defer></script>
-    <script src="../../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
-    <script src="../../../../js/theme.js?1728629534" defer></script>
+    <script src="../../../../js/clipboard.min.js?1728634411" defer></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1728634411" defer></script>
+    <script src="../../../../js/theme.js?1728634411" defer></script>
   </body>
 </html>

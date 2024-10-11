@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "1 通用格式设计"
+title = "通用格式设计"
 weight = 1
 +++
 

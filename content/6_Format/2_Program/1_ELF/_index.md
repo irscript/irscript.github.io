@@ -1,5 +1,5 @@
 +++
-title = "1 ELF 格式"
+title = "ELF 格式"
 weight = 1
 +++
 

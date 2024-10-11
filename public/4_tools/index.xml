@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具手册 on </title>
-    <link>http://localhost:1313/4_tools/index.html</link>
+    <link>https://irscript.github.io/4_tools/index.html</link>
     <description>Recent content in 工具手册 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/4_tools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/4_tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>主题简码</title>
-      <link>http://localhost:1313/4_tools/1_theme/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/index.html</guid>
       <description></description>
     </item>
     <item>
       <title>git 文档</title>
-      <link>http://localhost:1313/4_tools/2_git/index.html</link>
+      <link>https://irscript.github.io/4_tools/2_git/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/2_git/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/2_git/index.html</guid>
       <description>Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
 Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。
@@ -34,9 +34,9 @@ Git 的内容完整性要优于 SVN：Git 的内容存储使用的是 SHA-1 哈�
     </item>
     <item>
       <title>MD 语法</title>
-      <link>http://localhost:1313/4_tools/3_markdown/index.html</link>
+      <link>https://irscript.github.io/4_tools/3_markdown/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/3_markdown/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/3_markdown/index.html</guid>
       <description>Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。
 它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。
 可通过中文官网学习相关的Markdown语法。

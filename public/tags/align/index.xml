@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Align on </title>
-    <link>http://localhost:1313/tags/align/index.html</link>
+    <link>https://irscript.github.io/tags/align/index.html</link>
     <description>Recent content in Align on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/tags/align/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/tags/align/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1 整数对齐</title>
-      <link>http://localhost:1313/2_algorithm/1_align/index.html</link>
+      <title>整数对齐</title>
+      <link>https://irscript.github.io/2_algorithm/2_align/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/1_align/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/2_align/index.html</guid>
       <description>// 向上大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T alignup(T num, T base) { return (num + base - 1) &amp;amp; (~(base - 1)); } // 向下大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T aligndown(T num, T base) { return (num &amp;amp; ~(base - 1)); }</description>
     </item>
   </channel>

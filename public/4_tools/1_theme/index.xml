@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>主题简码 on </title>
-    <link>http://localhost:1313/4_tools/1_theme/index.html</link>
+    <link>https://irscript.github.io/4_tools/1_theme/index.html</link>
     <description>Recent content in 主题简码 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/4_tools/1_theme/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/4_tools/1_theme/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>徽章(badge)</title>
-      <link>http://localhost:1313/4_tools/1_theme/1_badge/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/1_badge/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/1_badge/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/1_badge/index.html</guid>
       <description>徽章(badge)简码用于在文本中显示小标记，颜色、标题和图标，可调整。
 重要 版本6.6.6 船长 信息新增 超棒！ 用法 &amp;#8203; 简码案例 {{% badge %}}重要{{% /badge %}} {{% badge style=&amp;#34;primary&amp;#34; title=&amp;#34;版本&amp;#34; %}}6.6.6{{% /badge %}} {{% badge style=&amp;#34;red&amp;#34; icon=&amp;#34;angle-double-up&amp;#34; %}}船长{{% /badge %}} {{% badge style=&amp;#34;info&amp;#34; %}}新增{{% /badge %}} {{% badge color=&amp;#34;fuchsia&amp;#34; icon=&amp;#34;fab fa-hackerrank&amp;#34; %}}超棒！{{% /badge %}} 参数 名称 注释 style 徽章使用的样式方案。- 严重程度： info, note, tip, warning- 印记颜色：primary, secondary, accent- 颜色： blue, green, grey, orange, red- 特殊颜色: default, transparent, code color 要使用的 CSS 颜色值。如果未设置，则选择的颜色取决于样式。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的漂亮颜色- 对于所有其他样式：相应的颜色 title 屏幕提醒标题的任意文本。根据样式的不同，可能会有一个默认标题。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的标题- 对于所有其他样式：&amp;lt;空&amp;gt;如果您不希望严重性样式的标题，则必须将此参数设置为&amp;quot; &amp;quot;（一个充满空格的非空字符串）。 icon Font Awesome icon name 设置在标题的左侧。根据样式的不同，可能会有一个默认图标。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的漂亮图标- 对于所有其他样式：&amp;lt;空&amp;gt; 如果您不想为严重性样式使用图标，则必须将此参数设置为&amp;quot; &amp;quot;（填充空格的非空字符串） &amp;lt;txt&amp;gt; 任意文本，可以为 &amp;lt;空&amp;gt; 案例 样式 严重性样式 {{% badge style=&amp;#34;info&amp;#34; %}}New{{% /badge %}} {{% badge style=&amp;#34;note&amp;#34; %}}Change{{% /badge %}} {{% badge style=&amp;#34;tip&amp;#34; %}}Optional{{% /badge %}} {{% badge style=&amp;#34;warning&amp;#34; %}}Breaking{{% /badge %}} 信息New 注释Change 提示Optional 警告Breaking 印记样式 {{% badge style=&amp;#34;primary&amp;#34; icon=&amp;#34;bullhorn&amp;#34; title=&amp;#34;Announcement&amp;#34; %}}命令{{% /badge %}} {{% badge style=&amp;#34;secondary&amp;#34; icon=&amp;#34;bullhorn&amp;#34; title=&amp;#34;Announcement&amp;#34; %}}选项{{% /badge %}} {{% badge style=&amp;#34;accent&amp;#34; icon=&amp;#34;bullhorn&amp;#34; title=&amp;#34;Announcement&amp;#34; %}}专辑{{% /badge %}} 公告命令 公告选项 公告专辑 颜色样式 {{% badge style=&amp;#34;blue&amp;#34; icon=&amp;#34;palette&amp;#34; title=&amp;#34;Color&amp;#34; %}}蓝色{{% /badge %}} {{% badge style=&amp;#34;green&amp;#34; icon=&amp;#34;palette&amp;#34; title=&amp;#34;Color&amp;#34; %}}绿色{{% /badge %}} {{% badge style=&amp;#34;grey&amp;#34; icon=&amp;#34;palette&amp;#34; title=&amp;#34;Color&amp;#34; %}}灰色{{% /badge %}} {{% badge style=&amp;#34;orange&amp;#34; icon=&amp;#34;palette&amp;#34; title=&amp;#34;Color&amp;#34; %}}橘色{{% /badge %}} {{% badge style=&amp;#34;red&amp;#34; icon=&amp;#34;palette&amp;#34; title=&amp;#34;Color&amp;#34; %}}红色{{% /badge %}} Color蓝色 Color绿色 Color灰色 Color橘色 Color红色 特殊颜色 {{% badge style=&amp;#34;default&amp;#34; icon=&amp;#34;palette&amp;#34; title=&amp;#34;Color&amp;#34; %}}默认色{{% /badge %}} {{% badge style=&amp;#34;transparent&amp;#34; icon=&amp;#34;palette&amp;#34; title=&amp;#34;Color&amp;#34; %}}透明色{{% /badge %}} Color默认色 Color透明色 变体 没有图标和标题 {{% badge %}}6.</description>
     </item>
     <item>
       <title>按钮(button)</title>
-      <link>http://localhost:1313/4_tools/1_theme/2_button/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/2_button/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/2_button/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/2_button/index.html</guid>
       <description>按钮(button)简码显示一个可点击的按钮，颜色、标题和图标可调整。
 Get Hugo Get Hugo 用法 &amp;#8203; 简码 {{% button href=&amp;#34;https://gohugo.io/&amp;#34; %}}Get Hugo{{% /button %}} {{% button href=&amp;#34;https://gohugo.io/&amp;#34; style=&amp;#34;warning&amp;#34; icon=&amp;#34;dragon&amp;#34; %}}Get Hugo{{% /button %}} 单击该按钮后，它将为给定的 URL 打开另一个浏览器选项卡。
 参数 名称 默认 描述 href 链接地址 style transparent 徽章使用的样式方案。- 严重程度： info, note, tip, warning- 印记颜色：primary, secondary, accent- 颜色： blue, green, grey, orange, red- 特殊颜色: default, transparent, code color 要使用的 CSS 颜色值。如果未设置，则选择的颜色取决于样式。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的漂亮颜色- 对于所有其他样式：相应的颜色 icon Font Awesome icon name 设置在标题的左侧。根据样式的不同，可能会有一个默认图标。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的漂亮图标- 对于所有其他样式：&amp;lt;空&amp;gt;如果您不想为严重性样式使用图标，则必须将此参数设置为&amp;quot; &amp;quot;（填充空格的非空字符串） iconposition left 设置图标的位置。- left :图标在标题的左侧。- right：图标在标题的右侧。 target 如果 href 是 URL，则为目标框架/窗口。否则，不使用该参数。这的行为类似于普通链接。如果未给出该参数，则默认为：- 设置externalLinkTarget 或_blank如果未设置，则适用于任何以http://或https://- 所有其他链接没有特定值 type 如果 href 是 JavaScript，则按钮类型。否则，不使用该参数。如果未给出该参数，则默认为button &amp;lt;txt&amp;gt; 按钮标题的任意文本。根据样式的不同，可能会有一个默认标题。任何给定值都将覆盖默认值。- 对于严重性样式：严重性- 对于所有其他样式的匹配标题：&amp;lt;空&amp;gt; 如果不希望严重性样式的标题，则必须将此参数设置为&amp;quot; &amp;quot;（充满空格的非空字符串） 案例 样式 严重性 {{% button href=&amp;#34;https://gohugo.</description>
     </item>
     <item>
       <title>子页(children)</title>
-      <link>http://localhost:1313/4_tools/1_theme/3_children/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/3_children/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/3_children/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/3_children/index.html</guid>
       <description>子页(children)简码列出了当前页面的子页面及其后代页面。
 子页 1 子页 2 用法 &amp;#8203; 简码 {{% children sort=&amp;#34;weight&amp;#34; %}} 参数 名称 默认 描述 containerstyle ul Choose the style used to group all children. It could be any HTML tag name. style li Choose the style used to display each descendant. It could be any HTML tag name. showhidden false When true, child pages hidden from the menu will be displayed as well. description false When true shows a short text under each page in the list.</description>
     </item>
     <item>
       <title>扩展(expand)</title>
-      <link>http://localhost:1313/4_tools/1_theme/4_expand/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/4_expand/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/4_expand/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/4_expand/index.html</guid>
       <description>expand简码显示可展开/可折叠的文本部分
 展开我&amp;hellip; Thank you!
 That&amp;rsquo;s some text with a footnote1
@@ -49,9 +49,9 @@ Blue light glows blue.&amp;#160;&amp;#x21a9;&amp;#xfe0e;
     </item>
     <item>
       <title>高亮(highlight)</title>
-      <link>http://localhost:1313/4_tools/1_theme/5_highlight/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/5_highlight/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/5_highlight/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/5_highlight/index.html</guid>
       <description>highlight 使用语法高亮显示来呈现您的代码。
 &amp;#8203; python 1print(&amp;#34;Hello World!&amp;#34;) 用法 这个简码与 Hugo 的 highlight 简码但提供了一些扩展。
 它的调用方式与 Hugo 自己的短代码相同，提供位置参数或简单地使用 codefences。
@@ -61,9 +61,9 @@ Blue light glows blue.&amp;#160;&amp;#x21a9;&amp;#xfe0e;
     </item>
     <item>
       <title>图标(icon)</title>
-      <link>http://localhost:1313/4_tools/1_theme/6_icon/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/6_icon/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/6_icon/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/6_icon/index.html</guid>
       <description>icon简码使用 Font Awesome 库显示图标。
 Usage &amp;#8203; 简码 简码 (positional) {{% icon icon=&amp;#34;exclamation-triangle&amp;#34; %}} {{% icon icon=&amp;#34;angle-double-up&amp;#34; %}} {{% icon icon=&amp;#34;skull-crossbones&amp;#34; %}} {{% icon exclamation-triangle %}} {{% icon angle-double-up %}} {{% icon skull-crossbones %}} 参数 名称 位置 默认 注释 icon 1 要显示的Font Awesome icon name 。它将以其相应上下文的文本颜色显示。 查找图标 浏览 Font Awesome Gallery 中的可用图标。请注意，免费过滤器已启用，因为默认情况下只有免费图标可用。
 进入特定图标的 Font Awesome 页面（例如心形heart页面）后，复制图标名称并粘贴到 Markdown 内容中。
@@ -72,18 +72,18 @@ Usage &amp;#8203; 简码 简码 (positional) {{% icon icon=&amp;#34;exclamation-
     </item>
     <item>
       <title>包含文件(include)</title>
-      <link>http://localhost:1313/4_tools/1_theme/7_include/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/7_include/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/7_include/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/7_include/index.html</guid>
       <description>include简码在当前页面中包含项目中的其他文件。
 用法 &amp;#8203; shortcode shortcode (positional) {{% include file=&amp;#34;include_me.md&amp;#34; %}} {{% include &amp;#34;include_me.md&amp;#34; %}} 包含的文件甚至可以包含 Markdown，并且在生成目录时会被考虑在内。
 参数 名称 位置 默认 注释 file 1 &amp;lt;empty&amp;gt; 要包含的文件的路径。路径分辨率遵循Hugo的内置readFile功能 hidefirstheading 2 false true:当包含的文件包含标题时，第一个标题将被隐藏。例如，这派上用场。如果包含其他独立的 Markdown 文件。 案例 任意内容 {{% include &amp;#34;4_tools/1_theme/include_me.md&amp;#34; %}}文件包含案例</description>
     </item>
     <item>
       <title>数学公式(math)</title>
-      <link>http://localhost:1313/4_tools/1_theme/8_math/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/8_math/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/8_math/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/8_math/index.html</guid>
       <description>math简码使用 MathJax 库生成漂亮的格式化数学和化学公式。
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$注释 这仅适用于现代浏览器。
 用法 虽然示例使用带有命名参数的短代码，但建议改用 codefences。这是因为越来越多的其他软件支持数学协同防御（例如。GitHub），因此您的 Markdown 变得更加可移植。
@@ -91,9 +91,9 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
     </item>
     <item>
       <title>流图(mermaid)</title>
-      <link>http://localhost:1313/4_tools/1_theme/9_mermaid/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/9_mermaid/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/9_mermaid/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/9_mermaid/index.html</guid>
       <description>The mermaid shortcode generates diagrams and flowcharts from text, in a similar manner as Markdown using the Mermaid library.
 graph LR;If --&amp;gt; ThenThen --&amp;gt; Else注释 这仅适用于现代浏览器。
 用法 While the examples are using shortcodes with named parameter it is recommended to use codefences instead. This is because more and more other software supports Mermaid codefences (eg. GitHub) and so your markdown becomes more portable.
@@ -101,29 +101,29 @@ You are free to also call this shortcode from your own partials.</description>
     </item>
     <item>
       <title>注解(Notice)</title>
-      <link>http://localhost:1313/4_tools/1_theme/10_notice/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/10_notice/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/10_notice/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/10_notice/index.html</guid>
       <description>notice 简码显示各种类型的免责声明，并带有可调节的颜色、标题和图标，以帮助您构建页面。
 There may be pirates 这一切都与盒子有关。
 用法 &amp;#8203; shortcode shortcode (positional) {{% notice style=&amp;#34;primary&amp;#34; title=&amp;#34;There may be pirates&amp;#34; icon=&amp;#34;skull-crossbones&amp;#34; %}} It is all about the boxes. {{% /notice %}} {{% notice primary &amp;#34;There may be pirates&amp;#34; &amp;#34;skull-crossbones&amp;#34; %}} It is all about the boxes. {{% /notice %}} 参数 名称 位置 默认 注释 style 1 default 框使用的样式方案。- 严重程度： info, note, tip, warning- 印记颜色：primary, secondary, accent- 颜色： blue, green, grey, orange, red- 特殊颜色: default, transparent, code color see notes 要使用的 CSS 颜色值。如果未设置，则选择的颜色取决于样式。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的漂亮颜色- 对于所有其他样式：相应的颜色 title 2 see notes 框的标题的任意文本。根据样式的不同，可能会有一个默认标题。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的标题- 对于所有其他样式：&amp;lt;空&amp;gt;如果您不希望严重性样式的标题，则必须将此参数设置为&amp;quot; &amp;quot;（一个充满空格的非空字符串）。 icon 3 see notes Font Awesome icon name 设置在标题的左侧。根据样式的不同，可能会有一个默认图标。任何给定的值都将覆盖默认值。- 对于严重性样式：严重性匹配的漂亮图标- 对于所有其他样式：&amp;lt;空&amp;gt; 如果您不想为严重性样式使用图标，则必须将此参数设置为&amp;quot; &amp;quot;（填充空格的非空字符串） &amp;lt;content&amp;gt; &amp;lt;empty&amp;gt; 要在框中显示的任意文本。 案例 按严重性 带有标记的信息 {{% notice style=&amp;#34;info&amp;#34; %}} An **information** disclaimer You can add standard markdown syntax: - multiple paragraphs - bullet point lists - _emphasized_, **bold** and even ***bold emphasized*** text - [links](https://example.</description>
     </item>
     <item>
       <title>站点参数</title>
-      <link>http://localhost:1313/4_tools/1_theme/11_siteparam/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/11_siteparam/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/11_siteparam/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/11_siteparam/index.html</guid>
       <description>siteparam 简码打印站点参数的值。
-用法 &amp;#8203; shortcode shortcode (positional) {{% siteparam name=&amp;#34;editURL&amp;#34; %}} {{% siteparam &amp;#34;editURL&amp;#34; %}} 参数 Name Position Default Notes name 1 &amp;lt;empty&amp;gt; 要显示的站点参数的名称。 案例 editURL from hugo.toml `editURL` value: {{% siteparam name=&amp;#34;editURL&amp;#34; %}}editURL value: https://gitee.com/irscript/irscript/blob/master/content/${FilePath}
+用法 &amp;#8203; shortcode shortcode (positional) {{% siteparam name=&amp;#34;editURL&amp;#34; %}} {{% siteparam &amp;#34;editURL&amp;#34; %}} 参数 Name Position Default Notes name 1 &amp;lt;empty&amp;gt; 要显示的站点参数的名称。 案例 editURL from hugo.toml `editURL` value: {{% siteparam name=&amp;#34;editURL&amp;#34; %}}editURL value: https://github.com/irscript/irscript.github.io/blob/main/content/${FilePath}
 具有 Markdown 和 HTML 格式的嵌套参数 要使用 formatted 参数，请将其添加到 hugo.toml:
 [markup.goldmark.renderer] unsafe = true现在，包含 Markdown 的值将正确设置格式。
 [params] [params.siteparam.test] text = &amp;#34;A **nested** parameter &amp;lt;b&amp;gt;with&amp;lt;/b&amp;gt; formatting&amp;#34;Formatted parameter: {{% siteparam name=&amp;#34;siteparam.test.text&amp;#34; %}}Formatted parameter:</description>
     </item>
     <item>
       <title>标签页</title>
-      <link>http://localhost:1313/4_tools/1_theme/12_tab/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/12_tab/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/12_tab/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/12_tab/index.html</guid>
       <description>tab简码来显示单个选项卡。
 如果要使用显式语言标记代码示例，这将特别有用。
 如果要将多个选项卡组合在一起，可以将选项卡包装到选项卡简码中。
@@ -131,9 +131,9 @@ There may be pirates 这一切都与盒子有关。
     </item>
     <item>
       <title>多标签页</title>
-      <link>http://localhost:1313/4_tools/1_theme/13_tabs/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/13_tabs/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/13_tabs/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/13_tabs/index.html</guid>
       <description>tabs 简码在无限数量的选项卡中显示任意内容。
 例如，这派上用场。用于提供多种语言的代码片段。
 如果您只想要一个选项卡，则可以改为将选项卡称为独立选项卡简码。

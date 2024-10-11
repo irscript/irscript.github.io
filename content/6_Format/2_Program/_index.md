@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "2 程序格式"
+title = "程序格式"
 weight = 2
 +++
 

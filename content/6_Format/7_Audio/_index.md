@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "7 音频格式"
+title = "音频格式"
 weight = 7
 +++
 

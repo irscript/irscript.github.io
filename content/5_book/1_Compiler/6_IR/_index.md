@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "6 中间代码"
+title = "中间代码"
 weight = 6
 +++
 

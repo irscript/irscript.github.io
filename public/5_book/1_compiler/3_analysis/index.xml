@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>3 语义分析 on </title>
-    <link>http://localhost:1313/5_book/1_compiler/3_analysis/index.html</link>
-    <description>Recent content in 3 语义分析 on </description>
+    <title>语义分析 on </title>
+    <link>https://irscript.github.io/5_book/1_compiler/3_analysis/index.html</link>
+    <description>Recent content in 语义分析 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/5_book/1_compiler/3_analysis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/5_book/1_compiler/3_analysis/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

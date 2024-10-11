@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>List on </title>
-    <link>http://localhost:1313/tags/list/index.html</link>
+    <link>https://irscript.github.io/tags/list/index.html</link>
     <description>Recent content in List on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/list/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/tags/list/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>双向节点链表</title>
-      <link>http://localhost:1313/2_algorithm/1_struct/list/doublelinkedlist/index.html</link>
+      <link>https://irscript.github.io/2_algorithm/1_struct/list/doublelinkedlist/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>http://localhost:1313/2_algorithm/1_struct/list/doublelinkedlist/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/1_struct/list/doublelinkedlist/index.html</guid>
       <description>节点模板类定义 template &amp;lt;typename Node&amp;gt; class IListNode { Node *mNext; Node *mPrev; public: inline IListNode() : mNext(nullptr), mPrev(nullptr) { } // 初始化节点 inline void init() { mNext = nullptr, mPrev = nullptr; } // 获取后继节点 inline Node *getNext() { return mNext; } // 获取前驱节点 inline Node *getPrev() { return mPrev; }; // 设置后继节点 inline void setNext(Node *next) { mNext = next; } // 设置前驱节点 inline void setPrev(Node *prev) { mPrev = prev; }; // 设置节点 inline void setNode(Node *next, Node *prev) { mNext = next, mPrev = prev; } };链表模板类定义 template &amp;lt;typename Node&amp;gt; class IList { IListNode&amp;lt;Node&amp;gt; mRoot; // 链表根节点 uint mCount; // 节点计数 public: // 链表初始化 inline IList() : mCount(0) { mRoot.</description>
     </item>
   </channel>

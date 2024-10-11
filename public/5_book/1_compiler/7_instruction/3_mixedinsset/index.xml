@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>3 基于栈和寄存器的指令集 on </title>
-    <link>http://localhost:1313/5_book/1_compiler/7_instruction/3_mixedinsset/index.html</link>
-    <description>Recent content in 3 基于栈和寄存器的指令集 on </description>
+    <title>基于栈和寄存器的指令集 on </title>
+    <link>https://irscript.github.io/5_book/1_compiler/7_instruction/3_mixedinsset/index.html</link>
+    <description>Recent content in 基于栈和寄存器的指令集 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/5_book/1_compiler/7_instruction/3_mixedinsset/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/5_book/1_compiler/7_instruction/3_mixedinsset/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

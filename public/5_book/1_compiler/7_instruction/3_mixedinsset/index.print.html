@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.124.0">
@@ -8,7 +8,7 @@
     <meta name="description" content="个人博客">
     <meta name="author" content="irscript">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="3 基于栈和寄存器的指令集">
+    <meta name="twitter:title" content="基于栈和寄存器的指令集">
     <meta name="twitter:description" content="本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。
 其类似与硬件指令集，可作为编译器后端指令系统目标，用于提供类似硬件指令系统环境，避免编译原理初学者陷入对硬件指令系统不了解的深渊。 降低学习难度，提高学习效率。
 这类指令的主要特点如下：
@@ -16,7 +16,7 @@
 1 整数寄存器：主要用于整数运算，位宽为 64 bit，根据指令的含义可选择 32 bit 和 64 bit 运算模式。 2 浮点寄存器：主要用于浮点数运算，位宽为 64 bit，和通用寄存器一致，可选择位宽模式。 3 系统寄存器：对用户不可见，与虚拟机运行系统相关，对其进行操作隐藏在相关指令的实现细节中。 4 根据指令格式，整数寄存器、浮点寄存器最多可以有32个。 2 指令格式 每条指令是 32bit 大小对齐的，其中最低 9bit 是操作码，其余23bit作为操作数或者操作码的补充。如下表所示：
 操作码 操作数 9 bit 23 bit 2.1 格式1 操作码 操作数 9 bit 23 bit 2.2 格式2 多数指令使用此格式。
 操作码 目的操作数 源操作数 源操作数 操作子码 9 bit 5 bit 5 bit 5 bit 8 bit 2.">
-    <meta property="og:title" content="3 基于栈和寄存器的指令集">
+    <meta property="og:title" content="基于栈和寄存器的指令集">
     <meta property="og:description" content="本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。
 其类似与硬件指令集，可作为编译器后端指令系统目标，用于提供类似硬件指令系统环境，避免编译原理初学者陷入对硬件指令系统不了解的深渊。 降低学习难度，提高学习效率。
 这类指令的主要特点如下：
@@ -25,33 +25,33 @@
 操作码 操作数 9 bit 23 bit 2.1 格式1 操作码 操作数 9 bit 23 bit 2.2 格式2 多数指令使用此格式。
 操作码 目的操作数 源操作数 源操作数 操作子码 9 bit 5 bit 5 bit 5 bit 8 bit 2.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://localhost:1313/5_book/1_compiler/7_instruction/3_mixedinsset/index.html">
-    <meta property="article:section" content="7 指令集">
+    <meta property="og:url" content="https://irscript.github.io/5_book/1_compiler/7_instruction/3_mixedinsset/index.html">
+    <meta property="article:section" content="指令集">
     <meta property="article:published_time" content="2023-09-14T21:30:02+08:00">
     <meta property="article:modified_time" content="2023-09-14T21:30:02+08:00">
-    <title>3 基于栈和寄存器的指令集</title>
-    <link href="http://localhost:1313/5_book/1_compiler/7_instruction/3_mixedinsset/index.html" rel="canonical" type="text/html" title="3 基于栈和寄存器的指令集">
-    <link href="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.xml" rel="alternate" type="application/rss+xml" title="3 基于栈和寄存器的指令集"><link rel="icon" href="../../../../images/favicon.png" type="image/png">
+    <title>基于栈和寄存器的指令集</title>
+    <link href="https://irscript.github.io/5_book/1_compiler/7_instruction/3_mixedinsset/index.html" rel="canonical" type="text/html" title="基于栈和寄存器的指令集">
+    <link href="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.xml" rel="alternate" type="application/rss+xml" title="基于栈和寄存器的指令集"><link rel="icon" href="../../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../../css/nucleus.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../../css/theme.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
-    <link href="../../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="../../../../css/variant.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/print.css?1728629534" rel="stylesheet" media="print">
-    <link href="../../../../css/format-print.css?1728629534" rel="stylesheet">
-    <link href="../../../../css/ie.css?1728629534" rel="stylesheet">
-    <script src="../../../../js/url.js?1728629534"></script>
-    <script src="../../../../js/variant.js?1728629534"></script>
+    <link href="../../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../../css/nucleus.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../../css/perfect-scrollbar.min.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/fonts.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../../css/theme.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/theme-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-style">
+    <link href="../../../../css/chroma-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../../css/variant.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/print.css?1728634411" rel="stylesheet" media="print">
+    <link href="../../../../css/format-print.css?1728634411" rel="stylesheet">
+    <link href="../../../../css/ie.css?1728634411" rel="stylesheet">
+    <script src="../../../../js/url.js?1728634411"></script>
+    <script src="../../../../js/variant.js?1728634411"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..\/..';
       window.relearn.relBaseUri='..\/..\/..\/..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.absBaseUri='https:\/\/irscript.github.io';
       window.index_js_url="../../../../index.search.js";
       // variant stuff
       window.relearn.themeVariantModifier='';
@@ -149,8 +149,8 @@
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/index.html"><span itemprop="name">教程系列</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/index.html"><span itemprop="name">编译原理</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/7_instruction/index.html"><span itemprop="name">7 指令集</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">3 基于栈和寄存器的指令集</span><meta itemprop="position" content="4"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/7_instruction/index.html"><span itemprop="name">指令集</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">基于栈和寄存器的指令集</span><meta itemprop="position" content="4"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
           </div>
@@ -163,7 +163,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="3-基于栈和寄存器的指令集"> 7.3 3 基于栈和寄存器的指令集</h1>
+  <h1 id="基于栈和寄存器的指令集"> 7.3 基于栈和寄存器的指令集</h1>
   <hr />
 
   <p>本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。</p>
@@ -1984,8 +1984,8 @@
         </div>
       </main>
     </div>
-    <script src="../../../../js/clipboard.min.js?1728629534" defer></script>
-    <script src="../../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
-    <script src="../../../../js/theme.js?1728629534" defer></script>
+    <script src="../../../../js/clipboard.min.js?1728634411" defer></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1728634411" defer></script>
+    <script src="../../../../js/theme.js?1728634411" defer></script>
   </body>
 </html>

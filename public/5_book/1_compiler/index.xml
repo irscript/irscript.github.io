@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>编译原理 on </title>
-    <link>http://localhost:1313/5_book/1_compiler/index.html</link>
+    <link>https://irscript.github.io/5_book/1_compiler/index.html</link>
     <description>Recent content in 编译原理 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/5_book/1_compiler/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/5_book/1_compiler/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1 词法分析</title>
-      <link>http://localhost:1313/5_book/1_compiler/1_lexer/index.html</link>
+      <title>词法分析</title>
+      <link>https://irscript.github.io/5_book/1_compiler/1_lexer/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/1_lexer/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/1_lexer/index.html</guid>
       <description>1 序 词法分析就是将代码字符流，按照一定的规则进行分析，获取符合词法规则的字符串，并进行信息标注，为语法分析提供单词(Token)流。
-2 目录 1 Token 定义 2 Lexer 实现 3 工程文件解析 </description>
+2 目录 Token 定义 Lexer 实现 工程文件解析 </description>
     </item>
     <item>
-      <title>2 语法分析</title>
-      <link>http://localhost:1313/5_book/1_compiler/2_parser/index.html</link>
+      <title>语法分析</title>
+      <link>https://irscript.github.io/5_book/1_compiler/2_parser/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/2_parser/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/2_parser/index.html</guid>
       <description>1 序 语法分析就是将词法分析提供单词(Token)流，按照语法规则构建抽象语法分析树，为语义分析提供数据骨架。
-2 目录 1 类型系统设计与实现 2 抽象语法树设计与实现 3 代码文件文件管理 4 顶层语法解析实现 5 解析表达式 6 解析声明 7 解析声明续 </description>
+2 目录 类型系统设计与实现 抽象语法树设计与实现 代码文件文件管理 顶层语法解析实现 解析表达式 解析声明 解析声明续 </description>
     </item>
     <item>
-      <title>3 语义分析</title>
-      <link>http://localhost:1313/5_book/1_compiler/3_analysis/index.html</link>
+      <title>语义分析</title>
+      <link>https://irscript.github.io/5_book/1_compiler/3_analysis/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/3_analysis/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/3_analysis/index.html</guid>
       <description>1 序 语义分析就是分析语法树中所有的符号是否存在声明，从语义层次进一步规范程序所表达的含义。
 分析符号的含义和类型。 分析变量的位置偏移。 分析表达式的类型，并进行类型匹配。 2 目录 </description>
     </item>
     <item>
-      <title>4 中间优化</title>
-      <link>http://localhost:1313/5_book/1_compiler/4_optimize/index.html</link>
+      <title>中间优化</title>
+      <link>https://irscript.github.io/5_book/1_compiler/4_optimize/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/4_optimize/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/4_optimize/index.html</guid>
       <description></description>
     </item>
     <item>
-      <title>5 目标生成</title>
-      <link>http://localhost:1313/5_book/1_compiler/5_target/index.html</link>
+      <title>目标生成</title>
+      <link>https://irscript.github.io/5_book/1_compiler/5_target/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/5_target/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/5_target/index.html</guid>
       <description></description>
     </item>
     <item>
-      <title>6 中间代码</title>
-      <link>http://localhost:1313/5_book/1_compiler/6_ir/index.html</link>
+      <title>中间代码</title>
+      <link>https://irscript.github.io/5_book/1_compiler/6_ir/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/6_ir/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/6_ir/index.html</guid>
       <description></description>
     </item>
     <item>
-      <title>7 指令集</title>
-      <link>http://localhost:1313/5_book/1_compiler/7_instruction/index.html</link>
+      <title>指令集</title>
+      <link>https://irscript.github.io/5_book/1_compiler/7_instruction/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/7_instruction/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/7_instruction/index.html</guid>
       <description>1 序 指令集可分为两大类，真实硬件指令集和虚拟机指令集。
 真实硬件指令集又分为两类：
 CISC (复杂指令集)：CISC 以 X86 系列为代表，指令系统较为复杂，硬件实现也比较复杂。 RISC (精简指令集)：RISC 的指令系统较为精简，目的是降低硬件实现的复杂度，以 RISC-V 、ARM为代表。 虚拟机指令集可分为三种：
 基于栈的指令集：纯栈操作，所有的运算都基于栈，其中以 Java 字节码指令集为代表。 基于寄存器的指令集：纯寄存器操作，所有的运算基于寄存器，其中以安卓的 Dalvik 字节码指令集为代表。 基于栈和寄存器的指令集：混合式操作，类似于 RISC 指令集，但是又与真实硬件系统有差异。 虚拟机的指令与设计的字节码保存文件存在较强相关性，所以要真正理解虚拟机指令，还需要理解字节码文件的存储格式。
-2 目录 1 基于栈的指令集 2 基于寄存器的指令集 3 基于栈和寄存器的指令集 </description>
+2 目录 基于栈的指令集 基于寄存器的指令集 基于栈和寄存器的指令集 </description>
     </item>
     <item>
-      <title>8 语言定义</title>
-      <link>http://localhost:1313/5_book/1_compiler/8_langdef/index.html</link>
+      <title>语言定义</title>
+      <link>https://irscript.github.io/5_book/1_compiler/8_langdef/index.html</link>
       <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
-      <guid>http://localhost:1313/5_book/1_compiler/8_langdef/index.html</guid>
+      <guid>https://irscript.github.io/5_book/1_compiler/8_langdef/index.html</guid>
       <description>air语言是C语法系的编程语言，提供面向对象、函数式、模板等高级语言功能。
-目录 1 语法定义 2 代码结构 3 关键字 4 操作符 5 类型系统 </description>
+目录 语法定义 代码结构 关键字 操作符 类型系统 </description>
     </item>
   </channel>
 </rss>

@@ -1,5 +1,5 @@
 +++
-title = "1 文件头"
+title = "文件头"
 weight = 1
 +++
 

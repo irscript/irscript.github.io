@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hash on </title>
-    <link>http://localhost:1313/tags/hash/index.html</link>
+    <link>https://irscript.github.io/tags/hash/index.html</link>
     <description>Recent content in Hash on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/tags/hash/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/tags/hash/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1 MD2 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/1_md/1_md2/index.html</link>
+      <title>MD2 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/1_md/1_md2/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/1_md/1_md2/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/1_md/1_md2/index.html</guid>
       <description>原文来自：https://www.cnblogs.com/Kingfans/p/16546430.html
 1 基本介绍 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD2算法的实现原理。
 1989年，MD2是由著名的非对称算法RSA发明人之一–麻省理工学院教授罗纳德-里维斯特开发的；这个算法首先对信息进行数据补位，使信息的字节长度是16的倍数，再以16位的检验和作为补充信息追加到原信息的末尾。最后根据这个新产生的信息计算出一个128位的散列值，MD2算法由此诞生。
@@ -22,10 +22,10 @@
 /* Clear checksum. */For i = 0 to 15 do:Set C[i] to 0.end /* of loop on i */Set L to 0./* Process each 16-word block. */For i = 0 to N/16-1 do/* Checksum block i.</description>
     </item>
     <item>
-      <title>1 SHA1 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/1_sha1/index.html</link>
+      <title>SHA1 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/2_sha/1_sha1/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/1_sha1/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/2_sha/1_sha1/index.html</guid>
       <description>原文来自：https://www.cnblogs.com/Kingfans/p/16561821.html
 一、基本介绍 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
 SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。
@@ -37,18 +37,18 @@ RFC 3174 是SHA1算法的官方文档，（建议了解SHA1算法前，先了解
 uint32_t H0 = 0x67452301; // 0x01, 0x23, 0x45, 0x67 uint32_t H1 = 0xEFCDAB89; // 0x89, 0xAB, 0xCD, 0xEF uint32_t H2 = 0x98BADCFE; // 0xFE, 0xDC, 0xBA, 0x98 uint32_t H3 = 0x10325476; // 0x76, 0x54, 0x32, 0x10 uint32_t H4 = 0xC3D2E1F0; // 0xF0, 0xE1, 0xD2, 0xC3 第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是SHA1算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
     </item>
     <item>
-      <title>1 消息摘要算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/1_md/index.html</link>
+      <title>消息摘要算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/1_md/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/1_md/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/1_md/index.html</guid>
       <description>简介 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。
-MD系列家族 1 MD2 算法 2 MD4 算法 3 MD5 算法 </description>
+MD系列家族 MD2 算法 MD4 算法 MD5 算法 </description>
     </item>
     <item>
-      <title>2 MD4 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/1_md/2_md4/index.html</link>
+      <title>MD4 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/1_md/2_md4/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/1_md/2_md4/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/1_md/2_md4/index.html</guid>
       <description>原文来自：https://www.cnblogs.com/Kingfans/p/16552308.html
 一、基本介绍 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD4算法的实现原理。
 1990 年，罗纳德·李维斯特教授开发出较之 MD2 算法有着更高安全性的 MD4 算法。在这个算法中，我们仍需对信息进行数据补位。不同的是，这种补位使其信息的字节长度加上 448 个字节后能成为 512 的倍数（信息字节长度 mod 512 = 448）。此外，关于 MD4 算法的处理与 MD2 算法又有很大差别。但最终仍旧是会获得一个 128 位的散列值。MD4 算法对后续消息摘要算法起到了推动作用，许多比较有名的消息摘要算法都是在 MD4 算法的基础上发展而来的，如 MD5、SHA-1、RIPE-MD 和 HAVAL 算法等。
@@ -59,10 +59,10 @@ MD系列家族 1 MD2 算法 2 MD4 算法 3 MD5 算法 </description>
 1234uint32_t A = 0x67452301; // [ 0x01, 0x23, 0x45, 0x67 ]uint32_t B = 0xEFCDAB89; // [ 0x89, 0xAB, 0xCD, 0xEF ]uint32_t C = 0x98BADCFE; // [ 0xFE, 0xDC, 0xBA, 0x98 ]uint32_t D = 0x10325476; // [ 0x76, 0x54, 0x32, 0x10 ] 第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是MD4算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
     </item>
     <item>
-      <title>2 SHA2-224 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/2_sha2_224/index.html</link>
+      <title>SHA2-224 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/2_sha/2_sha2_224/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/2_sha2_224/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/2_sha/2_sha2_224/index.html</guid>
       <description>原文来自:https://www.cnblogs.com/Kingfans/p/16572411.html
 一、基本介绍 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
 SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。本文介绍SHA2-224算法的实现原理。
@@ -74,28 +74,28 @@ NIST.FIPS.180-4 是SHA2-224算法的官方文档，（建议了解SHA2-224算法
 uint32_t H0 = 0xC1059ED8; uint32_t H1 = 0x367CD507; uint32_t H2 = 0x3070DD17; uint32_t H3 = 0xF70E5939; uint32_t H4 = 0xFFC00B31; uint32_t H5 = 0x68581511; uint32_t H6 = 0x64F98FA7; uint32_t H7 = 0xBEFA4FA4;第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是SHA2-224算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
     </item>
     <item>
-      <title>2 签名算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/index.html</link>
+      <title>签名算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/2_sha/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/2_sha/index.html</guid>
       <description>原文来自：https://www.cnblogs.com/Kingfans/p/16546386.html
 简介 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
-SHA系列家族 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 </description>
+SHA系列家族 SHA1 算法 SHA2-224 算法 SHA2-256 算法 SHA2-384 算法 SHA2-512 算法 </description>
     </item>
     <item>
-      <title>3 CRC 哈希函数</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/3_crc/index.html</link>
+      <title>CRC 哈希函数</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/3_crc/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/3_crc/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/3_crc/index.html</guid>
       <description>简介 CRC的全称为 Cyclic Redundancy Check，中文名称为循环冗余校验。它是一类重要的线性分组码，编码和解码方法简单，检错和纠错能力强，在通信领域广泛地用于实现差错控制。
 实际上，除数据通信外，CRC在其它很多领域也是大有用武之地的。例如我们读软盘上的文件，以及解压一个ZIP文件时，偶尔会碰到“Bad CRC”错误，由此它在数据存储方面的应用可略见一斑。
 CRC 系列算法 </description>
     </item>
     <item>
-      <title>3 MD5 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/1_md/3_md5/index.html</link>
+      <title>MD5 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/1_md/3_md5/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/1_md/3_md5/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/1_md/3_md5/index.html</guid>
       <description>原文来自：https://www.cnblogs.com/Kingfans/p/16554047.html
 一、基本介绍 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD5算法的实现原理。
 1991年，继 MD4 算法后，罗纳德·李维斯特教授开发了 MD5 算法，将 MD 算法推向成熟。MD5 算法经 MD2、MD3 和 MD4 算法发展而来，算法复杂程度和安全强度大大提高。但不管是 MD2、MD4 还是 MD5 算法，其算法的最终结果均是产生一个 128 位的消息摘要，这也是 MD 系列算法的特点。MD5 算法执行效率略次于 MD4 算法，但在安全性方面，MD5 算法更胜一筹。随着计算机技术的发展和计算水平的不断提高，MD5 算法暴露出来的漏洞也越来越多。1996 年后被证实存在弱点，可以被加以破解，对于需要高度安全性的数据，专家一般建议改用其他算法，如 SHA-2。2004 年，证实 MD5 算法无法防止碰撞（collision），因此不适用于安全性认证，如 SSL 公开密钥认证或是数字签名等用途。
@@ -106,10 +106,10 @@ CRC 系列算法 </description>
 uint32_t A = 0x67452301; // [ 0x01, 0x23, 0x45, 0x67 ]uint32_t B = 0xEFCDAB89; // [ 0x89, 0xAB, 0xCD, 0xEF ]uint32_t C = 0x98BADCFE; // [ 0xFE, 0xDC, 0xBA, 0x98 ]uint32_t D = 0x10325476; // [ 0x76, 0x54, 0x32, 0x10 ]以上操作与md4完全一致。</description>
     </item>
     <item>
-      <title>3 SHA2-256 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/3_sha2_256/index.html</link>
+      <title>SHA2-256 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/2_sha/3_sha2_256/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/3_sha2_256/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/2_sha/3_sha2_256/index.html</guid>
       <description>原文来自:https://www.cnblogs.com/Kingfans/p/16571435.html
 一、基本介绍 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
 SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。本文介绍SHA2-256算法的实现原理。
@@ -121,17 +121,17 @@ NIST.FIPS.180-4 是SHA2-256算法的官方文档，（建议了解SHA2-256算法
 uint32_t H0 = 0x6A09E667; uint32_t H1 = 0xBB67AE85; uint32_t H2 = 0x3C6EF372; uint32_t H3 = 0xA54FF53A; uint32_t H4 = 0x510E527F; uint32_t H5 = 0x9B05688C; uint32_t H6 = 0x1F83D9AB; uint32_t H7 = 0x5BE0CD19;第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是SHA2-256算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
     </item>
     <item>
-      <title>4 SHA2-384 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/4_sha2_384/index.html</link>
+      <title>SHA2-384 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/2_sha/4_sha2_384/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/4_sha2_384/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/2_sha/4_sha2_384/index.html</guid>
       <description>原文来自</description>
     </item>
     <item>
-      <title>5 SHA2-512 算法</title>
-      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/5_sha2_512/index.html</link>
+      <title>SHA2-512 算法</title>
+      <link>https://irscript.github.io/2_algorithm/3_hash/2_sha/5_sha2_512/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/5_sha2_512/index.html</guid>
+      <guid>https://irscript.github.io/2_algorithm/3_hash/2_sha/5_sha2_512/index.html</guid>
       <description>原文来自</description>
     </item>
   </channel>

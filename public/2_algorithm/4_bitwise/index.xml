@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>快速位算法 on </title>
+    <link>https://irscript.github.io/2_algorithm/4_bitwise/index.html</link>
+    <description>Recent content in 快速位算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://irscript.github.io/2_algorithm/4_bitwise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>快速平均值</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/1_average/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/1_average/index.html</guid>
+      <description>符号定义 a :待运算的值 b :待运算的值 r :运算结果 计算 r = (a + b) &amp;gt;&amp;gt; 1总结 &amp;gt;&amp;gt; 1 ,相当于 除 2。</description>
+    </item>
+    <item>
+      <title>位域值提取</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/2_bitfield/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/2_bitfield/index.html</guid>
+      <description>位域定义 C语言中的位域定义：
+struct Bits{ uint32_t b2:2; uint32_t b4:4; };提取位域定义的值算法如下：
+符号定义： w :定义的位宽，如 b2 的位宽为 2 bit； p :位域字段的位偏移，如 b2 的位偏移为 0，b4 的位偏移为 2； v :位域字段所在的整体数据值，如 b2 就在 uint32_t 的数据上； r :计算的结果； 第1步：计算位域掩码 mask = (1 &amp;lt;&amp;lt; w) - 1第2步：逻辑右移 tv = v &amp;gt;&amp;gt; p第3步：截取域至 v = tv &amp;amp; mask总结 r = (v &amp;gt;&amp;gt; p) &amp;amp; ( (1 &amp;lt;&amp;lt; w) - 1)如果v是有符号数，就需要进行符号扩展。
+符号扩展 第1步：计算符号掩码 smask = 1 &amp;lt;&amp;lt; (w-1)第2步：计算符号位值 signed = r &amp;amp; smask第3步：符号扩展 signed !</description>
+    </item>
+    <item>
+      <title>INT_MAX和INT_MIN</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/3_intmaxmin/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/3_intmaxmin/index.html</guid>
+      <description>假设 假设您有一个 32 位系统：
+INT_MAX是 01111111111111111111111111111111 ； INT_MIN是 10000000000000000000000000000000 ； 0 和 1 分别位于最高有效位位置，分别表示符号位。
+计算INT_MAX和INT_MIN 在 C/C++ 中： 数字 0 表示为 000&amp;hellip;000（32个）。
+原理 我们计算 0 的 NOT 得到一个有 32 个 1 的数字。这个数字不等于INT_MAX因为符号位是1，即负数。 现在，这个数字的右移将产生011&amp;hellip;111 这是INT_MAX。 将INT_MAX 按位取反 就得到INT_MIN。
+代码 unsigned int max = 0; max = ~max; max = max &amp;gt;&amp;gt; 1; int min = ~max; </description>
+    </item>
+    <item>
+      <title>应用 n &#43; (~n) = -1</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/4_application/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/4_application/index.html</guid>
+      <description>原理 设整数 n 类型为 int_8，值为 3，则 3 + (~3) = 0000 0011 + 1111 1100 = 1111 1111 = -1，所以引出非运算的基础公式 n + (~n) = -1，也可以将 n ^ -1 = ~n 带入。
+位运算实现n+1与n-1 对n + (~n) = -1进行等式变换可得：
+int n; ~n = -(n + 1); n + 1 = -~n; n - 1 = ~-n;	// 假设n = -n，可推出此等式 取相反数 一个数的相反数等于其按位取反后再加1，对上等式变换推出：
+int n; -n = ~n + 1;取绝对值 这一块内容也用到了n ^ 0 = n 和 n ^ -1 = ~n：</description>
+    </item>
+    <item>
+      <title>应用 n ^ n = 0 和 n ^ 0 = n</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/5_application2/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/5_application2/index.html</guid>
+      <description>交换两个数的值 不需要第三个临时变量，交换两个数的值
+int a, b; a ^= b;	// a = a ^ b; b ^= a;	// b = b ^ a = b ^ a ^ b = (b ^ b) ^ a = 0 ^ a = a a ^= b;	// a = a ^ b = a ^ a ^ b = 0 ^ b = b 代替特定的条件赋值 如果 x = a，则 a ^ b ^ x = 0 ^ b；如果 x = b，则 a ^ b ^ x = 0 ^ a；</description>
+    </item>
+    <item>
+      <title>应用  x&amp;(x-1)</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/6_application3/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/6_application3/index.html</guid>
+      <description>原理 x&amp;amp;(x-1)可以消除数字x二进制表示的最后一个1，如：
+int x = 0xf6; printf(&amp;#34;%x\n&amp;#34;, x);	//0b11110110 printf(&amp;#34;%x\n&amp;#34;, x&amp;amp;(x-1));	//0b11110100 判断一个正数是不是2的次幂 如果一个正数是2的次幂，则这个数的二进制表示中只含有一个1。
+int x; if(x&amp;amp;(x-1)){ //x至少含有两个1，所以不是2的次幂 } 计算一个数的二进制含有多少个1 x中的最后一个1可以通过操作x = x&amp;amp;(x-1)循环消去，当最后x值为0时，便可以求出二进制中1的个数。
+int x, total; while(x &amp;gt; 0){ x = x&amp;amp;(x-1); total++; }</description>
+    </item>
+    <item>
+      <title>应用 2的次方</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/7_2pow/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/7_2pow/index.html</guid>
+      <description>整数对2的乘/除法 整数 n 向右移一位，相当于将 n 除以 2；数 n 向左移一位，相当于将 n 乘以 2。
+int n = 2; n &amp;gt;&amp;gt; 1; // 1 n &amp;lt;&amp;lt; 1; // 4 n 对“2的次方”取余 m 是2的次方，则其二进制数只有一个1，如 4 =&amp;gt; 0100，8 =&amp;gt; 1000。m-1 之后，原本 m 二进制的1变成0，原本1后面的0全变成1，如 4-1 = 3 =&amp;gt; 0011，8-1 = 7 =&amp;gt; 0111。
+2 ^ 0 = 1
+2 ^ 1 = 2
+2 ^ 2 = 4
+2^ 3 = 8
+2 ^ 4 = 16</description>
+    </item>
+    <item>
+      <title>取两数的最 大/小 值</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/8_maxmin/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/8_maxmin/index.html</guid>
+      <description>原理 如果 a &amp;gt;= b，则 a - b &amp;gt;= 0 且 ~(a - b) &amp;lt; 0，所以 ((a - b) &amp;raquo; 31) = 0 且 (~(a - b) &amp;raquo; 31) = -1。 如果 a &amp;lt; b，则 a - b &amp;lt; 0 且 ~(a - b) &amp;gt;= 0，所以 ((a - b) &amp;raquo; 31) = -1 且 (~(a - b) &amp;raquo; 31) = 0。 实现 int max(int a, int b){ return (b &amp;amp; ((a - b) &amp;gt;&amp;gt; 31)) | (a &amp;amp; (~(a - b) &amp;gt;&amp;gt; 31)); } int min(int a, int b){ return (a &amp;amp; ((a - b) &amp;gt;&amp;gt; 31)) | (b &amp;amp; (~(a - b) &amp;gt;&amp;gt; 31)); }</description>
+    </item>
+    <item>
+      <title>循环移位</title>
+      <link>https://irscript.github.io/2_algorithm/4_bitwise/9_rotateshift/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://irscript.github.io/2_algorithm/4_bitwise/9_rotateshift/index.html</guid>
+      <description>循环左移 以32位整数为例，循环左移的过程可以分为3步：
+将 x 左端的 n 位先移动到 y 的低 n 位中，x &amp;raquo; (32-n); 将 x 左移 n 位，其右面低位补 0，x&amp;laquo;n; 进行按位或运算(x &amp;raquo; (32 - n) | (x &amp;laquo; n)); 循环右移 以32位整数为例，循环右移的过程可以分为3步：
+将 x 的左端的低 n 位先移动到 y 的高 n 位中 x &amp;laquo; (32 - n) 将 x 右移 n 位，其左面高 n 位补 0，x &amp;raquo; n; 进行按位或操作(x &amp;laquo; (32 - n) | (x &amp;raquo; n)); 总结 假如将一个无符号的数据 val ，长度为 N bit，需要循环移动 n bit。可以利用下面的公式：</description>
+    </item>
+  </channel>
+</rss>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>1 通用格式设计 on </title>
-    <link>http://localhost:1313/6_format/1_general/index.html</link>
-    <description>Recent content in 1 通用格式设计 on </description>
+    <title>通用格式设计 on </title>
+    <link>https://irscript.github.io/6_format/1_general/index.html</link>
+    <description>Recent content in 通用格式设计 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/6_format/1_general/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/6_format/1_general/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1 文件头</title>
-      <link>http://localhost:1313/6_format/1_general/1_fileheader/index.html</link>
+      <title>文件头</title>
+      <link>https://irscript.github.io/6_format/1_general/1_fileheader/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/6_format/1_general/1_fileheader/index.html</guid>
+      <guid>https://irscript.github.io/6_format/1_general/1_fileheader/index.html</guid>
       <description>描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。
 顾名思义，即是将文件的整体信息通常放在文件的开头。
 在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 文件头。
@@ -31,10 +31,10 @@
 struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32 mEndian; //字节序 uint32 mVersion; //文件版本 ... };</description>
     </item>
     <item>
-      <title>2 段节格式</title>
-      <link>http://localhost:1313/6_format/1_general/2_segmentformat/index.html</link>
+      <title>段节格式</title>
+      <link>https://irscript.github.io/6_format/1_general/2_segmentformat/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/6_format/1_general/2_segmentformat/index.html</guid>
+      <guid>https://irscript.github.io/6_format/1_general/2_segmentformat/index.html</guid>
       <description>分段(或叫分节，后续默认叫法为分段)的二进制文件格式是比较常见的，比如编译器 GCC 输出的目标文件一般为 ELF 的分段文件。
 1 整体结构 这类文件一般采用 文件头 + 分段 的结构：
 file header section 0section 1....section N文件头设计方法在 文件头 中介绍，本章节主要描述分段式存储数据的方法。
@@ -47,10 +47,10 @@ tag 一般是一个整数，用来标识分区的类型。不同的分区用不�
 file header section 0tag //section 0 的标识length //section 0 的数据长度data[] //section 0 的数据section 1....section N段表式 段表式的结构是有一个描述分段信息的段表，后面存储各个分区的数据。</description>
     </item>
     <item>
-      <title>3 TLV格式</title>
-      <link>http://localhost:1313/6_format/1_general/3_tlvformat/index.html</link>
+      <title>TLV格式</title>
+      <link>https://irscript.github.io/6_format/1_general/3_tlvformat/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/6_format/1_general/3_tlvformat/index.html</guid>
+      <guid>https://irscript.github.io/6_format/1_general/3_tlvformat/index.html</guid>
       <description>1 简介 TLV 是一种可变的格式，由三个域构成：标识域（Tag）+长度域（Length）+值域（Value），简称TLV格式。
 其中：
 T 可以理解为 Tag 或 Type ，用于标识标签或者编码格式信息； L 定义数值的长度； V 表示实际的数值。 T 和 L 的长度固定，一般是2或4个字节，V 的长度由 Length 指定。

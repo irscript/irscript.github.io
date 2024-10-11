@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "3 颜色格式"
+title = "颜色格式"
 weight = 3
 +++
 

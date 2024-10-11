@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "5 图片格式"
+title = "图片格式"
 weight = 5
 +++
 

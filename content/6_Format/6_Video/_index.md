@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "6 视频格式"
+title = "视频格式"
 weight = 6
 +++
 

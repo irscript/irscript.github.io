@@ -1,4 +1,4 @@
 +++
-title = "4 XYZ"
+title = "XYZ"
 weight = 4
 +++

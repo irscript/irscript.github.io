@@ -1,5 +1,5 @@
 +++
-title = "1 Token 定义"
+title = "Token 定义"
 date = 2023-09-14T21:30:02+08:00
 weight = 1
 +++

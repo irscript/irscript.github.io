@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>子页(children) on </title>
-    <link>http://localhost:1313/4_tools/1_theme/3_children/index.html</link>
+    <link>https://irscript.github.io/4_tools/1_theme/3_children/index.html</link>
     <description>Recent content in 子页(children) on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/4_tools/1_theme/3_children/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://irscript.github.io/4_tools/1_theme/3_children/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>子页 1</title>
-      <link>http://localhost:1313/4_tools/1_theme/3_children/child/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/3_children/child/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/3_children/child/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/3_children/child/index.html</guid>
       <description>这是子页案例！</description>
     </item>
     <item>
       <title>子页 2</title>
-      <link>http://localhost:1313/4_tools/1_theme/3_children/child_page2/index.html</link>
+      <link>https://irscript.github.io/4_tools/1_theme/3_children/child_page2/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4_tools/1_theme/3_children/child_page2/index.html</guid>
+      <guid>https://irscript.github.io/4_tools/1_theme/3_children/child_page2/index.html</guid>
       <description>这是子页案例！</description>
     </item>
   </channel>

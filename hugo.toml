@@ -1,4 +1,4 @@
-baseURL = "https://irscript.gitee.io/"
+baseURL = "https://irscript.github.io/"
 #canonifyURLs = true 
 relativeURLs = true
 theme = "hugo-theme-relearn"
@@ -34,7 +34,7 @@ landingPageName = "<i class='fa-fw fas fa-home'></i> 主页"
 
 [[languages.zh-cn.menu.shortcuts]]
 identifier = "gitee"
-name = "<i class='fas fa-code-branch'></i> Gitee 仓库"
+name = "<i class='fa-fw fab fa-code-branch'></i> Gitee 仓库"
 url = "https://gitee.com/irscript/"
 weight = 10
 
@@ -144,7 +144,7 @@ disableBreadcrumb = false
 
 disableNextPrev = false
 
-editURL = "https://gitee.com/irscript/irscript/blob/master/content/${FilePath}"
+editURL = "https://github.com/irscript/irscript.github.io/blob/main/content/${FilePath}"
 
 disableSearch = false
 

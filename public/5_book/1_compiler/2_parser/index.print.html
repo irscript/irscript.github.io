@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.124.0">
@@ -8,35 +8,35 @@
     <meta name="description" content="个人博客">
     <meta name="author" content="irscript">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="2 语法分析">
+    <meta name="twitter:title" content="语法分析">
     <meta name="twitter:description" content="个人博客">
-    <meta property="og:title" content="2 语法分析">
+    <meta property="og:title" content="语法分析">
     <meta property="og:description" content="个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:1313/5_book/1_compiler/2_parser/index.html">
-    <title>2 语法分析</title>
-    <link href="http://localhost:1313/5_book/1_compiler/2_parser/index.html" rel="canonical" type="text/html" title="2 语法分析">
-    <link href="../../../5_book/1_compiler/2_parser/index.xml" rel="alternate" type="application/rss+xml" title="2 语法分析"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <meta property="og:url" content="https://irscript.github.io/5_book/1_compiler/2_parser/index.html">
+    <title>语法分析</title>
+    <link href="https://irscript.github.io/5_book/1_compiler/2_parser/index.html" rel="canonical" type="text/html" title="语法分析">
+    <link href="../../../5_book/1_compiler/2_parser/index.xml" rel="alternate" type="application/rss+xml" title="语法分析"><link rel="icon" href="../../../images/favicon.png" type="image/png">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
-    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
-    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
-    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
-    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
-    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
-    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
-    <script src="../../../js/url.js?1728629534"></script>
-    <script src="../../../js/variant.js?1728629534"></script>
+    <link href="../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728634411" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728634411" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728634411" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728634411" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728634411" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728634411" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728634411" rel="stylesheet">
+    <link href="../../../css/print.css?1728634411" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728634411" rel="stylesheet">
+    <link href="../../../css/ie.css?1728634411" rel="stylesheet">
+    <script src="../../../js/url.js?1728634411"></script>
+    <script src="../../../js/variant.js?1728634411"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..';
       window.relearn.relBaseUri='..\/..\/..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.absBaseUri='https:\/\/irscript.github.io';
       window.index_js_url="../../../index.search.js";
       // variant stuff
       window.relearn.themeVariantModifier='';
@@ -134,7 +134,7 @@
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../5_book/index.html"><span itemprop="name">教程系列</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../5_book/1_compiler/index.html"><span itemprop="name">编译原理</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">2 语法分析</span><meta itemprop="position" content="3"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">语法分析</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
           </div>
@@ -147,7 +147,7 @@
             <header class="headline">
             </header>
 <div class="article-subheading">第2章</div>
-<h1 id="2-语法分析">2 语法分析</h1>
+<h1 id="语法分析">语法分析</h1>
 
 <h2 id="1-序">1 序</h2>
 <p>语法分析就是将词法分析提供单词(Token)流，按照语法规则构建抽象语法分析树，为语义分析提供数据骨架。</p>
@@ -156,25 +156,25 @@
 
 <ul class="children children-li children-sort-weight">
 	
-<li><a href="../../../5_book/1_compiler/2_parser/1_typesystem/index.html">1 类型系统设计与实现</a></li>
-<li><a href="../../../5_book/1_compiler/2_parser/2_astnode/index.html">2 抽象语法树设计与实现</a></li>
-<li><a href="../../../5_book/1_compiler/2_parser/3_fileunit/index.html">3 代码文件文件管理</a></li>
-<li><a href="../../../5_book/1_compiler/2_parser/4_parserbase/index.html">4 顶层语法解析实现</a></li>
-<li><a href="../../../5_book/1_compiler/2_parser/5_parserexp/index.html">5 解析表达式</a></li>
-<li><a href="../../../5_book/1_compiler/2_parser/6_parserdecl/index.html">6 解析声明</a></li>
-<li><a href="../../../5_book/1_compiler/2_parser/7_parserdecl2/index.html">7 解析声明续</a></li>
+<li><a href="../../../5_book/1_compiler/2_parser/1_typesystem/index.html">类型系统设计与实现</a></li>
+<li><a href="../../../5_book/1_compiler/2_parser/2_astnode/index.html">抽象语法树设计与实现</a></li>
+<li><a href="../../../5_book/1_compiler/2_parser/3_fileunit/index.html">代码文件文件管理</a></li>
+<li><a href="../../../5_book/1_compiler/2_parser/4_parserbase/index.html">顶层语法解析实现</a></li>
+<li><a href="../../../5_book/1_compiler/2_parser/5_parserexp/index.html">解析表达式</a></li>
+<li><a href="../../../5_book/1_compiler/2_parser/6_parserdecl/index.html">解析声明</a></li>
+<li><a href="../../../5_book/1_compiler/2_parser/7_parserdecl2/index.html">解析声明续</a></li>
 </ul>
             <footer class="footline">
             </footer>
           </article>
 
           <section>
-            <h1 class="a11y-only">2 语法分析 的子部分</h1>
+            <h1 class="a11y-only">语法分析 的子部分</h1>
 <article class="default">
   <header class="headline">
   </header>
   
-  <h1 id="1-类型系统设计与实现"> 2.1 1 类型系统设计与实现</h1>
+  <h1 id="类型系统设计与实现"> 2.1 类型系统设计与实现</h1>
   <hr />
 
   <p>待续</p>
@@ -186,7 +186,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="2-抽象语法树设计与实现"> 2.2 2 抽象语法树设计与实现</h1>
+  <h1 id="抽象语法树设计与实现"> 2.2 抽象语法树设计与实现</h1>
   <hr />
 
   <p>待续</p>
@@ -198,7 +198,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="3-代码文件文件管理"> 2.3 3 代码文件文件管理</h1>
+  <h1 id="代码文件文件管理"> 2.3 代码文件文件管理</h1>
   <hr />
 
   <p>待续</p>
@@ -210,7 +210,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="4-顶层语法解析实现"> 2.4 4 顶层语法解析实现</h1>
+  <h1 id="顶层语法解析实现"> 2.4 顶层语法解析实现</h1>
   <hr />
 
   <p>待续</p>
@@ -222,7 +222,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="5-解析表达式"> 2.5 5 解析表达式</h1>
+  <h1 id="解析表达式"> 2.5 解析表达式</h1>
   <hr />
 
   <p>待续</p>
@@ -234,7 +234,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="6-解析声明"> 2.6 6 解析声明</h1>
+  <h1 id="解析声明"> 2.6 解析声明</h1>
   <hr />
 
   <p>待续</p>
@@ -246,7 +246,7 @@
   <header class="headline">
   </header>
   
-  <h1 id="7-解析声明续"> 2.7 7 解析声明续</h1>
+  <h1 id="解析声明续"> 2.7 解析声明续</h1>
   <hr />
 
   <p>待续</p>
@@ -258,8 +258,8 @@
         </div>
       </main>
     </div>
-    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
-    <script src="../../../js/theme.js?1728629534" defer></script>
+    <script src="../../../js/clipboard.min.js?1728634411" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728634411" defer></script>
+    <script src="../../../js/theme.js?1728634411" defer></script>
   </body>
 </html>

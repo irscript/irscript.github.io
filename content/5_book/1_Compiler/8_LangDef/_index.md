@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "8 语言定义"
+title = "语言定义"
 weight = 8
 +++
 

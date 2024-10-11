@@ -1,4 +1,4 @@
 +++
-title = "3 YUV"
+title = "YUV"
 weight = 3
 +++

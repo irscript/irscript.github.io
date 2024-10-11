@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CRC 哈希函数 on </title>
+    <link>https://irscript.github.io/2_algorithm/3_hash/3_crc/index.html</link>
+    <description>Recent content in CRC 哈希函数 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://irscript.github.io/2_algorithm/3_hash/3_crc/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

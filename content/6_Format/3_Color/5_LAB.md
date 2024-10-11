@@ -1,4 +1,4 @@
 +++
-title = "5 LAB"
+title = "LAB"
 weight = 5
 +++

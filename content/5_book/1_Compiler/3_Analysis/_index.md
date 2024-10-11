@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "3 语义分析"
+title = "语义分析"
 weight = 3
 +++
 
