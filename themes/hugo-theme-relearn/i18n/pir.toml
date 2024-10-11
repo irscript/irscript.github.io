@@ -1,5 +1,5 @@
 [Reading-direction]
-other = "rtl"
+other = "ltr"
 
 [Search]
 other = "Searrrch"
@@ -19,6 +19,12 @@ other = "{1} rrresults found fer \"{0}\""
 [Clear-History]
 other = "Clearrr Historrry"
 
+[Reset-view]
+other = "Rrreset view"
+
+[View-reset]
+other = "View rrreset!"
+
 [Attachments-label]
 other = "Attachments"
 
@@ -36,6 +42,9 @@ other = "Edit"
 
 [Print-this-chapter]
 other = "Prrrint whole chapterrr"
+
+[More-action]
+other = "Morrre"
 
 [Shortcuts-Title]
 other = "Morrre"

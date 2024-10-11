@@ -19,6 +19,12 @@ other = "\"{0}\" で {1} 件の結果が見つかりました"
 [Clear-History]
 other = "履歴削除"
 
+[Reset-view]
+other = "ビューのリセット"
+
+[View-reset]
+other = "リセットを見る"
+
 [Attachments-label]
 other = "添付"
 
@@ -36,6 +42,9 @@ other = "編集"
 
 [Print-this-chapter]
 other = "章全体を印刷する"
+
+[More-action]
+other = "更に"
 
 [Shortcuts-Title]
 other = "更に"

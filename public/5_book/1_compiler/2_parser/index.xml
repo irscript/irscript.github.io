@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 语法分析 on </title>
+    <link>http://localhost:1313/5_book/1_compiler/2_parser/index.html</link>
+    <description>Recent content in 2 语法分析 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/5_book/1_compiler/2_parser/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1 类型系统设计与实现</title>
+      <link>http://localhost:1313/5_book/1_compiler/2_parser/1_typesystem/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/2_parser/1_typesystem/index.html</guid>
+      <description>待续</description>
+    </item>
+    <item>
+      <title>2 抽象语法树设计与实现</title>
+      <link>http://localhost:1313/5_book/1_compiler/2_parser/2_astnode/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/2_parser/2_astnode/index.html</guid>
+      <description>待续</description>
+    </item>
+    <item>
+      <title>3 代码文件文件管理</title>
+      <link>http://localhost:1313/5_book/1_compiler/2_parser/3_fileunit/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/2_parser/3_fileunit/index.html</guid>
+      <description>待续</description>
+    </item>
+    <item>
+      <title>4 顶层语法解析实现</title>
+      <link>http://localhost:1313/5_book/1_compiler/2_parser/4_parserbase/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/2_parser/4_parserbase/index.html</guid>
+      <description>待续</description>
+    </item>
+    <item>
+      <title>5 解析表达式</title>
+      <link>http://localhost:1313/5_book/1_compiler/2_parser/5_parserexp/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/2_parser/5_parserexp/index.html</guid>
+      <description>待续</description>
+    </item>
+    <item>
+      <title>6 解析声明</title>
+      <link>http://localhost:1313/5_book/1_compiler/2_parser/6_parserdecl/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/2_parser/6_parserdecl/index.html</guid>
+      <description>待续</description>
+    </item>
+    <item>
+      <title>7 解析声明续</title>
+      <link>http://localhost:1313/5_book/1_compiler/2_parser/7_parserdecl2/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/2_parser/7_parserdecl2/index.html</guid>
+      <description>待续</description>
+    </item>
+  </channel>
+</rss>

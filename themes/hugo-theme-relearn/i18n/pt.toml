@@ -19,6 +19,12 @@ other = "{1} resultados encontrados para \"{0}\""
 [Clear-History]
 other = "Limpar Histórico"
 
+[Reset-view]
+other = "Repor vista"
+
+[View-reset]
+other = "Ver reposição!"
+
 [Attachments-label]
 other = "Anexos"
 
@@ -36,6 +42,9 @@ other = "Editar"
 
 [Print-this-chapter]
 other = "Imprimir capítulo inteiro"
+
+[More-action]
+other = "Mais"
 
 [Shortcuts-Title]
 other = "Mais"

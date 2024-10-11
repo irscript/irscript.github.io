@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="3 基于栈和寄存器的指令集">
+    <meta name="twitter:description" content="本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。
+其类似与硬件指令集，可作为编译器后端指令系统目标，用于提供类似硬件指令系统环境，避免编译原理初学者陷入对硬件指令系统不了解的深渊。 降低学习难度，提高学习效率。
+这类指令的主要特点如下：
+1 寄存器的数量固定； 2 指令所操作的寄存器数量固定； 3 指令的含义简单； 1 寄存器 虚拟机的寄存器分为三种：
+1 整数寄存器：主要用于整数运算，位宽为 64 bit，根据指令的含义可选择 32 bit 和 64 bit 运算模式。 2 浮点寄存器：主要用于浮点数运算，位宽为 64 bit，和通用寄存器一致，可选择位宽模式。 3 系统寄存器：对用户不可见，与虚拟机运行系统相关，对其进行操作隐藏在相关指令的实现细节中。 4 根据指令格式，整数寄存器、浮点寄存器最多可以有32个。 2 指令格式 每条指令是 32bit 大小对齐的，其中最低 9bit 是操作码，其余23bit作为操作数或者操作码的补充。如下表所示：
+操作码 操作数 9 bit 23 bit 2.1 格式1 操作码 操作数 9 bit 23 bit 2.2 格式2 多数指令使用此格式。
+操作码 目的操作数 源操作数 源操作数 操作子码 9 bit 5 bit 5 bit 5 bit 8 bit 2.">
+    <meta property="og:title" content="3 基于栈和寄存器的指令集">
+    <meta property="og:description" content="本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。
+其类似与硬件指令集，可作为编译器后端指令系统目标，用于提供类似硬件指令系统环境，避免编译原理初学者陷入对硬件指令系统不了解的深渊。 降低学习难度，提高学习效率。
+这类指令的主要特点如下：
+1 寄存器的数量固定； 2 指令所操作的寄存器数量固定； 3 指令的含义简单； 1 寄存器 虚拟机的寄存器分为三种：
+1 整数寄存器：主要用于整数运算，位宽为 64 bit，根据指令的含义可选择 32 bit 和 64 bit 运算模式。 2 浮点寄存器：主要用于浮点数运算，位宽为 64 bit，和通用寄存器一致，可选择位宽模式。 3 系统寄存器：对用户不可见，与虚拟机运行系统相关，对其进行操作隐藏在相关指令的实现细节中。 4 根据指令格式，整数寄存器、浮点寄存器最多可以有32个。 2 指令格式 每条指令是 32bit 大小对齐的，其中最低 9bit 是操作码，其余23bit作为操作数或者操作码的补充。如下表所示：
+操作码 操作数 9 bit 23 bit 2.1 格式1 操作码 操作数 9 bit 23 bit 2.2 格式2 多数指令使用此格式。
+操作码 目的操作数 源操作数 源操作数 操作子码 9 bit 5 bit 5 bit 5 bit 8 bit 2.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/5_book/1_compiler/7_instruction/3_mixedinsset/index.html">
+    <meta property="article:section" content="7 指令集">
+    <meta property="article:published_time" content="2023-09-14T21:30:02+08:00">
+    <meta property="article:modified_time" content="2023-09-14T21:30:02+08:00">
+    <title>3 基于栈和寄存器的指令集</title>
+    <link href="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.xml" rel="alternate" type="application/rss+xml" title="3 基于栈和寄存器的指令集">
+    <link href="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.print.html" rel="alternate" type="text/html" title="3 基于栈和寄存器的指令集"><link rel="icon" href="../../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../../css/fontawesome-all.min.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../../css/nucleus.css?1728629533" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../../css/perfect-scrollbar.min.css?1728629533" rel="stylesheet">
+    <link href="../../../../css/fonts.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../../css/theme.css?1728629533" rel="stylesheet">
+    <link href="../../../../css/theme-relearn-auto.css?1728629533" rel="stylesheet" id="R-variant-style">
+    <link href="../../../../css/chroma-relearn-auto.css?1728629533" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../../css/variant.css?1728629533" rel="stylesheet">
+    <link href="../../../../css/print.css?1728629533" rel="stylesheet" media="print">
+    <link href="../../../../css/ie.css?1728629533" rel="stylesheet">
+    <script src="../../../../js/url.js?1728629533"></script>
+    <script src="../../../../js/variant.js?1728629533"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="目录 (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper"><div class="default-animation progress">
+  <div class="toc-wrapper">
+    <div><nav class="TableOfContents">
+  <ul>
+    <li><a href="#1-寄存器">1 寄存器</a></li>
+    <li><a href="#2-指令格式">2 指令格式</a>
+      <ul>
+        <li><a href="#21-格式1">2.1 格式1</a></li>
+        <li><a href="#22-格式2">2.2 格式2</a></li>
+        <li><a href="#23-格式3">2.3 格式3</a></li>
+        <li><a href="#24-格式4">2.4 格式4</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-寄存器与寄存器---指令集">3 寄存器与寄存器&mdash;指令集</a>
+      <ul>
+        <li><a href="#31-空指令">3.1 空指令</a></li>
+        <li><a href="#32-算术运算">3.2 算术运算</a></li>
+        <li><a href="#32-位运算">3.2 位运算</a></li>
+        <li><a href="#33-逻辑比较">3.3 逻辑比较</a></li>
+        <li><a href="#34-条件赋值">3.4 条件赋值</a></li>
+        <li><a href="#35-赋值指令">3.5 赋值指令</a></li>
+        <li><a href="#36-加载存储指令">3.6 加载存储指令</a></li>
+        <li><a href="#37-出入栈指令">3.7 出入栈指令</a></li>
+        <li><a href="#38-栈内存分配释放">3.8 栈内存分配释放</a></li>
+        <li><a href="#39-跳转指令">3.9 跳转指令</a></li>
+        <li><a href="#310-分支指令">3.10 分支指令</a></li>
+        <li><a href="#311-函数指令">3.11 函数指令</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-寄存器与立即数--指令集">4 寄存器与立即数&ndash;指令集</a></li>
+  </ul>
+</nav></div>
+  </div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/index.html"><span itemprop="name">教程系列</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/index.html"><span itemprop="name">编译原理</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/7_instruction/index.html"><span itemprop="name">7 指令集</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">3 基于栈和寄存器的指令集</span><meta itemprop="position" content="4"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="https://gitee.com/irscript/irscript/blob/master/content/5_book/1_Compiler/7_Instruction/3_MixedInsSet.md" target="_blank" title="编辑 (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.print.html" title="打印整章 (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../../5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html" title="2 基于寄存器的指令集 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../../5_book/1_compiler/8_langdef/index.html" title="8 语言定义 (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="更多"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+  
+  <h1 id="3-基于栈和寄存器的指令集"> 7.3 3 基于栈和寄存器的指令集</h1>
+  <hr />
+
+  <p>本章节描述的是作者按照 RISC 指令系统设计的虚拟机指令集。</p>
+<p>其类似与硬件指令集，可作为编译器后端指令系统目标，用于提供类似硬件指令系统环境，避免编译原理初学者陷入对硬件指令系统不了解的深渊。
+降低学习难度，提高学习效率。</p>
+<p>这类指令的主要特点如下：</p>
+<ul>
+<li>1 寄存器的数量固定；</li>
+<li>2 指令所操作的寄存器数量固定；</li>
+<li>3 指令的含义简单；</li>
+</ul>
+<h2 id="1-寄存器">1 寄存器</h2>
+<p>虚拟机的寄存器分为三种：</p>
+<ul>
+<li>1 整数寄存器：主要用于整数运算，位宽为 64 bit，根据指令的含义可选择 32 bit 和 64 bit 运算模式。</li>
+<li>2 浮点寄存器：主要用于浮点数运算，位宽为 64 bit，和通用寄存器一致，可选择位宽模式。</li>
+<li>3 系统寄存器：对用户不可见，与虚拟机运行系统相关，对其进行操作隐藏在相关指令的实现细节中。</li>
+<li>4 根据指令格式，整数寄存器、浮点寄存器最多可以有32个。</li>
+</ul>
+<h2 id="2-指令格式">2 指令格式</h2>
+<p>每条指令是 32bit 大小对齐的，其中最低 9bit 是操作码，其余23bit作为操作数或者操作码的补充。如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>操作数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>23 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="21-格式1">2.1 格式1</h3>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>操作数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>23 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-格式2">2.2 格式2</h3>
+<p>多数指令使用此格式。</p>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-格式3">2.3 格式3</h3>
+<p>该格式主要用于比较指令后的三元选择赋值操作。</p>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>3 bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-格式4">2.4 格式4</h3>
+<p>当指令中需要使用立即数时，且在指令中没有足够的空间可以存储时，可以使用指令后跟32bit对齐的立即数操作数。</p>
+<ul>
+<li>32bit立即数：32bit 指令跟 1 个 32bit 立即数，虚拟机解析执行时，按照指令表达的语义参与运算。</li>
+<li>64bit立即数：32bit 指令跟 2 个 32bit 立即数，虚拟机解析执行时，按照指令表达的语义，组合成 64bit，后参与运算。</li>
+<li>其他位宽的立即数类似。</li>
+</ul>
+<p>格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>立即数 1</th>
+<th>立即数 2</th>
+<th>&hellip;</th>
+<th>立即数 n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>32 bit</td>
+<td>32 bit</td>
+<td>32 bit</td>
+<td>&hellip;</td>
+<td>32 bit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-寄存器与寄存器---指令集">3 寄存器与寄存器&mdash;指令集</h2>
+<h3 id="31-空指令">3.1 空指令</h3>
+<p>空指令一般用于对齐，在本指令集中没有特殊含义，执行空操作。</p>
+<p>格式如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>操作数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+</tr>
+<tr>
+<td>Nop</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-算术运算">3.2 算术运算</h3>
+<p>算术运算包含 +、-、*、/、%，支持的运算类型有 int32、uint32、int64、uint64、flt32、flt64。</p>
+<ul>
+<li>文本格式： op des,src,src2</li>
+<li>指令含义：des = src op src2</li>
+<li>子操作码：可以用于将运算结果进行截断、扩展。</li>
+<li>助记符后缀的数字(32、64)标识指令运算使用的寄存器位宽。</li>
+<li>助记符后缀的 i 表示进行有符号运算。</li>
+<li>助记符后缀的 u 表示进行无符号运算。</li>
+<li>助记符后缀的 f 表示进行有符号运算。</li>
+</ul>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mod-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>add-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sub-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>mul-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>div-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-位运算">3.2 位运算</h3>
+<p>位运算包括位相关的与、或、非、异或、移位、取反等运算。</p>
+<p>支持的运算类型有 uint32、uint64。</p>
+<ul>
+<li>文本格式： op des,src,src2</li>
+<li>指令含义：des = src op src2</li>
+<li>子操作码：可以用于将运算结果进行截断、扩展。</li>
+<li>i32：表示进行 32bit 的位运算。</li>
+<li>i64：表示进行 64bit 的位运算。</li>
+<li>位运算都是看作无符号运算。</li>
+</ul>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sl-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sr-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sra-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>and-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>or-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xor-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>andn-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>orn-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xorn-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>not-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sl-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sr-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>sra-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>and-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>or-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xor-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>andn-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>orn-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>xorn-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>not-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-逻辑比较">3.3 逻辑比较</h3>
+<p>逻辑比较运算包括：&lt;、&gt;、&lt;=、&gt;=、==、!=、 ==0、！=0.
+支持的运算类型有 int32、uint32、int64、uint64、flt32\flt64。</p>
+<ul>
+<li>文本格式： op des,src,src2</li>
+<li>指令含义：des = src op src2</li>
+<li>子操作码：可以用于标识比较的方法。</li>
+<li>比较的结果，存储在整数寄存器中，且使用位宽 64 bit，即des是整数寄存器。</li>
+</ul>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+<tr>
+<td>cmp-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td></td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>le</td>
+<td></td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>gt</td>
+<td></td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>ge</td>
+<td></td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>eq</td>
+<td></td>
+<td>==</td>
+</tr>
+<tr>
+<td>ne</td>
+<td></td>
+<td>!=</td>
+</tr>
+<tr>
+<td>ez</td>
+<td></td>
+<td>==0，此时没有源操作数src2</td>
+</tr>
+<tr>
+<td>nz</td>
+<td></td>
+<td>!=0，此时没有源操作数src2</td>
+</tr>
+</tbody>
+</table>
+<p>当不使用操作子码，而是使用下面方式运算：</p>
+<ul>
+<li>src &lt; src2，设置des寄存器为 -1。</li>
+<li>src == src2，设置des寄存器为 0。</li>
+<li>src &gt; src2，设置des寄存器为 -1。</li>
+</ul>
+<h3 id="34-条件赋值">3.4 条件赋值</h3>
+<p>条件赋值指令使用比较指令的结果，对另外 2 个源操作数进行选择，传递个目标操作数。</p>
+<p>指令格式如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>3 bit</td>
+</tr>
+<tr>
+<td>sel-i32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-u32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-i64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-u64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-f32</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+<tr>
+<td>sel-f64</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td>src2</td>
+<td>cond</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>当比较系列指令使用操作子码方式时：</p>
+<ul>
+<li>cond == 0 ：des = src</li>
+<li>cond != 0 ：des = src2</li>
+</ul>
+<p>当比较系列指令不使用操作子码方式时，本系列指令要求使用操作子码进行判断：</p>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td></td>
+<td>&lt;  ：des = cond == -1 ? src : src2</td>
+</tr>
+<tr>
+<td>le</td>
+<td></td>
+<td>&lt;= ：des = cond &lt; 1 ? src : src2</td>
+</tr>
+<tr>
+<td>gt</td>
+<td></td>
+<td>&gt;  ：des = cond == 1 ? src : src2</td>
+</tr>
+<tr>
+<td>ge</td>
+<td></td>
+<td>&gt;= ：des = cond &gt; -1 ? src : src2</td>
+</tr>
+<tr>
+<td>eq</td>
+<td></td>
+<td>== ：des = cond == 0 ? src : src2</td>
+</tr>
+<tr>
+<td>ne</td>
+<td></td>
+<td>!= ：des = cond != 0 ? src : src2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35-赋值指令">3.5 赋值指令</h3>
+<p>此系列包括寄存器间赋值或类型转换。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mov</td>
+<td></td>
+<td>des</td>
+<td>src</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>操作子码用于获取源操作数并转换到响应的类型。</p>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i8-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i8-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32_i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64-f64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32-bit-u32</td>
+<td></td>
+<td>位转换</td>
+</tr>
+<tr>
+<td>u32-bit-f32</td>
+<td></td>
+<td>位转换</td>
+</tr>
+<tr>
+<td>f64-bit-u64</td>
+<td></td>
+<td>位转换</td>
+</tr>
+<tr>
+<td>u64-bit-f64</td>
+<td></td>
+<td>位转换</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-加载存储指令">3.6 加载存储指令</h3>
+<p>此系列指令功能是从内存中读取、存储特定类型数据。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>load</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td>从基址内存中获取数据</td>
+</tr>
+<tr>
+<td>store</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>gload</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td>从全局内存中获取数据</td>
+</tr>
+<tr>
+<td>gstore</td>
+<td></td>
+<td>des</td>
+<td>base</td>
+<td>offset</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="37-出入栈指令">3.7 出入栈指令</h3>
+<p>此系列指令用于将数据入栈，同时可以进行类型转换。
+注意：入栈数据应当进行 32bit 对齐。以加快虚拟机执行速度数据</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>push</td>
+<td></td>
+<td>des</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pop</td>
+<td></td>
+<td>des</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>操作子码定义如下：</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>助记符</td>
+<td>操作码</td>
+<td>含义</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i32</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u32</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i64</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u64</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f32</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f64</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="38-栈内存分配释放">3.8 栈内存分配释放</h3>
+<p>此系列指令用于栈内存分配释放。
+注意：立即数是无符号整数。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>立即数</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>grown</td>
+<td></td>
+<td>des</td>
+<td>imm</td>
+<td>分配栈内存，将分配后的栈指针值传递到 des 寄存器</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td>释放栈内存，</td>
+<td></td>
+</tr>
+<tr>
+<td>shrunk</td>
+<td></td>
+<td>imm</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="39-跳转指令">3.9 跳转指令</h3>
+<ul>
+<li>跳转的偏移量是无符号整数值；</li>
+<li>相对于函数代码的起始地址；</li>
+<li>偏移量是偏移的指令条数；</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>立即数</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>jmp</td>
+<td></td>
+<td>imm</td>
+<td></td>
+<td>直接跳转</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>jmpx</td>
+<td></td>
+<td>reg</td>
+<td></td>
+<td>偏移量在 reg 寄存器中</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>jtab</td>
+<td></td>
+<td>reg</td>
+<td>imm</td>
+<td>reg 表示偏移量索引，imm表示偏移量数组中偏移数据条数，指令后面接 32 bit 对齐的偏移量数组</td>
+</tr>
+</tbody>
+</table>
+<h3 id="310-分支指令">3.10 分支指令</h3>
+<p>此系列指令用于条件分支跳转。</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>源操作数</th>
+<th>源操作数</th>
+<th>操作子码</th>
+<th>偏移立即数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>5 bit</td>
+<td>8 bit</td>
+<td>32 bit</td>
+</tr>
+<tr>
+<td>jbr-i32</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-u32</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-i64</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-u64</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-f32</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>jbr-f64</td>
+<td></td>
+<td>src</td>
+<td>src2</td>
+<td></td>
+<td>cond</td>
+<td>offset</td>
+</tr>
+</tbody>
+</table>
+<p>操作子码定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td></td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>le</td>
+<td></td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>gt</td>
+<td></td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>ge</td>
+<td></td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>eq</td>
+<td></td>
+<td>==</td>
+</tr>
+<tr>
+<td>ne</td>
+<td></td>
+<td>!=</td>
+</tr>
+<tr>
+<td>ez</td>
+<td></td>
+<td>==0，此时没有源操作数src2</td>
+</tr>
+<tr>
+<td>nz</td>
+<td></td>
+<td>!=0，此时没有源操作数src2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="311-函数指令">3.11 函数指令</h3>
+<table>
+<thead>
+<tr>
+<th>助记符</th>
+<th>操作码</th>
+<th>目的操作数</th>
+<th>立即数</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td>32 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>call</td>
+<td></td>
+<td></td>
+<td>imm</td>
+<td>imm表示函数的偏移量或者是编号，看虚拟机的具体实现</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>5 bit</td>
+<td>18 bit</td>
+<td></td>
+</tr>
+<tr>
+<td>callx</td>
+<td></td>
+<td>reg</td>
+<td></td>
+<td>reg 寄存器中保存函数的偏移量或者是编号，看虚拟机的具体实现</td>
+</tr>
+<tr>
+<td></td>
+<td>9 bit</td>
+<td>23 bit</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ret</td>
+<td></td>
+<td></td>
+<td></td>
+<td>函数返回</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-寄存器与立即数--指令集">4 寄存器与立即数&ndash;指令集</h2>
+<p>待续</p>
+
+  <footer class="footline">
+  </footer>
+</article>        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="../../../../"><img src="../../../../images/logo.png"></a>
+        </div>
+        <form action="../../../../search.html" method="get"><div class="searchbox default-animation">
+          <button class="search-detail" type="submit" title="搜索 (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+          <label class="a11y-only" for="R-search-by">搜索</label>
+          <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="搜索...">
+          <button class="search-clear" type="button" data-search-clear="" title="清除搜索"><i class="fas fa-times" title="清除搜索"></i></button>
+        </div></form>
+        <script>
+          var contentLangs=['zh'];
+        </script>
+        <script src="../../../../js/auto-complete.js?1728629533" defer></script>
+        <script src="../../../../js/lunr/lunr.min.js?1728629533" defer></script>
+        <script src="../../../../js/lunr/lunr.stemmer.support.min.js?1728629533" defer></script>
+        <script src="../../../../js/lunr/lunr.multi.min.js?1728629533" defer></script>
+        <script src="../../../../js/lunr/lunr.zh.min.js?1728629533" defer></script>
+        <script src="../../../../js/search.js?1728629533" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/1_note/index.html" class=""><input type="checkbox" id="R-section-4b0e502ebf4d1ce2a6d931226d17de75" aria-controls="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75"><label for="R-section-4b0e502ebf4d1ce2a6d931226d17de75"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编程日常</span></label><a class="padding" href="../../../../1_note/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1. </b>编程日常<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75" class="morespace collapsible-menu">
+          <li data-nav-id="/1_note/1_link/index.html" class=""><a class="padding" href="../../../../1_note/1_link/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>网站收藏<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/index.html" class=""><input type="checkbox" id="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e" aria-controls="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e"><label for="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单理论算法</span></label><a class="padding" href="../../../../2_algorithm/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2. </b>理论算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/index.html" class="alwaysopen"><input type="checkbox" id="R-section-54c5d7600e868901b497c3ae908d2b7a" aria-controls="R-subsections-54c5d7600e868901b497c3ae908d2b7a" checked><label for="R-section-54c5d7600e868901b497c3ae908d2b7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据结构</span></label><a class="padding" href="../../../../2_algorithm/1_struct/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>数据结构<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-54c5d7600e868901b497c3ae908d2b7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/index.html" class="alwaysopen"><input type="checkbox" id="R-section-b192339563a6107d3f96234848b4e7fa" aria-controls="R-subsections-b192339563a6107d3f96234848b4e7fa" checked><label for="R-section-b192339563a6107d3f96234848b4e7fa"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单链表</span></label><a class="padding" href="../../../../2_algorithm/1_struct/list/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>链表<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-b192339563a6107d3f96234848b4e7fa" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/singlelinkedlist/index.html" class=""><a class="padding" href="../../../../2_algorithm/1_struct/list/singlelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>单向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/1_struct/list/doublelinkedlist/index.html" class=""><a class="padding" href="../../../../2_algorithm/1_struct/list/doublelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>双向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/2_algorithm/1_align/index.html" class=""><a class="padding" href="../../../../2_algorithm/1_align/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 整数对齐<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/index.html" class="alwaysopen"><input type="checkbox" id="R-section-3f1dc194b2fcd83695e7ac1f662b162b" aria-controls="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" checked><label for="R-section-3f1dc194b2fcd83695e7ac1f662b162b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 哈希函数</span></label><a class="padding" href="../../../../2_algorithm/2_hash/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/index.html" class="alwaysopen"><input type="checkbox" id="R-section-8135df4df2db9b906ef15b7155d00c7a" aria-controls="R-subsections-8135df4df2db9b906ef15b7155d00c7a" checked><label for="R-section-8135df4df2db9b906ef15b7155d00c7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 消息摘要算法</span></label><a class="padding" href="../../../../2_algorithm/2_hash/1_md/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 消息摘要算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-8135df4df2db9b906ef15b7155d00c7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/1_md2/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/1_md/1_md2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 MD2 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/2_md4/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/1_md/2_md4/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 MD4 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/3_md5/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/1_md/3_md5/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 MD5 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/index.html" class="alwaysopen"><input type="checkbox" id="R-section-75a9b55ecfd932ba72775da99ef49b2e" aria-controls="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" checked><label for="R-section-75a9b55ecfd932ba72775da99ef49b2e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 签名算法</span></label><a class="padding" href="../../../../2_algorithm/2_hash/2_sha/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 签名算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/1_sha1/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/2_sha/1_sha1/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 SHA1 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/2_sha2_224/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/2_sha/2_sha2_224/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 SHA2-224 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/3_sha2_256/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/2_sha/3_sha2_256/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 SHA2-256 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/4_sha2_384/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/2_sha/4_sha2_384/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 SHA2-384 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/5_sha2_512/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/2_sha/5_sha2_512/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 SHA2-512 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/3_crc/index.html" class=""><a class="padding" href="../../../../2_algorithm/2_hash/3_crc/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 CRC 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/index.html" class="alwaysopen"><input type="checkbox" id="R-section-250d4ba57265d5f238203a79e144b2d4" aria-controls="R-subsections-250d4ba57265d5f238203a79e144b2d4" checked><label for="R-section-250d4ba57265d5f238203a79e144b2d4"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 快速位算法</span></label><a class="padding" href="../../../../2_algorithm/3_bitwise/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 快速位算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-250d4ba57265d5f238203a79e144b2d4" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/3_bitwise/1_average/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/1_average/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 快速平均值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/2_bitfield/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/2_bitfield/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 位域值提取<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/3_intmaxmin/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/3_intmaxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 INT_MAX和INT_MIN<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/4_application/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/4_application/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 应用 n &#43; (~n) = -1<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/5_application2/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/5_application2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 应用 n ^ n = 0 和 n ^ 0 = n<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/6_application3/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/6_application3/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 应用  x&amp;(x-1)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/7_2pow/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/7_2pow/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 应用 2的次方<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/8_maxmin/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/8_maxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 取两数的最 大/小 值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/9_rotateshift/index.html" class=""><a class="padding" href="../../../../2_algorithm/3_bitwise/9_rotateshift/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.9. </b>9 循环移位<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/3_project/index.html" class=""><a class="padding" href="../../../../3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3. </b>自主项目<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/index.html" class=""><input type="checkbox" id="R-section-0c8c9498d978a41fa7b2036df55e5d36" aria-controls="R-subsections-0c8c9498d978a41fa7b2036df55e5d36"><label for="R-section-0c8c9498d978a41fa7b2036df55e5d36"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单工具手册</span></label><a class="padding" href="../../../../4_tools/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4. </b>工具手册<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-0c8c9498d978a41fa7b2036df55e5d36" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/index.html" class="alwaysopen"><input type="checkbox" id="R-section-581c85e34838d0cf1c8916f490b4887b" aria-controls="R-subsections-581c85e34838d0cf1c8916f490b4887b" checked><label for="R-section-581c85e34838d0cf1c8916f490b4887b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单主题简码</span></label><a class="padding" href="../../../../4_tools/1_theme/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.1. </b>主题简码<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-581c85e34838d0cf1c8916f490b4887b" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/1_badge/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/1_badge/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>徽章(badge)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/2_button/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/2_button/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>按钮(button)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/index.html" class="alwaysopen"><input type="checkbox" id="R-section-cc55ed38bbe8ec2599355e4860c0da99" aria-controls="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" checked><label for="R-section-cc55ed38bbe8ec2599355e4860c0da99"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页(children)</span></label><a class="padding" href="../../../../4_tools/1_theme/3_children/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>子页(children)<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/index.html" class="alwaysopen"><input type="checkbox" id="R-section-ff0d63e498b500bf298134242bc49099" aria-controls="R-subsections-ff0d63e498b500bf298134242bc49099" checked><label for="R-section-ff0d63e498b500bf298134242bc49099"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页 1</span></label><a class="padding" href="../../../../4_tools/1_theme/3_children/child/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>子页 1<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ff0d63e498b500bf298134242bc49099" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/child_page/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/3_children/child/child_page/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>子页 1-1<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/child_page2/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/3_children/child_page2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>子页 2<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/4_expand/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/4_expand/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.4. </b>扩展(expand)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/5_highlight/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/5_highlight/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.5. </b>高亮(highlight)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/6_icon/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/6_icon/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.6. </b>图标(icon)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/7_include/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/7_include/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.7. </b>包含文件(include)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/8_math/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/8_math/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.8. </b>数学公式(math)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/9_mermaid/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/9_mermaid/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.9. </b>流图(mermaid)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/10_notice/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/10_notice/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.10. </b>注解(Notice)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/11_siteparam/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/11_siteparam/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.11. </b>站点参数<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/12_tab/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/12_tab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.12. </b>标签页<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/13_tabs/index.html" class=""><a class="padding" href="../../../../4_tools/1_theme/13_tabs/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.13. </b>多标签页<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/2_git/index.html" class=""><a class="padding" href="../../../../4_tools/2_git/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.2. </b>git 文档<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/3_markdown/index.html" class=""><a class="padding" href="../../../../4_tools/3_markdown/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.3. </b>MD 语法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/index.html" class="parent "><input type="checkbox" id="R-section-ddeab34407829e813a844fe090b557d3" aria-controls="R-subsections-ddeab34407829e813a844fe090b557d3" checked><label for="R-section-ddeab34407829e813a844fe090b557d3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单教程系列</span></label><a class="padding" href="../../../../5_book/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5. </b>教程系列<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddeab34407829e813a844fe090b557d3" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/index.html" class="parent alwaysopen"><input type="checkbox" id="R-section-4e6dcb6d3fac67575db5eaccba506e58" aria-controls="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" checked><label for="R-section-4e6dcb6d3fac67575db5eaccba506e58"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编译原理</span></label><a class="padding" href="../../../../5_book/1_compiler/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5.3. </b>编译原理<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/index.html" class="alwaysopen"><input type="checkbox" id="R-section-59a55f398b44910be4c39ee24bb326b7" aria-controls="R-subsections-59a55f398b44910be4c39ee24bb326b7" checked><label for="R-section-59a55f398b44910be4c39ee24bb326b7"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 词法分析</span></label><a class="padding" href="../../../../5_book/1_compiler/1_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 词法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-59a55f398b44910be4c39ee24bb326b7" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/1_tokendef/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/1_lexer/1_tokendef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 Token 定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/2_lexer/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/1_lexer/2_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 Lexer 实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/3_project/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/1_lexer/3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 工程文件解析<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/index.html" class="alwaysopen"><input type="checkbox" id="R-section-758679e0816e586918fb9cadfcfe4ade" aria-controls="R-subsections-758679e0816e586918fb9cadfcfe4ade" checked><label for="R-section-758679e0816e586918fb9cadfcfe4ade"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 语法分析</span></label><a class="padding" href="../../../../5_book/1_compiler/2_parser/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 语法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-758679e0816e586918fb9cadfcfe4ade" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/2_parser/1_typesystem/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/2_parser/1_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 类型系统设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/2_astnode/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/2_parser/2_astnode/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 抽象语法树设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/3_fileunit/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/2_parser/3_fileunit/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 代码文件文件管理<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/4_parserbase/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/2_parser/4_parserbase/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 顶层语法解析实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/5_parserexp/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/2_parser/5_parserexp/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 解析表达式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/6_parserdecl/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/2_parser/6_parserdecl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.6. </b>6 解析声明<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/7_parserdecl2/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/2_parser/7_parserdecl2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.7. </b>7 解析声明续<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/3_analysis/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/3_analysis/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 语义分析<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/4_optimize/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/4_optimize/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 中间优化<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/5_target/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/5_target/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 目标生成<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/6_ir/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/6_ir/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 中间代码<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/index.html" class="parent alwaysopen"><input type="checkbox" id="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2" aria-controls="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" checked><label for="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单7 指令集</span></label><a class="padding" href="../../../../5_book/1_compiler/7_instruction/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 指令集<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.1. </b>1 基于栈的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.2. </b>2 基于寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/3_mixedinsset/index.html" class="active"><a class="padding" href="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.3. </b>3 基于栈和寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/index.html" class="alwaysopen"><input type="checkbox" id="R-section-f7ed7a430e6586361a8ba6a245718bd9" aria-controls="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" checked><label for="R-section-f7ed7a430e6586361a8ba6a245718bd9"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单8 语言定义</span></label><a class="padding" href="../../../../5_book/1_compiler/8_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 语言定义<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/8_langdef/1_langdef/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/8_langdef/1_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.1. </b>1 语法定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/2_codefile/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/8_langdef/2_codefile/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.2. </b>2 代码结构<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/3_keyword/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/8_langdef/3_keyword/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.3. </b>3 关键字<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/4_operator/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/8_langdef/4_operator/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.4. </b>4 操作符<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../../../5_book/1_compiler/8_langdef/5_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.5. </b>5 类型系统<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/index.html" class=""><input type="checkbox" id="R-section-d3cd331bf7047176213c01699128b453" aria-controls="R-subsections-d3cd331bf7047176213c01699128b453"><label for="R-section-d3cd331bf7047176213c01699128b453"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据格式</span></label><a class="padding" href="../../../../6_format/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6. </b>数据格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d3cd331bf7047176213c01699128b453" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/index.html" class="alwaysopen"><input type="checkbox" id="R-section-ddcb6fb9de3c2f17d34681b6202d0673" aria-controls="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" checked><label for="R-section-ddcb6fb9de3c2f17d34681b6202d0673"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 通用格式设计</span></label><a class="padding" href="../../../../6_format/1_general/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.1. </b>1 通用格式设计<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/1_fileheader/index.html" class=""><a class="padding" href="../../../../6_format/1_general/1_fileheader/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 文件头<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/2_segmentformat/index.html" class=""><a class="padding" href="../../../../6_format/1_general/2_segmentformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 段节格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/3_tlvformat/index.html" class=""><a class="padding" href="../../../../6_format/1_general/3_tlvformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 TLV格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/2_program/index.html" class="alwaysopen"><input type="checkbox" id="R-section-a736007759e1704f9ca7850f5e8751f3" aria-controls="R-subsections-a736007759e1704f9ca7850f5e8751f3" checked><label for="R-section-a736007759e1704f9ca7850f5e8751f3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 程序格式</span></label><a class="padding" href="../../../../6_format/2_program/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.2. </b>2 程序格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-a736007759e1704f9ca7850f5e8751f3" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/index.html" class="alwaysopen"><input type="checkbox" id="R-section-78f88c8cabb4bfe1079e3925dd6c6913" aria-controls="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" checked><label for="R-section-78f88c8cabb4bfe1079e3925dd6c6913"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 ELF 格式</span></label><a class="padding" href="../../../../6_format/2_program/1_elf/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 ELF 格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/1_elf32/index.html" class=""><a class="padding" href="../../../../6_format/2_program/1_elf/1_elf32/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 ELF32 格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/2_program/1_elf/2_elf64/index.html" class=""><a class="padding" href="../../../../6_format/2_program/1_elf/2_elf64/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 ELF64 格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/3_color/index.html" class="alwaysopen"><input type="checkbox" id="R-section-5820581638e280c0d2f6f1bb2145223f" aria-controls="R-subsections-5820581638e280c0d2f6f1bb2145223f" checked><label for="R-section-5820581638e280c0d2f6f1bb2145223f"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 颜色格式</span></label><a class="padding" href="../../../../6_format/3_color/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.3. </b>3 颜色格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-5820581638e280c0d2f6f1bb2145223f" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/3_color/1_rgba/index.html" class=""><a class="padding" href="../../../../6_format/3_color/1_rgba/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 RGBA<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/2_hsl/index.html" class=""><a class="padding" href="../../../../6_format/3_color/2_hsl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 HSL/HSV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/3_yuv/index.html" class=""><a class="padding" href="../../../../6_format/3_color/3_yuv/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 YUV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/4_xyz/index.html" class=""><a class="padding" href="../../../../6_format/3_color/4_xyz/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 XYZ<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/5_lab/index.html" class=""><a class="padding" href="../../../../6_format/3_color/5_lab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 LAB<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/6_cmyk/index.html" class=""><a class="padding" href="../../../../6_format/3_color/6_cmyk/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 CMYK<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/4_compress/index.html" class=""><a class="padding" href="../../../../6_format/4_compress/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.4. </b>4 压缩格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/5_picture/index.html" class=""><a class="padding" href="../../../../6_format/5_picture/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.5. </b>5 图片格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/6_video/index.html" class=""><a class="padding" href="../../../../6_format/6_video/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.6. </b>6 视频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/7_audio/index.html" class=""><a class="padding" href="../../../../6_format/7_audio/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.7. </b>7 音频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/8_model/index.html" class=""><a class="padding" href="../../../../6_format/8_model/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.8. </b>8 模型3D<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/7_plat/index.html" class=""><a class="padding" href="../../../../7_plat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7. </b>平台<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+        <div id="R-shortcuts">
+          <div class="nav-title padding">更多</div>
+          <ul class="space">
+            <li><a class="padding" href="https://gitee.com/irscript/"><i class='fas fa-code-branch'></i> Gitee 仓库</a></li>
+            <li><a class="padding" href="https://github.com/irscript/"><i class='fa-fw fab fa-github'></i> GitHub 仓库</a></li>
+            <li><a class="padding" href="https://gohugo.io/"><i class='fa-fw fas fa-bookmark'></i> Hugo 文档</a></li>
+            <li><a class="padding" href="https://mcshelby.github.io/hugo-theme-relearn/"><i class='fa-fw fas fa-bullhorn''></i> Relearn 主题</a></li>
+            <li><a class="padding" href="../../../../tags/index.html"><i class='fa-fw fas fa-tags'></i> 标签</a></li>
+            <li><a class="padding" href="../../../../categories/index.html"><i class='fa-fw fas fa-layer-group'></i> 分类</a></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showVariantSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">语言</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-zh-cn" value="#R-select-language-zh-cn" data-url="../../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.html" lang="zh-cn" selected>简体中文</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch showVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">主题</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-relearn-auto" value="relearn-auto" selected>Relearn Light/Dark</option>
+                      <option id="R-select-variant-relearn-light" value="relearn-light">Relearn Light</option>
+                      <option id="R-select-variant-relearn-dark" value="relearn-dark">Relearn Dark</option>
+                      <option id="R-select-variant-relearn-bright" value="relearn-bright">Relearn Bright</option>
+                      <option id="R-select-variant-zen-auto" value="zen-auto">Zen Light/Dark</option>
+                      <option id="R-select-variant-zen-light" value="zen-light">Zen Light</option>
+                      <option id="R-select-variant-zen-dark" value="zen-dark">Zen Dark</option>
+                      <option id="R-select-variant-neon" value="neon">Neon</option>
+                      <option id="R-select-variant-learn" value="learn">Learn</option>
+                      <option id="R-select-variant-blue" value="blue">Blue</option>
+                      <option id="R-select-variant-green" value="green">Green</option>
+                      <option id="R-select-variant-red" value="red">Red</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">清理历史记录</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><hr/>
+<p style="text-align: center;margin: 0;">© 2023 - 2024</p>
+<p style="text-align: center;margin: 0;"><i class="fab fa-creative-commons-sa"></i> CC BY-SA 3.0</p>
+<p style="text-align: center;margin: 0;">Built with ❤️ by <a href="https://github.com/irscript/">IrScript</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

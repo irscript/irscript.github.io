@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="1 文件头">
+    <meta name="twitter:description" content="描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。
+顾名思义，即是将文件的整体信息通常放在文件的开头。
+在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 文件头。
+1 魔数 魔数作为文件格式的标识，一般用于识别文件是否程序所能处理的文件。其值可以随意选取，主要看设计者自身的喜好。
+例如 zip 格式的魔数就是 &ldquo;PK\x03\x04&rdquo;,其中 PK 就是设计者 Philip Katz 的名字首字母。
+一般程序在分析文件时，会先判断魔数的值是否匹配，不匹配就表明文件格式不正确。
+需要注意的是，假如魔数正确，文件格式并非一定能够读取正确，还需要进一步判断。
+2 检验码 文件头通常还会有个检验码，用于检验文件是否完整并且没有经过修改的。这个检验码可以使用 crc, 可以使用 md5，也可以使用其它算法。
+这也是检查文件格式的正确性中的重要一步，因为即便是魔数相同，校验码所采用的算法不同，和校验码所作的位置不同，所计算的校验码，基本上是不一的，所以进一步就，能区分出文件格式是否正确。
+3 版本号 文件头通常还会包含版本号。
+版本号不同，就表明文件格式发生变化，可能变化很小，也可能变化很大；可能是某些字段的值在解释上发生变化，也可能是直接添加了一些结构。所以导致文件的读取方式可能会有所不同。
+版本号有时只是单独一个数字，不断往上递增。有时也会拆分成两个数字，为主版本号和次版本号。主版本号修改，通常表示文件格式发生大变动。而次版本号修改，通常只是表示添加了一些小功能。
+4 字节顺序 字节顺序在文件格式设计中至关重要。
+字节顺序分为大端字节序和小端字节序。不同的机器字节序有可能不同，设计文件格式时需要考虑文件用什么字节序保存数据的。
+读取和存储的字节序不一致就会导致程序出错。
+5 通用结构 通用结构定义如下：
+struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32 mEndian; //字节序 uint32 mVersion; //文件版本 ... };">
+    <meta property="og:title" content="1 文件头">
+    <meta property="og:description" content="描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。
+顾名思义，即是将文件的整体信息通常放在文件的开头。
+在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 文件头。
+1 魔数 魔数作为文件格式的标识，一般用于识别文件是否程序所能处理的文件。其值可以随意选取，主要看设计者自身的喜好。
+例如 zip 格式的魔数就是 &ldquo;PK\x03\x04&rdquo;,其中 PK 就是设计者 Philip Katz 的名字首字母。
+一般程序在分析文件时，会先判断魔数的值是否匹配，不匹配就表明文件格式不正确。
+需要注意的是，假如魔数正确，文件格式并非一定能够读取正确，还需要进一步判断。
+2 检验码 文件头通常还会有个检验码，用于检验文件是否完整并且没有经过修改的。这个检验码可以使用 crc, 可以使用 md5，也可以使用其它算法。
+这也是检查文件格式的正确性中的重要一步，因为即便是魔数相同，校验码所采用的算法不同，和校验码所作的位置不同，所计算的校验码，基本上是不一的，所以进一步就，能区分出文件格式是否正确。
+3 版本号 文件头通常还会包含版本号。
+版本号不同，就表明文件格式发生变化，可能变化很小，也可能变化很大；可能是某些字段的值在解释上发生变化，也可能是直接添加了一些结构。所以导致文件的读取方式可能会有所不同。
+版本号有时只是单独一个数字，不断往上递增。有时也会拆分成两个数字，为主版本号和次版本号。主版本号修改，通常表示文件格式发生大变动。而次版本号修改，通常只是表示添加了一些小功能。
+4 字节顺序 字节顺序在文件格式设计中至关重要。
+字节顺序分为大端字节序和小端字节序。不同的机器字节序有可能不同，设计文件格式时需要考虑文件用什么字节序保存数据的。
+读取和存储的字节序不一致就会导致程序出错。
+5 通用结构 通用结构定义如下：
+struct FileHeader{ uint8 mMagic[4]; //魔数 uint8 mHash[16]; //检验码 uint32 mEndian; //字节序 uint32 mVersion; //文件版本 ... };">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/6_format/1_general/1_fileheader/index.html">
+    <meta property="article:section" content="1 通用格式设计">
+    <title>1 文件头</title>
+    <link href="../../../6_format/1_general/1_fileheader/index.xml" rel="alternate" type="application/rss+xml" title="1 文件头">
+    <link href="../../../6_format/1_general/1_fileheader/index.print.html" rel="alternate" type="text/html" title="1 文件头"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../../6_format/1_general/1_fileheader/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="目录 (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper"><div class="default-animation progress">
+  <div class="toc-wrapper">
+    <div><nav class="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-魔数">1 魔数</a></li>
+        <li><a href="#2-检验码">2 检验码</a></li>
+        <li><a href="#3-版本号">3 版本号</a></li>
+        <li><a href="#4-字节顺序">4 字节顺序</a></li>
+        <li><a href="#5-通用结构">5 通用结构</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+  </div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/index.html"><span itemprop="name">数据格式</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../6_format/1_general/index.html"><span itemprop="name">1 通用格式设计</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">1 文件头</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="https://gitee.com/irscript/irscript/blob/master/content/6_Format/1_General/1_FileHeader.md" target="_blank" title="编辑 (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../6_format/1_general/1_fileheader/index.print.html" title="打印整章 (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../6_format/1_general/index.html" title="1 通用格式设计 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../6_format/1_general/2_segmentformat/index.html" title="2 段节格式 (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="更多"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+  
+  <h1 id="1-文件头"> 1.1 1 文件头</h1>
+  <hr />
+
+  <hr>
+<p>描述了文件的整体信息，常见的字段有魔数、检验码、版本号、文件大小等。</p>
+<p>顾名思义，即是将文件的整体信息通常放在文件的开头。</p>
+<p>在少数情况下，也会将文件头放在文件的尾部，也就是‘文件尾’，但是一般还是叫做 <em><strong>文件头</strong></em>。</p>
+<h3 id="1-魔数">1 魔数</h3>
+<hr>
+<p>魔数作为文件格式的标识，一般用于识别文件是否程序所能处理的文件。其值可以随意选取，主要看设计者自身的喜好。</p>
+<p>例如 zip 格式的魔数就是 <em><strong>&ldquo;PK\x03\x04&rdquo;</strong></em>,其中 PK 就是设计者 Philip Katz 的名字首字母。</p>
+<p>一般程序在分析文件时，会先判断魔数的值是否匹配，不匹配就表明文件格式不正确。</p>
+<p>需要注意的是，假如魔数正确，文件格式并非一定能够读取正确，还需要进一步判断。</p>
+<h3 id="2-检验码">2 检验码</h3>
+<hr>
+<p>文件头通常还会有个检验码，用于检验文件是否完整并且没有经过修改的。这个检验码可以使用 crc, 可以使用 md5，也可以使用其它算法。</p>
+<p>这也是检查文件格式的正确性中的重要一步，因为即便是魔数相同，校验码所采用的算法不同，和校验码所作的位置不同，所计算的校验码，基本上是不一的，所以进一步就，能区分出文件格式是否正确。</p>
+<h3 id="3-版本号">3 版本号</h3>
+<hr>
+<p>文件头通常还会包含版本号。</p>
+<p>版本号不同，就表明文件格式发生变化，可能变化很小，也可能变化很大；可能是某些字段的值在解释上发生变化，也可能是直接添加了一些结构。所以导致文件的读取方式可能会有所不同。</p>
+<p>版本号有时只是单独一个数字，不断往上递增。有时也会拆分成两个数字，为主版本号和次版本号。主版本号修改，通常表示文件格式发生大变动。而次版本号修改，通常只是表示添加了一些小功能。</p>
+<h3 id="4-字节顺序">4 字节顺序</h3>
+<hr>
+<p>字节顺序在文件格式设计中至关重要。</p>
+<p>字节顺序分为大端字节序和小端字节序。不同的机器字节序有可能不同，设计文件格式时需要考虑文件用什么字节序保存数据的。</p>
+<p>读取和存储的字节序不一致就会导致程序出错。</p>
+<h3 id="5-通用结构">5 通用结构</h3>
+<hr>
+<p>通用结构定义如下：</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">FileHeader</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uint8</span> <span class="n">mMagic</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>    <span class="c1">//魔数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint8</span> <span class="n">mHash</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>    <span class="c1">//检验码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint32</span> <span class="n">mEndian</span><span class="p">;</span>     <span class="c1">//字节序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uint32</span> <span class="n">mVersion</span><span class="p">;</span>    <span class="c1">//文件版本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  <footer class="footline">
+  </footer>
+</article>        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="../../../"><img src="../../../images/logo.png"></a>
+        </div>
+        <form action="../../../search.html" method="get"><div class="searchbox default-animation">
+          <button class="search-detail" type="submit" title="搜索 (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+          <label class="a11y-only" for="R-search-by">搜索</label>
+          <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="搜索...">
+          <button class="search-clear" type="button" data-search-clear="" title="清除搜索"><i class="fas fa-times" title="清除搜索"></i></button>
+        </div></form>
+        <script>
+          var contentLangs=['zh'];
+        </script>
+        <script src="../../../js/auto-complete.js?1728629534" defer></script>
+        <script src="../../../js/lunr/lunr.min.js?1728629534" defer></script>
+        <script src="../../../js/lunr/lunr.stemmer.support.min.js?1728629534" defer></script>
+        <script src="../../../js/lunr/lunr.multi.min.js?1728629534" defer></script>
+        <script src="../../../js/lunr/lunr.zh.min.js?1728629534" defer></script>
+        <script src="../../../js/search.js?1728629534" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/1_note/index.html" class=""><input type="checkbox" id="R-section-4b0e502ebf4d1ce2a6d931226d17de75" aria-controls="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75"><label for="R-section-4b0e502ebf4d1ce2a6d931226d17de75"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编程日常</span></label><a class="padding" href="../../../1_note/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1. </b>编程日常<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75" class="morespace collapsible-menu">
+          <li data-nav-id="/1_note/1_link/index.html" class=""><a class="padding" href="../../../1_note/1_link/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>网站收藏<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/index.html" class=""><input type="checkbox" id="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e" aria-controls="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e"><label for="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单理论算法</span></label><a class="padding" href="../../../2_algorithm/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2. </b>理论算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/index.html" class="alwaysopen"><input type="checkbox" id="R-section-54c5d7600e868901b497c3ae908d2b7a" aria-controls="R-subsections-54c5d7600e868901b497c3ae908d2b7a" checked><label for="R-section-54c5d7600e868901b497c3ae908d2b7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据结构</span></label><a class="padding" href="../../../2_algorithm/1_struct/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>数据结构<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-54c5d7600e868901b497c3ae908d2b7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/index.html" class="alwaysopen"><input type="checkbox" id="R-section-b192339563a6107d3f96234848b4e7fa" aria-controls="R-subsections-b192339563a6107d3f96234848b4e7fa" checked><label for="R-section-b192339563a6107d3f96234848b4e7fa"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单链表</span></label><a class="padding" href="../../../2_algorithm/1_struct/list/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>链表<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-b192339563a6107d3f96234848b4e7fa" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/singlelinkedlist/index.html" class=""><a class="padding" href="../../../2_algorithm/1_struct/list/singlelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>单向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/1_struct/list/doublelinkedlist/index.html" class=""><a class="padding" href="../../../2_algorithm/1_struct/list/doublelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>双向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/2_algorithm/1_align/index.html" class=""><a class="padding" href="../../../2_algorithm/1_align/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 整数对齐<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/index.html" class="alwaysopen"><input type="checkbox" id="R-section-3f1dc194b2fcd83695e7ac1f662b162b" aria-controls="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" checked><label for="R-section-3f1dc194b2fcd83695e7ac1f662b162b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 哈希函数</span></label><a class="padding" href="../../../2_algorithm/2_hash/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/index.html" class="alwaysopen"><input type="checkbox" id="R-section-8135df4df2db9b906ef15b7155d00c7a" aria-controls="R-subsections-8135df4df2db9b906ef15b7155d00c7a" checked><label for="R-section-8135df4df2db9b906ef15b7155d00c7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 消息摘要算法</span></label><a class="padding" href="../../../2_algorithm/2_hash/1_md/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 消息摘要算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-8135df4df2db9b906ef15b7155d00c7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/1_md2/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/1_md2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 MD2 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/2_md4/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/2_md4/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 MD4 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/3_md5/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/3_md5/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 MD5 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/index.html" class="alwaysopen"><input type="checkbox" id="R-section-75a9b55ecfd932ba72775da99ef49b2e" aria-controls="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" checked><label for="R-section-75a9b55ecfd932ba72775da99ef49b2e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 签名算法</span></label><a class="padding" href="../../../2_algorithm/2_hash/2_sha/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 签名算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/1_sha1/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/1_sha1/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 SHA1 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/2_sha2_224/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/2_sha2_224/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 SHA2-224 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/3_sha2_256/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/3_sha2_256/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 SHA2-256 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/4_sha2_384/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/4_sha2_384/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 SHA2-384 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/5_sha2_512/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/5_sha2_512/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 SHA2-512 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/3_crc/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/3_crc/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 CRC 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/index.html" class="alwaysopen"><input type="checkbox" id="R-section-250d4ba57265d5f238203a79e144b2d4" aria-controls="R-subsections-250d4ba57265d5f238203a79e144b2d4" checked><label for="R-section-250d4ba57265d5f238203a79e144b2d4"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 快速位算法</span></label><a class="padding" href="../../../2_algorithm/3_bitwise/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 快速位算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-250d4ba57265d5f238203a79e144b2d4" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/3_bitwise/1_average/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/1_average/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 快速平均值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/2_bitfield/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/2_bitfield/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 位域值提取<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/3_intmaxmin/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/3_intmaxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 INT_MAX和INT_MIN<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/4_application/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/4_application/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 应用 n &#43; (~n) = -1<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/5_application2/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/5_application2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 应用 n ^ n = 0 和 n ^ 0 = n<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/6_application3/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/6_application3/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 应用  x&amp;(x-1)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/7_2pow/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/7_2pow/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 应用 2的次方<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/8_maxmin/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/8_maxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 取两数的最 大/小 值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/9_rotateshift/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/9_rotateshift/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.9. </b>9 循环移位<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/3_project/index.html" class=""><a class="padding" href="../../../3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3. </b>自主项目<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/index.html" class=""><input type="checkbox" id="R-section-0c8c9498d978a41fa7b2036df55e5d36" aria-controls="R-subsections-0c8c9498d978a41fa7b2036df55e5d36"><label for="R-section-0c8c9498d978a41fa7b2036df55e5d36"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单工具手册</span></label><a class="padding" href="../../../4_tools/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4. </b>工具手册<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-0c8c9498d978a41fa7b2036df55e5d36" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/index.html" class="alwaysopen"><input type="checkbox" id="R-section-581c85e34838d0cf1c8916f490b4887b" aria-controls="R-subsections-581c85e34838d0cf1c8916f490b4887b" checked><label for="R-section-581c85e34838d0cf1c8916f490b4887b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单主题简码</span></label><a class="padding" href="../../../4_tools/1_theme/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.1. </b>主题简码<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-581c85e34838d0cf1c8916f490b4887b" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/1_badge/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/1_badge/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>徽章(badge)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/2_button/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/2_button/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>按钮(button)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/index.html" class="alwaysopen"><input type="checkbox" id="R-section-cc55ed38bbe8ec2599355e4860c0da99" aria-controls="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" checked><label for="R-section-cc55ed38bbe8ec2599355e4860c0da99"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页(children)</span></label><a class="padding" href="../../../4_tools/1_theme/3_children/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>子页(children)<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/index.html" class="alwaysopen"><input type="checkbox" id="R-section-ff0d63e498b500bf298134242bc49099" aria-controls="R-subsections-ff0d63e498b500bf298134242bc49099" checked><label for="R-section-ff0d63e498b500bf298134242bc49099"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页 1</span></label><a class="padding" href="../../../4_tools/1_theme/3_children/child/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>子页 1<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ff0d63e498b500bf298134242bc49099" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/child_page/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/3_children/child/child_page/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>子页 1-1<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/child_page2/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/3_children/child_page2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>子页 2<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/4_expand/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/4_expand/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.4. </b>扩展(expand)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/5_highlight/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/5_highlight/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.5. </b>高亮(highlight)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/6_icon/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/6_icon/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.6. </b>图标(icon)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/7_include/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/7_include/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.7. </b>包含文件(include)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/8_math/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/8_math/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.8. </b>数学公式(math)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/9_mermaid/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/9_mermaid/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.9. </b>流图(mermaid)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/10_notice/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/10_notice/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.10. </b>注解(Notice)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/11_siteparam/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/11_siteparam/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.11. </b>站点参数<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/12_tab/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/12_tab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.12. </b>标签页<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/13_tabs/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/13_tabs/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.13. </b>多标签页<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/2_git/index.html" class=""><a class="padding" href="../../../4_tools/2_git/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.2. </b>git 文档<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/3_markdown/index.html" class=""><a class="padding" href="../../../4_tools/3_markdown/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.3. </b>MD 语法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/index.html" class=""><input type="checkbox" id="R-section-ddeab34407829e813a844fe090b557d3" aria-controls="R-subsections-ddeab34407829e813a844fe090b557d3"><label for="R-section-ddeab34407829e813a844fe090b557d3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单教程系列</span></label><a class="padding" href="../../../5_book/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5. </b>教程系列<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddeab34407829e813a844fe090b557d3" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/index.html" class="alwaysopen"><input type="checkbox" id="R-section-4e6dcb6d3fac67575db5eaccba506e58" aria-controls="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" checked><label for="R-section-4e6dcb6d3fac67575db5eaccba506e58"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编译原理</span></label><a class="padding" href="../../../5_book/1_compiler/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5.3. </b>编译原理<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/index.html" class="alwaysopen"><input type="checkbox" id="R-section-59a55f398b44910be4c39ee24bb326b7" aria-controls="R-subsections-59a55f398b44910be4c39ee24bb326b7" checked><label for="R-section-59a55f398b44910be4c39ee24bb326b7"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 词法分析</span></label><a class="padding" href="../../../5_book/1_compiler/1_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 词法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-59a55f398b44910be4c39ee24bb326b7" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/1_tokendef/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/1_tokendef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 Token 定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/2_lexer/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/2_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 Lexer 实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/3_project/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 工程文件解析<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/index.html" class="alwaysopen"><input type="checkbox" id="R-section-758679e0816e586918fb9cadfcfe4ade" aria-controls="R-subsections-758679e0816e586918fb9cadfcfe4ade" checked><label for="R-section-758679e0816e586918fb9cadfcfe4ade"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 语法分析</span></label><a class="padding" href="../../../5_book/1_compiler/2_parser/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 语法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-758679e0816e586918fb9cadfcfe4ade" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/2_parser/1_typesystem/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/1_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 类型系统设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/2_astnode/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/2_astnode/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 抽象语法树设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/3_fileunit/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/3_fileunit/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 代码文件文件管理<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/4_parserbase/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/4_parserbase/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 顶层语法解析实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/5_parserexp/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/5_parserexp/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 解析表达式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/6_parserdecl/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/6_parserdecl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.6. </b>6 解析声明<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/7_parserdecl2/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/7_parserdecl2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.7. </b>7 解析声明续<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/3_analysis/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/3_analysis/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 语义分析<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/4_optimize/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/4_optimize/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 中间优化<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/5_target/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/5_target/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 目标生成<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/6_ir/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/6_ir/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 中间代码<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/index.html" class="alwaysopen"><input type="checkbox" id="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2" aria-controls="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" checked><label for="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单7 指令集</span></label><a class="padding" href="../../../5_book/1_compiler/7_instruction/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 指令集<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.1. </b>1 基于栈的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.2. </b>2 基于寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/3_mixedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.3. </b>3 基于栈和寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/index.html" class="alwaysopen"><input type="checkbox" id="R-section-f7ed7a430e6586361a8ba6a245718bd9" aria-controls="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" checked><label for="R-section-f7ed7a430e6586361a8ba6a245718bd9"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单8 语言定义</span></label><a class="padding" href="../../../5_book/1_compiler/8_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 语言定义<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/8_langdef/1_langdef/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/1_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.1. </b>1 语法定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/2_codefile/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/2_codefile/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.2. </b>2 代码结构<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/3_keyword/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/3_keyword/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.3. </b>3 关键字<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/4_operator/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/4_operator/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.4. </b>4 操作符<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/5_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.5. </b>5 类型系统<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/index.html" class="parent "><input type="checkbox" id="R-section-d3cd331bf7047176213c01699128b453" aria-controls="R-subsections-d3cd331bf7047176213c01699128b453" checked><label for="R-section-d3cd331bf7047176213c01699128b453"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据格式</span></label><a class="padding" href="../../../6_format/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6. </b>数据格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d3cd331bf7047176213c01699128b453" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/index.html" class="parent alwaysopen"><input type="checkbox" id="R-section-ddcb6fb9de3c2f17d34681b6202d0673" aria-controls="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" checked><label for="R-section-ddcb6fb9de3c2f17d34681b6202d0673"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 通用格式设计</span></label><a class="padding" href="../../../6_format/1_general/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.1. </b>1 通用格式设计<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/1_fileheader/index.html" class="active"><a class="padding" href="../../../6_format/1_general/1_fileheader/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 文件头<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/2_segmentformat/index.html" class=""><a class="padding" href="../../../6_format/1_general/2_segmentformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 段节格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/3_tlvformat/index.html" class=""><a class="padding" href="../../../6_format/1_general/3_tlvformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 TLV格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/2_program/index.html" class="alwaysopen"><input type="checkbox" id="R-section-a736007759e1704f9ca7850f5e8751f3" aria-controls="R-subsections-a736007759e1704f9ca7850f5e8751f3" checked><label for="R-section-a736007759e1704f9ca7850f5e8751f3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 程序格式</span></label><a class="padding" href="../../../6_format/2_program/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.2. </b>2 程序格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-a736007759e1704f9ca7850f5e8751f3" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/index.html" class="alwaysopen"><input type="checkbox" id="R-section-78f88c8cabb4bfe1079e3925dd6c6913" aria-controls="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" checked><label for="R-section-78f88c8cabb4bfe1079e3925dd6c6913"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 ELF 格式</span></label><a class="padding" href="../../../6_format/2_program/1_elf/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 ELF 格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/1_elf32/index.html" class=""><a class="padding" href="../../../6_format/2_program/1_elf/1_elf32/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 ELF32 格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/2_program/1_elf/2_elf64/index.html" class=""><a class="padding" href="../../../6_format/2_program/1_elf/2_elf64/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 ELF64 格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/3_color/index.html" class="alwaysopen"><input type="checkbox" id="R-section-5820581638e280c0d2f6f1bb2145223f" aria-controls="R-subsections-5820581638e280c0d2f6f1bb2145223f" checked><label for="R-section-5820581638e280c0d2f6f1bb2145223f"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 颜色格式</span></label><a class="padding" href="../../../6_format/3_color/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.3. </b>3 颜色格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-5820581638e280c0d2f6f1bb2145223f" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/3_color/1_rgba/index.html" class=""><a class="padding" href="../../../6_format/3_color/1_rgba/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 RGBA<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/2_hsl/index.html" class=""><a class="padding" href="../../../6_format/3_color/2_hsl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 HSL/HSV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/3_yuv/index.html" class=""><a class="padding" href="../../../6_format/3_color/3_yuv/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 YUV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/4_xyz/index.html" class=""><a class="padding" href="../../../6_format/3_color/4_xyz/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 XYZ<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/5_lab/index.html" class=""><a class="padding" href="../../../6_format/3_color/5_lab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 LAB<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/6_cmyk/index.html" class=""><a class="padding" href="../../../6_format/3_color/6_cmyk/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 CMYK<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/4_compress/index.html" class=""><a class="padding" href="../../../6_format/4_compress/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.4. </b>4 压缩格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/5_picture/index.html" class=""><a class="padding" href="../../../6_format/5_picture/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.5. </b>5 图片格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/6_video/index.html" class=""><a class="padding" href="../../../6_format/6_video/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.6. </b>6 视频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/7_audio/index.html" class=""><a class="padding" href="../../../6_format/7_audio/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.7. </b>7 音频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/8_model/index.html" class=""><a class="padding" href="../../../6_format/8_model/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.8. </b>8 模型3D<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/7_plat/index.html" class=""><a class="padding" href="../../../7_plat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7. </b>平台<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+        <div id="R-shortcuts">
+          <div class="nav-title padding">更多</div>
+          <ul class="space">
+            <li><a class="padding" href="https://gitee.com/irscript/"><i class='fas fa-code-branch'></i> Gitee 仓库</a></li>
+            <li><a class="padding" href="https://github.com/irscript/"><i class='fa-fw fab fa-github'></i> GitHub 仓库</a></li>
+            <li><a class="padding" href="https://gohugo.io/"><i class='fa-fw fas fa-bookmark'></i> Hugo 文档</a></li>
+            <li><a class="padding" href="https://mcshelby.github.io/hugo-theme-relearn/"><i class='fa-fw fas fa-bullhorn''></i> Relearn 主题</a></li>
+            <li><a class="padding" href="../../../tags/index.html"><i class='fa-fw fas fa-tags'></i> 标签</a></li>
+            <li><a class="padding" href="../../../categories/index.html"><i class='fa-fw fas fa-layer-group'></i> 分类</a></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showVariantSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">语言</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-zh-cn" value="#R-select-language-zh-cn" data-url="../../../6_format/1_general/1_fileheader/index.html" lang="zh-cn" selected>简体中文</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch showVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">主题</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-relearn-auto" value="relearn-auto" selected>Relearn Light/Dark</option>
+                      <option id="R-select-variant-relearn-light" value="relearn-light">Relearn Light</option>
+                      <option id="R-select-variant-relearn-dark" value="relearn-dark">Relearn Dark</option>
+                      <option id="R-select-variant-relearn-bright" value="relearn-bright">Relearn Bright</option>
+                      <option id="R-select-variant-zen-auto" value="zen-auto">Zen Light/Dark</option>
+                      <option id="R-select-variant-zen-light" value="zen-light">Zen Light</option>
+                      <option id="R-select-variant-zen-dark" value="zen-dark">Zen Dark</option>
+                      <option id="R-select-variant-neon" value="neon">Neon</option>
+                      <option id="R-select-variant-learn" value="learn">Learn</option>
+                      <option id="R-select-variant-blue" value="blue">Blue</option>
+                      <option id="R-select-variant-green" value="green">Green</option>
+                      <option id="R-select-variant-red" value="red">Red</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">清理历史记录</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><hr/>
+<p style="text-align: center;margin: 0;">© 2023 - 2024</p>
+<p style="text-align: center;margin: 0;"><i class="fab fa-creative-commons-sa"></i> CC BY-SA 3.0</p>
+<p style="text-align: center;margin: 0;">Built with ❤️ by <a href="https://github.com/irscript/">IrScript</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

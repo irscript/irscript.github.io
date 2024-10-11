@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="漂亮的数学和化学公式">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="流图(mermaid)">
+    <meta name="twitter:description" content="漂亮的数学和化学公式">
+    <meta property="og:title" content="流图(mermaid)">
+    <meta property="og:description" content="漂亮的数学和化学公式">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/4_tools/1_theme/9_mermaid/index.html">
+    <meta property="article:section" content="主题简码">
+    <title>流图(mermaid)</title>
+    <link href="../../../4_tools/1_theme/9_mermaid/index.xml" rel="alternate" type="application/rss+xml" title="流图(mermaid)">
+    <link href="../../../4_tools/1_theme/9_mermaid/index.print.html" rel="alternate" type="text/html" title="流图(mermaid)"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629533" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629533" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629533" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629533" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629533" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629533" rel="stylesheet">
+    <link href="../../../css/print.css?1728629533" rel="stylesheet" media="print">
+    <link href="../../../css/ie.css?1728629533" rel="stylesheet">
+    <script src="../../../js/url.js?1728629533"></script>
+    <script src="../../../js/variant.js?1728629533"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../../4_tools/1_theme/9_mermaid/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="目录 (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper"><div class="default-animation progress">
+  <div class="toc-wrapper">
+    <div serialing><nav class="TableOfContents">
+  <ul>
+    <li><a href="#用法">用法</a>
+      <ul>
+        <li><a href="#参数">参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置">配置</a>
+      <ul>
+        <li><a href="#全局配置文件">全局配置文件</a></li>
+        <li><a href="#页面-frontmatter">页面 Frontmatter</a></li>
+      </ul>
+    </li>
+    <li><a href="#案例">案例</a>
+      <ul>
+        <li><a href="#带-yaml-样式标题的-流程图">带 YAML 样式标题的 流程图</a></li>
+        <li><a href="#带配置指令的序列图">带配置指令的序列图</a></li>
+        <li><a href="#具有codefence语法的类图">具有Codefence语法的类图</a></li>
+        <li><a href="#向右对齐的状态图">向右对齐的状态图</a></li>
+        <li><a href="#非默认主题的实体关系模型">非默认主题的实体关系模型</a></li>
+        <li><a href="#用户旅程">用户旅程</a></li>
+        <li><a href="#甘特图">甘特图</a></li>
+        <li><a href="#不带缩放的饼图">不带缩放的饼图</a></li>
+        <li><a href="#象限图">象限图</a></li>
+        <li><a href="#需求图">需求图</a></li>
+        <li><a href="#git-图">Git 图</a></li>
+        <li><a href="#c4-图">C4 图</a></li>
+        <li><a href="#思维导图">思维导图</a></li>
+        <li><a href="#时间线">时间线</a></li>
+        <li><a href="#桑基">桑基</a></li>
+        <li><a href="#xychart">XYChart</a></li>
+        <li><a href="#块图">块图</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+  </div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/index.html"><span itemprop="name">工具手册</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/1_theme/index.html"><span itemprop="name">主题简码</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">流图(mermaid)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="https://gitee.com/irscript/irscript/blob/master/content/4_tools/1_theme/9_mermaid.md" target="_blank" title="编辑 (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../4_tools/1_theme/9_mermaid/index.print.html" title="打印整章 (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../4_tools/1_theme/8_math/index.html" title="数学公式(math) (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../4_tools/1_theme/10_notice/index.html" title="注解(Notice) (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="更多"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default" serialing>
+  <header class="headline">
+  </header>
+  
+  <h1 id="流图mermaid"> 1.9 流图(mermaid)</h1>
+  <hr />
+
+  <p>The <code>mermaid</code> shortcode generates diagrams and flowcharts from text, in a similar manner as Markdown using the <a href="https://mermaidjs.github.io/" target="_blank">Mermaid</a> library.</p>
+
+<pre class="mermaid align-center zoomable">
+graph LR;
+    If --&gt; Then
+    Then --&gt; Else
+</pre>
+
+<div class="box notices cstyle note">
+  <div class="box-label"><i class="fa-fw fas fa-exclamation-circle"></i> 注释</div>
+  <div class="box-content">
+
+<p>这仅适用于现代浏览器。</p>
+</div>
+</div>
+<h2 id="用法">用法</h2>
+<p>While the examples are using shortcodes with named parameter it is recommended to use codefences instead. This is because more and more other software supports Mermaid codefences (eg. GitHub) and so your markdown becomes more portable.</p>
+<p>You are free to also call this shortcode from your own partials.</p>
+
+<div class="tab-panel" data-tab-group="shortcode-parameter">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="codefence"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('shortcode-parameter','codefence')"
+    >
+      <span class="tab-nav-text">codefence</span>
+    </button>
+    <button
+      data-tab-item="shortcode"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','shortcode')"
+    >
+      <span class="tab-nav-text">shortcode</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="codefence"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">```mermaid { align=&#34;center&#34; zoom=&#34;true&#34; }
+</span></span><span class="line"><span class="cl">graph LR;
+</span></span><span class="line"><span class="cl">    If --&gt; Then
+</span></span><span class="line"><span class="cl">    Then --&gt; Else
+</span></span><span class="line"><span class="cl">```</span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="shortcode"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="nx">align</span><span class="p">=</span><span class="s">&#34;center&#34;</span> <span class="nx">zoom</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span> <span class="nx">LR</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">If</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">Then</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Then</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">Else</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<p>The generated graphs can be be panned by dragging them and zoomed by using the mousewheel. On mobile devices you can use finger gestures.</p>
+<h3 id="参数">参数</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>默认</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>align</strong></td>
+<td><code>center</code></td>
+<td>Allowed values are <code>left</code>, <code>center</code> or <code>right</code>.</td>
+</tr>
+<tr>
+<td><strong>zoom</strong></td>
+<td>see notes</td>
+<td>Whether the graph is pan- and zoomable.<br><br>If not set the value is determined by the <code>mermaidZoom</code> setting of the <a href="../../../4_tools/1_theme/9_mermaid/index.html#global-configuration-file">site</a> or the <a href="../../../4_tools/1_theme/9_mermaid/index.html#pages-frontmatter">pages frontmatter</a> or <code>false</code> if not set at all.<br><br>- <code>false</code>: no pan or zoom<br>- <code>true</code>: pan and zoom active</td>
+</tr>
+<tr>
+<td><em><strong>&lt;content&gt;</strong></em></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>Your Mermaid graph.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置">配置</h2>
+<p>Mermaid is configured with default settings. You can customize Mermaid&rsquo;s default settings for all of your files thru a JSON object in your <code>hugo.toml</code>, override these settings per page thru your pages frontmatter or override these setting per diagramm thru <a href="https://mermaid-js.github.io/mermaid/#/directives?id=directives" target="_blank">diagram directives</a>.</p>
+<p>The JSON object of your <code>hugo.toml</code> / frontmatter is forwarded into Mermaid&rsquo;s <code>mermaid.initialize()</code> function.</p>
+<p>See <a href="https://mermaid-js.github.io/mermaid/#/Setup?id=mermaidapi-configuration-defaults" target="_blank">Mermaid documentation</a> for all allowed settings.</p>
+<p>The <code>theme</code> setting can also be set by your used color variant. This will be the sitewide default and can - again - be overridden by your settings in <code>hugo.toml</code>, frontmatter or diagram directives.</p>
+<h3 id="全局配置文件">全局配置文件</h3>
+<div class="highlight wrap-code"><pre tabindex="0"><code>[params]
+  mermaidInitialize = &#34;{ \&#34;theme\&#34;: \&#34;dark\&#34; }&#34;
+  mermaidZoom = true</code></pre></div><h3 id="页面-frontmatter">页面 Frontmatter</h3>
+<div class="highlight wrap-code"><pre tabindex="0"><code>mermaidInitialize = &#34;{ \&#34;theme\&#34;: \&#34;dark\&#34; }&#34;
+mermaidZoom = true</code></pre></div><h2 id="案例">案例</h2>
+<h3 id="带-yaml-样式标题的-流程图">带 YAML 样式标题的 流程图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span><span class="p">:</span> <span class="nx">Example</span> <span class="nx">Diagram</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nx">graph</span> <span class="nx">LR</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">A</span><span class="p">[</span><span class="nx">Hard</span> <span class="nx">edge</span><span class="p">]</span> <span class="o">--</span><span class="p">&gt;|</span><span class="nx">Link</span> <span class="nx">text</span><span class="p">|</span> <span class="nf">B</span><span class="p">(</span><span class="nx">Round</span> <span class="nx">edge</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">B</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">C</span><span class="p">{&lt;</span><span class="nx">strong</span><span class="p">&gt;</span><span class="nx">Decision</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">strong</span><span class="p">&gt;}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">C</span> <span class="o">--</span><span class="p">&gt;|</span><span class="nx">One</span><span class="p">|</span> <span class="nx">D</span><span class="p">[</span><span class="nx">Result</span> <span class="nx">one</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">C</span> <span class="o">--</span><span class="p">&gt;|</span><span class="nx">Two</span><span class="p">|</span> <span class="nx">E</span><span class="p">[</span><span class="nx">Result</span> <span class="nx">two</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+---
+title: Example Diagram
+---
+graph LR;
+    A[Hard edge] --&gt;|Link text| B(Round edge)
+    B --&gt; C{&lt;strong&gt;Decision&lt;/strong&gt;}
+    C --&gt;|One| D[Result one]
+    C --&gt;|Two| E[Result two]
+</pre>
+<h3 id="带配置指令的序列图">带配置指令的序列图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">%%</span><span class="p">{</span><span class="nx">init</span><span class="p">:{</span><span class="s">&#34;fontFamily&#34;</span><span class="p">:</span><span class="s">&#34;monospace&#34;</span><span class="p">,</span> <span class="s">&#34;sequence&#34;</span><span class="p">:{</span><span class="s">&#34;showSequenceNumbers&#34;</span><span class="p">:</span><span class="kc">true</span><span class="p">}}}</span><span class="o">%%</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sequenceDiagram</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Alice</span><span class="o">-&gt;&gt;</span><span class="nx">John</span><span class="p">:</span> <span class="nx">Hello</span> <span class="nx">John</span><span class="p">,</span> <span class="nx">how</span> <span class="nx">are</span> <span class="nx">you</span><span class="err">?</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">loop</span> <span class="nx">Healthcheck</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">John</span><span class="o">-&gt;&gt;</span><span class="nx">John</span><span class="p">:</span> <span class="nx">Fight</span> <span class="nx">against</span> <span class="nx">hypochondria</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">end</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Note</span> <span class="nx">right</span> <span class="nx">of</span> <span class="nx">John</span><span class="p">:</span> <span class="nx">Rational</span> <span class="nx">thoughts</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">John</span><span class="o">--&gt;&gt;</span><span class="nx">Alice</span><span class="p">:</span> <span class="nx">Great</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">John</span><span class="o">-&gt;&gt;</span><span class="nx">Bob</span><span class="p">:</span> <span class="nx">How</span> <span class="nx">about</span> <span class="nx">you</span><span class="err">?</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Bob</span><span class="o">--&gt;&gt;</span><span class="nx">John</span><span class="p">:</span> <span class="nx">Jolly</span> <span class="nx">good</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+%%{init:{&#34;fontFamily&#34;:&#34;monospace&#34;, &#34;sequence&#34;:{&#34;showSequenceNumbers&#34;:true}}}%%
+sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!
+</pre>
+<h3 id="具有codefence语法的类图">具有Codefence语法的类图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="s">```mermaid
+</span></span></span><span class="line"><span class="cl"><span class="s">classDiagram
+</span></span></span><span class="line"><span class="cl"><span class="s">    Animal &lt;|-- Duck
+</span></span></span><span class="line"><span class="cl"><span class="s">    Animal &lt;|-- Fish
+</span></span></span><span class="line"><span class="cl"><span class="s">    Animal &lt;|-- Zebra
+</span></span></span><span class="line"><span class="cl"><span class="s">    Animal : +int age
+</span></span></span><span class="line"><span class="cl"><span class="s">    Animal : +String gender
+</span></span></span><span class="line"><span class="cl"><span class="s">    Animal: +isMammal()
+</span></span></span><span class="line"><span class="cl"><span class="s">    Animal: +mate()
+</span></span></span><span class="line"><span class="cl"><span class="s">    class Duck{
+</span></span></span><span class="line"><span class="cl"><span class="s">      +String beakColor
+</span></span></span><span class="line"><span class="cl"><span class="s">      +swim()
+</span></span></span><span class="line"><span class="cl"><span class="s">      +quack()
+</span></span></span><span class="line"><span class="cl"><span class="s">    }
+</span></span></span><span class="line"><span class="cl"><span class="s">    class Fish{
+</span></span></span><span class="line"><span class="cl"><span class="s">      -int sizeInFeet
+</span></span></span><span class="line"><span class="cl"><span class="s">      -canEat()
+</span></span></span><span class="line"><span class="cl"><span class="s">    }
+</span></span></span><span class="line"><span class="cl"><span class="s">    class Zebra{
+</span></span></span><span class="line"><span class="cl"><span class="s">      +bool is_wild
+</span></span></span><span class="line"><span class="cl"><span class="s">      +run()
+</span></span></span><span class="line"><span class="cl"><span class="s">    }
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">classDiagram
+    Animal &lt;|-- Duck
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal : &#43;int age
+    Animal : &#43;String gender
+    Animal: &#43;isMammal()
+    Animal: &#43;mate()
+    class Duck{
+      &#43;String beakColor
+      &#43;swim()
+      &#43;quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      &#43;bool is_wild
+      &#43;run()
+    }</pre><h3 id="向右对齐的状态图">向右对齐的状态图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="nx">align</span><span class="p">=</span><span class="s">&#34;right&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">stateDiagram</span><span class="o">-</span><span class="nx">v2</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">open</span><span class="p">:</span> <span class="nx">Open</span> <span class="nx">Door</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">closed</span><span class="p">:</span> <span class="nx">Closed</span> <span class="nx">Door</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">locked</span><span class="p">:</span> <span class="nx">Locked</span> <span class="nx">Door</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">open</span>   <span class="o">--</span><span class="p">&gt;</span> <span class="nx">closed</span><span class="p">:</span> <span class="nx">Close</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">closed</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">locked</span><span class="p">:</span> <span class="nx">Lock</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">locked</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">closed</span><span class="p">:</span> <span class="nx">Unlock</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">closed</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">open</span><span class="p">:</span> <span class="nx">Open</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-right zoomable">
+stateDiagram-v2
+  open: Open Door
+  closed: Closed Door
+  locked: Locked Door
+  open   --&gt; closed: Close
+  closed --&gt; locked: Lock
+  locked --&gt; closed: Unlock
+  closed --&gt; open: Open
+</pre>
+<h3 id="非默认主题的实体关系模型">非默认主题的实体关系模型</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">%%</span><span class="p">{</span><span class="nx">init</span><span class="p">:{</span><span class="s">&#34;theme&#34;</span><span class="p">:</span><span class="s">&#34;forest&#34;</span><span class="p">}}</span><span class="o">%%</span>
+</span></span><span class="line"><span class="cl"><span class="nx">erDiagram</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">CUSTOMER</span> <span class="p">}|..|{</span> <span class="nx">DELIVERY</span><span class="o">-</span><span class="nx">ADDRESS</span> <span class="p">:</span> <span class="nx">has</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">CUSTOMER</span> <span class="o">||--</span><span class="nx">o</span><span class="p">{</span> <span class="nx">ORDER</span> <span class="p">:</span> <span class="nx">places</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">CUSTOMER</span> <span class="o">||--</span><span class="nx">o</span><span class="p">{</span> <span class="nx">INVOICE</span> <span class="p">:</span> <span class="s">&#34;liable for&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">DELIVERY</span><span class="o">-</span><span class="nx">ADDRESS</span> <span class="o">||--</span><span class="nx">o</span><span class="p">{</span> <span class="nx">ORDER</span> <span class="p">:</span> <span class="nx">receives</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">INVOICE</span> <span class="o">||--</span><span class="p">|{</span> <span class="nx">ORDER</span> <span class="p">:</span> <span class="nx">covers</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ORDER</span> <span class="o">||--</span><span class="p">|{</span> <span class="nx">ORDER</span><span class="o">-</span><span class="nx">ITEM</span> <span class="p">:</span> <span class="nx">includes</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">PRODUCT</span><span class="o">-</span><span class="nx">CATEGORY</span> <span class="o">||--</span><span class="p">|{</span> <span class="nx">PRODUCT</span> <span class="p">:</span> <span class="nx">contains</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">PRODUCT</span> <span class="o">||--</span><span class="nx">o</span><span class="p">{</span> <span class="nx">ORDER</span><span class="o">-</span><span class="nx">ITEM</span> <span class="p">:</span> <span class="s">&#34;ordered in&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+%%{init:{&#34;theme&#34;:&#34;forest&#34;}}%%
+erDiagram
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : has
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER ||--o{ INVOICE : &#34;liable for&#34;
+    DELIVERY-ADDRESS ||--o{ ORDER : receives
+    INVOICE ||--|{ ORDER : covers
+    ORDER ||--|{ ORDER-ITEM : includes
+    PRODUCT-CATEGORY ||--|{ PRODUCT : contains
+    PRODUCT ||--o{ ORDER-ITEM : &#34;ordered in&#34;
+</pre>
+<h3 id="用户旅程">用户旅程</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">journey</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="nx">My</span> <span class="nx">working</span> <span class="nx">day</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">section</span> <span class="nx">Go</span> <span class="nx">to</span> <span class="nx">work</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Make</span> <span class="nx">tea</span><span class="p">:</span> <span class="mi">5</span><span class="p">:</span> <span class="nx">Me</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Go</span> <span class="nx">upstairs</span><span class="p">:</span> <span class="mi">3</span><span class="p">:</span> <span class="nx">Me</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Do</span> <span class="nx">work</span><span class="p">:</span> <span class="mi">1</span><span class="p">:</span> <span class="nx">Me</span><span class="p">,</span> <span class="nx">Cat</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">section</span> <span class="nx">Go</span> <span class="nx">home</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Go</span> <span class="nx">downstairs</span><span class="p">:</span> <span class="mi">5</span><span class="p">:</span> <span class="nx">Me</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Sit</span> <span class="nx">down</span><span class="p">:</span> <span class="mi">3</span><span class="p">:</span> <span class="nx">Me</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 3: Me
+</pre>
+<h3 id="甘特图">甘特图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">gantt</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">dateFormat</span>  <span class="nx">YYYY</span><span class="o">-</span><span class="nx">MM</span><span class="o">-</span><span class="nx">DD</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span> <span class="nx">Adding</span> <span class="nx">GANTT</span> <span class="nx">diagram</span> <span class="nx">functionality</span> <span class="nx">to</span> <span class="nx">Mermaid</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">section</span> <span class="nx">A</span> <span class="nx">section</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Completed</span> <span class="nx">task</span>            <span class="p">:</span><span class="nx">done</span><span class="p">,</span>    <span class="nx">des1</span><span class="p">,</span> <span class="mi">2014</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">06</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">08</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Active</span> <span class="nx">task</span>               <span class="p">:</span><span class="nx">active</span><span class="p">,</span>  <span class="nx">des2</span><span class="p">,</span> <span class="mi">2014</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">09</span><span class="p">,</span> <span class="mi">3</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Future</span> <span class="nx">task</span>               <span class="p">:</span>         <span class="nx">des3</span><span class="p">,</span> <span class="nx">after</span> <span class="nx">des2</span><span class="p">,</span> <span class="mi">5</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Future</span> <span class="nx">task2</span>              <span class="p">:</span>         <span class="nx">des4</span><span class="p">,</span> <span class="nx">after</span> <span class="nx">des3</span><span class="p">,</span> <span class="mi">5</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">section</span> <span class="nx">Critical</span> <span class="nx">tasks</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Completed</span> <span class="nx">task</span> <span class="nx">in</span> <span class="nx">the</span> <span class="nx">critical</span> <span class="nx">line</span> <span class="p">:</span><span class="nx">crit</span><span class="p">,</span> <span class="nx">done</span><span class="p">,</span> <span class="mi">2014</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">06</span><span class="p">,</span><span class="mi">24</span><span class="nx">h</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Implement</span> <span class="nx">parser</span> <span class="nx">and</span> <span class="nx">jison</span>          <span class="p">:</span><span class="nx">crit</span><span class="p">,</span> <span class="nx">done</span><span class="p">,</span> <span class="nx">after</span> <span class="nx">des1</span><span class="p">,</span> <span class="mi">2</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Create</span> <span class="nx">tests</span> <span class="k">for</span> <span class="nx">parser</span>             <span class="p">:</span><span class="nx">crit</span><span class="p">,</span> <span class="nx">active</span><span class="p">,</span> <span class="mi">3</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Future</span> <span class="nx">task</span> <span class="nx">in</span> <span class="nx">critical</span> <span class="nx">line</span>        <span class="p">:</span><span class="nx">crit</span><span class="p">,</span> <span class="mi">5</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Create</span> <span class="nx">tests</span> <span class="k">for</span> <span class="nx">renderer</span>           <span class="p">:</span><span class="mi">2</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Add</span> <span class="nx">to</span> <span class="nx">Mermaid</span>                      <span class="p">:</span><span class="mi">1</span><span class="nx">d</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to Mermaid
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2              :         des4, after des3, 5d
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to Mermaid                      :1d
+</pre>
+<h3 id="不带缩放的饼图">不带缩放的饼图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="nx">zoom</span><span class="p">=</span><span class="s">&#34;false&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pie</span> <span class="nx">title</span> <span class="nx">Pets</span> <span class="nx">adopted</span> <span class="nx">by</span> <span class="nx">volunteers</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Dogs&#34;</span> <span class="p">:</span> <span class="mi">386</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Cats&#34;</span> <span class="p">:</span> <span class="mi">85</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Rats&#34;</span> <span class="p">:</span> <span class="mi">15</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center ">
+pie title Pets adopted by volunteers
+    &#34;Dogs&#34; : 386
+    &#34;Cats&#34; : 85
+    &#34;Rats&#34; : 15
+</pre>
+<h3 id="象限图">象限图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pie</span> <span class="nx">title</span> <span class="nx">Pets</span> <span class="nx">adopted</span> <span class="nx">by</span> <span class="nx">volunteers</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="nx">Reach</span> <span class="nx">and</span> <span class="nx">engagement</span> <span class="nx">of</span> <span class="nx">campaigns</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="o">-</span><span class="nx">axis</span> <span class="nx">Low</span> <span class="nx">Reach</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">High</span> <span class="nx">Reach</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">y</span><span class="o">-</span><span class="nx">axis</span> <span class="nx">Low</span> <span class="nx">Engagement</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">High</span> <span class="nx">Engagement</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">quadrant</span><span class="o">-</span><span class="mi">1</span> <span class="nx">We</span> <span class="nx">should</span> <span class="nx">expand</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">quadrant</span><span class="o">-</span><span class="mi">2</span> <span class="nx">Need</span> <span class="nx">to</span> <span class="nx">promote</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">quadrant</span><span class="o">-</span><span class="mi">3</span> <span class="nx">Re</span><span class="o">-</span><span class="nx">evaluate</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">quadrant</span><span class="o">-</span><span class="mi">4</span> <span class="nx">May</span> <span class="nx">be</span> <span class="nx">improved</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Campaign</span> <span class="nx">A</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Campaign</span> <span class="nx">B</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Campaign</span> <span class="nx">C</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.57</span><span class="p">,</span> <span class="mf">0.69</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Campaign</span> <span class="nx">D</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.78</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Campaign</span> <span class="nx">E</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Campaign</span> <span class="nx">F</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --&gt; High Reach
+    y-axis Low Engagement --&gt; High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+    Campaign C: [0.57, 0.69]
+    Campaign D: [0.78, 0.34]
+    Campaign E: [0.40, 0.34]
+    Campaign F: [0.35, 0.78]
+</pre>
+<h3 id="需求图">需求图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">requirementDiagram</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">requirement</span> <span class="nx">test_req</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span><span class="p">:</span> <span class="nx">the</span> <span class="nx">test</span> <span class="nx">text</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">risk</span><span class="p">:</span> <span class="nx">high</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">verifymethod</span><span class="p">:</span> <span class="nx">test</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">element</span> <span class="nx">test_entity</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">type</span><span class="p">:</span> <span class="nx">simulation</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">test_entity</span> <span class="o">-</span> <span class="nx">satisfies</span> <span class="o">-</span><span class="p">&gt;</span> <span class="nx">test_req</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+    requirementDiagram
+
+    requirement test_req {
+    id: 1
+    text: the test text.
+    risk: high
+    verifymethod: test
+    }
+
+    element test_entity {
+    type: simulation
+    }
+
+    test_entity - satisfies -&gt; test_req
+</pre>
+<h3 id="git-图">Git 图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">gitGraph</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">commit</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">commit</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">branch</span> <span class="nx">develop</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">checkout</span> <span class="nx">develop</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">commit</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">commit</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">checkout</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">merge</span> <span class="nx">develop</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">commit</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">commit</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+gitGraph
+    commit
+    commit
+    branch develop
+    checkout develop
+    commit
+    commit
+    checkout main
+    merge develop
+    commit
+    commit
+</pre>
+<h3 id="c4-图">C4 图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">C4Context</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="nx">System</span> <span class="nx">Context</span> <span class="nx">diagram</span> <span class="k">for</span> <span class="nx">Internet</span> <span class="nx">Banking</span> <span class="nx">System</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Enterprise_Boundary</span><span class="p">(</span><span class="nx">b0</span><span class="p">,</span> <span class="s">&#34;BankBoundary0&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Person</span><span class="p">(</span><span class="nx">customerA</span><span class="p">,</span> <span class="s">&#34;Banking Customer A&#34;</span><span class="p">,</span> <span class="s">&#34;A customer of the bank, with personal bank accounts.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Person</span><span class="p">(</span><span class="nx">customerB</span><span class="p">,</span> <span class="s">&#34;Banking Customer B&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Person_Ext</span><span class="p">(</span><span class="nx">customerC</span><span class="p">,</span> <span class="s">&#34;Banking Customer C&#34;</span><span class="p">,</span> <span class="s">&#34;desc&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">Person</span><span class="p">(</span><span class="nx">customerD</span><span class="p">,</span> <span class="s">&#34;Banking Customer D&#34;</span><span class="p">,</span> <span class="s">&#34;A customer of the bank, &lt;br/&gt; with personal bank accounts.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">System</span><span class="p">(</span><span class="nx">SystemAA</span><span class="p">,</span> <span class="s">&#34;Internet Banking System&#34;</span><span class="p">,</span> <span class="s">&#34;Allows customers to view information about their bank accounts, and make payments.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">Enterprise_Boundary</span><span class="p">(</span><span class="nx">b1</span><span class="p">,</span> <span class="s">&#34;BankBoundary&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">SystemDb_Ext</span><span class="p">(</span><span class="nx">SystemE</span><span class="p">,</span> <span class="s">&#34;Mainframe Banking System&#34;</span><span class="p">,</span> <span class="s">&#34;Stores all of the core banking information about customers, accounts, transactions, etc.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">System_Boundary</span><span class="p">(</span><span class="nx">b2</span><span class="p">,</span> <span class="s">&#34;BankBoundary2&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">System</span><span class="p">(</span><span class="nx">SystemA</span><span class="p">,</span> <span class="s">&#34;Banking System A&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">System</span><span class="p">(</span><span class="nx">SystemB</span><span class="p">,</span> <span class="s">&#34;Banking System B&#34;</span><span class="p">,</span> <span class="s">&#34;A system of the bank, with personal bank accounts. next line.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">System_Ext</span><span class="p">(</span><span class="nx">SystemC</span><span class="p">,</span> <span class="s">&#34;E-mail system&#34;</span><span class="p">,</span> <span class="s">&#34;The internal Microsoft Exchange e-mail system.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SystemDb</span><span class="p">(</span><span class="nx">SystemD</span><span class="p">,</span> <span class="s">&#34;Banking System D Database&#34;</span><span class="p">,</span> <span class="s">&#34;A system of the bank, with personal bank accounts.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">Boundary</span><span class="p">(</span><span class="nx">b3</span><span class="p">,</span> <span class="s">&#34;BankBoundary3&#34;</span><span class="p">,</span> <span class="s">&#34;boundary&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SystemQueue</span><span class="p">(</span><span class="nx">SystemF</span><span class="p">,</span> <span class="s">&#34;Banking System F Queue&#34;</span><span class="p">,</span> <span class="s">&#34;A system of the bank.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SystemQueue_Ext</span><span class="p">(</span><span class="nx">SystemG</span><span class="p">,</span> <span class="s">&#34;Banking System G Queue&#34;</span><span class="p">,</span> <span class="s">&#34;A system of the bank, with personal bank accounts.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">BiRel</span><span class="p">(</span><span class="nx">customerA</span><span class="p">,</span> <span class="nx">SystemAA</span><span class="p">,</span> <span class="s">&#34;Uses&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">BiRel</span><span class="p">(</span><span class="nx">SystemAA</span><span class="p">,</span> <span class="nx">SystemE</span><span class="p">,</span> <span class="s">&#34;Uses&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Rel</span><span class="p">(</span><span class="nx">SystemAA</span><span class="p">,</span> <span class="nx">SystemC</span><span class="p">,</span> <span class="s">&#34;Sends e-mails&#34;</span><span class="p">,</span> <span class="s">&#34;SMTP&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Rel</span><span class="p">(</span><span class="nx">SystemC</span><span class="p">,</span> <span class="nx">customerA</span><span class="p">,</span> <span class="s">&#34;Sends e-mails to&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">UpdateElementStyle</span><span class="p">(</span><span class="nx">customerA</span><span class="p">,</span> <span class="err">$</span><span class="nx">fontColor</span><span class="p">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">bgColor</span><span class="p">=</span><span class="s">&#34;grey&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">borderColor</span><span class="p">=</span><span class="s">&#34;red&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">UpdateRelStyle</span><span class="p">(</span><span class="nx">customerA</span><span class="p">,</span> <span class="nx">SystemAA</span><span class="p">,</span> <span class="err">$</span><span class="nx">textColor</span><span class="p">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">lineColor</span><span class="p">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">offsetX</span><span class="p">=</span><span class="s">&#34;5&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">UpdateRelStyle</span><span class="p">(</span><span class="nx">SystemAA</span><span class="p">,</span> <span class="nx">SystemE</span><span class="p">,</span> <span class="err">$</span><span class="nx">textColor</span><span class="p">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">lineColor</span><span class="p">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">offsetY</span><span class="p">=</span><span class="s">&#34;-10&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">UpdateRelStyle</span><span class="p">(</span><span class="nx">SystemAA</span><span class="p">,</span> <span class="nx">SystemC</span><span class="p">,</span> <span class="err">$</span><span class="nx">textColor</span><span class="p">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">lineColor</span><span class="p">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">offsetY</span><span class="p">=</span><span class="s">&#34;-40&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">offsetX</span><span class="p">=</span><span class="s">&#34;-50&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">UpdateRelStyle</span><span class="p">(</span><span class="nx">SystemC</span><span class="p">,</span> <span class="nx">customerA</span><span class="p">,</span> <span class="err">$</span><span class="nx">textColor</span><span class="p">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">lineColor</span><span class="p">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">offsetX</span><span class="p">=</span><span class="s">&#34;-50&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">offsetY</span><span class="p">=</span><span class="s">&#34;20&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">UpdateLayoutConfig</span><span class="p">(</span><span class="err">$</span><span class="nx">c4ShapeInRow</span><span class="p">=</span><span class="s">&#34;3&#34;</span><span class="p">,</span> <span class="err">$</span><span class="nx">c4BoundaryInRow</span><span class="p">=</span><span class="s">&#34;1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+C4Context
+    title System Context diagram for Internet Banking System
+    Enterprise_Boundary(b0, &#34;BankBoundary0&#34;) {
+    Person(customerA, &#34;Banking Customer A&#34;, &#34;A customer of the bank, with personal bank accounts.&#34;)
+    Person(customerB, &#34;Banking Customer B&#34;)
+    Person_Ext(customerC, &#34;Banking Customer C&#34;, &#34;desc&#34;)
+
+    Person(customerD, &#34;Banking Customer D&#34;, &#34;A customer of the bank, &lt;br/&gt; with personal bank accounts.&#34;)
+
+    System(SystemAA, &#34;Internet Banking System&#34;, &#34;Allows customers to view information about their bank accounts, and make payments.&#34;)
+
+    Enterprise_Boundary(b1, &#34;BankBoundary&#34;) {
+
+        SystemDb_Ext(SystemE, &#34;Mainframe Banking System&#34;, &#34;Stores all of the core banking information about customers, accounts, transactions, etc.&#34;)
+
+        System_Boundary(b2, &#34;BankBoundary2&#34;) {
+        System(SystemA, &#34;Banking System A&#34;)
+        System(SystemB, &#34;Banking System B&#34;, &#34;A system of the bank, with personal bank accounts. next line.&#34;)
+        }
+
+        System_Ext(SystemC, &#34;E-mail system&#34;, &#34;The internal Microsoft Exchange e-mail system.&#34;)
+        SystemDb(SystemD, &#34;Banking System D Database&#34;, &#34;A system of the bank, with personal bank accounts.&#34;)
+
+        Boundary(b3, &#34;BankBoundary3&#34;, &#34;boundary&#34;) {
+        SystemQueue(SystemF, &#34;Banking System F Queue&#34;, &#34;A system of the bank.&#34;)
+        SystemQueue_Ext(SystemG, &#34;Banking System G Queue&#34;, &#34;A system of the bank, with personal bank accounts.&#34;)
+        }
+    }
+    }
+
+    BiRel(customerA, SystemAA, &#34;Uses&#34;)
+    BiRel(SystemAA, SystemE, &#34;Uses&#34;)
+    Rel(SystemAA, SystemC, &#34;Sends e-mails&#34;, &#34;SMTP&#34;)
+    Rel(SystemC, customerA, &#34;Sends e-mails to&#34;)
+
+    UpdateElementStyle(customerA, $fontColor=&#34;red&#34;, $bgColor=&#34;grey&#34;, $borderColor=&#34;red&#34;)
+    UpdateRelStyle(customerA, SystemAA, $textColor=&#34;blue&#34;, $lineColor=&#34;blue&#34;, $offsetX=&#34;5&#34;)
+    UpdateRelStyle(SystemAA, SystemE, $textColor=&#34;blue&#34;, $lineColor=&#34;blue&#34;, $offsetY=&#34;-10&#34;)
+    UpdateRelStyle(SystemAA, SystemC, $textColor=&#34;blue&#34;, $lineColor=&#34;blue&#34;, $offsetY=&#34;-40&#34;, $offsetX=&#34;-50&#34;)
+    UpdateRelStyle(SystemC, customerA, $textColor=&#34;red&#34;, $lineColor=&#34;red&#34;, $offsetX=&#34;-50&#34;, $offsetY=&#34;20&#34;)
+
+    UpdateLayoutConfig($c4ShapeInRow=&#34;3&#34;, $c4BoundaryInRow=&#34;1&#34;)
+</pre>
+<h3 id="思维导图">思维导图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mindmap</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">root</span><span class="p">((</span><span class="nx">mindmap</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Origins</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Long</span> <span class="nx">history</span>
+</span></span><span class="line"><span class="cl">      <span class="p">::</span><span class="nf">icon</span><span class="p">(</span><span class="nx">fa</span> <span class="nx">fa</span><span class="o">-</span><span class="nx">book</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Popularisation</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">British</span> <span class="nx">popular</span> <span class="nx">psychology</span> <span class="nx">author</span> <span class="nx">Tony</span> <span class="nx">Buzan</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Research</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">On</span> <span class="nx">effectiveness</span><span class="p">&lt;</span><span class="nx">br</span><span class="o">/</span><span class="p">&gt;</span><span class="nx">and</span> <span class="nx">features</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">On</span> <span class="nx">Automatic</span> <span class="nx">creation</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Uses</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Creative</span> <span class="nx">techniques</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Strategic</span> <span class="nx">planning</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Argument</span> <span class="nx">mapping</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Tools</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Pen</span> <span class="nx">and</span> <span class="nx">paper</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mermaid</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness&lt;br/&gt;and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+</pre>
+<h3 id="时间线">时间线</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">timeline</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="nx">History</span> <span class="nx">of</span> <span class="nx">Social</span> <span class="nx">Media</span> <span class="nx">Platform</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2002</span> <span class="p">:</span> <span class="nx">LinkedIn</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2004</span> <span class="p">:</span> <span class="nx">Facebook</span>
+</span></span><span class="line"><span class="cl">         <span class="p">:</span> <span class="nx">Google</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2005</span> <span class="p">:</span> <span class="nx">Youtube</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2006</span> <span class="p">:</span> <span class="nx">Twitter</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+timeline
+    title History of Social Media Platform
+    2002 : LinkedIn
+    2004 : Facebook
+         : Google
+    2005 : Youtube
+    2006 : Twitter
+</pre>
+<h3 id="桑基">桑基</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sankey</span><span class="o">-</span><span class="nx">beta</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">%%</span> <span class="nx">source</span><span class="p">,</span><span class="nx">target</span><span class="p">,</span><span class="nx">value</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Electricity</span> <span class="nx">grid</span><span class="p">,</span><span class="nx">Over</span> <span class="nx">generation</span> <span class="o">/</span> <span class="nx">exports</span><span class="p">,</span><span class="mf">104.453</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Electricity</span> <span class="nx">grid</span><span class="p">,</span><span class="nx">Heating</span> <span class="nx">and</span> <span class="nx">cooling</span> <span class="o">-</span> <span class="nx">homes</span><span class="p">,</span><span class="mf">113.726</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Electricity</span> <span class="nx">grid</span><span class="p">,</span><span class="nx">H2</span> <span class="nx">conversion</span><span class="p">,</span><span class="mf">27.14</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+sankey-beta
+
+%% source,target,value
+Electricity grid,Over generation / exports,104.453
+Electricity grid,Heating and cooling - homes,113.726
+Electricity grid,H2 conversion,27.14
+</pre>
+<h3 id="xychart">XYChart</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">xychart</span><span class="o">-</span><span class="nx">beta</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="s">&#34;Sales Revenue&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="o">-</span><span class="nx">axis</span> <span class="p">[</span><span class="nx">jan</span><span class="p">,</span> <span class="nx">feb</span><span class="p">,</span> <span class="nx">mar</span><span class="p">,</span> <span class="nx">apr</span><span class="p">,</span> <span class="nx">may</span><span class="p">,</span> <span class="nx">jun</span><span class="p">,</span> <span class="nx">jul</span><span class="p">,</span> <span class="nx">aug</span><span class="p">,</span> <span class="nx">sep</span><span class="p">,</span> <span class="nx">oct</span><span class="p">,</span> <span class="nx">nov</span><span class="p">,</span> <span class="nx">dec</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">y</span><span class="o">-</span><span class="nx">axis</span> <span class="s">&#34;Revenue (in $)&#34;</span> <span class="mi">4000</span> <span class="o">--</span><span class="p">&gt;</span> <span class="mi">11000</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bar</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">7500</span><span class="p">,</span> <span class="mi">8200</span><span class="p">,</span> <span class="mi">9500</span><span class="p">,</span> <span class="mi">10500</span><span class="p">,</span> <span class="mi">11000</span><span class="p">,</span> <span class="mi">10200</span><span class="p">,</span> <span class="mi">9200</span><span class="p">,</span> <span class="mi">8500</span><span class="p">,</span> <span class="mi">7000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">line</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">7500</span><span class="p">,</span> <span class="mi">8200</span><span class="p">,</span> <span class="mi">9500</span><span class="p">,</span> <span class="mi">10500</span><span class="p">,</span> <span class="mi">11000</span><span class="p">,</span> <span class="mi">10200</span><span class="p">,</span> <span class="mi">9200</span><span class="p">,</span> <span class="mi">8500</span><span class="p">,</span> <span class="mi">7000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+xychart-beta
+    title &#34;Sales Revenue&#34;
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis &#34;Revenue (in $)&#34; 4000 --&gt; 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+</pre>
+<h3 id="块图">块图</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">mermaid</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">block</span><span class="o">-</span><span class="nx">beta</span>
+</span></span><span class="line"><span class="cl"><span class="nx">columns</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">db</span><span class="p">((</span><span class="s">&#34;DB&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">blockArrowId6</span><span class="p">&lt;[</span><span class="s">&#34;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;</span><span class="p">]&gt;(</span><span class="nx">down</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">block</span><span class="p">:</span><span class="nx">ID</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">A</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">B</span><span class="p">[</span><span class="s">&#34;A wide one in the middle&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">C</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">end</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">space</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">D</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ID</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">D</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">C</span> <span class="o">--</span><span class="p">&gt;</span> <span class="nx">D</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">style</span> <span class="nx">B</span> <span class="nx">fill</span><span class="p">:</span><span class="err">#</span><span class="mi">969</span><span class="p">,</span><span class="nx">stroke</span><span class="p">:</span><span class="err">#</span><span class="mi">333</span><span class="p">,</span><span class="nx">stroke</span><span class="o">-</span><span class="nx">width</span><span class="p">:</span><span class="mi">4</span><span class="nx">px</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">mermaid</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<pre class="mermaid align-center zoomable">
+block-beta
+columns 1
+  db((&#34;DB&#34;))
+  blockArrowId6&lt;[&#34;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;]&gt;(down)
+  block:ID
+    A
+    B[&#34;A wide one in the middle&#34;]
+    C
+  end
+  space
+  D
+  ID --&gt; D
+  C --&gt; D
+  style B fill:#969,stroke:#333,stroke-width:4px
+</pre>
+
+  <footer class="footline">
+  </footer>
+</article>        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="../../../"><img src="../../../images/logo.png"></a>
+        </div>
+        <form action="../../../search.html" method="get"><div class="searchbox default-animation">
+          <button class="search-detail" type="submit" title="搜索 (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+          <label class="a11y-only" for="R-search-by">搜索</label>
+          <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="搜索...">
+          <button class="search-clear" type="button" data-search-clear="" title="清除搜索"><i class="fas fa-times" title="清除搜索"></i></button>
+        </div></form>
+        <script>
+          var contentLangs=['zh'];
+        </script>
+        <script src="../../../js/auto-complete.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.min.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.stemmer.support.min.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.multi.min.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.zh.min.js?1728629533" defer></script>
+        <script src="../../../js/search.js?1728629533" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/1_note/index.html" class=""><input type="checkbox" id="R-section-4b0e502ebf4d1ce2a6d931226d17de75" aria-controls="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75"><label for="R-section-4b0e502ebf4d1ce2a6d931226d17de75"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编程日常</span></label><a class="padding" href="../../../1_note/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1. </b>编程日常<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75" class="morespace collapsible-menu">
+          <li data-nav-id="/1_note/1_link/index.html" class=""><a class="padding" href="../../../1_note/1_link/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>网站收藏<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/index.html" class=""><input type="checkbox" id="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e" aria-controls="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e"><label for="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单理论算法</span></label><a class="padding" href="../../../2_algorithm/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2. </b>理论算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/index.html" class="alwaysopen"><input type="checkbox" id="R-section-54c5d7600e868901b497c3ae908d2b7a" aria-controls="R-subsections-54c5d7600e868901b497c3ae908d2b7a" checked><label for="R-section-54c5d7600e868901b497c3ae908d2b7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据结构</span></label><a class="padding" href="../../../2_algorithm/1_struct/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>数据结构<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-54c5d7600e868901b497c3ae908d2b7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/index.html" class="alwaysopen"><input type="checkbox" id="R-section-b192339563a6107d3f96234848b4e7fa" aria-controls="R-subsections-b192339563a6107d3f96234848b4e7fa" checked><label for="R-section-b192339563a6107d3f96234848b4e7fa"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单链表</span></label><a class="padding" href="../../../2_algorithm/1_struct/list/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>链表<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-b192339563a6107d3f96234848b4e7fa" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/singlelinkedlist/index.html" class=""><a class="padding" href="../../../2_algorithm/1_struct/list/singlelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>单向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/1_struct/list/doublelinkedlist/index.html" class=""><a class="padding" href="../../../2_algorithm/1_struct/list/doublelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>双向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/2_algorithm/1_align/index.html" class=""><a class="padding" href="../../../2_algorithm/1_align/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 整数对齐<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/index.html" class="alwaysopen"><input type="checkbox" id="R-section-3f1dc194b2fcd83695e7ac1f662b162b" aria-controls="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" checked><label for="R-section-3f1dc194b2fcd83695e7ac1f662b162b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 哈希函数</span></label><a class="padding" href="../../../2_algorithm/2_hash/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/index.html" class="alwaysopen"><input type="checkbox" id="R-section-8135df4df2db9b906ef15b7155d00c7a" aria-controls="R-subsections-8135df4df2db9b906ef15b7155d00c7a" checked><label for="R-section-8135df4df2db9b906ef15b7155d00c7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 消息摘要算法</span></label><a class="padding" href="../../../2_algorithm/2_hash/1_md/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 消息摘要算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-8135df4df2db9b906ef15b7155d00c7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/1_md2/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/1_md2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 MD2 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/2_md4/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/2_md4/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 MD4 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/3_md5/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/3_md5/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 MD5 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/index.html" class="alwaysopen"><input type="checkbox" id="R-section-75a9b55ecfd932ba72775da99ef49b2e" aria-controls="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" checked><label for="R-section-75a9b55ecfd932ba72775da99ef49b2e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 签名算法</span></label><a class="padding" href="../../../2_algorithm/2_hash/2_sha/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 签名算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/1_sha1/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/1_sha1/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 SHA1 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/2_sha2_224/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/2_sha2_224/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 SHA2-224 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/3_sha2_256/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/3_sha2_256/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 SHA2-256 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/4_sha2_384/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/4_sha2_384/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 SHA2-384 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/5_sha2_512/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/5_sha2_512/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 SHA2-512 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/3_crc/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/3_crc/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 CRC 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/index.html" class="alwaysopen"><input type="checkbox" id="R-section-250d4ba57265d5f238203a79e144b2d4" aria-controls="R-subsections-250d4ba57265d5f238203a79e144b2d4" checked><label for="R-section-250d4ba57265d5f238203a79e144b2d4"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 快速位算法</span></label><a class="padding" href="../../../2_algorithm/3_bitwise/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 快速位算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-250d4ba57265d5f238203a79e144b2d4" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/3_bitwise/1_average/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/1_average/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 快速平均值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/2_bitfield/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/2_bitfield/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 位域值提取<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/3_intmaxmin/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/3_intmaxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 INT_MAX和INT_MIN<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/4_application/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/4_application/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 应用 n &#43; (~n) = -1<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/5_application2/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/5_application2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 应用 n ^ n = 0 和 n ^ 0 = n<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/6_application3/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/6_application3/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 应用  x&amp;(x-1)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/7_2pow/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/7_2pow/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 应用 2的次方<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/8_maxmin/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/8_maxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 取两数的最 大/小 值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/9_rotateshift/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/9_rotateshift/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.9. </b>9 循环移位<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/3_project/index.html" class=""><a class="padding" href="../../../3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3. </b>自主项目<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/index.html" class="parent "><input type="checkbox" id="R-section-0c8c9498d978a41fa7b2036df55e5d36" aria-controls="R-subsections-0c8c9498d978a41fa7b2036df55e5d36" checked><label for="R-section-0c8c9498d978a41fa7b2036df55e5d36"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单工具手册</span></label><a class="padding" href="../../../4_tools/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4. </b>工具手册<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-0c8c9498d978a41fa7b2036df55e5d36" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/index.html" class="parent alwaysopen"><input type="checkbox" id="R-section-581c85e34838d0cf1c8916f490b4887b" aria-controls="R-subsections-581c85e34838d0cf1c8916f490b4887b" checked><label for="R-section-581c85e34838d0cf1c8916f490b4887b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单主题简码</span></label><a class="padding" href="../../../4_tools/1_theme/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.1. </b>主题简码<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-581c85e34838d0cf1c8916f490b4887b" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/1_badge/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/1_badge/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>徽章(badge)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/2_button/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/2_button/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>按钮(button)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/index.html" class="alwaysopen"><input type="checkbox" id="R-section-cc55ed38bbe8ec2599355e4860c0da99" aria-controls="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" checked><label for="R-section-cc55ed38bbe8ec2599355e4860c0da99"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页(children)</span></label><a class="padding" href="../../../4_tools/1_theme/3_children/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>子页(children)<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/index.html" class="alwaysopen"><input type="checkbox" id="R-section-ff0d63e498b500bf298134242bc49099" aria-controls="R-subsections-ff0d63e498b500bf298134242bc49099" checked><label for="R-section-ff0d63e498b500bf298134242bc49099"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页 1</span></label><a class="padding" href="../../../4_tools/1_theme/3_children/child/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>子页 1<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ff0d63e498b500bf298134242bc49099" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/child_page/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/3_children/child/child_page/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>子页 1-1<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/child_page2/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/3_children/child_page2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>子页 2<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/4_expand/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/4_expand/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.4. </b>扩展(expand)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/5_highlight/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/5_highlight/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.5. </b>高亮(highlight)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/6_icon/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/6_icon/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.6. </b>图标(icon)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/7_include/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/7_include/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.7. </b>包含文件(include)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/8_math/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/8_math/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.8. </b>数学公式(math)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/9_mermaid/index.html" class="active"><a class="padding" href="../../../4_tools/1_theme/9_mermaid/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.9. </b>流图(mermaid)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/10_notice/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/10_notice/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.10. </b>注解(Notice)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/11_siteparam/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/11_siteparam/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.11. </b>站点参数<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/12_tab/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/12_tab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.12. </b>标签页<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/13_tabs/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/13_tabs/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.13. </b>多标签页<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/2_git/index.html" class=""><a class="padding" href="../../../4_tools/2_git/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.2. </b>git 文档<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/3_markdown/index.html" class=""><a class="padding" href="../../../4_tools/3_markdown/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.3. </b>MD 语法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/index.html" class=""><input type="checkbox" id="R-section-ddeab34407829e813a844fe090b557d3" aria-controls="R-subsections-ddeab34407829e813a844fe090b557d3"><label for="R-section-ddeab34407829e813a844fe090b557d3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单教程系列</span></label><a class="padding" href="../../../5_book/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5. </b>教程系列<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddeab34407829e813a844fe090b557d3" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/index.html" class="alwaysopen"><input type="checkbox" id="R-section-4e6dcb6d3fac67575db5eaccba506e58" aria-controls="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" checked><label for="R-section-4e6dcb6d3fac67575db5eaccba506e58"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编译原理</span></label><a class="padding" href="../../../5_book/1_compiler/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5.3. </b>编译原理<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/index.html" class="alwaysopen"><input type="checkbox" id="R-section-59a55f398b44910be4c39ee24bb326b7" aria-controls="R-subsections-59a55f398b44910be4c39ee24bb326b7" checked><label for="R-section-59a55f398b44910be4c39ee24bb326b7"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 词法分析</span></label><a class="padding" href="../../../5_book/1_compiler/1_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 词法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-59a55f398b44910be4c39ee24bb326b7" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/1_tokendef/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/1_tokendef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 Token 定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/2_lexer/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/2_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 Lexer 实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/3_project/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 工程文件解析<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/index.html" class="alwaysopen"><input type="checkbox" id="R-section-758679e0816e586918fb9cadfcfe4ade" aria-controls="R-subsections-758679e0816e586918fb9cadfcfe4ade" checked><label for="R-section-758679e0816e586918fb9cadfcfe4ade"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 语法分析</span></label><a class="padding" href="../../../5_book/1_compiler/2_parser/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 语法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-758679e0816e586918fb9cadfcfe4ade" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/2_parser/1_typesystem/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/1_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 类型系统设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/2_astnode/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/2_astnode/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 抽象语法树设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/3_fileunit/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/3_fileunit/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 代码文件文件管理<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/4_parserbase/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/4_parserbase/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 顶层语法解析实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/5_parserexp/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/5_parserexp/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 解析表达式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/6_parserdecl/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/6_parserdecl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.6. </b>6 解析声明<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/7_parserdecl2/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/7_parserdecl2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.7. </b>7 解析声明续<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/3_analysis/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/3_analysis/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 语义分析<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/4_optimize/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/4_optimize/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 中间优化<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/5_target/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/5_target/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 目标生成<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/6_ir/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/6_ir/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 中间代码<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/index.html" class="alwaysopen"><input type="checkbox" id="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2" aria-controls="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" checked><label for="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单7 指令集</span></label><a class="padding" href="../../../5_book/1_compiler/7_instruction/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 指令集<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.1. </b>1 基于栈的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.2. </b>2 基于寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/3_mixedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.3. </b>3 基于栈和寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/index.html" class="alwaysopen"><input type="checkbox" id="R-section-f7ed7a430e6586361a8ba6a245718bd9" aria-controls="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" checked><label for="R-section-f7ed7a430e6586361a8ba6a245718bd9"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单8 语言定义</span></label><a class="padding" href="../../../5_book/1_compiler/8_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 语言定义<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/8_langdef/1_langdef/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/1_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.1. </b>1 语法定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/2_codefile/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/2_codefile/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.2. </b>2 代码结构<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/3_keyword/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/3_keyword/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.3. </b>3 关键字<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/4_operator/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/4_operator/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.4. </b>4 操作符<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/5_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.5. </b>5 类型系统<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/index.html" class=""><input type="checkbox" id="R-section-d3cd331bf7047176213c01699128b453" aria-controls="R-subsections-d3cd331bf7047176213c01699128b453"><label for="R-section-d3cd331bf7047176213c01699128b453"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据格式</span></label><a class="padding" href="../../../6_format/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6. </b>数据格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d3cd331bf7047176213c01699128b453" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/index.html" class="alwaysopen"><input type="checkbox" id="R-section-ddcb6fb9de3c2f17d34681b6202d0673" aria-controls="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" checked><label for="R-section-ddcb6fb9de3c2f17d34681b6202d0673"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 通用格式设计</span></label><a class="padding" href="../../../6_format/1_general/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.1. </b>1 通用格式设计<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/1_fileheader/index.html" class=""><a class="padding" href="../../../6_format/1_general/1_fileheader/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 文件头<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/2_segmentformat/index.html" class=""><a class="padding" href="../../../6_format/1_general/2_segmentformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 段节格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/3_tlvformat/index.html" class=""><a class="padding" href="../../../6_format/1_general/3_tlvformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 TLV格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/2_program/index.html" class="alwaysopen"><input type="checkbox" id="R-section-a736007759e1704f9ca7850f5e8751f3" aria-controls="R-subsections-a736007759e1704f9ca7850f5e8751f3" checked><label for="R-section-a736007759e1704f9ca7850f5e8751f3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 程序格式</span></label><a class="padding" href="../../../6_format/2_program/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.2. </b>2 程序格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-a736007759e1704f9ca7850f5e8751f3" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/index.html" class="alwaysopen"><input type="checkbox" id="R-section-78f88c8cabb4bfe1079e3925dd6c6913" aria-controls="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" checked><label for="R-section-78f88c8cabb4bfe1079e3925dd6c6913"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 ELF 格式</span></label><a class="padding" href="../../../6_format/2_program/1_elf/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 ELF 格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/1_elf32/index.html" class=""><a class="padding" href="../../../6_format/2_program/1_elf/1_elf32/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 ELF32 格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/2_program/1_elf/2_elf64/index.html" class=""><a class="padding" href="../../../6_format/2_program/1_elf/2_elf64/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 ELF64 格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/3_color/index.html" class="alwaysopen"><input type="checkbox" id="R-section-5820581638e280c0d2f6f1bb2145223f" aria-controls="R-subsections-5820581638e280c0d2f6f1bb2145223f" checked><label for="R-section-5820581638e280c0d2f6f1bb2145223f"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 颜色格式</span></label><a class="padding" href="../../../6_format/3_color/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.3. </b>3 颜色格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-5820581638e280c0d2f6f1bb2145223f" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/3_color/1_rgba/index.html" class=""><a class="padding" href="../../../6_format/3_color/1_rgba/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 RGBA<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/2_hsl/index.html" class=""><a class="padding" href="../../../6_format/3_color/2_hsl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 HSL/HSV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/3_yuv/index.html" class=""><a class="padding" href="../../../6_format/3_color/3_yuv/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 YUV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/4_xyz/index.html" class=""><a class="padding" href="../../../6_format/3_color/4_xyz/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 XYZ<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/5_lab/index.html" class=""><a class="padding" href="../../../6_format/3_color/5_lab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 LAB<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/6_cmyk/index.html" class=""><a class="padding" href="../../../6_format/3_color/6_cmyk/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 CMYK<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/4_compress/index.html" class=""><a class="padding" href="../../../6_format/4_compress/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.4. </b>4 压缩格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/5_picture/index.html" class=""><a class="padding" href="../../../6_format/5_picture/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.5. </b>5 图片格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/6_video/index.html" class=""><a class="padding" href="../../../6_format/6_video/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.6. </b>6 视频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/7_audio/index.html" class=""><a class="padding" href="../../../6_format/7_audio/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.7. </b>7 音频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/8_model/index.html" class=""><a class="padding" href="../../../6_format/8_model/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.8. </b>8 模型3D<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/7_plat/index.html" class=""><a class="padding" href="../../../7_plat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7. </b>平台<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+        <div id="R-shortcuts">
+          <div class="nav-title padding">更多</div>
+          <ul class="space">
+            <li><a class="padding" href="https://gitee.com/irscript/"><i class='fas fa-code-branch'></i> Gitee 仓库</a></li>
+            <li><a class="padding" href="https://github.com/irscript/"><i class='fa-fw fab fa-github'></i> GitHub 仓库</a></li>
+            <li><a class="padding" href="https://gohugo.io/"><i class='fa-fw fas fa-bookmark'></i> Hugo 文档</a></li>
+            <li><a class="padding" href="https://mcshelby.github.io/hugo-theme-relearn/"><i class='fa-fw fas fa-bullhorn''></i> Relearn 主题</a></li>
+            <li><a class="padding" href="../../../tags/index.html"><i class='fa-fw fas fa-tags'></i> 标签</a></li>
+            <li><a class="padding" href="../../../categories/index.html"><i class='fa-fw fas fa-layer-group'></i> 分类</a></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showVariantSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">语言</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-zh-cn" value="#R-select-language-zh-cn" data-url="../../../4_tools/1_theme/9_mermaid/index.html" lang="zh-cn" selected>简体中文</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch showVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">主题</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-relearn-auto" value="relearn-auto" selected>Relearn Light/Dark</option>
+                      <option id="R-select-variant-relearn-light" value="relearn-light">Relearn Light</option>
+                      <option id="R-select-variant-relearn-dark" value="relearn-dark">Relearn Dark</option>
+                      <option id="R-select-variant-relearn-bright" value="relearn-bright">Relearn Bright</option>
+                      <option id="R-select-variant-zen-auto" value="zen-auto">Zen Light/Dark</option>
+                      <option id="R-select-variant-zen-light" value="zen-light">Zen Light</option>
+                      <option id="R-select-variant-zen-dark" value="zen-dark">Zen Dark</option>
+                      <option id="R-select-variant-neon" value="neon">Neon</option>
+                      <option id="R-select-variant-learn" value="learn">Learn</option>
+                      <option id="R-select-variant-blue" value="blue">Blue</option>
+                      <option id="R-select-variant-green" value="green">Green</option>
+                      <option id="R-select-variant-red" value="red">Red</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">清理历史记录</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><hr/>
+<p style="text-align: center;margin: 0;">© 2023 - 2024</p>
+<p style="text-align: center;margin: 0;"><i class="fab fa-creative-commons-sa"></i> CC BY-SA 3.0</p>
+<p style="text-align: center;margin: 0;">Built with ❤️ by <a href="https://github.com/irscript/">IrScript</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../../js/clipboard.min.js?1728629533" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-color.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-dispatch.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-drag.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-ease.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-interpolate.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-selection.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-timer.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-transition.min.js?1728629533" defer></script>
+    <script src="../../../js/d3/d3-zoom.min.js?1728629533" defer></script>
+    <script src="../../../js/js-yaml.min.js?1728629533" defer></script>
+    <script src="../../../js/mermaid.min.js?1728629533" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{ \"securityLevel\": \"loose\" }");
+    </script>
+    <script src="../../../js/theme.js?1728629533" defer></script>
+  </body>
+</html>

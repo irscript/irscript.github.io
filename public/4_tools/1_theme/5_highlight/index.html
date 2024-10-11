@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="高亮(highlight)">
+    <meta name="twitter:description" content="highlight 使用语法高亮显示来呈现您的代码。
+&#8203; python 1print(&#34;Hello World!&#34;) 用法 这个简码与 Hugo 的 highlight 简码但提供了一些扩展。
+它的调用方式与 Hugo 自己的短代码相同，提供位置参数或简单地使用 codefences。
+您也可以自由地从自己的部分调用此短代码。在这种情况下，它类似于雨果的highlight功能语法，如果使用兼容性语法将此简码称为部分。
+虽然示例使用带有命名参数的短代码，但建议改用 codefences。这是因为越来越多的其他软件支持共同防御（例如。GitHub），因此您的 Markdown 变得更加可移植。
+&#8203; codefence shortcode shortcode (positional) ```py { lineNos=&#34;true&#34; wrap=&#34;true&#34; title=&#34;python&#34; } print(&#34;Hello World!&#34;) ``` {{&lt; highlight lineNos=&#34;true&#34; type=&#34;py&#34; wrap=&#34;true&#34; title=&#34;python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} {{&lt; highlight py &#34;lineNos=true,wrap=true,title=python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} 参数 名称 位置 默认 Note注释s type 1 &lt;空&gt; 要突出显示的代码语言。从支持的语言之一中进行选择。不区分大小写。 title &lt;空&gt; 扩展。 代码的任意标题。如果出现以下情况，则会像单个选项卡一样显示代码hl_inline=false（这是 Hugos 的默认设置）。 wrap 扩展。 当内容可以换行时，否则它将是可滚动的。">
+    <meta property="og:title" content="高亮(highlight)">
+    <meta property="og:description" content="highlight 使用语法高亮显示来呈现您的代码。
+&#8203; python 1print(&#34;Hello World!&#34;) 用法 这个简码与 Hugo 的 highlight 简码但提供了一些扩展。
+它的调用方式与 Hugo 自己的短代码相同，提供位置参数或简单地使用 codefences。
+您也可以自由地从自己的部分调用此短代码。在这种情况下，它类似于雨果的highlight功能语法，如果使用兼容性语法将此简码称为部分。
+虽然示例使用带有命名参数的短代码，但建议改用 codefences。这是因为越来越多的其他软件支持共同防御（例如。GitHub），因此您的 Markdown 变得更加可移植。
+&#8203; codefence shortcode shortcode (positional) ```py { lineNos=&#34;true&#34; wrap=&#34;true&#34; title=&#34;python&#34; } print(&#34;Hello World!&#34;) ``` {{&lt; highlight lineNos=&#34;true&#34; type=&#34;py&#34; wrap=&#34;true&#34; title=&#34;python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} {{&lt; highlight py &#34;lineNos=true,wrap=true,title=python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} 参数 名称 位置 默认 Note注释s type 1 &lt;空&gt; 要突出显示的代码语言。从支持的语言之一中进行选择。不区分大小写。 title &lt;空&gt; 扩展。 代码的任意标题。如果出现以下情况，则会像单个选项卡一样显示代码hl_inline=false（这是 Hugos 的默认设置）。 wrap 扩展。 当内容可以换行时，否则它将是可滚动的。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/4_tools/1_theme/5_highlight/index.html">
+    <meta property="article:section" content="主题简码">
+    <title>高亮(highlight)</title>
+    <link href="../../../4_tools/1_theme/5_highlight/index.xml" rel="alternate" type="application/rss+xml" title="高亮(highlight)">
+    <link href="../../../4_tools/1_theme/5_highlight/index.print.html" rel="alternate" type="text/html" title="高亮(highlight)"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629533" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629533" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629533" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629533" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629533" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629533" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629533" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629533" rel="stylesheet">
+    <link href="../../../css/print.css?1728629533" rel="stylesheet" media="print">
+    <link href="../../../css/ie.css?1728629533" rel="stylesheet">
+    <script src="../../../js/url.js?1728629533"></script>
+    <script src="../../../js/variant.js?1728629533"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../../4_tools/1_theme/5_highlight/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="目录 (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper"><div class="default-animation progress">
+  <div class="toc-wrapper">
+    <div serialing><nav class="TableOfContents">
+  <ul>
+    <li><a href="#用法">用法</a>
+      <ul>
+        <li><a href="#参数">参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置">配置</a>
+      <ul>
+        <li><a href="#全局配置文件">全局配置文件</a></li>
+        <li><a href="#页面-frontmatter">页面 Frontmatter</a></li>
+      </ul>
+    </li>
+    <li><a href="#案例">案例</a>
+      <ul>
+        <li><a href="#带起始偏移量的行号">带起始偏移量的行号</a></li>
+        <li><a href="#有标题的codefence">有标题的Codefence</a></li>
+        <li><a href="#带装饰">带装饰</a></li>
+        <li><a href="#无装饰">无装饰</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+  </div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/index.html"><span itemprop="name">工具手册</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/1_theme/index.html"><span itemprop="name">主题简码</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">高亮(highlight)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="https://gitee.com/irscript/irscript/blob/master/content/4_tools/1_theme/5_highlight.md" target="_blank" title="编辑 (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../4_tools/1_theme/5_highlight/index.print.html" title="打印整章 (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../4_tools/1_theme/4_expand/index.html" title="扩展(expand) (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../4_tools/1_theme/6_icon/index.html" title="图标(icon) (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="更多"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default" serialing>
+  <header class="headline">
+  </header>
+  
+  <h1 id="高亮highlight"> 1.5 高亮(highlight)</h1>
+  <hr />
+
+  <p><code>highlight</code> 使用语法高亮显示来呈现您的代码。</p>
+
+<div class="tab-panel" data-tab-group="176dc8a7f37f33a240bd8072439b9716">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="python"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('176dc8a7f37f33a240bd8072439b9716','python')"
+    >
+      <span class="tab-nav-text">python</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="python"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code" lineNos="true"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="用法">用法</h2>
+<p>这个简码与 <code>Hugo</code> 的 <code>highlight</code> 简码但提供了一些扩展。</p>
+<p>它的调用方式与 Hugo 自己的短代码相同，提供位置参数或简单地使用 codefences。</p>
+<p>您也可以自由地从自己的部分调用此短代码。在这种情况下，它类似于雨果的highlight功能语法，如果使用兼容性语法将此简码称为部分。</p>
+<p>虽然示例使用带有命名参数的短代码，但建议改用 codefences。这是因为越来越多的其他软件支持共同防御（例如。GitHub），因此您的 Markdown 变得更加可移植。</p>
+
+<div class="tab-panel" data-tab-group="shortcode-parameter">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="codefence"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('shortcode-parameter','codefence')"
+    >
+      <span class="tab-nav-text">codefence</span>
+    </button>
+    <button
+      data-tab-item="shortcode"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','shortcode')"
+    >
+      <span class="tab-nav-text">shortcode</span>
+    </button>
+    <button
+      data-tab-item="shortcode-positional"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','shortcode-positional')"
+    >
+      <span class="tab-nav-text">shortcode (positional)</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="codefence"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">```py { lineNos=&#34;true&#34; wrap=&#34;true&#34; title=&#34;python&#34; }
+</span></span><span class="line"><span class="cl">print(&#34;Hello World!&#34;)
+</span></span><span class="line"><span class="cl">```</span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="shortcode"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">lineNos</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="nx">wrap</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;python&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="shortcode-positional"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">py</span> <span class="s">&#34;lineNos=true,wrap=true,title=python&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="参数">参数</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位置</th>
+<th>默认</th>
+<th>Note注释s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>1</td>
+<td><em>&lt;空&gt;</em></td>
+<td>要突出显示的代码语言。从<a href="https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages" target="_blank">支持的语言</a>之一中进行选择。不区分大小写。</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td></td>
+<td><em>&lt;空&gt;</em></td>
+<td><strong>扩展</strong>。 代码的任意标题。如果出现以下情况，则会像单个选项卡一样显示代码<code>hl_inline=false</code>（这是 Hugos 的默认设置）。</td>
+</tr>
+<tr>
+<td><strong>wrap</strong></td>
+<td></td>
+<td></td>
+<td><strong>扩展</strong>。 当内容可以换行时，否则它将是可滚动的。<br>默认值true,可以在<code>hugo.toml</code>并通过 <code>frontmatter</code> 覆盖。见<a href="../../../4_tools/1_theme/5_highlight/index.html#configuration">下文</a>。</td>
+</tr>
+<tr>
+<td><strong>options</strong></td>
+<td>2</td>
+<td><em>&lt;空&gt;</em></td>
+<td>此表中零个或多个 <a href="https://gohugo.io/functions/highlight/#options" target="_blank">Hugo 支持的选项</a> 以及扩展参数的可选逗号分隔列表。</td>
+</tr>
+<tr>
+<td><em><strong>&lt;option&gt;</strong></em></td>
+<td></td>
+<td><em>&lt;空&gt;</em></td>
+<td><a href="https://gohugo.io/functions/highlight/#options" target="_blank">Hugo 支持的任何选项</a>.</td>
+</tr>
+<tr>
+<td><em><strong>&lt;content&gt;</strong></em></td>
+<td></td>
+<td><em>&lt;空&gt;</em></td>
+<td>需要语法高亮的代码.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置">配置</h2>
+<p><a href="https://gohugo.io/functions/highlight/#options" target="_blank">Hugo 支持选项</a> 的默认值可以通过 <code>goldmark</code> 设置<code>hugo.toml</code></p>
+<p>扩展选项的默认值可以通过<code>hugo.toml</code>或被每个单独页面的 <code>frontmatter</code> 覆盖。</p>
+<h3 id="全局配置文件">全局配置文件</h3>
+<p>您可以在<a href="https://github.com/chase-moskal/mermaid-live-editor/blob/master/src/components/editor/editor.styles.scss" target="_blank">颜色变体样式表</a>文件中配置用于代码块的颜色样式。</p>
+<h4 id="推荐设置">推荐设置</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">markup</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">markup</span><span class="p">.</span><span class="nx">highlight</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">lineNumbersInTable</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">noClasses</span> <span class="p">=</span> <span class="kc">false</span></span></span></code></pre></div><h4 id="可选设置">可选设置</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">highlightWrap</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div><h3 id="页面-frontmatter">页面 Frontmatter</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">highlightWrap</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div><h2 id="案例">案例</h2>
+<h3 id="带起始偏移量的行号">带起始偏移量的行号</h3>
+<p>如上所述，如果代码换行，布局中的行号将发生变化，因此最好使用<code>table</code> <code>inline</code>.为了让您更轻松，请将<code>lineNumbersInTable = false</code>在你的<code>hugo.toml</code>并添加<code>lineNos = true</code>调用简码而不是特定值时，或者<code>table</code> <code>inline</code>.</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">lineNos</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="nx">lineNoStart</span><span class="p">=</span><span class="s">&#34;666&#34;</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">the</span> <span class="nx">hardest</span> <span class="nx">part</span> <span class="nx">is</span> <span class="nx">to</span> <span class="nx">start</span> <span class="nx">writing</span> <span class="nx">code</span><span class="p">;</span> <span class="nx">here</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">a</span> <span class="nx">kickstart</span><span class="p">;</span> <span class="nx">just</span> <span class="nx">copy</span> <span class="nx">and</span> <span class="nx">paste</span> <span class="nx">this</span><span class="p">;</span> <span class="nx">it</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">free</span><span class="p">;</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">lines</span> <span class="nx">will</span> <span class="nx">cost</span> <span class="nx">you</span> <span class="nx">serious</span> <span class="nx">credits</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;World&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div><div class="highlight wrap-code" lineNoStart="666" lineNos="true"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="ln">666</span><span class="cl"><span class="c1"># the hardest part is to start writing code; here&#39;s a kickstart; just copy and paste this; it&#39;s free; the next lines will cost you serious credits</span>
+</span></span><span class="line"><span class="ln">667</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">668</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">669</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;World&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">670</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;!&#34;</span><span class="p">)</span></span></span></code></pre></div>
+<h3 id="有标题的codefence">有标题的Codefence</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">```py { title=&#34;python&#34; }
+</span></span><span class="line"><span class="cl"><span class="gh"># a bit shorter
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>print(&#34;Hello World!&#34;)
+</span></span><span class="line"><span class="cl">```</span></span></code></pre></div>
+<div class="tab-panel" data-tab-group="c1effdeb1ab73b309c355791af4c291b">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="python"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('c1effdeb1ab73b309c355791af4c291b','python')"
+    >
+      <span class="tab-nav-text">python</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="python"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># a bit shorter</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div><h3 id="带装饰">带装饰</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="nx">wrap</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="nx">hl_lines</span><span class="p">=</span><span class="s">&#34;2&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Quicksort</span> <span class="nx">Python</span> <span class="nx">One</span><span class="o">-</span><span class="nx">liner</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lambda</span> <span class="nx">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="nx">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="p">&lt;</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="o">&gt;=</span><span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Some</span> <span class="nx">more</span> <span class="nx">stuff</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div><div class="highlight wrap-code" hl_lines="2"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># Quicksort Python One-liner</span>
+</span></span><span class="line hl"><span class="cl"><span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Some more stuff</span></span></span></code></pre></div>
+<h3 id="无装饰">无装饰</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="nx">wrap</span><span class="p">=</span><span class="s">&#34;false&#34;</span> <span class="nx">hl_lines</span><span class="p">=</span><span class="s">&#34;2&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Quicksort</span> <span class="nx">Python</span> <span class="nx">One</span><span class="o">-</span><span class="nx">liner</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lambda</span> <span class="nx">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="nx">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="p">&lt;</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="o">&gt;=</span><span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Some</span> <span class="nx">more</span> <span class="nx">stuff</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># Quicksort Python One-liner</span>
+</span></span><span class="line hl"><span class="cl"><span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Some more stuff</span></span></span></code></pre></div>
+
+  <footer class="footline">
+  </footer>
+</article>        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="../../../"><img src="../../../images/logo.png"></a>
+        </div>
+        <form action="../../../search.html" method="get"><div class="searchbox default-animation">
+          <button class="search-detail" type="submit" title="搜索 (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+          <label class="a11y-only" for="R-search-by">搜索</label>
+          <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="搜索...">
+          <button class="search-clear" type="button" data-search-clear="" title="清除搜索"><i class="fas fa-times" title="清除搜索"></i></button>
+        </div></form>
+        <script>
+          var contentLangs=['zh'];
+        </script>
+        <script src="../../../js/auto-complete.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.min.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.stemmer.support.min.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.multi.min.js?1728629533" defer></script>
+        <script src="../../../js/lunr/lunr.zh.min.js?1728629533" defer></script>
+        <script src="../../../js/search.js?1728629533" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/1_note/index.html" class=""><input type="checkbox" id="R-section-4b0e502ebf4d1ce2a6d931226d17de75" aria-controls="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75"><label for="R-section-4b0e502ebf4d1ce2a6d931226d17de75"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编程日常</span></label><a class="padding" href="../../../1_note/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1. </b>编程日常<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4b0e502ebf4d1ce2a6d931226d17de75" class="morespace collapsible-menu">
+          <li data-nav-id="/1_note/1_link/index.html" class=""><a class="padding" href="../../../1_note/1_link/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>网站收藏<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/index.html" class=""><input type="checkbox" id="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e" aria-controls="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e"><label for="R-section-d4a4b0248aa24ee2f3708ab4b26c8a6e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单理论算法</span></label><a class="padding" href="../../../2_algorithm/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2. </b>理论算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d4a4b0248aa24ee2f3708ab4b26c8a6e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/index.html" class="alwaysopen"><input type="checkbox" id="R-section-54c5d7600e868901b497c3ae908d2b7a" aria-controls="R-subsections-54c5d7600e868901b497c3ae908d2b7a" checked><label for="R-section-54c5d7600e868901b497c3ae908d2b7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据结构</span></label><a class="padding" href="../../../2_algorithm/1_struct/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>数据结构<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-54c5d7600e868901b497c3ae908d2b7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/index.html" class="alwaysopen"><input type="checkbox" id="R-section-b192339563a6107d3f96234848b4e7fa" aria-controls="R-subsections-b192339563a6107d3f96234848b4e7fa" checked><label for="R-section-b192339563a6107d3f96234848b4e7fa"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单链表</span></label><a class="padding" href="../../../2_algorithm/1_struct/list/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>链表<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-b192339563a6107d3f96234848b4e7fa" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/1_struct/list/singlelinkedlist/index.html" class=""><a class="padding" href="../../../2_algorithm/1_struct/list/singlelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>单向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/1_struct/list/doublelinkedlist/index.html" class=""><a class="padding" href="../../../2_algorithm/1_struct/list/doublelinkedlist/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>双向节点链表<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/2_algorithm/1_align/index.html" class=""><a class="padding" href="../../../2_algorithm/1_align/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 整数对齐<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/index.html" class="alwaysopen"><input type="checkbox" id="R-section-3f1dc194b2fcd83695e7ac1f662b162b" aria-controls="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" checked><label for="R-section-3f1dc194b2fcd83695e7ac1f662b162b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 哈希函数</span></label><a class="padding" href="../../../2_algorithm/2_hash/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-3f1dc194b2fcd83695e7ac1f662b162b" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/index.html" class="alwaysopen"><input type="checkbox" id="R-section-8135df4df2db9b906ef15b7155d00c7a" aria-controls="R-subsections-8135df4df2db9b906ef15b7155d00c7a" checked><label for="R-section-8135df4df2db9b906ef15b7155d00c7a"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 消息摘要算法</span></label><a class="padding" href="../../../2_algorithm/2_hash/1_md/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 消息摘要算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-8135df4df2db9b906ef15b7155d00c7a" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/1_md/1_md2/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/1_md2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 MD2 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/2_md4/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/2_md4/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 MD4 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/1_md/3_md5/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/1_md/3_md5/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 MD5 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/index.html" class="alwaysopen"><input type="checkbox" id="R-section-75a9b55ecfd932ba72775da99ef49b2e" aria-controls="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" checked><label for="R-section-75a9b55ecfd932ba72775da99ef49b2e"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 签名算法</span></label><a class="padding" href="../../../2_algorithm/2_hash/2_sha/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 签名算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-75a9b55ecfd932ba72775da99ef49b2e" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/1_sha1/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/1_sha1/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 SHA1 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/2_sha2_224/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/2_sha2_224/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 SHA2-224 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/3_sha2_256/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/3_sha2_256/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 SHA2-256 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/4_sha2_384/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/4_sha2_384/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 SHA2-384 算法<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/2_hash/2_sha/5_sha2_512/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/2_sha/5_sha2_512/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 SHA2-512 算法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/2_hash/3_crc/index.html" class=""><a class="padding" href="../../../2_algorithm/2_hash/3_crc/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 CRC 哈希函数<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/index.html" class="alwaysopen"><input type="checkbox" id="R-section-250d4ba57265d5f238203a79e144b2d4" aria-controls="R-subsections-250d4ba57265d5f238203a79e144b2d4" checked><label for="R-section-250d4ba57265d5f238203a79e144b2d4"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 快速位算法</span></label><a class="padding" href="../../../2_algorithm/3_bitwise/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 快速位算法<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-250d4ba57265d5f238203a79e144b2d4" class="morespace collapsible-menu">
+          <li data-nav-id="/2_algorithm/3_bitwise/1_average/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/1_average/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 快速平均值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/2_bitfield/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/2_bitfield/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 位域值提取<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/3_intmaxmin/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/3_intmaxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 INT_MAX和INT_MIN<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/4_application/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/4_application/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 应用 n &#43; (~n) = -1<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/5_application2/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/5_application2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 应用 n ^ n = 0 和 n ^ 0 = n<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/6_application3/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/6_application3/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 应用  x&amp;(x-1)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/7_2pow/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/7_2pow/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 应用 2的次方<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/8_maxmin/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/8_maxmin/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 取两数的最 大/小 值<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/2_algorithm/3_bitwise/9_rotateshift/index.html" class=""><a class="padding" href="../../../2_algorithm/3_bitwise/9_rotateshift/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.9. </b>9 循环移位<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/3_project/index.html" class=""><a class="padding" href="../../../3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3. </b>自主项目<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/index.html" class="parent "><input type="checkbox" id="R-section-0c8c9498d978a41fa7b2036df55e5d36" aria-controls="R-subsections-0c8c9498d978a41fa7b2036df55e5d36" checked><label for="R-section-0c8c9498d978a41fa7b2036df55e5d36"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单工具手册</span></label><a class="padding" href="../../../4_tools/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4. </b>工具手册<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-0c8c9498d978a41fa7b2036df55e5d36" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/index.html" class="parent alwaysopen"><input type="checkbox" id="R-section-581c85e34838d0cf1c8916f490b4887b" aria-controls="R-subsections-581c85e34838d0cf1c8916f490b4887b" checked><label for="R-section-581c85e34838d0cf1c8916f490b4887b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单主题简码</span></label><a class="padding" href="../../../4_tools/1_theme/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.1. </b>主题简码<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-581c85e34838d0cf1c8916f490b4887b" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/1_badge/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/1_badge/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>徽章(badge)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/2_button/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/2_button/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>按钮(button)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/index.html" class="alwaysopen"><input type="checkbox" id="R-section-cc55ed38bbe8ec2599355e4860c0da99" aria-controls="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" checked><label for="R-section-cc55ed38bbe8ec2599355e4860c0da99"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页(children)</span></label><a class="padding" href="../../../4_tools/1_theme/3_children/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>子页(children)<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-cc55ed38bbe8ec2599355e4860c0da99" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/index.html" class="alwaysopen"><input type="checkbox" id="R-section-ff0d63e498b500bf298134242bc49099" aria-controls="R-subsections-ff0d63e498b500bf298134242bc49099" checked><label for="R-section-ff0d63e498b500bf298134242bc49099"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单子页 1</span></label><a class="padding" href="../../../4_tools/1_theme/3_children/child/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>子页 1<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ff0d63e498b500bf298134242bc49099" class="morespace collapsible-menu">
+          <li data-nav-id="/4_tools/1_theme/3_children/child/child_page/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/3_children/child/child_page/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>子页 1-1<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/3_children/child_page2/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/3_children/child_page2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>子页 2<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/1_theme/4_expand/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/4_expand/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.4. </b>扩展(expand)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/5_highlight/index.html" class="active"><a class="padding" href="../../../4_tools/1_theme/5_highlight/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.5. </b>高亮(highlight)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/6_icon/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/6_icon/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.6. </b>图标(icon)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/7_include/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/7_include/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.7. </b>包含文件(include)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/8_math/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/8_math/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.8. </b>数学公式(math)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/9_mermaid/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/9_mermaid/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.9. </b>流图(mermaid)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/10_notice/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/10_notice/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.10. </b>注解(Notice)<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/11_siteparam/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/11_siteparam/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.11. </b>站点参数<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/12_tab/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/12_tab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.12. </b>标签页<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/1_theme/13_tabs/index.html" class=""><a class="padding" href="../../../4_tools/1_theme/13_tabs/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.13. </b>多标签页<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/4_tools/2_git/index.html" class=""><a class="padding" href="../../../4_tools/2_git/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.2. </b>git 文档<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/4_tools/3_markdown/index.html" class=""><a class="padding" href="../../../4_tools/3_markdown/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">4.3. </b>MD 语法<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/index.html" class=""><input type="checkbox" id="R-section-ddeab34407829e813a844fe090b557d3" aria-controls="R-subsections-ddeab34407829e813a844fe090b557d3"><label for="R-section-ddeab34407829e813a844fe090b557d3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单教程系列</span></label><a class="padding" href="../../../5_book/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5. </b>教程系列<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddeab34407829e813a844fe090b557d3" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/index.html" class="alwaysopen"><input type="checkbox" id="R-section-4e6dcb6d3fac67575db5eaccba506e58" aria-controls="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" checked><label for="R-section-4e6dcb6d3fac67575db5eaccba506e58"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单编译原理</span></label><a class="padding" href="../../../5_book/1_compiler/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">5.3. </b>编译原理<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-4e6dcb6d3fac67575db5eaccba506e58" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/index.html" class="alwaysopen"><input type="checkbox" id="R-section-59a55f398b44910be4c39ee24bb326b7" aria-controls="R-subsections-59a55f398b44910be4c39ee24bb326b7" checked><label for="R-section-59a55f398b44910be4c39ee24bb326b7"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 词法分析</span></label><a class="padding" href="../../../5_book/1_compiler/1_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 词法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-59a55f398b44910be4c39ee24bb326b7" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/1_lexer/1_tokendef/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/1_tokendef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 Token 定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/2_lexer/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/2_lexer/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 Lexer 实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/1_lexer/3_project/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/1_lexer/3_project/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 工程文件解析<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/index.html" class="alwaysopen"><input type="checkbox" id="R-section-758679e0816e586918fb9cadfcfe4ade" aria-controls="R-subsections-758679e0816e586918fb9cadfcfe4ade" checked><label for="R-section-758679e0816e586918fb9cadfcfe4ade"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 语法分析</span></label><a class="padding" href="../../../5_book/1_compiler/2_parser/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 语法分析<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-758679e0816e586918fb9cadfcfe4ade" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/2_parser/1_typesystem/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/1_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 类型系统设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/2_astnode/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/2_astnode/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.2. </b>2 抽象语法树设计与实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/3_fileunit/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/3_fileunit/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.3. </b>3 代码文件文件管理<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/4_parserbase/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/4_parserbase/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.4. </b>4 顶层语法解析实现<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/5_parserexp/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/5_parserexp/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.5. </b>5 解析表达式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/6_parserdecl/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/6_parserdecl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.6. </b>6 解析声明<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/2_parser/7_parserdecl2/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/2_parser/7_parserdecl2/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.7. </b>7 解析声明续<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/3_analysis/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/3_analysis/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 语义分析<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/4_optimize/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/4_optimize/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 中间优化<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/5_target/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/5_target/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 目标生成<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/6_ir/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/6_ir/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 中间代码<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/index.html" class="alwaysopen"><input type="checkbox" id="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2" aria-controls="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" checked><label for="R-section-d90c0eb6b0e6fadd34f802ddea03a5d2"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单7 指令集</span></label><a class="padding" href="../../../5_book/1_compiler/7_instruction/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.7. </b>7 指令集<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d90c0eb6b0e6fadd34f802ddea03a5d2" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/1_stackbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.1. </b>1 基于栈的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/2_registerbasedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.2. </b>2 基于寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/7_instruction/3_mixedinsset/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/7_instruction/3_mixedinsset/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7.3. </b>3 基于栈和寄存器的指令集<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/index.html" class="alwaysopen"><input type="checkbox" id="R-section-f7ed7a430e6586361a8ba6a245718bd9" aria-controls="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" checked><label for="R-section-f7ed7a430e6586361a8ba6a245718bd9"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单8 语言定义</span></label><a class="padding" href="../../../5_book/1_compiler/8_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.8. </b>8 语言定义<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-f7ed7a430e6586361a8ba6a245718bd9" class="morespace collapsible-menu">
+          <li data-nav-id="/5_book/1_compiler/8_langdef/1_langdef/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/1_langdef/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.1. </b>1 语法定义<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/2_codefile/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/2_codefile/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.2. </b>2 代码结构<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/3_keyword/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/3_keyword/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.3. </b>3 关键字<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/4_operator/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/4_operator/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.4. </b>4 操作符<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/5_book/1_compiler/8_langdef/5_typesystem/index.html" class=""><a class="padding" href="../../../5_book/1_compiler/8_langdef/5_typesystem/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">8.5. </b>5 类型系统<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/index.html" class=""><input type="checkbox" id="R-section-d3cd331bf7047176213c01699128b453" aria-controls="R-subsections-d3cd331bf7047176213c01699128b453"><label for="R-section-d3cd331bf7047176213c01699128b453"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单数据格式</span></label><a class="padding" href="../../../6_format/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6. </b>数据格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-d3cd331bf7047176213c01699128b453" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/index.html" class="alwaysopen"><input type="checkbox" id="R-section-ddcb6fb9de3c2f17d34681b6202d0673" aria-controls="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" checked><label for="R-section-ddcb6fb9de3c2f17d34681b6202d0673"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 通用格式设计</span></label><a class="padding" href="../../../6_format/1_general/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.1. </b>1 通用格式设计<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-ddcb6fb9de3c2f17d34681b6202d0673" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/1_general/1_fileheader/index.html" class=""><a class="padding" href="../../../6_format/1_general/1_fileheader/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 文件头<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/2_segmentformat/index.html" class=""><a class="padding" href="../../../6_format/1_general/2_segmentformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 段节格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/1_general/3_tlvformat/index.html" class=""><a class="padding" href="../../../6_format/1_general/3_tlvformat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.3. </b>3 TLV格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/2_program/index.html" class="alwaysopen"><input type="checkbox" id="R-section-a736007759e1704f9ca7850f5e8751f3" aria-controls="R-subsections-a736007759e1704f9ca7850f5e8751f3" checked><label for="R-section-a736007759e1704f9ca7850f5e8751f3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单2 程序格式</span></label><a class="padding" href="../../../6_format/2_program/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.2. </b>2 程序格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-a736007759e1704f9ca7850f5e8751f3" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/index.html" class="alwaysopen"><input type="checkbox" id="R-section-78f88c8cabb4bfe1079e3925dd6c6913" aria-controls="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" checked><label for="R-section-78f88c8cabb4bfe1079e3925dd6c6913"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单1 ELF 格式</span></label><a class="padding" href="../../../6_format/2_program/1_elf/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">2.1. </b>1 ELF 格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-78f88c8cabb4bfe1079e3925dd6c6913" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/2_program/1_elf/1_elf32/index.html" class=""><a class="padding" href="../../../6_format/2_program/1_elf/1_elf32/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.1. </b>1 ELF32 格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/2_program/1_elf/2_elf64/index.html" class=""><a class="padding" href="../../../6_format/2_program/1_elf/2_elf64/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">1.2. </b>2 ELF64 格式<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          <li data-nav-id="/6_format/3_color/index.html" class="alwaysopen"><input type="checkbox" id="R-section-5820581638e280c0d2f6f1bb2145223f" aria-controls="R-subsections-5820581638e280c0d2f6f1bb2145223f" checked><label for="R-section-5820581638e280c0d2f6f1bb2145223f"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">子菜单3 颜色格式</span></label><a class="padding" href="../../../6_format/3_color/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.3. </b>3 颜色格式<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-5820581638e280c0d2f6f1bb2145223f" class="morespace collapsible-menu">
+          <li data-nav-id="/6_format/3_color/1_rgba/index.html" class=""><a class="padding" href="../../../6_format/3_color/1_rgba/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.1. </b>1 RGBA<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/2_hsl/index.html" class=""><a class="padding" href="../../../6_format/3_color/2_hsl/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.2. </b>2 HSL/HSV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/3_yuv/index.html" class=""><a class="padding" href="../../../6_format/3_color/3_yuv/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.3. </b>3 YUV<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/4_xyz/index.html" class=""><a class="padding" href="../../../6_format/3_color/4_xyz/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.4. </b>4 XYZ<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/5_lab/index.html" class=""><a class="padding" href="../../../6_format/3_color/5_lab/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.5. </b>5 LAB<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/3_color/6_cmyk/index.html" class=""><a class="padding" href="../../../6_format/3_color/6_cmyk/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">3.6. </b>6 CMYK<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/6_format/4_compress/index.html" class=""><a class="padding" href="../../../6_format/4_compress/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.4. </b>4 压缩格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/5_picture/index.html" class=""><a class="padding" href="../../../6_format/5_picture/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.5. </b>5 图片格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/6_video/index.html" class=""><a class="padding" href="../../../6_format/6_video/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.6. </b>6 视频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/7_audio/index.html" class=""><a class="padding" href="../../../6_format/7_audio/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.7. </b>7 音频格式<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/6_format/8_model/index.html" class=""><a class="padding" href="../../../6_format/8_model/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">6.8. </b>8 模型3D<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/7_plat/index.html" class=""><a class="padding" href="../../../7_plat/index.html"><b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">7. </b>平台<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+        <div id="R-shortcuts">
+          <div class="nav-title padding">更多</div>
+          <ul class="space">
+            <li><a class="padding" href="https://gitee.com/irscript/"><i class='fas fa-code-branch'></i> Gitee 仓库</a></li>
+            <li><a class="padding" href="https://github.com/irscript/"><i class='fa-fw fab fa-github'></i> GitHub 仓库</a></li>
+            <li><a class="padding" href="https://gohugo.io/"><i class='fa-fw fas fa-bookmark'></i> Hugo 文档</a></li>
+            <li><a class="padding" href="https://mcshelby.github.io/hugo-theme-relearn/"><i class='fa-fw fas fa-bullhorn''></i> Relearn 主题</a></li>
+            <li><a class="padding" href="../../../tags/index.html"><i class='fa-fw fas fa-tags'></i> 标签</a></li>
+            <li><a class="padding" href="../../../categories/index.html"><i class='fa-fw fas fa-layer-group'></i> 分类</a></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showVariantSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">语言</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-zh-cn" value="#R-select-language-zh-cn" data-url="../../../4_tools/1_theme/5_highlight/index.html" lang="zh-cn" selected>简体中文</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch showVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">主题</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-relearn-auto" value="relearn-auto" selected>Relearn Light/Dark</option>
+                      <option id="R-select-variant-relearn-light" value="relearn-light">Relearn Light</option>
+                      <option id="R-select-variant-relearn-dark" value="relearn-dark">Relearn Dark</option>
+                      <option id="R-select-variant-relearn-bright" value="relearn-bright">Relearn Bright</option>
+                      <option id="R-select-variant-zen-auto" value="zen-auto">Zen Light/Dark</option>
+                      <option id="R-select-variant-zen-light" value="zen-light">Zen Light</option>
+                      <option id="R-select-variant-zen-dark" value="zen-dark">Zen Dark</option>
+                      <option id="R-select-variant-neon" value="neon">Neon</option>
+                      <option id="R-select-variant-learn" value="learn">Learn</option>
+                      <option id="R-select-variant-blue" value="blue">Blue</option>
+                      <option id="R-select-variant-green" value="green">Green</option>
+                      <option id="R-select-variant-red" value="red">Red</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">清理历史记录</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><hr/>
+<p style="text-align: center;margin: 0;">© 2023 - 2024</p>
+<p style="text-align: center;margin: 0;"><i class="fab fa-creative-commons-sa"></i> CC BY-SA 3.0</p>
+<p style="text-align: center;margin: 0;">Built with ❤️ by <a href="https://github.com/irscript/">IrScript</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../../js/clipboard.min.js?1728629533" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629533" defer></script>
+    <script src="../../../js/theme.js?1728629533" defer></script>
+  </body>
+</html>

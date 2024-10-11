@@ -19,6 +19,12 @@ other = "\"{0}\" için {1} sonuç bulundu"
 [Clear-History]
 other = "Geçmişi Temizle"
 
+[Reset-view]
+other = "Görünümü sıfırla"
+
+[View-reset]
+other = "Görünüm sıfırlandı!"
+
 [Attachments-label]
 other = "Ekler"
 
@@ -36,6 +42,9 @@ other = "Düzenlemek"
 
 [Print-this-chapter]
 other = "Bölümün tamamını yazdır"
+
+[More-action]
+other = "Dahası Var"
 
 [Shortcuts-Title]
 other = "Dahası Var"

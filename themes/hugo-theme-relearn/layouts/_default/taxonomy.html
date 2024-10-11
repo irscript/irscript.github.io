@@ -5,32 +5,22 @@
             </header>
 {{- $page := . }}
 
-{{- $title := i18n .Data.Plural }}
-{{- if not $title }}
-  {{- $title = .Data.Plural }}
-{{- end }}
-<h1 id="{{ $title | anchorize }}">{{ $title }}</h1>
+{{- $title := default (default .Data.Plural (i18n .Data.Plural)) .Params.Title }}
+<h1 id="{{ $title | plainify | anchorize }}">{{ $title }}</h1>
+{{- .Content }}
 {{- $lastCapital := "" }}
-{{- range .Data.Terms.Alphabetical }}
-  {{- $capital := substr .Page.Title 0 1 | upper }}
+{{- $pages := partialCached "partials/pageHelper/taxonomyPages.html" . . }}
+{{- range $pages }}
+  {{- $capital := substr .Title 0 1 | upper }}
   {{- if ne $lastCapital $capital }}
     {{- if ne $lastCapital "" }}
 </ul>
     {{- end }}
-<h2 id="{{ $capital | anchorize }}">{{ $capital }}</h2>
+<h2 id="{{ $capital | plainify | anchorize }}">{{ $capital }}</h2>
 <ul class="columnize">
   {{- end }}
-    {{- $c:=""}}{{/* display terms of a taxonomy */}}
-    {{- $len := 0 }}
-    {{- range .Pages }}
-      {{- $c:=""}}{{/* count pages of term */}}
-      {{- if and .Title (or (ne (.Scratch.Get "relearnIsHiddenStem") true) (ne .Site.Params.disableTagHiddenPages true) ) }}
-        {{- $len = add $len 1 }}
-      {{- end }}
-    {{- end }}
-    {{- if $len }}
-  <li><a href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .Page) }}">{{ .Page.Title }}</a> ({{ $len }})</li>
-    {{- end }}
+  {{- $c:=""}}{{/* display terms of a taxonomy */}}
+  <li><a href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .Page) }}">{{ .Title }}</a> ({{ .Count }})</li>
   {{- $lastCapital = $capital }}
 {{- end }}
 {{- if ne $lastCapital "" }}

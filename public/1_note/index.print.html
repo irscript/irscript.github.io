@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="编程日常">
+    <meta name="twitter:description" content="个人博客">
+    <meta property="og:title" content="编程日常">
+    <meta property="og:description" content="个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:1313/1_note/index.html">
+    <title>编程日常</title>
+    <link href="http://localhost:1313/1_note/index.html" rel="canonical" type="text/html" title="编程日常">
+    <link href="../1_note/index.xml" rel="alternate" type="application/rss+xml" title="编程日常"><link rel="icon" href="../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../js/url.js?1728629534"></script>
+    <script src="../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../1_note/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">编程日常</span><meta itemprop="position" content="1"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+  
+  <h1 id="编程日常"> 1 编程日常</h1>
+  <hr />
+
+  
+  <footer class="footline">
+  </footer>
+</article>
+          <section>
+            <h1 class="a11y-only">编程日常 的子部分</h1>
+<article class="default">
+  <header class="headline">
+  </header>
+  
+  <h1 id="网站收藏"> 1.1 网站收藏</h1>
+  <hr />
+
+  <h2 id="文件格式相关">文件格式相关</h2>
+<ul>
+<li><a href="https://www.moon-soft.com/program/FORMAT/" target="_blank">文件格式汇编: https://www.moon-soft.com/program/FORMAT/</a></li>
+</ul>
+<h2 id="算法相关">算法相关</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/Kingfans/category/2198205.html" target="_blank">加解密算法: https://www.cnblogs.com/Kingfans/category/2198205.html</a></li>
+<li><a href="http://graphics.stanford.edu/~seander/bithacks.html" target="_blank">快速位运算算法: http://graphics.stanford.edu/~seander/bithacks.html</a></li>
+</ul>
+<h2 id="x86x64指令相关">x86/x64指令相关</h2>
+<ul>
+<li><a href="https://blog.csdn.net/JimFire/article/details/112652145" target="_blank">x86-64的指令编码入门: https://blog.csdn.net/JimFire/article/details/112652145</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/464774687" target="_blank">x86_64指令编码方式: https://zhuanlan.zhihu.com/p/464774687</a></li>
+<li><a href="http://ref.x86asm.net/geek64.html" target="_blank">X86 Opcode and Instruction Reference: http://ref.x86asm.net/geek64.html</a></li>
+<li><a href="https://wiki.osdev.org/X86-64_Instruction_Encoding" target="_blank">X86-64_Instruction_Encoding: https://wiki.osdev.org/X86-64_Instruction_Encoding</a></li>
+</ul>
+<h2 id="游戏引擎相关">游戏引擎相关</h2>
+<ul>
+<li><a href="https://www.thisisgame.com.cn/tutorial?book=cpp-game-engine-book&lang=zh&md=Introduction.md" target="_blank">游戏引擎 浅入浅出: https://www.thisisgame.com.cn/tutorial?book=cpp-game-engine-book&amp;lang=zh&amp;md=Introduction.md</a></li>
+</ul>
+<h2 id="网络相关">网络相关</h2>
+<ul>
+<li><a href="http://www.52im.net/" target="_blank">即时通讯社区</a></li>
+</ul>
+<h2 id="设计模式">设计模式</h2>
+<ul>
+<li><a href="https://refactoringguru.cn/" target="_blank">设计模式: https://refactoringguru.cn/</a></li>
+<li><a href="https://gpp.tkchu.me/spatial-partition.html" target="_blank">游戏设计模式：https://gpp.tkchu.me/spatial-partition.html</a></li>
+</ul>
+<h2 id="他人博客">他人博客</h2>
+<ul>
+<li><a href="https://dins.site/navi-coding-chs/" target="_blank">https://dins.site/navi-coding-chs/</a></li>
+</ul>
+<h2 id="ffmpeg">Ffmpeg</h2>
+<ul>
+<li><a href="https://ffmpeg.xianwaizhiyin.net/" target="_blank">FFmpeg原理</a></li>
+<li><a href="https://feater.top/ffmpeg/ffmpeg-learning-indexes/" target="_blank">FFmpeg5入门系列</a></li>
+<li><a href="https://blog.csdn.net/qq21497936/article/details/102478062#Qt%E5%BC%80%E5%8F%91%E4%B8%93%E6%A0%8F%EF%BC%9A%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF" target="_blank">红胖子网络科技博文大全</a></li>
+</ul>
+<h2 id="计算机图形学">计算机图形学</h2>
+<ul>
+<li>easy vulkan: <a href="https://easyvulkan.github.io/" target="_blank">easyvulkan</a></li>
+</ul>
+<h2 id="linux">Linux</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/pandamohist/p/14590061.html" target="_blank">C/C(++)获取可执行程序完整路径</a>：使用<code>readlink</code>函数和<code>/proc/self/exe</code>符号链接。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/653334147" target="_blank">Linux C：获取当前程序名称的三种方式</a></li>
+</ul>
+<h2 id="window">window</h2>
+<ul>
+<li>自定义窗口标题栏，实现响应贴靠窗口布局:<a href="https://learn.microsoft.com/zh-cn/windows/apps/desktop/modernize/apply-snap-layout-menu" target="_blank">https://learn.microsoft.com/zh-cn/windows/apps/desktop/modernize/apply-snap-layout-menu</a></li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

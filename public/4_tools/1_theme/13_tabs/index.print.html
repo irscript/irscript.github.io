@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="显示多个标签页">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="多标签页">
+    <meta name="twitter:description" content="显示多个标签页">
+    <meta property="og:title" content="多标签页">
+    <meta property="og:description" content="显示多个标签页">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/4_tools/1_theme/13_tabs/index.html">
+    <meta property="article:section" content="主题简码">
+    <title>多标签页</title>
+    <link href="http://localhost:1313/4_tools/1_theme/13_tabs/index.html" rel="canonical" type="text/html" title="多标签页">
+    <link href="../../../4_tools/1_theme/13_tabs/index.xml" rel="alternate" type="application/rss+xml" title="多标签页"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../4_tools/1_theme/13_tabs/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/index.html"><span itemprop="name">工具手册</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/1_theme/index.html"><span itemprop="name">主题简码</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">多标签页</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default" serialing>
+  <header class="headline">
+  </header>
+  
+  <h1 id="多标签页"> 1.13 多标签页</h1>
+  <hr />
+
+  <p><code>tabs</code> 简码在无限数量的选项卡中显示任意内容。</p>
+<p>例如，这派上用场。用于提供多种语言的代码片段。</p>
+<p>如果您只想要一个选项卡，则可以改为将选项卡称为独立选项卡简码。</p>
+
+<div class="tab-panel" data-tab-group="4d44f60606a9cd232964efb96f4e8da4">
+  <div class="tab-nav">
+    <div class="tab-nav-title">hello.</div>
+    <button
+      data-tab-item="py"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('4d44f60606a9cd232964efb96f4e8da4','py')"
+    >
+      <span class="tab-nav-text">py</span>
+    </button>
+    <button
+      data-tab-item="sh"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('4d44f60606a9cd232964efb96f4e8da4','sh')"
+    >
+      <span class="tab-nav-text">sh</span>
+    </button>
+    <button
+      data-tab-item="c"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('4d44f60606a9cd232964efb96f4e8da4','c')"
+    >
+      <span class="tab-nav-text">c</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="py"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="sh"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World!&#34;</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="c"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="用法">用法</h2>
+<p>有关嵌套选项卡参数的说明，请参阅<code>tab</code>选项卡简码。</p>
+
+<div class="tab-panel" data-tab-group="shortcode-parameter">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="shortcode"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('shortcode-parameter','shortcode')"
+    >
+      <span class="tab-nav-text">shortcode</span>
+    </button>
+    <button
+      data-tab-item="partial"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','partial')"
+    >
+      <span class="tab-nav-text">partial</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="shortcode"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;hello.&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```python
+</span></span></span><span class="line"><span class="cl"><span class="s">print(&#34;Hello World!&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;sh&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```bash
+</span></span></span><span class="line"><span class="cl"><span class="s">echo &#34;Hello World!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;c&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```c
+</span></span></span><span class="line"><span class="cl"><span class="s">printf&#34;Hello World!&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="partial"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;shortcodes/tabs.html&#34;</span> <span class="p">(</span><span class="nx">dict</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;page&#34;</span>  <span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;title&#34;</span> <span class="s">&#34;hello.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;content&#34;</span> <span class="p">(</span><span class="nf">slice</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nx">dict</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;title&#34;</span> <span class="s">&#34;py&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;content&#34;</span> <span class="p">(</span><span class="s">&#34;```python\nprint(\&#34;Hello World!\&#34;)\n```&#34;</span> <span class="p">|</span> <span class="p">.</span><span class="nx">RenderString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nx">dict</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;title&#34;</span> <span class="s">&#34;sh&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;content&#34;</span> <span class="p">(</span><span class="s">&#34;```bash\necho \&#34;Hello World!\&#34;\n```&#34;</span> <span class="p">|</span> <span class="p">.</span><span class="nx">RenderString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nx">dict</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;title&#34;</span> <span class="s">&#34;c&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;content&#34;</span> <span class="p">(</span><span class="s">&#34;```c\nprintf(\&#34;Hello World!\&#34;);\n```&#34;</span> <span class="p">|</span> <span class="p">.</span><span class="nx">RenderString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="参数">参数</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>默认</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>groupid</strong></td>
+<td><em>&lt;random&gt;</em></td>
+<td>选项卡视图所属的组的任意名称。<br/>具有相同 groupid 的选项卡视图会同步其所选选项卡。选项卡选择会根据groupid用于选项卡视图。如果在选项卡组中找不到所选选项卡，则改为选择第一个选项卡。<br/>这种同步适用于整个网站！</td>
+</tr>
+<tr>
+<td><strong>style</strong></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>为每个包含的选项卡设置默认值。可以被每个选项卡覆盖。有关可能的值，请参阅选项卡简码。</td>
+</tr>
+<tr>
+<td><strong>color</strong></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>为每个包含的选项卡设置默认值。可以被每个选项卡覆盖。有关可能的值，请参阅选项卡简码。</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>写在选项卡视图前面的任意标题。</td>
+</tr>
+<tr>
+<td><strong>icon</strong></td>
+<td><em>&lt;empty&gt;</em></td>
+<td><code>Font Awesome icon name</code>设置在标题的左侧</td>
+</tr>
+<tr>
+<td><em><strong>&lt;content&gt;</strong></em></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>使用子简码定义的任意数量的<code>tab</code>选项卡</td>
+</tr>
+</tbody>
+</table>
+<h2 id="案例">案例</h2>
+<h3 id="groupid-的行为"><code>groupid</code> 的行为</h3>
+<p>查看在选择不同选项卡时选项卡视图会发生什么情况。</p>
+<p>按下 A 组的选项卡可同步切换 A 组的所有选项卡视图（如果选项卡可用），则 B 组的选项卡保持不变。</p>
+
+<div class="tab-panel" data-tab-group="1fb7abbc6b73c8a677fa56ac1c116708">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="group-a-tab-view-1"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('1fb7abbc6b73c8a677fa56ac1c116708','group-a-tab-view-1')"
+    >
+      <span class="tab-nav-text">Group A, Tab View 1</span>
+    </button>
+    <button
+      data-tab-item="group-a-tab-view-2"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('1fb7abbc6b73c8a677fa56ac1c116708','group-a-tab-view-2')"
+    >
+      <span class="tab-nav-text">Group A, Tab View 2</span>
+    </button>
+    <button
+      data-tab-item="group-b"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('1fb7abbc6b73c8a677fa56ac1c116708','group-b')"
+    >
+      <span class="tab-nav-text">Group B</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="group-a-tab-view-1"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="nx">groupid</span><span class="p">=</span><span class="s">&#34;a&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;json&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">json</span> <span class="s">&#34;linenos=true&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="s">&#34;Hello&#34;</span><span class="p">:</span> <span class="s">&#34;World&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;_**XML**_ stuff&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```xml
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;Hello&gt;World&lt;/Hello&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;text&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Hello</span> <span class="nx">World</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="group-a-tab-view-2"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="nx">groupid</span><span class="p">=</span><span class="s">&#34;a&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;json&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">json</span> <span class="s">&#34;linenos=true&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="s">&#34;Hello&#34;</span><span class="p">:</span> <span class="s">&#34;World&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;XML stuff&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```xml
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;Hello&gt;World&lt;/Hello&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="group-b"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="nx">groupid</span><span class="p">=</span><span class="s">&#34;b&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;json&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">json</span> <span class="s">&#34;linenos=true&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="s">&#34;Hello&#34;</span><span class="p">:</span> <span class="s">&#34;World&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;XML stuff&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```xml
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;Hello&gt;World&lt;/Hello&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h4 id="a-组选项卡视图-1">A 组，选项卡视图 1</h4>
+
+<div class="tab-panel" data-tab-group="tab-example-a">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="json"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('tab-example-a','json')"
+    >
+      <span class="tab-nav-text">json</span>
+    </button>
+    <button
+      data-tab-item="xml-stuff"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('tab-example-a','xml-stuff')"
+    >
+      <span class="tab-nav-text"><em><strong>XML</strong></em> stuff</span>
+    </button>
+    <button
+      data-tab-item="text"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('tab-example-a','text')"
+    >
+      <span class="tab-nav-text">text</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="json"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code" linenos="true"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{</span> <span class="nt">&#34;Hello&#34;</span><span class="p">:</span> <span class="s2">&#34;World&#34;</span> <span class="p">}</span></span></span></code></pre></div>
+</div>
+    </div>
+    <div
+      data-tab-item="xml-stuff"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Hello&gt;</span>World<span class="nt">&lt;/Hello&gt;</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="text"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<pre><code>Hello World
+</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<h4 id="a-组选项卡视图-2">A 组，选项卡视图 2</h4>
+
+<div class="tab-panel" data-tab-group="tab-example-a">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="json"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('tab-example-a','json')"
+    >
+      <span class="tab-nav-text">json</span>
+    </button>
+    <button
+      data-tab-item="xml-stuff"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('tab-example-a','xml-stuff')"
+    >
+      <span class="tab-nav-text">XML stuff</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="json"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code" linenos="true"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{</span> <span class="nt">&#34;Hello&#34;</span><span class="p">:</span> <span class="s2">&#34;World&#34;</span> <span class="p">}</span></span></span></code></pre></div>
+</div>
+    </div>
+    <div
+      data-tab-item="xml-stuff"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Hello&gt;</span>World<span class="nt">&lt;/Hello&gt;</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h4 id="b组">B组</h4>
+
+<div class="tab-panel" data-tab-group="tab-example-b">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="json"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('tab-example-b','json')"
+    >
+      <span class="tab-nav-text">json</span>
+    </button>
+    <button
+      data-tab-item="xml-stuff"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('tab-example-b','xml-stuff')"
+    >
+      <span class="tab-nav-text">XML stuff</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="json"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code" linenos="true"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{</span> <span class="nt">&#34;Hello&#34;</span><span class="p">:</span> <span class="s2">&#34;World&#34;</span> <span class="p">}</span></span></span></code></pre></div>
+</div>
+    </div>
+    <div
+      data-tab-item="xml-stuff"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Hello&gt;</span>World<span class="nt">&lt;/Hello&gt;</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="嵌套选项卡视图和颜色">嵌套选项卡视图和颜色</h3>
+<p>如果要嵌套选项卡视图，则需要使用<code>{{&lt; tab &gt;}}</code>而不是<code>{{% tab %}}</code>。请注意，在这种情况下，无法将 markdown 放在父选项卡中。</p>
+<p>您还可以为所有选项卡设置样式和颜色参数，并在选项卡级别覆盖它们。有关可能的值，请参阅<code>tab</code>选项卡简码。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="nx">groupid</span><span class="p">=</span><span class="s">&#34;main&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;primary&#34;</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Rationale&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;thumbtack&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Text&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Simple</span> <span class="nx">text</span> <span class="nx">is</span> <span class="nx">possible</span> <span class="nx">here</span><span class="o">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="nx">groupid</span><span class="p">=</span><span class="s">&#34;tabs-example-language&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;python&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Python</span> <span class="nx">is</span> <span class="o">**</span><span class="nx">super</span><span class="o">**</span> <span class="nx">easy</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">-</span> <span class="nx">most</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">time</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="o">-</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">don</span><span class="err">&#39;</span><span class="nx">t</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">output</span> <span class="nx">unicode</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;bash&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Bash</span> <span class="nx">is</span> <span class="k">for</span> <span class="o">**</span><span class="nx">hackers</span><span class="o">**</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tab</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Code&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;default&#34;</span> <span class="nx">color</span><span class="p">=</span><span class="s">&#34;darkorchid&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span><span class="nx">but</span> <span class="nx">no</span> <span class="nx">markdown</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="nx">groupid</span><span class="p">=</span><span class="s">&#34;tabs-example-language&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;python&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="s">```python
+</span></span></span><span class="line"><span class="cl"><span class="s">  print(&#34;Hello World!&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s">  ```</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;bash&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="s">```bash
+</span></span></span><span class="line"><span class="cl"><span class="s">  echo &#34;Hello World!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  ```</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tab</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<div class="tab-panel" data-tab-group="main">
+  <div class="tab-nav">
+    <div class="tab-nav-title"><i class="fa-fw fas fa-thumbtack"></i> Rationale</div>
+    <button
+      data-tab-item="text"
+      class="tab-nav-button tab-panel-style cstyle primary active" tabindex="-1"
+      onclick="switchTab('main','text')"
+    >
+      <span class="tab-nav-text">Text</span>
+    </button>
+    <button
+      data-tab-item="code"
+      class="tab-nav-button tab-panel-style cstyle default" style="--VARIABLE-BOX-color: darkorchid;"
+      onclick="switchTab('main','code')"
+    >
+      <span class="tab-nav-text">Code</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="text"
+      class="tab-content tab-panel-style cstyle primary active">
+      <div class="tab-content-text">
+<p>
+
+  Simple text is possible here...
+  
+<div class="tab-panel" data-tab-group="tabs-example-language">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="python"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('tabs-example-language','python')"
+    >
+      <span class="tab-nav-text">python</span>
+    </button>
+    <button
+      data-tab-item="bash"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('tabs-example-language','bash')"
+    >
+      <span class="tab-nav-text">bash</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="python"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<p>Python is <strong>super</strong> easy.</p>
+<ul>
+<li>most of the time.</li>
+<li>if you don&rsquo;t want to output unicode</li>
+</ul>
+</div>
+    </div>
+    <div
+      data-tab-item="bash"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<p>Bash is for <strong>hackers</strong>.</p>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+    <div
+      data-tab-item="code"
+      class="tab-content tab-panel-style cstyle default" style="--VARIABLE-BOX-color: darkorchid;">
+      <div class="tab-content-text">
+<p>
+
+  ...but no markdown
+  
+<div class="tab-panel" data-tab-group="tabs-example-language">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="python"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('tabs-example-language','python')"
+    >
+      <span class="tab-nav-text">python</span>
+    </button>
+    <button
+      data-tab-item="bash"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('tabs-example-language','bash')"
+    >
+      <span class="tab-nav-text">bash</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="python"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="bash"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World!&#34;</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="6 应用  x&amp;(x-1)">
+    <meta name="twitter:description" content="原理 x&amp;(x-1)可以消除数字x二进制表示的最后一个1，如：
+int x = 0xf6; printf(&#34;%x\n&#34;, x);	//0b11110110 printf(&#34;%x\n&#34;, x&amp;(x-1));	//0b11110100 判断一个正数是不是2的次幂 如果一个正数是2的次幂，则这个数的二进制表示中只含有一个1。
+int x; if(x&amp;(x-1)){ //x至少含有两个1，所以不是2的次幂 } 计算一个数的二进制含有多少个1 x中的最后一个1可以通过操作x = x&amp;(x-1)循环消去，当最后x值为0时，便可以求出二进制中1的个数。
+int x, total; while(x &gt; 0){ x = x&amp;(x-1); total&#43;&#43;; }">
+    <meta property="og:title" content="6 应用  x&amp;(x-1)">
+    <meta property="og:description" content="原理 x&amp;(x-1)可以消除数字x二进制表示的最后一个1，如：
+int x = 0xf6; printf(&#34;%x\n&#34;, x);	//0b11110110 printf(&#34;%x\n&#34;, x&amp;(x-1));	//0b11110100 判断一个正数是不是2的次幂 如果一个正数是2的次幂，则这个数的二进制表示中只含有一个1。
+int x; if(x&amp;(x-1)){ //x至少含有两个1，所以不是2的次幂 } 计算一个数的二进制含有多少个1 x中的最后一个1可以通过操作x = x&amp;(x-1)循环消去，当最后x值为0时，便可以求出二进制中1的个数。
+int x, total; while(x &gt; 0){ x = x&amp;(x-1); total&#43;&#43;; }">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/2_algorithm/3_bitwise/6_application3/index.html">
+    <meta property="article:section" content="3 快速位算法">
+    <title>6 应用  x&amp;(x-1)</title>
+    <link href="http://localhost:1313/2_algorithm/3_bitwise/6_application3/index.html" rel="canonical" type="text/html" title="6 应用  x&amp;(x-1)">
+    <link href="../../../2_algorithm/3_bitwise/6_application3/index.xml" rel="alternate" type="application/rss+xml" title="6 应用  x&amp;(x-1)"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../2_algorithm/3_bitwise/6_application3/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../2_algorithm/index.html"><span itemprop="name">理论算法</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../2_algorithm/3_bitwise/index.html"><span itemprop="name">3 快速位算法</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">6 应用  x&amp;(x-1)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class=" taxonomy-tags term-list cstyle  tags" title="标签" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="../../../tags/bitwise/index.html">Bitwise</a></li>
+  </ul>
+</div>
+  </header>
+  
+  <h1 id="6-应用--xx-1"> 3.6 6 应用  x&amp;(x-1)</h1>
+  <hr />
+
+  <h2 id="原理">原理</h2>
+<hr>
+<p>x&amp;(x-1)可以消除数字x二进制表示的最后一个1，如：</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mh">0xf6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>		<span class="c1">//0b11110110 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">x</span><span class="o">&amp;</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>	<span class="c1">//0b11110100
+</span></span></span></code></pre></div><h2 id="判断一个正数是不是2的次幂">判断一个正数是不是2的次幂</h2>
+<hr>
+<p>如果一个正数是2的次幂，则这个数的二进制表示中只含有一个1。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//x至少含有两个1，所以不是2的次幂
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="计算一个数的二进制含有多少个1">计算一个数的二进制含有多少个1</h2>
+<hr>
+<p>x中的最后一个1可以通过操作x = x&amp;(x-1)循环消去，当最后x值为0时，便可以求出二进制中1的个数。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">total</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span> 
+</span></span><span class="line"><span class="cl">	<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">&amp;</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

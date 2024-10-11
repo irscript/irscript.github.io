@@ -1,5 +1,248 @@
 # Changelog
 
+## 5.26.2 (2024-03-18)
+
+### Enhancements
+
+- [**feature**] icons: use fixed width to ease layout [#812](https://github.com/McShelby/hugo-theme-relearn/issues/812)
+
+### Fixes
+
+- [**bug**] search: broken since version 5.26.1  [#813](https://github.com/McShelby/hugo-theme-relearn/issues/813)
+- [**bug**] search: fix result links for pages in root [#810](https://github.com/McShelby/hugo-theme-relearn/issues/810)
+
+---
+
+## 5.26.1 (2024-03-17)
+
+### Fixes
+
+- [**bug**] mermaid: show reset button after pan [#807](https://github.com/McShelby/hugo-theme-relearn/issues/807)
+- [**bug**] openapi: make it run for `file://` protocol [#806](https://github.com/McShelby/hugo-theme-relearn/issues/806)
+- [**bug**] theme: fix relative path detection if `relativeURLs=false` [#804](https://github.com/McShelby/hugo-theme-relearn/issues/804)
+
+---
+
+## 5.26.0 (2024-03-16)
+
+### Enhancements
+
+- [**feature**] image: add lazy loading image effect option [#803](https://github.com/McShelby/hugo-theme-relearn/issues/803)
+- [**feature**] render-hook: support Markdown attributes [#795](https://github.com/McShelby/hugo-theme-relearn/issues/795)
+- [**feature**] theme: support full page width [#752](https://github.com/McShelby/hugo-theme-relearn/issues/752)
+
+### Fixes
+
+- [**bug**] clipboard: fix broken style if block code is in table [#790](https://github.com/McShelby/hugo-theme-relearn/issues/790)
+- [**bug**] nav: browser back navigation does not jump to the correct position [#509](https://github.com/McShelby/hugo-theme-relearn/issues/509)
+
+### Maintenance
+
+- [**task**] build: update all available actions to nodejs 20 [#802](https://github.com/McShelby/hugo-theme-relearn/issues/802)
+- [**task**] openapi: update swagger-ui to 5.11.10 [#798](https://github.com/McShelby/hugo-theme-relearn/issues/798)
+- [**task**] mermaid: update to 10.9.0 [#797](https://github.com/McShelby/hugo-theme-relearn/issues/797)
+
+---
+
+## 5.25.0 (2024-02-29)
+
+### Enhancements
+
+- [**feature**][**change**] theme: print out GitInfo in page footer if configured [#786](https://github.com/McShelby/hugo-theme-relearn/issues/786)
+- [**feature**][**change**] resources: new shortcode to deprecate attachments shortcode [#22](https://github.com/McShelby/hugo-theme-relearn/issues/22)
+
+### Fixes
+
+- [**bug**] swagger: fix compat warning [#787](https://github.com/McShelby/hugo-theme-relearn/issues/787)
+
+---
+
+## 5.24.3 (2024-02-28)
+
+### Fixes
+
+- [**bug**] theme: avoid crash on 404 if author settings want to warn [#785](https://github.com/McShelby/hugo-theme-relearn/issues/785)
+
+---
+
+## 5.24.2 (2024-02-24)
+
+### Enhancements
+
+- [**feature**] image: adjust to Hugo 0.123 [#777](https://github.com/McShelby/hugo-theme-relearn/issues/777)
+
+### Fixes
+
+- [**bug**] link: resolve fragments [#775](https://github.com/McShelby/hugo-theme-relearn/issues/775)
+
+---
+
+## 5.24.1 (2024-02-18)
+
+### Enhancements
+
+- [**feature**] link: make resolution reporting configurable [#774](https://github.com/McShelby/hugo-theme-relearn/issues/774)
+
+---
+
+## 5.24.0 (2024-02-17)
+
+### Enhancements
+
+- [**feature**] theme: compatibility with Hugo 0.123 [#771](https://github.com/McShelby/hugo-theme-relearn/issues/771)
+- [**feature**] topbar: support editURL in frontmatter [#764](https://github.com/McShelby/hugo-theme-relearn/issues/764)
+- [**feature**] menu: use --MENU-WIDTH-S to adjust mobile flyout [#761](https://github.com/McShelby/hugo-theme-relearn/issues/761)
+- [**feature**] figure: support built-in shortcode [#746](https://github.com/McShelby/hugo-theme-relearn/issues/746)
+- [**feature**] theme: make heading a template [#744](https://github.com/McShelby/hugo-theme-relearn/issues/744)
+- [**feature**] taxonomy: make arrow nav browse thru terms [#742](https://github.com/McShelby/hugo-theme-relearn/issues/742)
+- [**feature**] theme: switch from config.toml to hugo.toml [#741](https://github.com/McShelby/hugo-theme-relearn/issues/741)
+- [**feature**] button: make non-interactive if used as mock [#740](https://github.com/McShelby/hugo-theme-relearn/issues/740)
+- [**feature**][**change**] topbar: allow text for button [#739](https://github.com/McShelby/hugo-theme-relearn/issues/739)
+- [**feature**] theme: run hugo demo site without warning [#736](https://github.com/McShelby/hugo-theme-relearn/issues/736)
+- [**feature**] menu: make swipe handler passive [#735](https://github.com/McShelby/hugo-theme-relearn/issues/735)
+- [**feature**] i18n: support standard Hugo options [#733](https://github.com/McShelby/hugo-theme-relearn/issues/733)
+- [**feature**] a11y: show tab focus on images [#730](https://github.com/McShelby/hugo-theme-relearn/issues/730)
+- [**feature**] a11y: improve discovering links on keyboard navigation [#726](https://github.com/McShelby/hugo-theme-relearn/issues/726)
+- [**feature**][**change**] variant: increase contrast for light themes [#722](https://github.com/McShelby/hugo-theme-relearn/issues/722)
+- [**feature**] theme: break build if minimum Hugo version is not matched [#719](https://github.com/McShelby/hugo-theme-relearn/issues/719)
+- [**feature**] taxonomy: humanize term on missing term title [#713](https://github.com/McShelby/hugo-theme-relearn/issues/713)
+
+### Fixes
+
+- [**bug**] taxonomy: display translated title [#772](https://github.com/McShelby/hugo-theme-relearn/issues/772)
+- [**bug**] highlight: fix codefence syntax in Hugo >= 0.121.0 [#749](https://github.com/McShelby/hugo-theme-relearn/issues/749)
+- [**bug**] link: fix links to pages containing dots in their name [#748](https://github.com/McShelby/hugo-theme-relearn/issues/748)
+- [**bug**] image: get resource images if link is prefixed with `./` [#747](https://github.com/McShelby/hugo-theme-relearn/issues/747)
+- [**bug**] theme: switch dependency colors on OS color scheme change [#745](https://github.com/McShelby/hugo-theme-relearn/issues/745)
+- [**bug**] clipboard: fix O(n²) buttons [#738](https://github.com/McShelby/hugo-theme-relearn/issues/738)
+- [**bug**] button: fix whitespacing in FF [#737](https://github.com/McShelby/hugo-theme-relearn/issues/737)
+- [**bug**] i18n: fix warning messages for zh-CN [#732](https://github.com/McShelby/hugo-theme-relearn/issues/732)
+- [**bug**] mermaid: fix zoom button [#725](https://github.com/McShelby/hugo-theme-relearn/issues/725)
+- [**bug**] theme: fix JS errors on `hugo --minifiy` [#724](https://github.com/McShelby/hugo-theme-relearn/issues/724)
+- [**bug**] include: fix whitespacing in codefences [#723](https://github.com/McShelby/hugo-theme-relearn/issues/723)
+
+---
+
+## 5.23.2 (2023-11-03)
+
+### Enhancements
+
+- [**feature**] taxonomy: improve taxonomy page [#712](https://github.com/McShelby/hugo-theme-relearn/issues/712)
+- [**feature**] taxonomy: warn on missing term title [#709](https://github.com/McShelby/hugo-theme-relearn/issues/709)
+
+### Fixes
+
+- [**bug**] taxonomy: fix sorting of terms on content pages [#710](https://github.com/McShelby/hugo-theme-relearn/issues/710)
+
+---
+
+## 5.23.1 (2023-10-30)
+
+### Enhancements
+
+- [**feature**] taxonomy: improve term page [#705](https://github.com/McShelby/hugo-theme-relearn/issues/705)
+
+### Fixes
+
+- [**bug**] variant: fix typo in chroma-learn.css [#708](https://github.com/McShelby/hugo-theme-relearn/issues/708)
+- [**bug**] links: ignore local markdown links linking to files with extension [#707](https://github.com/McShelby/hugo-theme-relearn/issues/707)
+
+---
+
+## 5.23.0 (2023-10-29)
+
+### Enhancements
+
+- [**feature**] taxonomy: allow for content on term pages [#701](https://github.com/McShelby/hugo-theme-relearn/issues/701)
+- [**feature**] theme: write full file path on warnings [#699](https://github.com/McShelby/hugo-theme-relearn/issues/699)
+- [**feature**] theme: show anchor link and copy to clipboard button on mobile [#697](https://github.com/McShelby/hugo-theme-relearn/issues/697)
+- [**feature**][**change**] config: adjust to changes in Hugo 0.120 [#693](https://github.com/McShelby/hugo-theme-relearn/issues/693)
+- [**feature**] variants: add more contrast to neon [#692](https://github.com/McShelby/hugo-theme-relearn/issues/692)
+- [**feature**] mermaid: only show zoom reset button if zoomed [#691](https://github.com/McShelby/hugo-theme-relearn/issues/691)
+- [**feature**] menu: add additional sort options [#684](https://github.com/McShelby/hugo-theme-relearn/issues/684)
+- [**feature**] theme: add social media meta information [#683](https://github.com/McShelby/hugo-theme-relearn/issues/683)
+- [**feature**] theme: simplify additional JS dependencies [#682](https://github.com/McShelby/hugo-theme-relearn/issues/682)
+- [**feature**] links: warn if ref/relref is used falsly [#681](https://github.com/McShelby/hugo-theme-relearn/issues/681)
+- [**feature**] menu: make width configurable [#677](https://github.com/McShelby/hugo-theme-relearn/issues/677)
+- [**feature**] tabs: use color for link of inactive tabs  [#675](https://github.com/McShelby/hugo-theme-relearn/issues/675)
+- [**feature**] taxonomy: modularize term list generation [#671](https://github.com/McShelby/hugo-theme-relearn/issues/671)
+- [**feature**] theme: remove warnings with `hugo --printI18nWarnings` [#670](https://github.com/McShelby/hugo-theme-relearn/issues/670)
+- [**feature**] theme: implement portable linking [#377](https://github.com/McShelby/hugo-theme-relearn/issues/377)
+
+### Fixes
+
+- [**bug**] links: extra space before link text [#700](https://github.com/McShelby/hugo-theme-relearn/issues/700)
+- [**bug**] mermaid: reset zoom correctly [#690](https://github.com/McShelby/hugo-theme-relearn/issues/690)
+- [**bug**] theme: fix mobile layout for width=48rem [#676](https://github.com/McShelby/hugo-theme-relearn/issues/676)
+- [**bug**] frontmatter: resemble documented shortcode style [#672](https://github.com/McShelby/hugo-theme-relearn/issues/672)
+- [**bug**] taxonomy: display terms in pages if `removePathAccents=true` [#669](https://github.com/McShelby/hugo-theme-relearn/issues/669)
+
+### Maintenance
+
+- [**task**] mermaid: update mermaid to 10.6.0 [#703](https://github.com/McShelby/hugo-theme-relearn/issues/703)
+- [**task**] openapi: update swagger-ui to 5.9.1 [#702](https://github.com/McShelby/hugo-theme-relearn/issues/702)
+
+---
+
+## 5.22.1 (2023-10-02)
+
+### Enhancements
+
+- [**feature**] i18n: add Swahili translation [#666](https://github.com/McShelby/hugo-theme-relearn/issues/666)
+- [**feature**] math: hide unrendered math [#663](https://github.com/McShelby/hugo-theme-relearn/issues/663)
+- [**feature**] tabs: improve a11y by removing duplicate hidden title [#662](https://github.com/McShelby/hugo-theme-relearn/issues/662)
+- [**feature**] mermaid: improve zoom UX [#659](https://github.com/McShelby/hugo-theme-relearn/issues/659)
+
+### Fixes
+
+- [**bug**] variant: fix sidebar-flyout borders color for zen [#667](https://github.com/McShelby/hugo-theme-relearn/issues/667)
+- [**bug**] clipboard: fix RTL location of tooltip [#661](https://github.com/McShelby/hugo-theme-relearn/issues/661)
+- [**bug**] clipboard: ignore RTL for code [#660](https://github.com/McShelby/hugo-theme-relearn/issues/660)
+- [**bug**] expand: fix aria-controls [#658](https://github.com/McShelby/hugo-theme-relearn/issues/658)
+- [**bug**] theme: fix id generation for markdownified titles [#657](https://github.com/McShelby/hugo-theme-relearn/issues/657)
+- [**bug**] mermaid: avoid graph bombing on hugo --minify [#656](https://github.com/McShelby/hugo-theme-relearn/issues/656)
+- [**bug**] mermaid: fix width for some graphs [#655](https://github.com/McShelby/hugo-theme-relearn/issues/655)
+
+---
+
+## 5.22.0 (2023-09-26)
+
+### Enhancements
+
+- [**feature**] mermaid: add pan&zoom reset [#651](https://github.com/McShelby/hugo-theme-relearn/issues/651)
+- [**feature**] markdown: add interlace color for tables [#648](https://github.com/McShelby/hugo-theme-relearn/issues/648)
+- [**feature**] search: add breadcrumb to dedicated search results [#647](https://github.com/McShelby/hugo-theme-relearn/issues/647)
+- [**feature**][**change**] menu: optionally disable index pages for sections [#642](https://github.com/McShelby/hugo-theme-relearn/issues/642)
+
+### Fixes
+
+- [**bug**] variants: restore generator zoom [#650](https://github.com/McShelby/hugo-theme-relearn/issues/650)
+- [**bug**] clipboard: malused Fontawesome style [#649](https://github.com/McShelby/hugo-theme-relearn/issues/649)
+- [**bug**][**change**] theme: avoid id collisions between headings and theme [#646](https://github.com/McShelby/hugo-theme-relearn/issues/646)
+- [**bug**] theme: remove HTML validation errors [#644](https://github.com/McShelby/hugo-theme-relearn/issues/644)
+- [**bug**] breadcrumb: remove superflous whitespace between items [#643](https://github.com/McShelby/hugo-theme-relearn/issues/643)
+
+---
+
+## 5.21.0 (2023-09-18)
+
+### Enhancements
+
+- [**feature**] topbar: make buttons configurable [#639](https://github.com/McShelby/hugo-theme-relearn/issues/639)
+- [**feature**][**change**] menu: fix footer padding [#637](https://github.com/McShelby/hugo-theme-relearn/issues/637)
+
+### Fixes
+
+- [**bug**] breadcrumb: don't ignore spaces for separator [#636](https://github.com/McShelby/hugo-theme-relearn/issues/636)
+- [**bug**] theme: fix snyk code issues [#633](https://github.com/McShelby/hugo-theme-relearn/issues/633)
+- [**bug**] images: apply image effects to lightbox images [#631](https://github.com/McShelby/hugo-theme-relearn/issues/631)
+
+### Maintenance
+
+- [**task**] openapi: update to swagger 5.7.2 [#641](https://github.com/McShelby/hugo-theme-relearn/issues/641)
+
+---
+
 ## 5.20.0 (2023-08-26)
 
 ### Enhancements
@@ -308,7 +551,7 @@
 ### Fixes
 
 - [**bug**] i18n: write code ltr even for rtl languages [#492](https://github.com/McShelby/hugo-theme-relearn/issues/492)
-- [**bug**] anchor: fix link in FF when served from filesystem [#482](https://github.com/McShelby/hugo-theme-relearn/issues/482)
+- [**bug**] anchor: fix link in FF when served from file system [#482](https://github.com/McShelby/hugo-theme-relearn/issues/482)
 - [**bug**] shortcodes: don't break build and render for invalid parameters [#480](https://github.com/McShelby/hugo-theme-relearn/issues/480)
 - [**bug**] nav: restore scroll position on browser back [#476](https://github.com/McShelby/hugo-theme-relearn/issues/476)
 - [**bug**] variant: avoid style leak for auto style [#473](https://github.com/McShelby/hugo-theme-relearn/issues/473)
@@ -1320,7 +1563,7 @@
 
 ### Maintenance
 
-- [**task**] theme: ensure IE11 compatiblity [#89](https://github.com/McShelby/hugo-theme-relearn/issues/89)
+- [**task**] theme: ensure IE11 compatibility [#89](https://github.com/McShelby/hugo-theme-relearn/issues/89)
 - [**task**] docs: Arrr! showcase multilang featurrre [#87](https://github.com/McShelby/hugo-theme-relearn/issues/87)
 
 ---

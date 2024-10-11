@@ -16,6 +16,12 @@ other = "{1} találat a(z) \"{0}\" kifejezésre"
 [Clear-History]
 other = "Előzmények törlése"
 
+[Reset-view]
+other = "Nézet visszaállítása"
+
+[View-reset]
+other = "Visszaállítás megtekintése!"
+
 [Clear-search]
 other = "Keresések törlése"
 
@@ -36,6 +42,9 @@ other = "Szerkesztés"
 
 [Print-this-chapter]
 other = "Teljes fejezet nyomtatása"
+
+[More-action]
+other = "Egyebek"
 
 [Shortcuts-Title]
 other = "Egyebek"

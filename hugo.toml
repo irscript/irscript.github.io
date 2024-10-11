@@ -1,81 +1,396 @@
-baseURL = "https://irscript.github.io/"
-canonifyURLs = true 
-relativeURLs = true 
-uglyURLs = false  
-
-languageCode = 'zh-CN'
-defaultContentLanguage = "zh-CN" 
-
+baseURL = "https://irscript.gitee.io/"
+#canonifyURLs = true 
+relativeURLs = true
 theme = "hugo-theme-relearn"
-title = "巨人之海"
+uglyURLs = false
+#languageCode = 'zh-CN'
+defaultContentLanguage = "zh-cn"
+
+title = "编程是一门艺术"
 
 [outputs]
-    home = ["HTML", "RSS", "PRINT", "SEARCH", "SEARCHPAGE"]
-    section = ["HTML", "RSS", "PRINT"]
-    page = ["HTML", "RSS", "PRINT"]
+home = ["html", "rss", "print", "search", "searchpage"]
+page = ["html", "rss", "print"]
+section = ["html", "rss", "print"]
 
 [markup]
-    [markup.highlight]
-        lineNumbersInTable = false
-        guessSyntax = false
-        noClasses = false
-        # style = "tango"
-    [markup.goldmark.renderer]
-        unsafe = true
+[markup.highlight]
+lineNumbersInTable = false
+noClasses = false
+
+[markup.goldmark]
+duplicateResourceFiles = true
+renderer.unsafe = true
 
 [languages]
-    [languages.zh-cn]
-        title = "巨人之海"
-        weight = 0
-        languageName = "简体中文"
-        #contentDir = "content/"
+[languages.zh-cn]
+languageName = "简体中文"
+title = ""
+weight = 1
+#contentDir = "content/"
 
-        [languages.zh-cn.params]
-            landingPageName = "<i class='fas fa-home'></i> 主页"
+[languages.zh-cn.params]
+landingPageName = "<i class='fa-fw fas fa-home'></i> 主页"
 
-        [[languages.zh-cn.menu.shortcuts]]
-            name = "<i class='fab fa-fw fa-github'></i> GitHub 仓库"
-            identifier = "ds"
-            url = "https://github.com/irscript/irscript.github.io"
-            weight = 10
+[[languages.zh-cn.menu.shortcuts]]
+identifier = "gitee"
+name = "<i class='fas fa-code-branch'></i> Gitee 仓库"
+url = "https://gitee.com/irscript/"
+weight = 10
 
-        [[languages.zh-cn.menu.shortcuts]]
-            name = "<i class='fas fa-fw fa-bookmark'></i> Hugo 文档"
-            identifier = "hugodoc"
-            url = "https://gohugo.io/"
-            weight = 20
+[[languages.zh-cn.menu.shortcuts]]
+identifier = "ds"
+name = "<i class='fa-fw fab fa-github'></i> GitHub 仓库"
+url = "https://github.com/irscript/"
+weight = 20
 
-        [[languages.zh-cn.menu.shortcuts]]
-            name = "<i class='fas fa-fw fa-tags'></i> 标签"
-            pageRef = "tags/"
-            weight = 30
+[[languages.zh-cn.menu.shortcuts]]
+identifier = "hugodoc"
+name = "<i class='fa-fw fas fa-bookmark'></i> Hugo 文档"
+url = "https://gohugo.io/"
+weight = 30
+[[languages.zh-cn.menu.shortcuts]]
+identifier = "themedoc"
+name = "<i class='fa-fw fas fa-bullhorn''></i> Relearn 主题"
+url = "https://mcshelby.github.io/hugo-theme-relearn/"
+weight = 40
+
+[[languages.zh-cn.menu.shortcuts]]
+name = "<i class='fa-fw fas fa-tags'></i> 标签"
+pageRef = "tags/"
+weight = 50
+[[languages.zh-cn.menu.shortcuts]]
+name = "<i class='fa-fw fas fa-layer-group'></i> 分类"
+pageRef = "categories/"
+weight = 60
+
+[module]
+[[module.mounts]]
+source = 'archetypes'
+target = 'archetypes'
+[[module.mounts]]
+source = 'assets'
+target = 'assets'
+
+# Language dependend settings:
+# Use case https://gohugo.io/content-management/multilingual/#translation-by-filename
+[[module.mounts]]
+source = 'content'
+target = 'content'
+# Use case https://gohugo.io/content-management/multilingual/#translation-by-content-directory
+#[[module.mounts]]
+#  lang = 'en'
+#  source = 'content/en'
+#  target = 'content'
+#[[module.mounts]]
+#  lang = 'pir'
+#  source = 'content/pir'
+#  target = 'content'
+
+[[module.mounts]]
+source = 'data'
+target = 'data'
+[[module.mounts]]
+source = 'i18n'
+target = 'i18n'
+[[module.mounts]]
+source = 'layouts'
+target = 'layouts'
+[[module.mounts]]
+source = 'static'
+target = 'static'
+# just for this documentation to expose our config in the docs
+[[module.mounts]]
+source = 'config'
+target = 'static/config'
+# just for this documentation to expose the GitHub hero image in the docs
+[[module.mounts]]
+source = '../images'
+target = 'assets/images'
 
 [params]
-    alwaysopen = false
-    editURL = "https://github.com/irscript/irscript.github.io/content/"
-    description = "站在巨人的肩膀上"
-    author = "月明之都"
-    showVisitedLinks = true
-    collapsibleMenu = true
-    disableBreadcrumb = false
-    disableInlineCopyToClipBoard = true
-    disableNextPrev = false
-    disableLandingPageButton = true
-    breadcrumbSeparator = ">"
-    titleSeparator = "::"
-    themeVariant = [ "auto", "relearn-bright", "relearn-light", "relearn-dark", "zen-light", "zen-dark", "neon", "learn", "blue", "green", "red" ]
-    themeVariantAuto = [ "neon","relearn-light", "relearn-dark" ]
-    disableSeoHiddenPages = true
-    # this is to index search for your native language in other languages, too (eg.
-    # pir in this showcase)
-    additionalContentLanguage = [ "zh-cn" ]
-    # this is for the stylesheet generator to allow for interactivity in Mermaid
-    # graphs; you usually will not need it and you should remove this for
-    # security reasons
-    mermaidInitialize = "{ \"securityLevel\": \"loose\" }"
-    mermaidZoom = true
-    [params.siteparam.test]
-        text = "A **nested** parameter <b>with</b> formatting"
-    [params.imageEffects]
-        bg-white = true # extension, not supported by the theme
-        border = true
+author.name = "irscript"
+#images = [ "images/hero.png" ]
+description = "个人博客"
+
+themeVariant = [
+  {identifier = "relearn-auto", name = "Relearn Light/Dark", auto = []},
+  {identifier = "relearn-light"},
+  {identifier = "relearn-dark"},
+  {identifier = "relearn-bright"},
+  {identifier = "zen-auto", name = "Zen Light/Dark", auto = ["zen-light", "zen-dark"]},
+  {identifier = "zen-light"},
+  {identifier = "zen-dark"},
+  {identifier = "neon"},
+  {identifier = "learn"},
+  {identifier = "blue"},
+  {identifier = "green"},
+  {identifier = "red"},
+]
+
+themeVariantModifier = ""
+
+disableAssetsBusting = false
+
+disableGeneratorVersion = false
+
+disableRandomIds = false
+
+additionalContentLanguage = ["zh-cn"]
+
+disableToc = false
+
+disableBreadcrumb = false
+
+disableNextPrev = false
+
+editURL = "https://gitee.com/irscript/irscript/blob/master/content/${FilePath}"
+
+disableSearch = false
+
+disableLandingPageButton = true
+
+ordersectionsby = "weight"
+
+alwaysopen = ""
+
+collapsibleMenu = true
+
+showVisitedLinks = true
+
+disableShortcutsTitle = false
+
+# Hide the language switcher.
+# Default: false
+# If you have more than one language configured, a language switcher is
+# displayed in the lower part of the menu. This opition lets you explicitly
+# turn this behavior off.
+disableLanguageSwitchingButton = false
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Hidden pages
+# These options configure how hidden pages are treated.
+# A page flagged as hidden, is only removed from the main menu if you are
+# currently not on this page or the hidden page is not part of current page's
+# ancestors. For all other functionality in Hugo a hidden page behaves like any
+# other page if not otherwise configured.
+
+# Hide hidden pages from search.
+# Default: false
+# Hides hidden pages from the suggestions of the search box and the dedicated
+# search page.
+disableSearchHiddenPages = false
+
+# Hide hidden pages for web crawlers.
+# Default: false
+# Avoids hidden pages from showing up in the sitemap and on Google (et all),
+# otherwise they may be indexed by search engines
+disableSeoHiddenPages = true
+
+# Hide hidden pages for taxonomies.
+# Default: false
+# Hides hidden pages from showing up on the taxonomy and terms pages. If this
+# reduces term counters to zero, an empty but not linked term page will be
+# created anyhow.
+disableTagHiddenPages = false
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Content
+# These options modify how your content is displayed.
+
+# Title separator.
+# Default: "::"
+# Changes the title separator used when concatenating the page title with the
+# site title. This is consistently used throughout the theme.
+titleSeparator = "::"
+
+# Breadcrumb separator.
+# Default: ">"
+# Changes the breadcrumb separator used in the topbars breadcrumb area and for
+# search results and term pages.
+breadcrumbSeparator = ">"
+
+# Hide the root breadcrumb.
+# Default: false
+# The root breadcrumb is usually the home page of your site. Because this is
+# always accessible by clicking on the logo, you may want to reduce clutter
+# by removing this from your breadcrumb.
+disableRootBreadcrumb = true
+
+# Hide breadcrumbs term pages.
+# Default: false
+# If you have lots of taxonomy terms, the term pages may seem cluttered with
+# breadcrumbs to you, so this is the option to turn off breadcrumbs on term
+# pages. Only the page title will then be shown on the term pages.
+disableTermBreadcrumbs = false
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Highlight
+# These options configure how code is displayed.
+
+# Hide copy-to-clipboard for inline code.
+# Default: false
+# This removes the copy-to-clipboard button from your inline code.
+disableInlineCopyToClipBoard = true
+
+# Always show copy-to-clipboard for block code.
+# Default: false
+# The theme only shows the copy-to-clipboard button if you hover over the code
+# block. Set this to true to disable the hover effect and always show the
+# button.
+disableHoverBlockCopyToClipBoard = false
+
+# Wrap for code blocks.
+# Default: true
+# By default lines of code blocks wrap around if the line is too long to be
+# displayed on screen. If you dislike this behavior, you can reconfigure it
+# here.
+# Note that lines always wrap in print mode regardless of this option.
+# This can be overridden in the page's frontmatter or given as a parameter to
+# individual code blocks.
+highlightWrap = true
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Images
+# These options configure how images are displayed.
+
+# What to do when local image link is not resolved.
+# Default: ""
+# You can control what should happen if a local image can not be resolved to as
+# a resource. If not set, the unresolved link is written as given into the resulting
+# output. If set to `warning` the same happens and an additional warning is
+# printed. If set to `error` an error message is printed and the build is
+# aborted.
+# Please note that this can not resolve files inside of your `static` directory.
+image.errorlevel = "warning"
+
+# Image effects.
+# See the documentation for how you can even add your own arbitrary effects to
+# the list.
+# All effects can be overridden in the page's frontmatter or thru URL parameter
+# given to the image. See the documentation for details.
+
+# Default: false
+imageEffects.border = true
+# Default: true
+imageEffects.lazy = true
+# Default: true
+imageEffects.lightbox = true
+# Default: false
+imageEffects.shadow = false
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Links
+# These options configure how links are displayed.
+
+# What to do when local page link is not resolved.
+# Default: ""
+# You can control what should happen if a local link can not be resolved to a
+# page. If not set, the unresolved link is written as given into the resulting
+# output. If set to `warning` the same happens and an additional warning is
+# printed. If set to `error` an error message is printed and the build is
+# aborted.
+# Please note that with Hugo < 0.123.0 + `uglyURLs=true` this can lead to false
+# negatives.
+link.errorlevel = "warning"
+
+# How to open external links.
+# Default: "_blank"
+# For external links you can define how they are opened in your browser. All
+# values for the HTML `target` attribute of the `a` element are allowed. The
+# default value opens external links in a separate browser tab. If you want
+# to open those links in the same tab, use "_self".
+externalLinkTarget = "_blank"
+
+# Generate link URLs the Hugo way.
+# Default: false
+# If set to true, the theme behaves like a standard Hugo installation and
+# appends no index.html to prettyURLs. As a trade off, your build project will
+# not be servable from the file system.
+disableExplicitIndexURLs = false
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# MathJax
+# These options configure how math formulae are displayed.
+
+# Initialization options for MathJax.
+# Default: not set
+# A JSON value. See the MathJaxdocumentation for possible parameter.
+# This can be overridden in the page's frontmatter.
+mathJaxInitialize = "{}"
+
+# Only load MathJax if needed.
+# Default: true
+# If a Math shortcode is found, the option will be ignored and
+# MathJax will be loaded regardlessly. The option is still useful in case you
+# are using scripting to set up your graph. In this case no shortcode or
+# codefence is involved and the library is not loaded by default. In this case
+# you can set `disableMathJax=false` in your frontmatter to force the library to
+# be loaded.
+# This can be overridden in the page's frontmatter.
+disableMathJax = true
+
+# URL for external MathJax library.
+# Default: not set
+# Specifies the remote location of the MathJax library. By default the shipped
+# version will be used.
+# This can be overridden in the page's frontmatter.
+customMathJaxURL = "" # "https://unpkg.com/mathjax/es5/tex-mml-chtml.js"
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Mermaid
+# These options configure how Mermaid graphs are displayed.
+
+# Make graphs panable and zoomable
+# Default: false
+# For huge graphs it can be helpful to make them zoomable. Zoomable graphs come
+# with a reset button for the zoom.
+# This can be overridden in the page's frontmatter or given as a parameter to
+# individual graphs.
+mermaidZoom = true
+
+# Initialization options for Mermaid.
+# Default: not set
+# A JSON value. See the Mermaid documentation for possible parameter.
+# This can be overridden in the page's frontmatter.
+mermaidInitialize = "{ \"securityLevel\": \"loose\" }"
+
+# Only load Mermaid if needed.
+# Default: true
+# If a Mermaid shortcode or codefence is found, the option will be ignored and
+# Mermaid will be loaded regardlessly. The option is still useful in case you
+# are using scripting to set up your graph. In this case no shortcode or
+# codefence is involved and the library is not loaded by default. In this case
+# you can set `disableMermaid=false` in your frontmatter to force the library to
+# be loaded.
+# This can be overridden in the page's frontmatter.
+disableMermaid = true
+
+# URL for external Mermaid library.
+# Default: not set
+# Specifies the remote location of the Mermaid library. By default the shipped
+# version will be used.
+# This can be overridden in the page's frontmatter.
+customMermaidURL = "" # "https://unpkg.com/mermaid/dist/mermaid.min.js"
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# OpenApi
+# These options configure how OpenAPI specifications are displayed.
+
+# Only load OpenAPI if needed.
+# Default: true
+# If a OpenAPI shortcode is found, the option will be ignored and
+# OpenAPI will be loaded regardlessly. The option is still useful in case you
+# are using scripting to set up your graph. In this case no shortcode or
+# codefence is involved and the library is not loaded by default. In this case
+# you can set `disableOpenapi=false` in your frontmatter to force the library to
+# be loaded.
+# This can be overridden in the page's frontmatter.
+disableOpenapi = true
+
+# URL for external OpenAPI library.
+# Default: not set
+# Specifies the remote location of the OpenAPI library. By default the shipped
+# version will be used.
+# This can be overridden in the page's frontmatter.
+customOpenapiURL = "" # "https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"

@@ -19,6 +19,12 @@ other = "Ditemukan {1} hasil untuk \"{0}\""
 [Clear-History]
 other = "Bersihkan Riwayat"
 
+[Reset-view]
+other = "Setel ulang tampilan"
+
+[View-reset]
+other = "Lihat ulang!"
+
 [Attachments-label]
 other = "Lampiran"
 
@@ -36,6 +42,9 @@ other = "Mengedit"
 
 [Print-this-chapter]
 other = "Mencetak seluruh bab"
+
+[More-action]
+other = "Lainnya"
 
 [Shortcuts-Title]
 other = "Lainnya"

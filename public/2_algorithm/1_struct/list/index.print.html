@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="链表">
+    <meta name="twitter:description" content="个人博客">
+    <meta property="og:title" content="链表">
+    <meta property="og:description" content="个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:1313/2_algorithm/1_struct/list/index.html">
+    <title>链表</title>
+    <link href="http://localhost:1313/2_algorithm/1_struct/list/index.html" rel="canonical" type="text/html" title="链表">
+    <link href="../../../2_algorithm/1_struct/list/index.xml" rel="alternate" type="application/rss+xml" title="链表"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../2_algorithm/1_struct/list/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../2_algorithm/index.html"><span itemprop="name">理论算法</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../2_algorithm/1_struct/index.html"><span itemprop="name">数据结构</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">链表</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable chapter narrow" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">第1章</div>
+<h1 id="链表">链表</h1>
+
+
+<ul class="children children-li children-sort-weight">
+	
+<li><a href="../../../2_algorithm/1_struct/list/singlelinkedlist/index.html">单向节点链表</a></li>
+<li><a href="../../../2_algorithm/1_struct/list/doublelinkedlist/index.html">双向节点链表</a></li>
+</ul>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">链表 的子部分</h1>
+<article class="default">
+  <header class="headline">
+  </header>
+  
+  <h1 id="单向节点链表"> 1.2 单向节点链表</h1>
+  <hr />
+
+  
+  <footer class="footline">
+  </footer>
+</article>
+<article class="default">
+  <header class="headline">
+<div class=" taxonomy-tags term-list cstyle  tags" title="标签" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="../../../tags/cxx/index.html">Cxx</a></li>
+    <li><a class="term-link" href="../../../tags/list/index.html">List</a></li>
+  </ul>
+</div>
+  </header>
+  
+  <h1 id="双向节点链表"> 1.3 双向节点链表</h1>
+  <hr />
+
+  <h2 id="节点模板类定义">节点模板类定义</h2>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Node</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">IListNode</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Node</span> <span class="o">*</span><span class="n">mNext</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Node</span> <span class="o">*</span><span class="n">mPrev</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">inline</span> <span class="n">IListNode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="o">:</span> <span class="n">mNext</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">mPrev</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始化节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span> <span class="n">mNext</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n">mPrev</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取后继节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">getNext</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">mNext</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取前驱节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">getPrev</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">mPrev</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置后继节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">setNext</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span> <span class="n">mNext</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置前驱节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">setPrev</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">prev</span><span class="p">)</span> <span class="p">{</span> <span class="n">mPrev</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">setNode</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">,</span> <span class="n">Node</span> <span class="o">*</span><span class="n">prev</span><span class="p">)</span> <span class="p">{</span> <span class="n">mNext</span> <span class="o">=</span> <span class="n">next</span><span class="p">,</span> <span class="n">mPrev</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span></span></span></code></pre></div><h2 id="链表模板类定义">链表模板类定义</h2>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Node</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">IList</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">IListNode</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">mRoot</span><span class="p">;</span> <span class="c1">// 链表根节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">uint</span> <span class="n">mCount</span><span class="p">;</span>           <span class="c1">// 节点计数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 链表初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">IList</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="o">:</span> <span class="n">mCount</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mRoot</span><span class="p">.</span><span class="n">setNode</span><span class="p">((</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span><span class="p">,</span> <span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始链表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">initList</span><span class="p">()</span> <span class="p">{</span> <span class="n">mCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mRoot</span><span class="p">.</span><span class="n">setNode</span><span class="p">((</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span><span class="p">,</span> <span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取根，只读
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">getRoot</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取节点计数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">uint</span> <span class="nf">getCount</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">mCount</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取第一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">getEntry</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Node</span> <span class="o">*</span><span class="n">ret</span> <span class="o">=</span> <span class="n">mRoot</span><span class="p">.</span><span class="n">getNext</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="cm">/* if (ret == &amp;mRoot)
+</span></span></span><span class="line"><span class="cl"><span class="cm">                ret = nullptr;*/</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">front</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">getEntry</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取最后一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">getTail</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Node</span> <span class="o">*</span><span class="n">ret</span> <span class="o">=</span> <span class="n">mRoot</span><span class="p">.</span><span class="n">getPrev</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">             <span class="cm">/* if (ret == &amp;mRoot)
+</span></span></span><span class="line"><span class="cl"><span class="cm">                ret = nullptr;*/</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">back</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">getTail</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 从头部插入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">insertEntry</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Node</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">mRoot</span><span class="p">.</span><span class="n">getNext</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">-&gt;</span><span class="n">setPrev</span><span class="p">((</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">-&gt;</span><span class="n">setNext</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span><span class="o">-&gt;</span><span class="n">setPrev</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mRoot</span><span class="p">.</span><span class="n">setNext</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">mCount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 从尾部插入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">insertTail</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Node</span> <span class="o">*</span><span class="n">tail</span> <span class="o">=</span> <span class="n">mRoot</span><span class="p">.</span><span class="n">getPrev</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">-&gt;</span><span class="n">setPrev</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">-&gt;</span><span class="n">setNext</span><span class="p">((</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tail</span><span class="o">-&gt;</span><span class="n">setNext</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mRoot</span><span class="p">.</span><span class="n">setPrev</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">mCount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 从iter前面插入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">iter</span><span class="p">,</span> <span class="n">Node</span> <span class="o">*</span><span class="n">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">iter</span><span class="o">-&gt;</span><span class="n">getPrev</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setNext</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">-&gt;</span><span class="n">setPrev</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">getPrev</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">-&gt;</span><span class="n">setNext</span><span class="p">(</span><span class="n">iter</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">iter</span><span class="o">-&gt;</span><span class="n">setPrev</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">mCount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 移除节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">remove</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">entry</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 根节点并不能移除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">((</span><span class="n">Node</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">mRoot</span> <span class="o">==</span> <span class="n">entry</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Node</span> <span class="o">*</span><span class="n">prev</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">getPrev</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Node</span> <span class="o">*</span><span class="n">next</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">getNext</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prev</span><span class="o">-&gt;</span><span class="n">setNext</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">next</span><span class="o">-&gt;</span><span class="n">setPrev</span><span class="p">(</span><span class="n">prev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">entry</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="o">--</span><span class="n">mCount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">entry</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 移除头部节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">removeEntry</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">remove</span><span class="p">(</span><span class="n">mRoot</span><span class="p">.</span><span class="n">getNext</span><span class="p">());</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 移除尾部节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">inline</span> <span class="n">Node</span> <span class="o">*</span><span class="nf">removeTail</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">remove</span><span class="p">(</span><span class="n">mRoot</span><span class="p">.</span><span class="n">getPrev</span><span class="p">());</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span></span></span></code></pre></div>
+  <footer class="footline">
+  </footer>
+</article>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

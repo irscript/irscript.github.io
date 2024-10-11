@@ -57,7 +57,7 @@ While the examples are using shortcodes with positional parameter you are free t
 
 | Name                  | Position | Default         | Notes       |
 |-----------------------|----------|-----------------|-------------|
-| **icon**              | 1        | _&lt;empty&gt;_ | [Font Awesome icon name]({{%relref "#finding-an-icon" %}}) to be displayed. It will be displayed in the text color of its according context. |
+| **icon**              | 1        | _&lt;empty&gt;_ | [Font Awesome icon name](#finding-an-icon) to be displayed. It will be displayed in the text color of its according context. |
 
 ### Finding an icon
 
@@ -96,7 +96,7 @@ Built with <i class="fas fa-heart"></i> by Relearn and Hugo
 
 Built with <i class="fas fa-heart"></i> by Relearn and Hugo
 
-To use these native HTML elements in your Markdown, add this in your `config.toml`:
+To use these native HTML elements in your Markdown, add this in your `hugo.toml`:
 
 ````toml
 [markup.goldmark.renderer]

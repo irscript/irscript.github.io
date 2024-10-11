@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="3 关键字">
+    <meta name="twitter:description" content="airlang 的关键字分为两种：普通关键字，宏关键字。 两者差别不大，但是宏关键字有特殊的标记作用，一般用于注解一些信息。
+宏关键字 关键字 注解 @file 代码中获取文件的名称字符串 @line 代码中获取代码所作行号数字 @func 代码中获取函数声明字符串 @debug 用于标记只在debug标志下启用的代码 @NotNulptr 用于标记需要检查函数的指针参数非空 @override 标记非静态成员函数是重写父类的函数 普通关键字 固定位宽类型关键字 注解 位宽(bit) void 空，一般用于表示无返回值 0 bool 布尔类型 8 flt32 32位单精度浮点 32 flt64 64位双精度浮点 32 int8 8位有符号整数 8 int16 8位有符号整数 16 int32 8位有符号整数 32 int64 8位有符号整数 64 uint8 8位无符号整数 8 uint16 16位无符号整数 16 uint32 32位无符号整数 32 uint64 64位无符号整数 64 char 字符 8 可变位宽类型的位宽由编译的目标CPU架构有关。
+可变位宽类型关键字注解CPU32CPU64sint有符号整数 3264uint无符号整数 3264uintptr指针 3264cstring字符串指针 3264修饰关键字 注解 static 静态 public 完全公开的 protected 对部分成员公开的 private 私有的 成员 const 常量化，只读 friend 友元定义 分支关键字 注解 if 比较分支 elsif 次比较分支 else 比较默认分支 for 循环 foreach 循环 while 循环 do 循环 break 跳出循环 continue 继续下一轮循环 goto 跳转到标签 return 函数返回 类型定义关键字 注解 enum 枚举 struct 结构体 union 联合体 interface 接口 class 类 entrust 委托指针 其他关键字 注解 false true nullptr this super ">
+    <meta property="og:title" content="3 关键字">
+    <meta property="og:description" content="airlang 的关键字分为两种：普通关键字，宏关键字。 两者差别不大，但是宏关键字有特殊的标记作用，一般用于注解一些信息。
+宏关键字 关键字 注解 @file 代码中获取文件的名称字符串 @line 代码中获取代码所作行号数字 @func 代码中获取函数声明字符串 @debug 用于标记只在debug标志下启用的代码 @NotNulptr 用于标记需要检查函数的指针参数非空 @override 标记非静态成员函数是重写父类的函数 普通关键字 固定位宽类型关键字 注解 位宽(bit) void 空，一般用于表示无返回值 0 bool 布尔类型 8 flt32 32位单精度浮点 32 flt64 64位双精度浮点 32 int8 8位有符号整数 8 int16 8位有符号整数 16 int32 8位有符号整数 32 int64 8位有符号整数 64 uint8 8位无符号整数 8 uint16 16位无符号整数 16 uint32 32位无符号整数 32 uint64 64位无符号整数 64 char 字符 8 可变位宽类型的位宽由编译的目标CPU架构有关。
+可变位宽类型关键字注解CPU32CPU64sint有符号整数 3264uint无符号整数 3264uintptr指针 3264cstring字符串指针 3264修饰关键字 注解 static 静态 public 完全公开的 protected 对部分成员公开的 private 私有的 成员 const 常量化，只读 friend 友元定义 分支关键字 注解 if 比较分支 elsif 次比较分支 else 比较默认分支 for 循环 foreach 循环 while 循环 do 循环 break 跳出循环 continue 继续下一轮循环 goto 跳转到标签 return 函数返回 类型定义关键字 注解 enum 枚举 struct 结构体 union 联合体 interface 接口 class 类 entrust 委托指针 其他关键字 注解 false true nullptr this super ">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/5_book/1_compiler/8_langdef/3_keyword/index.html">
+    <meta property="article:section" content="8 语言定义">
+    <meta property="article:published_time" content="2023-09-14T21:30:02+08:00">
+    <meta property="article:modified_time" content="2023-09-14T21:30:02+08:00">
+    <title>3 关键字</title>
+    <link href="http://localhost:1313/5_book/1_compiler/8_langdef/3_keyword/index.html" rel="canonical" type="text/html" title="3 关键字">
+    <link href="../../../../5_book/1_compiler/8_langdef/3_keyword/index.xml" rel="alternate" type="application/rss+xml" title="3 关键字"><link rel="icon" href="../../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../../js/url.js?1728629534"></script>
+    <script src="../../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../../5_book/1_compiler/8_langdef/3_keyword/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/index.html"><span itemprop="name">教程系列</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/index.html"><span itemprop="name">编译原理</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../../5_book/1_compiler/8_langdef/index.html"><span itemprop="name">8 语言定义</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">3 关键字</span><meta itemprop="position" content="4"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+  
+  <h1 id="3-关键字"> 8.3 3 关键字</h1>
+  <hr />
+
+  <p>airlang 的关键字分为两种：普通关键字，宏关键字。
+两者差别不大，但是宏关键字有特殊的标记作用，一般用于注解一些信息。</p>
+<h2 id="宏关键字">宏关键字</h2>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@file</td>
+<td>代码中获取文件的名称字符串</td>
+</tr>
+<tr>
+<td>@line</td>
+<td>代码中获取代码所作行号数字</td>
+</tr>
+<tr>
+<td>@func</td>
+<td>代码中获取函数声明字符串</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>@debug</td>
+<td>用于标记只在debug标志下启用的代码</td>
+</tr>
+<tr>
+<td>@NotNulptr</td>
+<td>用于标记需要检查函数的指针参数非空</td>
+</tr>
+<tr>
+<td>@override</td>
+<td>标记非静态成员函数是重写父类的函数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="普通关键字">普通关键字</h2>
+<table>
+<thead>
+<tr>
+<th>固定位宽类型关键字</th>
+<th>注解</th>
+<th>位宽(bit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td>空，一般用于表示无返回值</td>
+<td>0</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>布尔类型</td>
+<td>8</td>
+</tr>
+<tr>
+<td>flt32</td>
+<td>32位单精度浮点</td>
+<td>32</td>
+</tr>
+<tr>
+<td>flt64</td>
+<td>64位双精度浮点</td>
+<td>32</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>8位有符号整数</td>
+<td>8</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>8位有符号整数</td>
+<td>16</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>8位有符号整数</td>
+<td>32</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>8位有符号整数</td>
+<td>64</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>8位无符号整数</td>
+<td>8</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>16位无符号整数</td>
+<td>16</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>32位无符号整数</td>
+<td>32</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>64位无符号整数</td>
+<td>64</td>
+</tr>
+<tr>
+<td>char</td>
+<td>字符</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>可变位宽类型的位宽由编译的目标CPU架构有关。</p>
+<table>
+    <th>可变位宽类型关键字</th><th>注解</th><th>CPU32</th><th>CPU64</th>
+    <tr>
+    <td>sint</td><td>有符号整数 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>uint</td><td>无符号整数 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>uintptr</td><td>指针 </td><td>32</td><td>64</td>
+    </tr>
+    <tr>
+    <td>cstring</td><td>字符串指针 </td><td>32</td><td>64</td>
+    </tr>
+</table>
+<table>
+<thead>
+<tr>
+<th>修饰关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>static</td>
+<td>静态</td>
+</tr>
+<tr>
+<td>public</td>
+<td>完全公开的</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>对部分成员公开的</td>
+</tr>
+<tr>
+<td>private</td>
+<td>私有的 成员</td>
+</tr>
+<tr>
+<td>const</td>
+<td>常量化，只读</td>
+</tr>
+<tr>
+<td>friend</td>
+<td>友元定义</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>分支关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>if</td>
+<td>比较分支</td>
+</tr>
+<tr>
+<td>elsif</td>
+<td>次比较分支</td>
+</tr>
+<tr>
+<td>else</td>
+<td>比较默认分支</td>
+</tr>
+<tr>
+<td>for</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>foreach</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>while</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>do</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>break</td>
+<td>跳出循环</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>继续下一轮循环</td>
+</tr>
+<tr>
+<td>goto</td>
+<td>跳转到标签</td>
+</tr>
+<tr>
+<td>return</td>
+<td>函数返回</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>类型定义关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enum</td>
+<td>枚举</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>结构体</td>
+</tr>
+<tr>
+<td>union</td>
+<td>联合体</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>接口</td>
+</tr>
+<tr>
+<td>class</td>
+<td>类</td>
+</tr>
+<tr>
+<td>entrust</td>
+<td>委托指针</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>其他关键字</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>nullptr</td>
+<td></td>
+</tr>
+<tr>
+<td>this</td>
+<td></td>
+</tr>
+<tr>
+<td>super</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

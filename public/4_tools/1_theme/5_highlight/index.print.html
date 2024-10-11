@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="高亮(highlight)">
+    <meta name="twitter:description" content="highlight 使用语法高亮显示来呈现您的代码。
+&#8203; python 1print(&#34;Hello World!&#34;) 用法 这个简码与 Hugo 的 highlight 简码但提供了一些扩展。
+它的调用方式与 Hugo 自己的短代码相同，提供位置参数或简单地使用 codefences。
+您也可以自由地从自己的部分调用此短代码。在这种情况下，它类似于雨果的highlight功能语法，如果使用兼容性语法将此简码称为部分。
+虽然示例使用带有命名参数的短代码，但建议改用 codefences。这是因为越来越多的其他软件支持共同防御（例如。GitHub），因此您的 Markdown 变得更加可移植。
+&#8203; codefence shortcode shortcode (positional) ```py { lineNos=&#34;true&#34; wrap=&#34;true&#34; title=&#34;python&#34; } print(&#34;Hello World!&#34;) ``` {{&lt; highlight lineNos=&#34;true&#34; type=&#34;py&#34; wrap=&#34;true&#34; title=&#34;python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} {{&lt; highlight py &#34;lineNos=true,wrap=true,title=python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} 参数 名称 位置 默认 Note注释s type 1 &lt;空&gt; 要突出显示的代码语言。从支持的语言之一中进行选择。不区分大小写。 title &lt;空&gt; 扩展。 代码的任意标题。如果出现以下情况，则会像单个选项卡一样显示代码hl_inline=false（这是 Hugos 的默认设置）。 wrap 扩展。 当内容可以换行时，否则它将是可滚动的。">
+    <meta property="og:title" content="高亮(highlight)">
+    <meta property="og:description" content="highlight 使用语法高亮显示来呈现您的代码。
+&#8203; python 1print(&#34;Hello World!&#34;) 用法 这个简码与 Hugo 的 highlight 简码但提供了一些扩展。
+它的调用方式与 Hugo 自己的短代码相同，提供位置参数或简单地使用 codefences。
+您也可以自由地从自己的部分调用此短代码。在这种情况下，它类似于雨果的highlight功能语法，如果使用兼容性语法将此简码称为部分。
+虽然示例使用带有命名参数的短代码，但建议改用 codefences。这是因为越来越多的其他软件支持共同防御（例如。GitHub），因此您的 Markdown 变得更加可移植。
+&#8203; codefence shortcode shortcode (positional) ```py { lineNos=&#34;true&#34; wrap=&#34;true&#34; title=&#34;python&#34; } print(&#34;Hello World!&#34;) ``` {{&lt; highlight lineNos=&#34;true&#34; type=&#34;py&#34; wrap=&#34;true&#34; title=&#34;python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} {{&lt; highlight py &#34;lineNos=true,wrap=true,title=python&#34; &gt;}} print(&#34;Hello World!&#34;) {{&lt; /highlight &gt;}} 参数 名称 位置 默认 Note注释s type 1 &lt;空&gt; 要突出显示的代码语言。从支持的语言之一中进行选择。不区分大小写。 title &lt;空&gt; 扩展。 代码的任意标题。如果出现以下情况，则会像单个选项卡一样显示代码hl_inline=false（这是 Hugos 的默认设置）。 wrap 扩展。 当内容可以换行时，否则它将是可滚动的。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/4_tools/1_theme/5_highlight/index.html">
+    <meta property="article:section" content="主题简码">
+    <title>高亮(highlight)</title>
+    <link href="http://localhost:1313/4_tools/1_theme/5_highlight/index.html" rel="canonical" type="text/html" title="高亮(highlight)">
+    <link href="../../../4_tools/1_theme/5_highlight/index.xml" rel="alternate" type="application/rss+xml" title="高亮(highlight)"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../4_tools/1_theme/5_highlight/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/index.html"><span itemprop="name">工具手册</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/1_theme/index.html"><span itemprop="name">主题简码</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">高亮(highlight)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default" serialing>
+  <header class="headline">
+  </header>
+  
+  <h1 id="高亮highlight"> 1.5 高亮(highlight)</h1>
+  <hr />
+
+  <p><code>highlight</code> 使用语法高亮显示来呈现您的代码。</p>
+
+<div class="tab-panel" data-tab-group="176dc8a7f37f33a240bd8072439b9716">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="python"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('176dc8a7f37f33a240bd8072439b9716','python')"
+    >
+      <span class="tab-nav-text">python</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="python"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code" lineNos="true"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="用法">用法</h2>
+<p>这个简码与 <code>Hugo</code> 的 <code>highlight</code> 简码但提供了一些扩展。</p>
+<p>它的调用方式与 Hugo 自己的短代码相同，提供位置参数或简单地使用 codefences。</p>
+<p>您也可以自由地从自己的部分调用此短代码。在这种情况下，它类似于雨果的highlight功能语法，如果使用兼容性语法将此简码称为部分。</p>
+<p>虽然示例使用带有命名参数的短代码，但建议改用 codefences。这是因为越来越多的其他软件支持共同防御（例如。GitHub），因此您的 Markdown 变得更加可移植。</p>
+
+<div class="tab-panel" data-tab-group="shortcode-parameter">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="codefence"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('shortcode-parameter','codefence')"
+    >
+      <span class="tab-nav-text">codefence</span>
+    </button>
+    <button
+      data-tab-item="shortcode"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','shortcode')"
+    >
+      <span class="tab-nav-text">shortcode</span>
+    </button>
+    <button
+      data-tab-item="shortcode-positional"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','shortcode-positional')"
+    >
+      <span class="tab-nav-text">shortcode (positional)</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="codefence"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">```py { lineNos=&#34;true&#34; wrap=&#34;true&#34; title=&#34;python&#34; }
+</span></span><span class="line"><span class="cl">print(&#34;Hello World!&#34;)
+</span></span><span class="line"><span class="cl">```</span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="shortcode"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">lineNos</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="nx">wrap</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;python&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="shortcode-positional"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">py</span> <span class="s">&#34;lineNos=true,wrap=true,title=python&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="参数">参数</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位置</th>
+<th>默认</th>
+<th>Note注释s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>1</td>
+<td><em>&lt;空&gt;</em></td>
+<td>要突出显示的代码语言。从<a href="https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages" target="_blank">支持的语言</a>之一中进行选择。不区分大小写。</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td></td>
+<td><em>&lt;空&gt;</em></td>
+<td><strong>扩展</strong>。 代码的任意标题。如果出现以下情况，则会像单个选项卡一样显示代码<code>hl_inline=false</code>（这是 Hugos 的默认设置）。</td>
+</tr>
+<tr>
+<td><strong>wrap</strong></td>
+<td></td>
+<td></td>
+<td><strong>扩展</strong>。 当内容可以换行时，否则它将是可滚动的。<br>默认值true,可以在<code>hugo.toml</code>并通过 <code>frontmatter</code> 覆盖。见<a href="../../../4_tools/1_theme/5_highlight/index.html#configuration">下文</a>。</td>
+</tr>
+<tr>
+<td><strong>options</strong></td>
+<td>2</td>
+<td><em>&lt;空&gt;</em></td>
+<td>此表中零个或多个 <a href="https://gohugo.io/functions/highlight/#options" target="_blank">Hugo 支持的选项</a> 以及扩展参数的可选逗号分隔列表。</td>
+</tr>
+<tr>
+<td><em><strong>&lt;option&gt;</strong></em></td>
+<td></td>
+<td><em>&lt;空&gt;</em></td>
+<td><a href="https://gohugo.io/functions/highlight/#options" target="_blank">Hugo 支持的任何选项</a>.</td>
+</tr>
+<tr>
+<td><em><strong>&lt;content&gt;</strong></em></td>
+<td></td>
+<td><em>&lt;空&gt;</em></td>
+<td>需要语法高亮的代码.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置">配置</h2>
+<p><a href="https://gohugo.io/functions/highlight/#options" target="_blank">Hugo 支持选项</a> 的默认值可以通过 <code>goldmark</code> 设置<code>hugo.toml</code></p>
+<p>扩展选项的默认值可以通过<code>hugo.toml</code>或被每个单独页面的 <code>frontmatter</code> 覆盖。</p>
+<h3 id="全局配置文件">全局配置文件</h3>
+<p>您可以在<a href="https://github.com/chase-moskal/mermaid-live-editor/blob/master/src/components/editor/editor.styles.scss" target="_blank">颜色变体样式表</a>文件中配置用于代码块的颜色样式。</p>
+<h4 id="推荐设置">推荐设置</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">markup</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">markup</span><span class="p">.</span><span class="nx">highlight</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">lineNumbersInTable</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">noClasses</span> <span class="p">=</span> <span class="kc">false</span></span></span></code></pre></div><h4 id="可选设置">可选设置</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">highlightWrap</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div><h3 id="页面-frontmatter">页面 Frontmatter</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">highlightWrap</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div><h2 id="案例">案例</h2>
+<h3 id="带起始偏移量的行号">带起始偏移量的行号</h3>
+<p>如上所述，如果代码换行，布局中的行号将发生变化，因此最好使用<code>table</code> <code>inline</code>.为了让您更轻松，请将<code>lineNumbersInTable = false</code>在你的<code>hugo.toml</code>并添加<code>lineNos = true</code>调用简码而不是特定值时，或者<code>table</code> <code>inline</code>.</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">lineNos</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="nx">lineNoStart</span><span class="p">=</span><span class="s">&#34;666&#34;</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">the</span> <span class="nx">hardest</span> <span class="nx">part</span> <span class="nx">is</span> <span class="nx">to</span> <span class="nx">start</span> <span class="nx">writing</span> <span class="nx">code</span><span class="p">;</span> <span class="nx">here</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">a</span> <span class="nx">kickstart</span><span class="p">;</span> <span class="nx">just</span> <span class="nx">copy</span> <span class="nx">and</span> <span class="nx">paste</span> <span class="nx">this</span><span class="p">;</span> <span class="nx">it</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">free</span><span class="p">;</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">lines</span> <span class="nx">will</span> <span class="nx">cost</span> <span class="nx">you</span> <span class="nx">serious</span> <span class="nx">credits</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;World&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s">&#34;!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div><div class="highlight wrap-code" lineNoStart="666" lineNos="true"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="ln">666</span><span class="cl"><span class="c1"># the hardest part is to start writing code; here&#39;s a kickstart; just copy and paste this; it&#39;s free; the next lines will cost you serious credits</span>
+</span></span><span class="line"><span class="ln">667</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">668</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">669</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;World&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">670</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;!&#34;</span><span class="p">)</span></span></span></code></pre></div>
+<h3 id="有标题的codefence">有标题的Codefence</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">```py { title=&#34;python&#34; }
+</span></span><span class="line"><span class="cl"><span class="gh"># a bit shorter
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>print(&#34;Hello World!&#34;)
+</span></span><span class="line"><span class="cl">```</span></span></code></pre></div>
+<div class="tab-panel" data-tab-group="c1effdeb1ab73b309c355791af4c291b">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="python"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('c1effdeb1ab73b309c355791af4c291b','python')"
+    >
+      <span class="tab-nav-text">python</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="python"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># a bit shorter</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div><h3 id="带装饰">带装饰</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="nx">wrap</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="nx">hl_lines</span><span class="p">=</span><span class="s">&#34;2&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Quicksort</span> <span class="nx">Python</span> <span class="nx">One</span><span class="o">-</span><span class="nx">liner</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lambda</span> <span class="nx">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="nx">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="p">&lt;</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="o">&gt;=</span><span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Some</span> <span class="nx">more</span> <span class="nx">stuff</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div><div class="highlight wrap-code" hl_lines="2"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># Quicksort Python One-liner</span>
+</span></span><span class="line hl"><span class="cl"><span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Some more stuff</span></span></span></code></pre></div>
+<h3 id="无装饰">无装饰</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="kd">type</span><span class="p">=</span><span class="s">&#34;py&#34;</span> <span class="nx">wrap</span><span class="p">=</span><span class="s">&#34;false&#34;</span> <span class="nx">hl_lines</span><span class="p">=</span><span class="s">&#34;2&#34;</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Quicksort</span> <span class="nx">Python</span> <span class="nx">One</span><span class="o">-</span><span class="nx">liner</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lambda</span> <span class="nx">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="nx">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="p">&lt;</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nf">qsort</span><span class="p">([</span><span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="nx">in</span> <span class="nx">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nx">x</span><span class="o">&gt;=</span><span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Some</span> <span class="nx">more</span> <span class="nx">stuff</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">highlight</span> <span class="p">&gt;}}</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># Quicksort Python One-liner</span>
+</span></span><span class="line hl"><span class="cl"><span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">L</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Some more stuff</span></span></span></code></pre></div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

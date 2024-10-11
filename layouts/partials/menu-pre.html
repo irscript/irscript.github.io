@@ -1,0 +1,4 @@
+<b style="display: inline-block; font-weight: 200; padding-right: .5rem; text-align: left; ;">{{ if .Parent
+    }}{{if (ne .Parent.Weight 0)}}{{ if .Parent.Parent
+    }}{{ .Parent.Weight }}.{{ end }}{{ end }}{{ end }}{{
+    .Params.weight }}. </b>

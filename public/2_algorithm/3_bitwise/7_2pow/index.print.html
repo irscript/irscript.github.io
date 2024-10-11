@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="7 应用 2的次方">
+    <meta name="twitter:description" content="整数对2的乘/除法 整数 n 向右移一位，相当于将 n 除以 2；数 n 向左移一位，相当于将 n 乘以 2。
+int n = 2; n &gt;&gt; 1; // 1 n &lt;&lt; 1; // 4 n 对“2的次方”取余 m 是2的次方，则其二进制数只有一个1，如 4 =&gt; 0100，8 =&gt; 1000。m-1 之后，原本 m 二进制的1变成0，原本1后面的0全变成1，如 4-1 = 3 =&gt; 0011，8-1 = 7 =&gt; 0111。
+2 ^ 0 = 1
+2 ^ 1 = 2
+2 ^ 2 = 4
+2^ 3 = 8
+2 ^ 4 = 16">
+    <meta property="og:title" content="7 应用 2的次方">
+    <meta property="og:description" content="整数对2的乘/除法 整数 n 向右移一位，相当于将 n 除以 2；数 n 向左移一位，相当于将 n 乘以 2。
+int n = 2; n &gt;&gt; 1; // 1 n &lt;&lt; 1; // 4 n 对“2的次方”取余 m 是2的次方，则其二进制数只有一个1，如 4 =&gt; 0100，8 =&gt; 1000。m-1 之后，原本 m 二进制的1变成0，原本1后面的0全变成1，如 4-1 = 3 =&gt; 0011，8-1 = 7 =&gt; 0111。
+2 ^ 0 = 1
+2 ^ 1 = 2
+2 ^ 2 = 4
+2^ 3 = 8
+2 ^ 4 = 16">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/2_algorithm/3_bitwise/7_2pow/index.html">
+    <meta property="article:section" content="3 快速位算法">
+    <title>7 应用 2的次方</title>
+    <link href="http://localhost:1313/2_algorithm/3_bitwise/7_2pow/index.html" rel="canonical" type="text/html" title="7 应用 2的次方">
+    <link href="../../../2_algorithm/3_bitwise/7_2pow/index.xml" rel="alternate" type="application/rss+xml" title="7 应用 2的次方"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../2_algorithm/3_bitwise/7_2pow/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../2_algorithm/index.html"><span itemprop="name">理论算法</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../2_algorithm/3_bitwise/index.html"><span itemprop="name">3 快速位算法</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">7 应用 2的次方</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class=" taxonomy-tags term-list cstyle  tags" title="标签" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="../../../tags/bitwise/index.html">Bitwise</a></li>
+  </ul>
+</div>
+  </header>
+  
+  <h1 id="7-应用-2的次方"> 3.7 7 应用 2的次方</h1>
+  <hr />
+
+  <h2 id="整数对2的乘除法">整数对2的乘/除法</h2>
+<hr>
+<p>整数 n 向右移一位，相当于将 n 除以 2；数 n 向左移一位，相当于将 n 乘以 2。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 4
+</span></span></span></code></pre></div><h2 id="n-对2的次方取余">n 对“2的次方”取余</h2>
+<hr>
+<p>m 是2的次方，则其二进制数只有一个1，如 4 =&gt; 0100，8 =&gt; 1000。m-1 之后，原本 m 二进制的1变成0，原本1后面的0全变成1，如 4-1 = 3 =&gt; 0011，8-1 = 7 =&gt; 0111。</p>
+<p>2 ^ 0 = 1</p>
+<p>2 ^ 1 = 2</p>
+<p>2 ^ 2 = 4</p>
+<p>2^ 3 = 8</p>
+<p>2 ^ 4 = 16</p>
+<p>2 ^ 5 = 32</p>
+<p>&hellip;</p>
+<p>可以看出 2^(q + 1) 永远都是 2^q 的整数倍，而 2^q 比 2^(q - 1)+2^(q - 2) &hellip; + 2^0 的和还要大 1。</p>
+<p>假设 m = 2^q ，q 为正整数。n 的二进制数中，第[ n 的最高位, q ]位的和是 m 的整数倍，而第[ q-1, 0 ]位的和是 n/m 的余数，也就是说将n的二进制数的第[ q-1, 0 ]位截取，即可得到 n/m 的余数。</p>
+<p>m = 2^q ， m − 1 = 2^(q - 1)+2^(q - 2) &hellip; + 2^0  =&gt; 00011&hellip;1（[ q-1, 0 ]位全为1），所以 n &amp; (m - 1) 的值为 n/m 的余数。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">mod</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span> <span class="c1">// m是2的次方，如4,8等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">mod</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span></span></span></code></pre></div><h2 id="将-n-以2的次方倍数最小补全">将 n 以“2的次方”倍数最小补全</h2>
+<hr>
+<p>有 n 和 m 两数，m 为2的次方，找到大于等于 n 且正好是 m 整数倍的最小数。</p>
+<p>假设 m = 2^q ，则 m 的倍数的二进制数中，第 q 位为1，其余位全为 0；(m - 1) 的二进制数中[ q-1, 0 ]位全为 1，其余位全为 0。</p>
+<p>所以有两种情况：</p>
+<ul>
+<li>如果n的二进制数中[ q-1, 0 ]位全为 0，则 n 就是 m 整数倍的最小数；</li>
+<li>如果n的二进制数中[ q-1, 0 ]位不全为 0，在第 q 位上加 1，所得结果就是 m 整数倍的最小数。</li>
+</ul>
+<p>现给 n 加上一个[ q-1, 0 ]位全为 1，其余位全为 0 的数（ m-1 就是这个数），并将所得结果的[ q-1, 0 ]位全部置为 0（结果与 ~(m - 1) 相与即可），便可满足这两种情况。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">min</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">min</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span></span></span></code></pre></div>
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

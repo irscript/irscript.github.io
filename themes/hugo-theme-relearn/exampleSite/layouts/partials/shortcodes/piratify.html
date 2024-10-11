@@ -1,13 +1,13 @@
 {{- $page := .page }}
 {{- if and (not $page) .context }}
   {{- $page = .context }}
-  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'piratify' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#5180" $page.File.Path }}
+  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'piratify' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration#5180" $page.File.Filename }}
 {{- end }}
 {{- $content := .content }}
 {{- $pagefield := cond (ne $content nil) nil (.pagefield | default "Content") }}
 {{- $writenotice := cond (ne .writenotice nil) .writenotice false }}
 {{- $langtrg := "pir" }}
-{{- $langsrc := cond (eq $page.Lang $langtrg) (.langsrc | default "en") $page.Lang }}
+{{- $langsrc := cond (eq $page.Language.Lang $langtrg) (.langsrc | default "en") $page.Language.Lang }}
 {{- $baseURL := urls.Parse site.BaseURL }}
 {{- $baseURLpath := $baseURL.Path | default "/" }}
 {{- $l := $page.RelPermalink }}
@@ -34,7 +34,7 @@
 		{{- break }}
 	{{- end }}
 {{- end }}
-{{- if eq $page.Lang $langtrg }}
+{{- if eq $page.Language.Lang $langtrg }}
 	{{- if $writenotice }}
 		{{- partial "shortcodes/notice.html" (dict
 			"page" $page
@@ -111,7 +111,9 @@
 		"(\\w)(?:[aeiou])mizes([\\s\\n<.,;?!:])" "'mizes"
 		"(\\w)(?:[aeiou])nize([\\s\\n<.,;?!:])" "'nize"
 		"(\\w)(?:[aeiou])nizes([\\s\\n<.,;?!:])" "'nizes"
-		(printf "(.)=\"%s([^\"]*?\")" $baseURLpath)  (printf "=\"%s%s/" $baseURLpath $langtrg)
+	-}}
+	{{- $links := slice
+		"href"
 	-}}
 	{{- $fix := dict
 		"warn'n" "warning"
@@ -125,17 +127,26 @@
 	{{- range $from, $to := $specials }}
 		{{- $c = replaceRE $from (printf "${1}%s${2}" $to) $c }}
 	{{- end }}
+	{{- range $attr := $links }}
+		{{- $c = replaceRE (printf "\\b(%s)(=\"%s[^\"]*?\")" $attr $baseURLpath) "${1} data-piratify${2}" $c }}
+		{{- $m := findRESubmatch (printf "%s data-piratify=\"(%s)([^\"]*?)\"" $attr $baseURLpath) $c }}
+		{{- range $m }}
+			{{- $r := printf "%s=\"%s\"" $attr (index . 2) }}
+			{{- $u := urls.Parse (index . 2) }}
+			{{- if and (not $u.IsAbs) $u.Path }}
+				{{- $r = printf "%s=\"%s%s/%s\"" $attr $baseURLpath $langtrg (index . 2) }}
+			{{- end }}
+			{{- $c = replace $c (index . 0) $r }}
+		{{- end }}
+	{{- end }}
 	{{- range $from, $to := $fix }}
 		{{- $c = replace $c $from $to }}
 	{{- end }}
-	{{- if (int (len $l)) }}
-		{{- $c = replaceRE "(src|href)=\"(images/[^\"]*?\")" (printf "${1}=\"%s${2}" $l) $c }}
-	{{- end }}
-	{{- $c = replaceRE (printf "(src|href)=\"([^\"]*?)/%s/([^\"]*?.files/[^\"]*?\")" $langtrg) "${1}=\"${2}/${3}" $c }}
 	{{- if $srcPage }}
-		{{- $page.Store.Set "hasMathJax" (or ($page.Store.Get "hasMathJax") ($srcPage.Store.Get "hasMathJax")) }}
-		{{- $page.Store.Set "hasMermaid" (or ($page.Store.Get "hasMermaid") ($srcPage.Store.Get "hasMermaid")) }}
-		{{- $page.Store.Set "hasOpenapi" (or ($page.Store.Get "hasOpenapi") ($srcPage.Store.Get "hasOpenapi")) }}
+		{{- range $page.Site.Params.relearn.dependencies }}
+			{{- $has := printf "has%s" .name }}
+			{{- $page.Store.Set $has (or ($page.Store.Get $has) ($srcPage.Store.Get $has)) }}
+		{{- end }}
 	{{- end }}
 {{- end }}
 {{ $c | safeHTML }}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>教程系列 on </title>
+    <link>http://localhost:1313/5_book/index.html</link>
+    <description>Recent content in 教程系列 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/5_book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>编译原理</title>
+      <link>http://localhost:1313/5_book/1_compiler/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/5_book/1_compiler/index.html</guid>
+      <description>目录 1 词法分析 2 语法分析 3 语义分析 4 中间优化 5 目标生成 6 中间代码 7 指令集 8 语言定义 引言 编译原理是将文本字符流，通过一系列的分析、转换，最后生成确定的指令文件的数据分析转换技术。编译器是利用编译原理，将一种程序（源程序）翻译成另一种程序（目标程序）的计算机程序。业界也将编译器分为三个部分：前端、中端、后端。
+编译器所做的工作流程如下图所示。</description>
+    </item>
+  </channel>
+</rss>

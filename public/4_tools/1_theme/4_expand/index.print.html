@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="扩展(expand)">
+    <meta name="twitter:description" content="个人博客">
+    <meta property="og:title" content="扩展(expand)">
+    <meta property="og:description" content="个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:1313/4_tools/1_theme/4_expand/index.html">
+    <title>扩展(expand)</title>
+    <link href="http://localhost:1313/4_tools/1_theme/4_expand/index.html" rel="canonical" type="text/html" title="扩展(expand)">
+    <link href="../../../4_tools/1_theme/4_expand/index.xml" rel="alternate" type="application/rss+xml" title="扩展(expand)"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../4_tools/1_theme/4_expand/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/index.html"><span itemprop="name">工具手册</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/1_theme/index.html"><span itemprop="name">主题简码</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">扩展(expand)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+  
+  <h1 id="扩展expand"> 1.4 扩展(expand)</h1>
+  <hr />
+
+  <p><code>expand</code>简码显示可展开/可折叠的文本部分</p>
+
+<div class="expand">
+    <input type="checkbox" id="R-expand-d128ed84c411739695983d5004d17653" aria-controls="R-expandcontent-d128ed84c411739695983d5004d17653" >
+    <label class="expand-label" for="R-expand-d128ed84c411739695983d5004d17653" >
+        <i class="fa-fw fas fa-chevron-down"></i>
+        <i class="fa-fw fas fa-chevron-right"></i>
+        展开我&hellip;
+    </label>
+    <div id="R-expandcontent-d128ed84c411739695983d5004d17653" class="expand-content">
+
+<p>Thank you!</p>
+<p>That&rsquo;s some text with a footnote<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>That&rsquo;s some more text with a footnote.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>And that&rsquo;s the footnote.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Anything of interest goes here.</p>
+<p>Blue light glows blue.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div class="box notices cstyle note">
+  <div class="box-label"><i class="fa-fw fas fa-exclamation-circle"></i> 注释</div>
+  <div class="box-content">
+
+<p>这只能在现代浏览器中完美运行。虽然 Internet Explorer 11 在显示它时存在问题，但该功能仍然有效。</p>
+</div>
+</div>
+<h2 id="用法">用法</h2>
+
+<div class="tab-panel" data-tab-group="shortcode-parameter">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="简码"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('shortcode-parameter','简码')"
+    >
+      <span class="tab-nav-text">简码</span>
+    </button>
+    <button
+      data-tab-item="简码-positional"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','简码-positional')"
+    >
+      <span class="tab-nav-text">简码 (positional)</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="简码"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Expand me...&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Thank</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div></div>
+    </div>
+    <div
+      data-tab-item="简码-positional"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="s">&#34;Expand me...&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Thank</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="参数">参数</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Position</th>
+<th>Default</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>title</strong></td>
+<td>1</td>
+<td><code>&quot;Expand me...&quot;</code></td>
+<td>Arbitrary text to appear next to the expand/collapse icon.</td>
+</tr>
+<tr>
+<td><strong>open</strong></td>
+<td>2</td>
+<td><code>false</code></td>
+<td>When <code>true</code> the content text will be initially shown as expanded.</td>
+</tr>
+<tr>
+<td><em><strong>&lt;content&gt;</strong></em></td>
+<td></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>Arbitrary text to be displayed on expand.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="案例">案例</h2>
+<h3 id="默认">默认</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Yes</span><span class="p">,</span> <span class="nx">you</span> <span class="nx">did</span> <span class="nx">it</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
+<div class="expand">
+    <input type="checkbox" id="R-expand-de70d37bcfb454634066a0f315505977" aria-controls="R-expandcontent-de70d37bcfb454634066a0f315505977" >
+    <label class="expand-label" for="R-expand-de70d37bcfb454634066a0f315505977" >
+        <i class="fa-fw fas fa-chevron-down"></i>
+        <i class="fa-fw fas fa-chevron-right"></i>
+        展开
+    </label>
+    <div id="R-expandcontent-de70d37bcfb454634066a0f315505977" class="expand-content">
+<p>
+Yes, you did it!</div>
+</div>
+<h3 id="最初扩展">最初扩展</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Expand me...&#34;</span> <span class="nx">open</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">No</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">press</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
+<div class="expand">
+    <input type="checkbox" id="R-expand-80ae08fc467f9d673017501901ec887b" aria-controls="R-expandcontent-80ae08fc467f9d673017501901ec887b"  checked>
+    <label class="expand-label" for="R-expand-80ae08fc467f9d673017501901ec887b" >
+        <i class="fa-fw fas fa-chevron-down"></i>
+        <i class="fa-fw fas fa-chevron-right"></i>
+        Expand me&hellip;
+    </label>
+    <div id="R-expandcontent-80ae08fc467f9d673017501901ec887b" class="expand-content">
+<p>
+No need to press you!</div>
+</div>
+<h3 id="任意文本">任意文本</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Show me almost **endless** possibilities&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">You</span> <span class="nx">can</span> <span class="nx">add</span> <span class="nx">standard</span> <span class="nx">markdown</span> <span class="nx">syntax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="nx">multiple</span> <span class="nx">paragraphs</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="nx">bullet</span> <span class="nx">point</span> <span class="nx">lists</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="nx">_emphasized_</span><span class="p">,</span> <span class="o">**</span><span class="nx">bold</span><span class="o">**</span> <span class="nx">and</span> <span class="nx">even</span> <span class="o">**</span><span class="nx">_bold</span> <span class="nx">emphasized_</span><span class="o">**</span> <span class="nx">text</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="p">[</span><span class="nx">links</span><span class="p">](</span><span class="nx">https</span><span class="p">:</span><span class="c1">//example.com)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">-</span> <span class="nx">etc</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">```plaintext
+</span></span></span><span class="line"><span class="cl"><span class="s">...and even source code
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&gt;</span> <span class="nx">the</span> <span class="nx">possibilities</span> <span class="nx">are</span> <span class="nf">endless</span> <span class="p">(</span><span class="nx">almost</span> <span class="o">-</span> <span class="nx">including</span> <span class="nx">other</span> <span class="nx">shortcodes</span> <span class="nx">may</span> <span class="nx">or</span> <span class="nx">may</span> <span class="nx">not</span> <span class="nx">work</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
+<div class="expand">
+    <input type="checkbox" id="R-expand-a4d7690571b3c3a799ca794ee6977171" aria-controls="R-expandcontent-a4d7690571b3c3a799ca794ee6977171" >
+    <label class="expand-label" for="R-expand-a4d7690571b3c3a799ca794ee6977171" >
+        <i class="fa-fw fas fa-chevron-down"></i>
+        <i class="fa-fw fas fa-chevron-right"></i>
+        Show me almost <strong>endless</strong> possibilities
+    </label>
+    <div id="R-expandcontent-a4d7690571b3c3a799ca794ee6977171" class="expand-content">
+
+<p>You can add standard markdown syntax:</p>
+<ul>
+<li>multiple paragraphs</li>
+<li>bullet point lists</li>
+<li><em>emphasized</em>, <strong>bold</strong> and even <strong><em>bold emphasized</em></strong> text</li>
+<li><a href="https://example.com" target="_blank">links</a></li>
+<li>etc.</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">...and even source code</span></span></code></pre></div><blockquote>
+<p>the possibilities are endless (almost - including other shortcodes may or may not work)</p>
+</blockquote>
+</div>
+</div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>理论算法 on </title>
+    <link>http://localhost:1313/2_algorithm/index.html</link>
+    <description>Recent content in 理论算法 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 Sep 2023 21:30:02 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/2_algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构</title>
+      <link>http://localhost:1313/2_algorithm/1_struct/index.html</link>
+      <pubDate>Thu, 14 Sep 2023 21:30:02 +0800</pubDate>
+      <guid>http://localhost:1313/2_algorithm/1_struct/index.html</guid>
+      <description>目录 链表 单向节点链表 双向节点链表 待续 </description>
+    </item>
+    <item>
+      <title>1 整数对齐</title>
+      <link>http://localhost:1313/2_algorithm/1_align/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/1_align/index.html</guid>
+      <description>// 向上大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T alignup(T num, T base) { return (num + base - 1) &amp;amp; (~(base - 1)); } // 向下大小对齐 template &amp;lt;typename T&amp;gt; inline constexpr T aligndown(T num, T base) { return (num &amp;amp; ~(base - 1)); }</description>
+    </item>
+    <item>
+      <title>2 哈希函数</title>
+      <link>http://localhost:1313/2_algorithm/2_hash/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/2_hash/index.html</guid>
+      <description>目录 1 消息摘要算法 1 MD2 算法 2 MD4 算法 3 MD5 算法 2 签名算法 1 SHA1 算法 2 SHA2-224 算法 3 SHA2-256 算法 4 SHA2-384 算法 5 SHA2-512 算法 3 CRC 哈希函数 </description>
+    </item>
+    <item>
+      <title>3 快速位算法</title>
+      <link>http://localhost:1313/2_algorithm/3_bitwise/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/3_bitwise/index.html</guid>
+      <description>位运算符 &amp;amp; 位与： 0 &amp;amp; 0 = 0 ; 0 &amp;amp; 1 = 0 ; 1 &amp;amp; 0 = 0 ;1 &amp;amp; 1 = 1 ; 同为 1 时， 结果为 1。 | 位或： 0 | 0 = 0 ; 0 | 1 = 1 ; 1 | 0 = 1 ;1 | 1 = 1 ; 存在 1 时， 结果为 1。 ^ 位异或： 0 &amp;amp; 0 = 0 ; 0 &amp;amp; 1 = 1 ; 1 &amp;amp; 0 = 1 ;1 &amp;amp; 1 = 0 ; 值相异时， 结果为 1。 ~ 位反： ~ 0 = 1 ; ~ 1 = 0 ; &amp;laquo; 左移: &amp;gt;&amp;gt; 逻辑右移： &amp;gt;&amp;raquo; 算术右移： 位运算特性 与（&amp;amp;）运算 一个数n与0进行与运算，值为0，n &amp;amp; 0 = 0。一个数n与-1进行与运算，值为n，n &amp;amp; -1 = n。一个数n与自己进行与运算，值为n，n &amp;amp; n = n。或（|）运算 一个数n与0进行或运算，值为n，n | 0 = n。一个数n与-1进行或运算，值为-1，n | -1 = -1。非（~）运算 对二进制的每一位都按位取反。对于数n，n + (~n) = -1。异或（^）运算 运算的二进位结果，相异为1，相同为0。</description>
+    </item>
+  </channel>
+</rss>

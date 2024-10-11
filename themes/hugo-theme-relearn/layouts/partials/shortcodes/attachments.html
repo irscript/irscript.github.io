@@ -1,19 +1,23 @@
-{{- $version := split hugo.Version "." }}
-{{- $major := int (index $version 0) }}
-{{- $minor := int (index $version 1) }}
 {{- $page := .page }}
 {{- if and (not $page) .context }}
   {{- $page = .context }}
-  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'attachments' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#5180" $page.File.Path }}
+  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'attachments' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration#5180" $page.File.Filename }}
 {{- end }}
+{{ warnf "%q: DEPRECATED shortcode `attachments` found, use `resources` instead; see https://mcshelby.github.io/hugo-theme-relearn/shortcodes/attachments#migration" $page.File.Filename }}
 {{- $color := .color | default "" }}
 {{- $content := .content }}
 {{- $style := .style | default "default" }}
 {{- if and (not $color) (eq (len $color) 0) }}
   {{- $style = .style | default "transparent" }}
 {{- end }}
-{{- $title := .title | default ($style | T) | default ("Attachments-label" | T) }}
-{{- $title = trim $title " " }}
+{{- $title := .title }}
+{{- if not $title }}
+  {{- if eq $style "info" }}{{ $title = $style | T }}{{ end }}
+  {{- if eq $style "warning" }}{{ $title = $style | T }}{{ end }}
+  {{- if eq $style "note" }}{{ $title = $style | T }}{{ end }}
+  {{- if eq $style "tip" }}{{ $title = $style | T }}{{ end }}
+{{- end }}
+{{- $title = trim ($title | default ("Attachments-label" | T)) " " }}
 {{- $icon := .icon | default "" }}
 {{- if and (not $icon) (eq (len $icon) 0) }}
   {{- $icon = "paperclip" }}
@@ -30,24 +34,26 @@
 {{- $pattern := .pattern | default "" }}
 {{- $defaultUrlPrefix := strings.TrimRight "/" $page.RelPermalink }}
 {{- if .IsTranslated -}}
-  {{- $defaultLanguage := (index $page.Site.Home.AllTranslations 0).Lang }}
+  {{- $defaultLanguage := (index $page.Site.Home.AllTranslations 0).Language.Lang }}
   {{- $defaultLanguagePage := index (where $page.AllTranslations "Language.Lang" $defaultLanguage) 0 }}
   {{- $defaultUrlPrefix = strings.TrimRight "/" $defaultLanguagePage.RelPermalink }}
 {{- end }}
 {{- $urlPrefix := strings.TrimRight "/" $page.RelPermalink }}
 {{- with $page }}
 {{- if ne .BundleType "leaf" }}
-  {{- if or (and (eq $major 0) (ge $minor 112)) (gt $major 0) }}
-    {{- warnf "%q: UNSUPPORTED usage of 'attachments' shortcode found while using Hugo >= 0.112.0, use a leaf bundle instead; see https://mcshelby.github.io/hugo-theme-relearn/shortcodes/attachments/index.html#single-language" $page.File.Path }}
+  {{- $hugoVersion := "0.112.0" }}
+  {{- if ge hugo.Version $hugoVersion }}
+    {{- warnf "%q: UNSUPPORTED usage of 'attachments' shortcode found while using Hugo >= 0.112.0, use a leaf bundle instead; see https://mcshelby.github.io/hugo-theme-relearn/shortcodes/attachments/index.html#single-language" $page.File.Filename }}
   {{- else }}
-    {{- warnf "%q: DEPRECATED usage of 'attachments' shortcode found which will not be compatible while using Hugo >= 0.112.0, use a leaf bundle instead; see https://mcshelby.github.io/hugo-theme-relearn/shortcodes/attachments/index.html#single-language" $page.File.Path }}
+    {{- warnf "%q: DEPRECATED usage of 'attachments' shortcode found which will not be compatible while using Hugo >= 0.112.0, use a leaf bundle instead; see https://mcshelby.github.io/hugo-theme-relearn/shortcodes/attachments/index.html#single-language" $page.File.Filename }}
   {{- end }}
 {{- end }}
 <div class="box attachments cstyle {{ $style }}"{{ if $color }} style="--VARIABLE-BOX-color: {{ $color }};"{{ end }}>
   <div class="box-label">{{ if $icon }}<i class="{{ $icon }}"></i>{{ end }}{{ if and $icon $title }} {{ end }}{{ $title | .RenderString }}</div>
   <ul class="box-content attachments-files">
   {{- $fileDir := "" }}
-  {{- if or (and (eq $major 0) (ge $minor 112)) (gt $major 0) }}
+  {{- $hugoVersion := "0.112.0" }}
+  {{- if ge hugo.Version $hugoVersion }}
     {{- $fileDir = path.Dir (strings.TrimPrefix (path.Clean hugo.WorkingDir) (path.Clean .File.Filename)) }}
   {{- else }}
     {{- $fileDir = printf "%s/%s" (path.Clean (.Language.ContentDir | default "content")) (path.Clean .File.Dir) }}

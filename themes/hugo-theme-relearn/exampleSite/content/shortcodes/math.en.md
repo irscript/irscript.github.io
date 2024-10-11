@@ -19,10 +19,6 @@ While the examples are using shortcodes with named parameter it is recommended t
 
 You are free to also call this shortcode from your own partials.
 
-{{% notice note %}}
-To use codefence syntax you have to turn off `guessSyntax` for the `markup.highlight` setting ([see the configuration section](#configuration)).
-{{% /notice %}}
-
 {{< tabs groupid="shortcode-parameter">}}
 {{% tab title="codefence" %}}
 
@@ -61,41 +57,28 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 | Name                  | Default          | Notes       |
 |-----------------------|------------------|-------------|
 | **align**             | `center`         | Allowed values are `left`, `center` or `right`. |
-| _**&lt;content&gt;**_ | _&lt;empty&gt;_  | Your formuale. |
+| _**&lt;content&gt;**_ | _&lt;empty&gt;_  | Your formulae. |
 
 ## Configuration
 
-MathJax is configured with default settings. You can customize MathJax's default settings for all of your files thru a JSON object in your `config.toml` or override these settings per page thru your pages frontmatter.
+MathJax is configured with default settings. You can customize MathJax's default settings for all of your files thru a JSON object in your `hugo.toml` or override these settings per page thru your pages frontmatter.
 
-The JSON object of your `config.toml` / frontmatter is forwarded into MathJax's configuration object.
+The JSON object of your `hugo.toml` / frontmatter is forwarded into MathJax's configuration object.
 
 See [MathJax documentation](https://docs.mathjax.org/en/latest/options/index.html) for all allowed settings.
 
-{{% notice note %}}
-To use codefence syntax you have to turn off `guessSyntax` for the `markup.highlight` setting.
-{{% /notice %}}
-
 ### Global Configuration File
 
-````toml
+{{< multiconfig file=hugo >}}
 [params]
   mathJaxInitialize = "{ \"chtml\": { \"displayAlign\": \"left\" } }"
-
-[markup]
-  [markup.highlight]
-    # if `guessSyntax = true`, there will be no unstyled code even if no language
-    # was given BUT Mermaid and Math codefences will not work anymore! So this is a
-    # mandatory setting for your site if you want to use Math codefences
-    guessSyntax = false
-````
+{{< /multiconfig >}}
 
 ### Page's Frontmatter
 
-````toml
-+++
+{{< multiconfig fm=true >}}
 mathJaxInitialize = "{ \"chtml\": { \"displayAlign\": \"left\" } }"
-+++
-````
+{{< /multiconfig >}}
 
 ## Examples
 

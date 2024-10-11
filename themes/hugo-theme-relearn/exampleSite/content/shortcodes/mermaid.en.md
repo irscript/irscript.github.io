@@ -21,10 +21,6 @@ While the examples are using shortcodes with named parameter it is recommended t
 
 You are free to also call this shortcode from your own partials.
 
-{{% notice note %}}
-To use codefence syntax you have to turn off `guessSyntax` for the `markup.highlight` setting ([see the configuration section](#configuration)).
-{{% /notice %}}
-
 {{< tabs groupid="shortcode-parameter">}}
 {{% tab title="codefence" %}}
 
@@ -75,41 +71,28 @@ The generated graphs can be be panned by dragging them and zoomed by using the m
 
 ## Configuration
 
-Mermaid is configured with default settings. You can customize Mermaid's default settings for all of your files thru a JSON object in your `config.toml`, override these settings per page thru your pages frontmatter or override these setting per diagramm thru [diagram directives](https://mermaid-js.github.io/mermaid/#/directives?id=directives).
+Mermaid is configured with default settings. You can customize Mermaid's default settings for all of your files thru a JSON object in your `hugo.toml`, override these settings per page thru your pages frontmatter or override these setting per diagramm thru [diagram directives](https://mermaid-js.github.io/mermaid/#/directives?id=directives).
 
-The JSON object of your `config.toml` / frontmatter is forwarded into Mermaid's `mermaid.initialize()` function.
+The JSON object of your `hugo.toml` / frontmatter is forwarded into Mermaid's `mermaid.initialize()` function.
 
 See [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/Setup?id=mermaidapi-configuration-defaults) for all allowed settings.
 
-The `theme` setting can also be set by your used color variant. This will be the sitewide default and can - again - be overridden by your settings in `config.toml`, frontmatter or diagram directives.
-
-{{% notice note %}}
-To use codefence syntax you have to turn off `guessSyntax` for the `markup.highlight` setting.
-{{% /notice %}}
+The `theme` setting can also be set by your used color variant. This will be the sitewide default and can - again - be overridden by your settings in `hugo.toml`, frontmatter or diagram directives.
 
 ### Global Configuration File
 
-````toml
+{{< multiconfig file=hugo >}}
 [params]
   mermaidInitialize = "{ \"theme\": \"dark\" }"
   mermaidZoom = true
-
-[markup]
-  [markup.highlight]
-    # if `guessSyntax = true`, there will be no unstyled code even if no language
-    # was given BUT Mermaid and Math codefences will not work anymore! So this is a
-    # mandatory setting for your site if you want to use Mermaid codefences
-    guessSyntax = false
-````
+{{< /multiconfig >}}
 
 ### Page's Frontmatter
 
-````toml
-+++
+{{< multiconfig fm=true >}}
 mermaidInitialize = "{ \"theme\": \"dark\" }"
 mermaidZoom = true
-+++
-````
+{{< /multiconfig >}}
 
 ## Examples
 
@@ -653,4 +636,64 @@ sankey-beta
 Electricity grid,Over generation / exports,104.453
 Electricity grid,Heating and cooling - homes,113.726
 Electricity grid,H2 conversion,27.14
+{{< /mermaid >}}
+
+### XYChart
+
+````go
+{{</* mermaid */>}}
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+{{</* /mermaid */>}}
+````
+
+{{< mermaid >}}
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+{{< /mermaid >}}
+
+### Block Diagram
+
+````go
+{{</* mermaid */>}}
+block-beta
+columns 1
+  db(("DB"))
+  blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+  block:ID
+    A
+    B["A wide one in the middle"]
+    C
+  end
+  space
+  D
+  ID --> D
+  C --> D
+  style B fill:#969,stroke:#333,stroke-width:4px
+{{</* /mermaid */>}}
+````
+
+{{< mermaid >}}
+block-beta
+columns 1
+  db(("DB"))
+  blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+  block:ID
+    A
+    B["A wide one in the middle"]
+    C
+  end
+  space
+  D
+  ID --> D
+  C --> D
+  style B fill:#969,stroke:#333,stroke-width:4px
 {{< /mermaid >}}

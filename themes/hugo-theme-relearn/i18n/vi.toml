@@ -19,6 +19,12 @@ other = "{1} kết quả được tìm thấy cho \"{0}\""
 [Clear-History]
 other = "Xóa lịch sử.."
 
+[Reset-view]
+other = "Đặt lại dạng xem"
+
+[View-reset]
+other = "Xem đặt lại!"
+
 [Attachments-label]
 other = "Tập tin đính kèm"
 
@@ -36,6 +42,9 @@ other = "Biên tập"
 
 [Print-this-chapter]
 other = "In toàn bộ chương"
+
+[More-action]
+other = "Nội dung khác"
 
 [Shortcuts-Title]
 other = "Nội dung khác"

@@ -19,6 +19,12 @@ other = "{1} resultaten gevonden voor \"{0}\""
 [Clear-History]
 other = "Wis geschiedenis"
 
+[Reset-view]
+other = "Weergave opnieuw instellen"
+
+[View-reset]
+other = "Opnieuw instellen weergeven!"
+
 [Attachments-label]
 other = "Bijlagen"
 
@@ -36,6 +42,9 @@ other = "Bewerken"
 
 [Print-this-chapter]
 other = "Het hele hoofdstuk afdrukken"
+
+[More-action]
+other = "Snelkoppelingen"
 
 [Shortcuts-Title]
 other = "Snelkoppelingen"

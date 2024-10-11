@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SHA on </title>
+    <link>http://localhost:1313/tags/sha/index.html</link>
+    <description>Recent content in SHA on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://localhost:1313/tags/sha/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1 SHA1 算法</title>
+      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/1_sha1/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/1_sha1/index.html</guid>
+      <description>原文来自：https://www.cnblogs.com/Kingfans/p/16561821.html
+一、基本介绍 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
+SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。
+二、实现原理 有关 SHA1 算法详情请参见 RFC 3174 http://www.ietf.org/rfc/rfc3174.txt。
+RFC 3174 是SHA1算法的官方文档，（建议了解SHA1算法前，先了解下MD4 md4算法实现原理深剖 ）其实现原理共分为5步：
+第1步：字节填充(Append Padding Bytes) 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。
+第2步：追加长度信息(Append Length) 数据比特位的数据长度追加到最后8字节中。【注意字节顺序与MD4不同 大小端之分】
+第3步：初始化MD Buffer(Initialize MD Buffer) 这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。【注意相对于MD4 添加了H4】
+uint32_t H0 = 0x67452301; // 0x01, 0x23, 0x45, 0x67 uint32_t H1 = 0xEFCDAB89; // 0x89, 0xAB, 0xCD, 0xEF uint32_t H2 = 0x98BADCFE; // 0xFE, 0xDC, 0xBA, 0x98 uint32_t H3 = 0x10325476; // 0x76, 0x54, 0x32, 0x10 uint32_t H4 = 0xC3D2E1F0; // 0xF0, 0xE1, 0xD2, 0xC3 第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是SHA1算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
+    </item>
+    <item>
+      <title>2 SHA2-224 算法</title>
+      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/2_sha2_224/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/2_sha2_224/index.html</guid>
+      <description>原文来自:https://www.cnblogs.com/Kingfans/p/16572411.html
+一、基本介绍 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
+SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。本文介绍SHA2-224算法的实现原理。
+二、实现原理 有关 SHA2-224 算法详情请参见 NIST.FIPS.180-4 。
+NIST.FIPS.180-4 是SHA2-224算法的官方文档，（建议了解SHA2-224算法前，先了解下SHA2-256 sha2-256算法实现原理深剖 ）其实现原理共分为5步：
+第1步：字节填充(Append Padding Bytes) 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。
+第2步：追加长度信息(Append Length) 数据比特位的数据长度追加到最后8字节中。
+第3步：初始化MD Buffer(Initialize MD Buffer) 这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。
+uint32_t H0 = 0xC1059ED8; uint32_t H1 = 0x367CD507; uint32_t H2 = 0x3070DD17; uint32_t H3 = 0xF70E5939; uint32_t H4 = 0xFFC00B31; uint32_t H5 = 0x68581511; uint32_t H6 = 0x64F98FA7; uint32_t H7 = 0xBEFA4FA4;第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是SHA2-224算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
+    </item>
+    <item>
+      <title>3 SHA2-256 算法</title>
+      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/3_sha2_256/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/3_sha2_256/index.html</guid>
+      <description>原文来自:https://www.cnblogs.com/Kingfans/p/16571435.html
+一、基本介绍 SHA (Security Hash Algorithm) 是美国的 NIST 和 NSA 设计的一种标准的 Hash 算法，SHA 用于数字签名的标准算法的 DSS 中，也是安全性很高的一种 Hash 算法。
+SHA-1 是第一代 SHA 算法标准，后来的 SHA-224、SHA-256、SHA-384 和 SHA-512 被统称为 SHA-2。本文介绍SHA2-256算法的实现原理。
+二、实现原理 有关 SHA2-256 算法详情请参见 NIST.FIPS.180-4 。
+NIST.FIPS.180-4 是SHA2-256算法的官方文档，（建议了解SHA2-256算法前，先了解下SHA1 sha1算法实现原理深剖 ）其实现原理共分为5步：
+第1步：字节填充(Append Padding Bytes) 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。
+第2步：追加长度信息(Append Length) 数据比特位的数据长度追加到最后8字节中。【以上与sha1完全一致】
+第3步：初始化MD Buffer(Initialize MD Buffer) 这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。
+uint32_t H0 = 0x6A09E667; uint32_t H1 = 0xBB67AE85; uint32_t H2 = 0x3C6EF372; uint32_t H3 = 0xA54FF53A; uint32_t H4 = 0x510E527F; uint32_t H5 = 0x9B05688C; uint32_t H6 = 0x1F83D9AB; uint32_t H7 = 0x5BE0CD19;第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是SHA2-256算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
+    </item>
+    <item>
+      <title>4 SHA2-384 算法</title>
+      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/4_sha2_384/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/4_sha2_384/index.html</guid>
+      <description>原文来自</description>
+    </item>
+    <item>
+      <title>5 SHA2-512 算法</title>
+      <link>http://localhost:1313/2_algorithm/2_hash/2_sha/5_sha2_512/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2_algorithm/2_hash/2_sha/5_sha2_512/index.html</guid>
+      <description>原文来自</description>
+    </item>
+  </channel>
+</rss>

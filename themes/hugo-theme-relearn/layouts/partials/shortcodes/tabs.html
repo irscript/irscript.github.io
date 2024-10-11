@@ -1,9 +1,9 @@
 {{- $page := .page }}
 {{- if and (not $page) .context }}
   {{- $page = .context }}
-  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'tabs' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#5180" $page.File.Path }}
+  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'tabs' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration#5180" $page.File.Filename }}
 {{- end }}
-{{- $groupid := .groupid | default (partial "make-random-md5.hugo" $page) }}
+{{- $groupid := .groupid | default (partial "make-random-md5.hugo" $page) | plainify | anchorize }}
 {{- $color := .color }}
 {{- $style := .style }}
 {{- $title := .title }}
@@ -11,13 +11,19 @@
 {{- $tabs := slice }}
 {{- range $tab := (.content | default slice) }}
   {{- if and (not $tab.title) $tab.name }}
-    {{- warnf "%q: DEPRECATED parameter 'name' for shortcode 'tab' found, use 'title' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#5160" $page.File.Path }}
+    {{- warnf "%q: DEPRECATED parameter 'name' for shortcode 'tab' found, use 'title' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration#5160" $page.File.Filename }}
     {{- $tab = merge $tab (dict "title" .name) }}
   {{- end }}
   {{- with $tab }}
     {{- $color := .color | default $color | default "" }}
     {{- $style := .style | default $style | default (cond (ne $color "") "filled" "initial") }}
-    {{- $title := .title | default ($style | T) }}
+    {{- $title := .title }}
+    {{- if not $title }}
+      {{- if eq $style "info" }}{{ $title = $style | T }}{{ end }}
+      {{- if eq $style "warning" }}{{ $title = $style | T }}{{ end }}
+      {{- if eq $style "note" }}{{ $title = $style | T }}{{ end }}
+      {{- if eq $style "tip" }}{{ $title = $style | T }}{{ end }}
+    {{- end }}
     {{- $title = trim $title " " }}
     {{- $icon := .icon | default "" }}
     {{- if and (not $icon) (eq (len $icon) 0) }}
@@ -34,7 +40,7 @@
       "color"   $color
       "content" .content
       "icon"    $icon
-      "itemid"  (printf "%s%s" ($title | $page.RenderString | plainify) ($icon | plainify))
+      "itemid"  (printf "%s%s" ($title | $page.RenderString | plainify | anchorize) ($icon | plainify | anchorize))
       "style"   $style
       "title"   $title
     ) }}
@@ -42,7 +48,13 @@
 {{- end }}
 {{- $color = .color | default "" }}
 {{- $style = .style | default (cond (ne $color "") "filled" "initial") }}
-{{- $title = .title | default ($style | T) }}
+{{- $title = .title }}
+{{- if not $title }}
+  {{- if eq $style "info" }}{{ $title = $style | T }}{{ end }}
+  {{- if eq $style "warning" }}{{ $title = $style | T }}{{ end }}
+  {{- if eq $style "note" }}{{ $title = $style | T }}{{ end }}
+  {{- if eq $style "tip" }}{{ $title = $style | T }}{{ end }}
+{{- end }}
 {{- $title = trim $title " " }}
 {{- $icon = .icon | default "" }}
 {{- if and (not $icon) (eq (len $icon) 0) }}
@@ -62,13 +74,10 @@
   {{- range $idx, $tab := $tabs }}
     <button
       data-tab-item="{{ .itemid }}"
-      class="tab-nav-button tab-panel-style cstyle {{ .style }}{{ cond (eq $idx 0) " active" ""}}"{{ if .color }} style="--VARIABLE-BOX-color: {{ .color }};"{{ end }}
+      class="tab-nav-button tab-panel-style cstyle {{ .style }}{{ cond (eq $idx 0) " active" ""}}"{{ if .color }} style="--VARIABLE-BOX-color: {{ .color }};"{{ end }}{{ if eq $idx 0 }} tabindex="-1"{{ end }}
       onclick="switchTab('{{ $groupid }}','{{ .itemid }}')"
     >
-      <div>
-        <div class="tab-nav-hidden">{{ if .icon }}<i class="{{ .icon }}"></i>{{ end }}{{ if and .icon .title }} {{ end }}{{ .title | $page.RenderString }}{{ if (not .title) }}&#8203;{{ end }}</div>
-        <div class="tab-nav-text">{{ if .icon }}<i class="{{ .icon }}"></i>{{ end }}{{ if and .icon .title }} {{ end }}{{ .title | $page.RenderString }}{{ if (not .title) }}&#8203;{{ end }}</div>
-      </div>
+      <span class="tab-nav-text">{{ if .icon }}<i class="{{ .icon }}"></i>{{ end }}{{ if and .icon .title }} {{ end }}{{ .title | $page.RenderString }}{{ if (not .title) }}&#8203;{{ end }}</span>
     </button>
   {{- end }}
   </div>

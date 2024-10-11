@@ -12,7 +12,6 @@ While the examples are using shortcodes with named parameter you are free to use
 {{< tabs groupid="shortcode-parameter">}}
 {{% tab title="shortcode" %}}
 
-
 ````go
 {{%/* siteparam name="editURL" */%}}
 ````
@@ -45,7 +44,7 @@ While the examples are using shortcodes with named parameter you are free to use
 
 ## Examples
 
-### `editURL` from `config.toml`
+### `editURL` from `hugo.toml`
 
 ```go
 `editURL` value: {{%/* siteparam name="editURL" */%}}
@@ -55,20 +54,20 @@ While the examples are using shortcodes with named parameter you are free to use
 
 ### Nested parameter with Markdown and HTML formatting
 
-To use formatted parameter, add this in your `config.toml`:
+To use formatted parameter, add this in your `hugo.toml`:
 
-````toml
+{{< multiconfig file=hugo >}}
 [markup.goldmark.renderer]
-    unsafe = true
-````
+  unsafe = true
+{{< /multiconfig >}}
 
-{{% tab title="config.toml" %}}
-````toml
+Now values containing Markdown will be formatted correctly.
+
+{{< multiconfig file=hugo >}}
 [params]
-    [params.siteparam.test]
-        text = "A **nested** parameter <b>with</b> formatting"
-````
-{{% /tab %}}
+  [params.siteparam.test]
+    text = "A **nested** parameter <b>with</b> formatting"
+{{< /multiconfig >}}
 
 ```go
 Formatted parameter: {{%/* siteparam name="siteparam.test.text" */%}}

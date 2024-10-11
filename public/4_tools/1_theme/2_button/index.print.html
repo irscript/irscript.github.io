@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="个人博客">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="按钮(button)">
+    <meta name="twitter:description" content="个人博客">
+    <meta property="og:title" content="按钮(button)">
+    <meta property="og:description" content="个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:1313/4_tools/1_theme/2_button/index.html">
+    <title>按钮(button)</title>
+    <link href="http://localhost:1313/4_tools/1_theme/2_button/index.html" rel="canonical" type="text/html" title="按钮(button)">
+    <link href="../../../4_tools/1_theme/2_button/index.xml" rel="alternate" type="application/rss+xml" title="按钮(button)"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../4_tools/1_theme/2_button/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/index.html"><span itemprop="name">工具手册</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/1_theme/index.html"><span itemprop="name">主题简码</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">按钮(button)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default" serialing>
+  <header class="headline">
+  </header>
+  
+  <h1 id="按钮button"> 1.2 按钮(button)</h1>
+  <hr />
+
+  <p><code>按钮(button)</code>简码显示一个可点击的按钮，颜色、标题和图标可调整。</p>
+<span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive warning"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-dragon"></i> <span class="title">Get Hugo</span></a></span>
+<h2 id="用法">用法</h2>
+
+<div class="tab-panel" data-tab-group="992aa424a4fced0258dd4cbc9e2c077e">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="简码"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('992aa424a4fced0258dd4cbc9e2c077e','简码')"
+    >
+      <span class="tab-nav-text">简码</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="简码"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;warning&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;dragon&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<p>单击该按钮后，它将为给定的 URL 打开另一个浏览器选项卡。</p>
+<h2 id="参数">参数</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">默认</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">href</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">链接地址</td>
+</tr>
+<tr>
+<td style="text-align:left">style</td>
+<td style="text-align:left"><code>transparent</code></td>
+<td style="text-align:left">徽章使用的样式方案。<br/><br/>- 严重程度： <code>info</code>, <code>note</code>, <code>tip</code>, <code>warning</code><br/>- 印记颜色：<code>primary</code>, <code>secondary</code>, <code>accent</code><br/>- 颜色： <code>blue</code>, <code>green</code>, <code>grey</code>, <code>orange</code>, <code>red</code><br/>- 特殊颜色: <code>default</code>, <code>transparent</code>, <code>code</code></td>
+</tr>
+<tr>
+<td style="text-align:left">color</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">要使用的 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank">CSS 颜色值</a>。如果未设置，则选择的颜色取决于样式。任何给定的值都将覆盖默认值。<br/><br/>- 对于严重性样式：严重性匹配的漂亮颜色<br/>- 对于所有其他样式：相应的颜色</td>
+</tr>
+<tr>
+<td style="text-align:left">icon</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><a href="https://fontawesome.com.cn/v5" target="_blank">Font Awesome icon name</a> 设置在标题的左侧。根据样式的不同，可能会有一个默认图标。任何给定的值都将覆盖默认值。<br/><br/>- 对于严重性样式：严重性匹配的漂亮图标<br/>- 对于所有其他样式：<em>&lt;空&gt;</em><br/><br/>如果您不想为严重性样式使用图标，则必须将此参数设置为<code>&quot; &quot;</code>（填充空格的非空字符串）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>iconposition</strong></td>
+<td style="text-align:left"><code>left</code></td>
+<td style="text-align:left">设置图标的位置。<br/><br/>- <code>left</code> :图标在标题的左侧。<br/>- <code>right</code>：图标在标题的右侧。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>target</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">如果 href 是 URL，则为目标框架/窗口。否则，不使用该参数。这的行为类似于普通链接。如果未给出该参数，则默认为：<br/>- 设置<code>externalLinkTarget </code>或<code>_blank</code>如果未设置，则适用于任何以<code>http://</code>或<code>https://</code><br/>- 所有其他链接没有特定值</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>type</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">如果 <code>href</code> 是 <code>JavaScript</code>，则按钮类型。否则，不使用该参数。如果未给出该参数，则默认为<code>button</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><em><strong>&lt;txt&gt;</strong></em></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">按钮标题的任意文本。根据样式的不同，可能会有一个默认标题。任何给定值都将覆盖默认值。<br/><br/>- 对于严重性样式：严重性<br/>- 对于所有其他样式的匹配标题：<em>&lt;空&gt;</em> <br/><br/>如果不希望严重性样式的标题，则必须将此参数设置为<code>&quot; &quot;</code>（充满空格的非空字符串）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="案例">案例</h2>
+<h3 id="样式">样式</h3>
+<h4 id="严重性">严重性</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;info&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;note&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;tip&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;warning&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><p><span class="btn cstyle interactive info"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-info-circle"></i> <span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive note"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-exclamation-circle"></i> <span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive tip"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-lightbulb"></i> <span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive warning"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-exclamation-triangle"></i> <span class="title">Get Hugo</span></a></span></p>
+<h4 id="印记颜色">印记颜色</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;primary&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;secondary&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;accent&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive primary"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive secondary"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive accent"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<h4 id="颜色">颜色</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;blue&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;green&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;grey&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;orange&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;red&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive blue"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive green"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive grey"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive orange"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive red"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<h4 id="特殊颜色">特殊颜色</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;default&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;transparent&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive default"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span></a></span>
+<h3 id="图标">图标</h3>
+<h4 id="无">无</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34; &#34;</span> <span class="o">%</span><span class="p">}}{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_blank"></a></span>
+<h4 id="有">有</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;download&#34;</span> <span class="o">%</span><span class="p">}}{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-download"></i></a></span>
+<h4 id="左侧">左侧</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;download&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-download"></i> <span class="title">Get Hugo</span></a></span>
+<h4 id="右侧">右侧</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;download&#34;</span> <span class="nx">iconposition</span><span class="p">=</span><span class="s">&#34;right&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo</span> <i class="fa-fw fas fa-download"></i></a></span>
+<h4 id="重载严重性样式">重载严重性样式</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;dragon&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;warning&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive warning"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-dragon"></i> <span class="title">Get Hugo</span></a></span>
+<h3 id="目标">目标</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">target</span><span class="p">=</span><span class="s">&#34;_self&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span> <span class="nx">in</span> <span class="nx">same</span> <span class="nx">window</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="nx">Hugo</span> <span class="nx">in</span> <span class="nx">new</span> <span class="nx">Window</span><span class="o">/</span><span class="nf">Frame</span> <span class="p">(</span><span class="k">default</span><span class="p">){{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_self"><span class="title">Get Hugo in same Window/Frame</span></a></span>
+<span class="btn cstyle interactive transparent"><a href="https://gohugo.io/" target="_blank"><span class="title">Get Hugo in new Window/Frame (default)</span></a></span>
+<h3 id="其他">其他</h3>
+<h4 id="具有用户定义的颜色字体图标和-markdown-标题">具有用户定义的颜色、字体、图标和 Markdown 标题</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">color</span><span class="p">=</span><span class="s">&#34;fuchsia&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;fab fa-hackerrank&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Get</span> <span class="o">**</span><span class="nx">Hugo</span><span class="o">**</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive default" style="--VARIABLE-BOX-color: fuchsia;"><a href="https://gohugo.io/" target="_blank"><i class="fab fa-hackerrank"></i> <span class="title">Get <strong>Hugo</strong></span></a></span>
+<h4 id="具有所有默认值的严重性样式">具有所有默认值的严重性样式</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;https://gohugo.io/&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;tip&#34;</span> <span class="o">%</span><span class="p">}}{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive tip"><a href="https://gohugo.io/" target="_blank"><i class="fa-fw fas fa-lightbulb"></i> <span class="title">提示</span></a></span>
+<h4 id="按钮到内部页面">按钮到内部页面</h4>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;/index.html&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Home</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive transparent"><a href="../../../index.html"><span class="title">Home</span></a></span>
+<h4 id="button-with-javascript-action">Button with JavaScript Action</h4>
+<p>如果您的 JavaScript 操作之后没有更改焦点，请确保调用<code>this.blur()</code> 最后取消选择按钮。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">button</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;primary&#34;</span> <span class="nx">icon</span><span class="p">=</span><span class="s">&#34;bullhorn&#34;</span> <span class="nx">href</span><span class="p">=</span><span class="s">&#34;javascript:alert(&#39;你好，世界！&#39;);this.blur();&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">你好</span><span class="err">，</span><span class="nx">世界</span><span class="err">！</span><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">button</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div><span class="btn cstyle interactive primary"><button onclick="alert(&#39;你好，世界！&#39;);this.blur();" type="button"><i class="fa-fw fas fa-bullhorn"></i> <span class="title">你好，世界！</span></button></span>
+<h4 id="form元素中的按钮"><code>form</code>元素中的按钮</h4>
+<p>要在 Markdown 中使用原生 HTML 元素，请将其添加到 <code>hugo.toml</code></p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">markup</span><span class="p">.</span><span class="nx">goldmark</span><span class="p">.</span><span class="nx">renderer</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">unsafe</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div><div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;../../search.html&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;get&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;search-by-detail&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;search-by&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;search&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{% button type=&#34;submit&#34; style=&#34;secondary&#34; icon=&#34;search&#34; %}}搜索{{% /button %}}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span></span></span></code></pre></div><form action="../../search.html" method="get">
+  <div class="searchform" style="width: 20vw;">
+    <input name="search-by-detail" class="search-by" type="search" placeholder="Search...">
+    <span class="btn cstyle interactive secondary"><button onclick="" type="submit"><i class="fa-fw fas fa-search"></i> <span class="title">搜索</span></button></span>
+  </div>
+</form>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

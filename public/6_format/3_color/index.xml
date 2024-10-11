@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3 颜色格式 on </title>
+    <link>http://localhost:1313/6_format/3_color/index.html</link>
+    <description>Recent content in 3 颜色格式 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://localhost:1313/6_format/3_color/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1 RGBA</title>
+      <link>http://localhost:1313/6_format/3_color/1_rgba/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/6_format/3_color/1_rgba/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2 HSL/HSV</title>
+      <link>http://localhost:1313/6_format/3_color/2_hsl/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/6_format/3_color/2_hsl/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>3 YUV</title>
+      <link>http://localhost:1313/6_format/3_color/3_yuv/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/6_format/3_color/3_yuv/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>4 XYZ</title>
+      <link>http://localhost:1313/6_format/3_color/4_xyz/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/6_format/3_color/4_xyz/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>5 LAB</title>
+      <link>http://localhost:1313/6_format/3_color/5_lab/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/6_format/3_color/5_lab/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>6 CMYK</title>
+      <link>http://localhost:1313/6_format/3_color/6_cmyk/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/6_format/3_color/6_cmyk/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="generator" content="Relearn 5.26.2">
+    <meta name="description" content="显示单个标签页">
+    <meta name="author" content="irscript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="标签页">
+    <meta name="twitter:description" content="显示单个标签页">
+    <meta property="og:title" content="标签页">
+    <meta property="og:description" content="显示单个标签页">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/4_tools/1_theme/12_tab/index.html">
+    <meta property="article:section" content="主题简码">
+    <title>标签页</title>
+    <link href="http://localhost:1313/4_tools/1_theme/12_tab/index.html" rel="canonical" type="text/html" title="标签页">
+    <link href="../../../4_tools/1_theme/12_tab/index.xml" rel="alternate" type="application/rss+xml" title="标签页"><link rel="icon" href="../../../images/favicon.png" type="image/png">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1728629534" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1728629534" rel="stylesheet">
+    <link href="../../../css/fonts.css?1728629534" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1728629534" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1728629534" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1728629534" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1728629534" rel="stylesheet">
+    <link href="../../../css/print.css?1728629534" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1728629534" rel="stylesheet">
+    <link href="../../../css/ie.css?1728629534" rel="stylesheet">
+    <script src="../../../js/url.js?1728629534"></script>
+    <script src="../../../js/variant.js?1728629534"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js";
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script><style>
+   body {
+      counter-reset: h2
+   }
+
+   h2 {
+      counter-reset: h3
+   }
+
+   h3 {
+      counter-reset: h4
+   }
+
+   h4 {
+      counter-reset: h5
+   }
+
+   article {
+      counter-reset: h2
+   }
+
+   article[serialing] h2:before {
+      counter-increment: h2;
+      content: counter(h2) ". "
+   }
+
+   article[serialing] h3:before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " "
+   }
+
+   article[serialing] h4:before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " "
+   }
+
+   div .toc-wrapper ul {
+      counter-reset: item
+   }
+
+   div .toc-wrapper div[serialing] li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article ul {
+      counter-reset: item
+   }
+
+   article li a:before {
+      content: counters(item, ".") " ";
+      counter-increment: item
+   }
+
+   article p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-indent: 2rem;
+   }
+
+   article blockquote p {
+      text-indent: 0rem;
+   }
+
+   article ul,
+   ol,
+   dl {
+      margin-left: 1rem;
+   }
+</style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../4_tools/1_theme/12_tab/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/index.html"><span itemprop="name">工具手册</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../4_tools/1_theme/index.html"><span itemprop="name">主题简码</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">标签页</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default" serialing>
+  <header class="headline">
+  </header>
+  
+  <h1 id="标签页"> 1.12 标签页</h1>
+  <hr />
+
+  <p><code>tab</code>简码来显示单个选项卡。</p>
+<p>如果要使用显式语言标记代码示例，这将特别有用。</p>
+<p>如果要将多个选项卡组合在一起，可以将选项卡包装到选项卡简码中。</p>
+
+<div class="tab-panel" data-tab-group="6b10ddcbcd63a82516a1ac280f19a493">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="c"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('6b10ddcbcd63a82516a1ac280f19a493','c')"
+    >
+      <span class="tab-nav-text">c</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="c"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="用户">用户</h2>
+
+<div class="tab-panel" data-tab-group="shortcode-parameter">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="shortcode"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('shortcode-parameter','shortcode')"
+    >
+      <span class="tab-nav-text">shortcode</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="shortcode"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;c&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```c
+</span></span></span><span class="line"><span class="cl"><span class="s">printf(&#34;Hello World!&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="参数">参数</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>默认</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>style</strong></td>
+<td>see notes</td>
+<td>用于选项卡的样式方案。如果未设置样式，而是在选项卡内显示单个代码块，则其默认样式将适应块的样式。否则codedefault被使用。<br/>- 按严重性：<code>info</code>,<code>note</code>,<code>tip</code>,<code>warning</code><br/>- 按品牌颜色：<code>primary</code>,<code>secondary</code>,<code>accent</code><br/>- 按颜色：<code>blue</code>,<code>green</code>,<code>grey</code>,<code>orange</code>，<br/>- 按特殊颜色：<code>red</code>,<code>default</code>,<code>transparent</code>,<code>code</code></td>
+</tr>
+<tr>
+<td><strong>color</strong></td>
+<td>see notes</td>
+<td>要使用的 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank">CSS 颜色值</a>。如果未设置，则选择的颜色取决于样式。任何给定的值都将覆盖默认值。<br/><br/>- 对于严重性样式：严重性匹配的漂亮颜色<br/>- 对于所有其他样式：相应的颜色</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td>see notes</td>
+<td>标题的任意文本。根据样式的不同，可能会有一个默认标题。任何给定的值都将覆盖默认值。<br/><br/>- 对于严重性样式：严重性匹配的标题<br/>- 对于所有其他样式：&lt;空&gt;<br/><br/>如果您不希望严重性样式的标题，则必须将此参数设置为<code>&quot; &quot;</code>（一个充满空格的非空字符串）。</td>
+</tr>
+<tr>
+<td><strong>icon</strong></td>
+<td>see notes</td>
+<td><a href="https://fontawesome.com.cn/v5" target="_blank">Font Awesome icon name</a> 设置在标题的左侧。根据样式的不同，可能会有一个默认图标。任何给定的值都将覆盖默认值。<br/><br/>- 对于严重性样式：严重性匹配的漂亮图标<br/>- 对于所有其他样式：<em>&lt;空&gt;</em> <br/><br/>如果您不想为严重性样式使用图标，则必须将此参数设置为<code>&quot; &quot;</code>（填充空格的非空字符串）</td>
+</tr>
+<tr>
+<td><em><strong>&lt;content&gt;</strong></em></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>任意文本，可以为 <em>&lt;空&gt;</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="案例">案例</h2>
+<h3 id="具有折叠边距的单个代码块">具有折叠边距的单个代码块</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Code&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="s">```python
+</span></span></span><span class="line"><span class="cl"><span class="s">printf(&#34;Hello World!&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
+<div class="tab-panel" data-tab-group="c8399989cb6bec506fef89ee7e558521">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="code"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('c8399989cb6bec506fef89ee7e558521','code')"
+    >
+      <span class="tab-nav-text">Code</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="code"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">);</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="混合-markdown-内容">混合 Markdown 内容</h3>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;_**Mixed**_&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">选项卡不仅可以包含代码</span><span class="err">，</span><span class="nx">还可以包含任意文本</span><span class="err">。</span><span class="nx">在这种情况下</span><span class="err">，</span><span class="nx">文本和代码将获得边距</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="s">```python
+</span></span></span><span class="line"><span class="cl"><span class="s">printf(&#34;Hello World!&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
+<div class="tab-panel" data-tab-group="9119f58c378f25e12be62145d8ae82a7">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="mixed"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
+      onclick="switchTab('9119f58c378f25e12be62145d8ae82a7','mixed')"
+    >
+      <span class="tab-nav-text"><em><strong>Mixed</strong></em></span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="mixed"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<p>选项卡不仅可以包含代码，还可以包含任意文本。在这种情况下，文本和代码将获得边距。</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">);</span></span></span></code></pre></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="理解style-和-color-行为">理解<code>style</code> 和 <code>color</code> 行为</h3>
+<p>该<code>style</code>参数会影响参数<code>color</code>的应用方式</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="nx">tabs</span> <span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;just colored style&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;blue&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">The</span> <span class="s">`style`</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">set</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">color</span> <span class="nx">style</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">This</span> <span class="nx">will</span> <span class="nx">set</span> <span class="nx">the</span> <span class="nx">background</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">lighter</span> <span class="nx">version</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">chosen</span> <span class="nx">style</span> <span class="nx">color</span> <span class="nx">as</span> <span class="nx">configured</span> <span class="nx">in</span> <span class="nx">your</span> <span class="nx">theme</span> <span class="nx">variant</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;just color&#34;</span> <span class="nx">color</span><span class="p">=</span><span class="s">&#34;blue&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Only</span> <span class="nx">the</span> <span class="s">`color`</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">set</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">This</span> <span class="nx">will</span> <span class="nx">set</span> <span class="nx">the</span> <span class="nx">background</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">lighter</span> <span class="nx">version</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">chosen</span> <span class="nx">CSS</span> <span class="nx">color</span> <span class="nx">value</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;default style and color&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;default&#34;</span> <span class="nx">color</span><span class="p">=</span><span class="s">&#34;blue&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">The</span> <span class="s">`style`</span> <span class="nx">parameter</span> <span class="nx">affects</span> <span class="nx">how</span> <span class="nx">the</span> <span class="s">`color`</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">applied</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">The</span> <span class="s">`default`</span> <span class="nx">style</span> <span class="nx">will</span> <span class="nx">set</span> <span class="nx">the</span> <span class="nx">background</span> <span class="nx">to</span> <span class="nx">your</span> <span class="s">`--MAIN-BG-color`</span> <span class="nx">as</span> <span class="nx">configured</span> <span class="k">for</span> <span class="nx">your</span> <span class="nx">theme</span> <span class="nx">variant</span> <span class="nx">resembling</span> <span class="nx">the</span> <span class="k">default</span> <span class="nx">style</span> <span class="nx">but</span> <span class="nx">with</span> <span class="nx">different</span> <span class="nx">color</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;just severity style&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;info&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">The</span> <span class="s">`style`</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">set</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">severity</span> <span class="nx">style</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">This</span> <span class="nx">will</span> <span class="nx">set</span> <span class="nx">the</span> <span class="nx">background</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">lighter</span> <span class="nx">version</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">chosen</span> <span class="nx">style</span> <span class="nx">color</span> <span class="nx">as</span> <span class="nx">configured</span> <span class="nx">in</span> <span class="nx">your</span> <span class="nx">theme</span> <span class="nx">variant</span> <span class="nx">and</span> <span class="nx">also</span> <span class="nx">affects</span> <span class="nx">the</span> <span class="nx">chosen</span> <span class="nx">icon</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">tab</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;severity style and color&#34;</span> <span class="nx">style</span><span class="p">=</span><span class="s">&#34;info&#34;</span> <span class="nx">color</span><span class="p">=</span><span class="s">&#34;blue&#34;</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">The</span> <span class="s">`style`</span> <span class="nx">parameter</span> <span class="nx">affects</span> <span class="nx">how</span> <span class="nx">the</span> <span class="s">`color`</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">applied</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">This</span> <span class="nx">will</span> <span class="nx">set</span> <span class="nx">the</span> <span class="nx">background</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">lighter</span> <span class="nx">version</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">chosen</span> <span class="nx">CSS</span> <span class="nx">color</span> <span class="nx">value</span> <span class="nx">and</span> <span class="nx">also</span> <span class="nx">affects</span> <span class="nx">the</span> <span class="nx">chosen</span> <span class="nx">icon</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">tab</span> <span class="o">%</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{&lt;</span> <span class="o">/</span><span class="nx">tabs</span> <span class="p">&gt;}}</span></span></span></code></pre></div>
+<div class="tab-panel" data-tab-group="a67ee5759d526bd49b90ce05e72c5904">
+  <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
+    <button
+      data-tab-item="just-colored-style"
+      class="tab-nav-button tab-panel-style cstyle blue active" tabindex="-1"
+      onclick="switchTab('a67ee5759d526bd49b90ce05e72c5904','just-colored-style')"
+    >
+      <span class="tab-nav-text">just colored style</span>
+    </button>
+    <button
+      data-tab-item="just-color"
+      class="tab-nav-button tab-panel-style cstyle filled" style="--VARIABLE-BOX-color: blue;"
+      onclick="switchTab('a67ee5759d526bd49b90ce05e72c5904','just-color')"
+    >
+      <span class="tab-nav-text">just color</span>
+    </button>
+    <button
+      data-tab-item="default-style-and-color"
+      class="tab-nav-button tab-panel-style cstyle default" style="--VARIABLE-BOX-color: blue;"
+      onclick="switchTab('a67ee5759d526bd49b90ce05e72c5904','default-style-and-color')"
+    >
+      <span class="tab-nav-text">default style and color</span>
+    </button>
+    <button
+      data-tab-item="just-severity-stylefa-fw-fas-fa-info-circle"
+      class="tab-nav-button tab-panel-style cstyle info"
+      onclick="switchTab('a67ee5759d526bd49b90ce05e72c5904','just-severity-stylefa-fw-fas-fa-info-circle')"
+    >
+      <span class="tab-nav-text"><i class="fa-fw fas fa-info-circle"></i> just severity style</span>
+    </button>
+    <button
+      data-tab-item="severity-style-and-colorfa-fw-fas-fa-info-circle"
+      class="tab-nav-button tab-panel-style cstyle info" style="--VARIABLE-BOX-color: blue;"
+      onclick="switchTab('a67ee5759d526bd49b90ce05e72c5904','severity-style-and-colorfa-fw-fas-fa-info-circle')"
+    >
+      <span class="tab-nav-text"><i class="fa-fw fas fa-info-circle"></i> severity style and color</span>
+    </button>
+  </div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="just-colored-style"
+      class="tab-content tab-panel-style cstyle blue active">
+      <div class="tab-content-text">
+
+<p>The <code>style</code> parameter is set to a color style.</p>
+<p>This will set the background to a lighter version of the chosen style color as configured in your theme variant.</p>
+</div>
+    </div>
+    <div
+      data-tab-item="just-color"
+      class="tab-content tab-panel-style cstyle filled" style="--VARIABLE-BOX-color: blue;">
+      <div class="tab-content-text">
+
+<p>Only the <code>color</code> parameter is set.</p>
+<p>This will set the background to a lighter version of the chosen CSS color value.</p>
+</div>
+    </div>
+    <div
+      data-tab-item="default-style-and-color"
+      class="tab-content tab-panel-style cstyle default" style="--VARIABLE-BOX-color: blue;">
+      <div class="tab-content-text">
+
+<p>The <code>style</code> parameter affects how the <code>color</code> parameter is applied.</p>
+<p>The <code>default</code> style will set the background to your <code>--MAIN-BG-color</code> as configured for your theme variant resembling the default style but with different color.</p>
+</div>
+    </div>
+    <div
+      data-tab-item="just-severity-stylefa-fw-fas-fa-info-circle"
+      class="tab-content tab-panel-style cstyle info">
+      <div class="tab-content-text">
+
+<p>The <code>style</code> parameter is set to a severity style.</p>
+<p>This will set the background to a lighter version of the chosen style color as configured in your theme variant and also affects the chosen icon.</p>
+</div>
+    </div>
+    <div
+      data-tab-item="severity-style-and-colorfa-fw-fas-fa-info-circle"
+      class="tab-content tab-panel-style cstyle info" style="--VARIABLE-BOX-color: blue;">
+      <div class="tab-content-text">
+
+<p>The <code>style</code> parameter affects how the <code>color</code> parameter is applied.</p>
+<p>This will set the background to a lighter version of the chosen CSS color value and also affects the chosen icon.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1728629534" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1728629534" defer></script>
+    <script src="../../../js/theme.js?1728629534" defer></script>
+  </body>
+</html>

@@ -15,7 +15,7 @@ This shortcode is fully compatible with Hugo's [`highlight` shortcode](https://g
 
 It is called interchangeably in the same way as Hugo's own shortcode providing positional parameter or by simply using codefences.
 
-You are free to also call this shortcode from your own partials. In this case it resembles Hugo's [`highlight` function](https://gohugo.io/functions/highlight/) syntax if you call this shortcode as a partial using compatiblity syntax.
+You are free to also call this shortcode from your own partials. In this case it resembles Hugo's [`highlight` function](https://gohugo.io/functions/highlight/) syntax if you call this shortcode as a partial using compatibility syntax.
 
 While the examples are using shortcodes with named parameter it is recommended to use codefences instead. This is because more and more other software supports codefences (eg. GitHub) and so your markdown becomes more portable.
 
@@ -77,66 +77,52 @@ print("Hello World!")
 
 ### Parameter
 
-| Name                  | Default          | Notes       |
-|-----------------------|------------------|-------------|
-| **type**              | _&lt;empty&gt;_  | The language of the code to highlight. Choose from one of the [supported languages](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages). Case-insensitive. |
-| **title**             | _&lt;empty&gt;_  | **Extension**. Arbitrary title for code. This displays the code like a [single tab]({{% relref "shortcodes/tab" %}}) if `hl_inline=false` (which is Hugos default). |
-| **wrap**              | see notes        | **Extension**. When `true` the content may wrap on long lines otherwise it will be scrollable.<br><br>The default value can be set in your `config.toml` and overwritten via frontmatter. [See below](#configuration). |
-| **options**           | _&lt;empty&gt;_  | An optional, comma-separated list of zero or more [Hugo supported options](https://gohugo.io/functions/highlight/#options) as well as extension parameter from this table. |
-| _**&lt;option&gt;**_  | _&lt;empty&gt;_  | Any of [Hugo's supported options](https://gohugo.io/functions/highlight/#options). |
-| _**&lt;content&gt;**_ | _&lt;empty&gt;_  | Your code to highlight. |
+| Name                  | Position | Default          | Notes       |
+|-----------------------|--------- | -----------------|-------------|
+| **type**              | 1        | _&lt;empty&gt;_  | The language of the code to highlight. Choose from one of the [supported languages](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages). Case-insensitive. |
+| **title**             |          | _&lt;empty&gt;_  | **Extension**. Arbitrary title for code. This displays the code like a [single tab](shortcodes/tab) if `hl_inline=false` (which is Hugos default). |
+| **wrap**              |          | see notes        | **Extension**. When `true` the content may wrap on long lines otherwise it will be scrollable.<br><br>The default value can be set in your `hugo.toml` and overwritten via frontmatter. [See below](#configuration). |
+| **options**           | 2        | _&lt;empty&gt;_  | An optional, comma-separated list of zero or more [Hugo supported options](https://gohugo.io/functions/highlight/#options) as well as extension parameter from this table. |
+| _**&lt;option&gt;**_  |          | _&lt;empty&gt;_  | Any of [Hugo's supported options](https://gohugo.io/functions/highlight/#options). |
+| _**&lt;content&gt;**_ |          | _&lt;empty&gt;_  | Your code to highlight. |
 
 ## Configuration
 
-Default values for [Hugo's supported options](https://gohugo.io/functions/highlight/#options) can be set via [goldmark settings](https://gohugo.io/getting-started/configuration-markup/#highlight) in your `config.toml`
+Default values for [Hugo's supported options](https://gohugo.io/functions/highlight/#options) can be set via [goldmark settings](https://gohugo.io/getting-started/configuration-markup/#highlight) in your `hugo.toml`
 
-Default values for extension options can be set via params settings in your `config.toml` or be overwritten by frontmatter for each individual page.
+Default values for extension options can be set via params settings in your `hugo.toml` or be overwritten by frontmatter for each individual page.
 
 ### Global Configuration File
 
+You can configure the color style used for code blocks in your [color variants stylesheet](basics/branding#syntax-highlightning) file.
+
 #### Recommended Settings
 
-````toml
+{{< multiconfig file=hugo >}}
 [markup]
   [markup.highlight]
-    # line numbers in a table layout will shift if code is wrapping, so better
-    # use inline; besides that visually both layouts have the same look and behavior
     lineNumbersInTable = false
-
-    # if `guessSyntax = true`, there will be no unstyled code even if no language
-    # was given BUT Mermaid and Math codefences will not work anymore! So this is a
-    # mandatory setting for your site if you want to use Mermaid or Math codefences
-    guessSyntax = false
-
-    # the shipped variants come with their own modified chroma syntax highlightning
-    # style which is imported in theme-relearn-light.css, theme-relearn-dark.css, etc.;
-    # if you want to use a predefined style instead:
-    # - remove `noClasses` or set `noClasses = true`
-    # - set `style` to a predefined style name
     noClasses = false
-    # style = "tango"
-````
+{{< /multiconfig >}}
 
 #### Optional Settings
 
-````toml
+{{< multiconfig file=hugo >}}
 [params]
   highlightWrap = true
-````
+{{< /multiconfig >}}
 
 ### Page's Frontmatter
 
-````toml
-+++
+{{< multiconfig fm=true >}}
 highlightWrap = true
-+++
-````
+{{< /multiconfig >}}
 
 ## Examples
 
 ### Line Numbers with Starting Offset
 
-As mentioned above, line numbers in a `table` layout will shift if code is wrapping, so better use `inline`. To make things easier for you, set `lineNumbersInTable = false` in your `config.toml` and add `lineNos = true` when calling the shortcode instead of the specific values `table` or `inline`.
+As mentioned above, line numbers in a `table` layout will shift if code is wrapping, so better use `inline`. To make things easier for you, set `lineNumbersInTable = false` in your `hugo.toml` and add `lineNos = true` when calling the shortcode instead of the specific values `table` or `inline`.
 
 ````go
 {{</* highlight lineNos="true" lineNoStart="666" type="py" */>}}
@@ -159,7 +145,7 @@ print("!")
 ### Codefence with Title
 
 
-````markdown
+````md
 ```py { title="python" }
 # a bit shorter
 print("Hello World!")

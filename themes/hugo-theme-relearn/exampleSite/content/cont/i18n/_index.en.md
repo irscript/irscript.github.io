@@ -1,11 +1,11 @@
 +++
 title = "Multilingual and i18n"
-weight = 6
+weight = 7
 +++
 
 The Relearn theme is fully compatible with Hugo multilingual mode.
 
-- Available languages: Arabic, Simplified Chinese, Traditional Chinese, Czech, Dutch, English, Finnish, French, German, Hindi, Hungarian, Indonesian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Turkish, Vietnamese. Feel free to contribute!
+- Available languages: Arabic, Simplified Chinese, Traditional Chinese, Czech, Dutch, English, Finnish, French, German, Hindi, Hungarian, Indonesian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Swahili, Turkish, Vietnamese. Feel free to contribute!
 - Full support for languages written right to left
 - Automatic menu generation from multilingual content
 - In-browser language switching
@@ -14,7 +14,7 @@ The Relearn theme is fully compatible with Hugo multilingual mode.
 
 ## Basic configuration
 
-After learning [how Hugo handle multilingual websites](https://gohugo.io/content-management/multilingual), define your languages in your `config.toml` file.
+After learning [how Hugo handle multilingual websites](https://gohugo.io/content-management/multilingual), define your languages in your `hugo.toml` file.
 
 For example with current English and Piratized English website.
 
@@ -22,9 +22,7 @@ For example with current English and Piratized English website.
 Make sure your default language is defined as the first one in the `[languages]` array, as the theme needs to make assumptions on it
 {{% /notice %}}
 
-
-```toml
-# English is the default language
+{{< multiconfig file=hugo >}}
 defaultContentLanguage = "en"
 
 [languages]
@@ -37,16 +35,16 @@ languageName = "English"
 title = "Cap'n Hugo Relearrrn Theme"
 weight = 2
 languageName = "Arrr! Pirrrates"
-```
+{{< /multiconfig >}}
 
 Then, for each new page, append the _id_ of the language to the file.
 
 - Single file `my-page.md` is split in two files:
-    - in English: `my-page.md`
-    - in Piratized English: `my-page.pir.md`
+  - in English: `my-page.md`
+  - in Piratized English: `my-page.pir.md`
 - Single file `_index.md` is split in two files:
-    - in English: `_index.md`
-    - in Piratized English: `_index.pir.md`
+  - in English: `_index.md`
+  - in Piratized English: `_index.pir.md`
 
 {{% notice info %}}
 Be aware that only translated pages are displayed in menu. It's not replaced with default language content.
@@ -67,16 +65,17 @@ You'll see error reports in your browsers console log for each unsupported langu
 - Czech
 - Indonesian
 - Polish
+- Swahili
 {{% /notice %}}
 
 ### Search with mixed language support
 
-In case your page's content contains text in multiple languages (e.g. you are writing a Russian documentation for your english API), you can add those languages to your `config.toml` to broaden search.
+In case your page's content contains text in multiple languages (e.g. you are writing a Russian documentation for your english API), you can add those languages to your `hugo.toml` to broaden search.
 
-```toml
+{{< multiconfig file=hugo >}}
 [params]
   additionalContentLanguage = [ "en" ]
-````
+{{< /multiconfig >}}
 
 As this is an array, you can add multiple additional languages.
 
@@ -94,10 +93,9 @@ To override these values, create a new file in your local i18n folder `i18n/<idl
 
 Switching the language in the browser is a great feature, but for some reasons you may want to disable it.
 
-Just set `disableLanguageSwitchingButton=true` in your `config.toml`
+Just set `disableLanguageSwitchingButton=true` in your `hugo.toml`
 
-```toml
+{{< multiconfig file=hugo >}}
 [params]
-  # When using multilingual website, disable the switch language button.
   disableLanguageSwitchingButton = true
-```
+{{< /multiconfig >}}
