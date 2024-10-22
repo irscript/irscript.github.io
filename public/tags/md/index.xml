@@ -1,53 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>MD on </title>
-    <link>https://irscript.github.io/tags/md/index.html</link>
-    <description>Recent content in MD on </description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <atom:link href="https://irscript.github.io/tags/md/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MD2 算法</title>
-      <link>https://irscript.github.io/2_algorithm/3_hash/1_md/1_md2/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://irscript.github.io/2_algorithm/3_hash/1_md/1_md2/index.html</guid>
-      <description>原文来自：https://www.cnblogs.com/Kingfans/p/16546430.html
-1 基本介绍 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD2算法的实现原理。
-1989年，MD2是由著名的非对称算法RSA发明人之一–麻省理工学院教授罗纳德-里维斯特开发的；这个算法首先对信息进行数据补位，使信息的字节长度是16的倍数，再以16位的检验和作为补充信息追加到原信息的末尾。最后根据这个新产生的信息计算出一个128位的散列值，MD2算法由此诞生。
-2 实现原理 有关MD2 算法详情请参见 RFC 1319 http://www.ietf.org/rfc/rfc1319.txt，RFC 1319 是MD2算法的官方文档，其实现原理共分为5步：
-第1步：字节填充(Append Padding Bytes) 填充1~16个字节，确保是16字节的倍数，填充规则如下：
-假设数据长度为m, 则需要填充16 - (m mod 16)个字节的数据，填充内容为16 - (m mod 16)。
-第2步：添加校验和(Append Checksum) 根据下列算法计算校验和，并追加到第1步填充数据的后面。
-/* Clear checksum. */For i = 0 to 15 do:Set C[i] to 0.end /* of loop on i */Set L to 0./* Process each 16-word block. */For i = 0 to N/16-1 do/* Checksum block i.</description>
-    </item>
-    <item>
-      <title>MD4 算法</title>
-      <link>https://irscript.github.io/2_algorithm/3_hash/1_md/2_md4/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://irscript.github.io/2_algorithm/3_hash/1_md/2_md4/index.html</guid>
-      <description>原文来自：https://www.cnblogs.com/Kingfans/p/16552308.html
-一、基本介绍 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD4算法的实现原理。
-1990 年，罗纳德·李维斯特教授开发出较之 MD2 算法有着更高安全性的 MD4 算法。在这个算法中，我们仍需对信息进行数据补位。不同的是，这种补位使其信息的字节长度加上 448 个字节后能成为 512 的倍数（信息字节长度 mod 512 = 448）。此外，关于 MD4 算法的处理与 MD2 算法又有很大差别。但最终仍旧是会获得一个 128 位的散列值。MD4 算法对后续消息摘要算法起到了推动作用，许多比较有名的消息摘要算法都是在 MD4 算法的基础上发展而来的，如 MD5、SHA-1、RIPE-MD 和 HAVAL 算法等。
-二、实现原理 有关 MD4 算法详情请参见 RFC 1320 http://www.ietf.org/rfc/rfc1320.txt，RFC 1320 是MD4算法的官方文档，其实现原理共分为5步：
-第1步：字节填充(Append Padding Bytes) 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。
-第2步：追加长度信息(Append Length) 数据比特位的数据长度追加到最后8字节中。
-第3步：初始化MD Buffer(Initialize MD Buffer) 这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。
-1234uint32_t A = 0x67452301; // [ 0x01, 0x23, 0x45, 0x67 ]uint32_t B = 0xEFCDAB89; // [ 0x89, 0xAB, 0xCD, 0xEF ]uint32_t C = 0x98BADCFE; // [ 0xFE, 0xDC, 0xBA, 0x98 ]uint32_t D = 0x10325476; // [ 0x76, 0x54, 0x32, 0x10 ] 第4步：处理消息块(Process Message in 16-Byte Blocks) 这个是MD4算法最核心的部分了，对第2步组装数据进行分块依次处理。</description>
-    </item>
-    <item>
-      <title>MD5 算法</title>
-      <link>https://irscript.github.io/2_algorithm/3_hash/1_md/3_md5/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://irscript.github.io/2_algorithm/3_hash/1_md/3_md5/index.html</guid>
-      <description>原文来自：https://www.cnblogs.com/Kingfans/p/16554047.html
-一、基本介绍 MD系列算法是信息摘要三大算法中的一种，全称：Message Digest算法，按照规范版本分为MD2、MD4、MD5三种算法，目前最常用的是MD5版本算法。本文介绍MD5算法的实现原理。
-1991年，继 MD4 算法后，罗纳德·李维斯特教授开发了 MD5 算法，将 MD 算法推向成熟。MD5 算法经 MD2、MD3 和 MD4 算法发展而来，算法复杂程度和安全强度大大提高。但不管是 MD2、MD4 还是 MD5 算法，其算法的最终结果均是产生一个 128 位的消息摘要，这也是 MD 系列算法的特点。MD5 算法执行效率略次于 MD4 算法，但在安全性方面，MD5 算法更胜一筹。随着计算机技术的发展和计算水平的不断提高，MD5 算法暴露出来的漏洞也越来越多。1996 年后被证实存在弱点，可以被加以破解，对于需要高度安全性的数据，专家一般建议改用其他算法，如 SHA-2。2004 年，证实 MD5 算法无法防止碰撞（collision），因此不适用于安全性认证，如 SSL 公开密钥认证或是数字签名等用途。
-二、实现原理 有关 MD5 算法详情请参见 RFC 1321 http://www.ietf.org/rfc/rfc1321.txt，RFC 1321 是MD5算法的官方文档，其实现原理共分为5步：
-第1步：字节填充(Append Padding Bytes) 数据先补上1个1比特，再补上k个0比特，使得补位后的数据比特数(n+1+k)满足(n+1+k) mod 512 = 448，k取最小正整数。
-第2步：追加长度信息(Append Length) 数据比特位的数据长度追加到最后8字节中。
-第3步：初始化MD Buffer(Initialize MD Buffer) 这一步最简单了，定义ABCD四个4字节数组，分别赋初值即可。
-uint32_t A = 0x67452301; // [ 0x01, 0x23, 0x45, 0x67 ]uint32_t B = 0xEFCDAB89; // [ 0x89, 0xAB, 0xCD, 0xEF ]uint32_t C = 0x98BADCFE; // [ 0xFE, 0xDC, 0xBA, 0x98 ]uint32_t D = 0x10325476; // [ 0x76, 0x54, 0x32, 0x10 ]以上操作与md4完全一致。</description>
-    </item>
-  </channel>
-</rss>
