@@ -93,109 +93,184 @@ weight = 1
 
 ## 案列代码
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+```c++
 #include <pthread.h>
+#include <cstdint>
+#include <list>
+#include <memory>
+#include <atomic>
+#include <unistd.h>
 
-#define MAX_PRIORITY 100
-#define MAX_WAIT_TIME 1000
+//--------------------模型抽象----------------------
 
-typedef struct {
-    int priority;  // 优先级
-    int wait_time;  // 等待时长
-} Task;
+// 任务基类
+struct ITask
+{
+    // 任务处理入口
+    virtual void handling() {}
+    ITask() : mInit(0), mTrue(0) {}
 
-typedef struct {
-    Task tasks[MAX_PRIORITY];  // 任务队列
-    int size;  // 任务队列大小
-    int head;  // 任务队列头指针
-    int tail;  // 任务队列尾指针
-} TaskQueue;
+private:
+    friend struct Scheduler;
+    uint16_t mInit; // 初始优先级
+    uint16_t mTrue; // 调度过程中的真实优先级
+};
+using TaskRef = std::shared_ptr<ITask>;
+// 任务调度
+struct Scheduler
+{
+    Scheduler();
 
-TaskQueue* createTaskQueue() {
-    TaskQueue* queue = (TaskQueue*)malloc(sizeof(TaskQueue));
-    queue->size = MAX_PRIORITY;
-    queue->head = 0;
-    queue->tail = 0;
-    return queue;
+    void lock() { pthread_mutex_lock(&mMutex); }
+    void unlock() { pthread_mutex_unlock(&mMutex); }
+    void wait() { pthread_cond_wait(&mCond, &mMutex); }
+    void notify() { pthread_cond_broadcast(&mCond); }
+
+    void stop() { mQuit = true; }
+    void onstop() { mStopCnt.fetch_add(1); }
+    void join()
+    {
+        while (true)
+        {
+            if (mList.empty())
+                stop();
+            if (mStopCnt.load() >= 3)
+                break;
+            notify();
+           // sleep(10);
+        }
+    }
+
+    void addTask(TaskRef task, uint16_t init)
+    {
+        // lock();
+        task->mInit = init;
+        task->mTrue = init;
+        mList.push_back(task);
+        // unlock();
+    }
+
+    bool getTask(TaskRef &task)
+    {
+        if (mList.empty() == false)
+        {
+            task = mList.front();
+            mList.pop_front();
+
+            for (auto &item : mList)
+                ++item->mTrue; // 更新优先级
+            return true;
+        }
+        return false;
+    }
+
+private:
+    std::list<TaskRef> mList; // 任务链表
+    volatile bool mQuit = false;
+    // pthread_spinlock_t mSpin; // 调度自旋锁
+    pthread_mutex_t mMutex;
+    pthread_cond_t mCond;
+    pthread_t threads[3];
+    volatile std::atomic_int32_t mStopCnt;
+    static void *worker(void *userpoint);
+};
+Scheduler::Scheduler()
+{
+    mStopCnt = 0;
+    pthread_attr_t attr;
+
+    /* Initialize mutex and condition variable objects */
+    pthread_mutex_init(&mMutex, NULL);
+    pthread_cond_init(&mCond, NULL);
+
+    /* For portability, explicitly create threads in a joinable state */
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+    pthread_create(&threads[0], &attr, worker, this);
+    pthread_create(&threads[1], &attr, worker, this);
+    pthread_create(&threads[2], &attr, worker, this);
 }
 
-void enqueueTask(TaskQueue* queue, int priority, int wait_time) {
-    Task* task = &queue->tasks[queue->tail];
-    task->priority = priority;
-    task->wait_time = wait_time;
-    queue->tail = (queue->tail + 1) % queue->size;
+void *Scheduler::worker(void *userpoint)
+{
+    TaskRef task;
+    Scheduler &domain = *(Scheduler *)userpoint;
+    while (true)
+    {
+        task.reset();
+        domain.lock();
+        if (domain.getTask(task) == false)
+        {
+            domain.wait();
+        }
+        domain.unlock();
+
+        if (task.get() != nullptr)
+            task->handling();
+
+        // 判断是否销毁线程池
+        if (domain.mQuit == true)
+            break;
+    }
+    domain.onstop();
+    printf("线程退出！\n");
+    return nullptr;
 }
 
-int dequeueTask(TaskQueue* queue) {
-    int priority = queue->tasks[queue->head].priority;
-    int wait_time = queue->tasks[queue->head].wait_time;
-    queue->head = (queue->head + 1) % queue->size;
-    return priority;
+//-----------------------------------------测试----------------------------------
+
+struct TaskA : public ITask
+{
+   TaskA(int id, int serial) : mID(id), mSerial(serial) {}
+   int mID, mSerial;
+   void handling() override
+   {
+      printf("%d: int32 serial number = %d\n", mID, mSerial);
+   }
+};
+struct TaskB : public ITask
+{
+   TaskB(int id, float serial) : mID(id), mSerial(serial) {}
+   int mID;
+   float mSerial;
+   void handling() override
+   {
+      printf("%d: float serial number = %f\n", mID, mSerial);
+   }
+};
+template <typename type, typename... arg>
+TaskRef maketask(arg... args)
+{
+   auto tsk = new type(args...);
+   auto ref = std::make_shared<ITask>();
+   ref.reset(tsk);
+   return ref;
+}
+int main(int argc, char *argv[])
+{
+   Scheduler domain;
+
+   int id = 0;
+   while (true)
+   {
+      domain.lock();
+      domain.addTask(maketask<TaskA>(++id, id * 10), id % 6);
+      domain.addTask(maketask<TaskA>(++id, id * 100), id % 6);
+      domain.addTask(maketask<TaskA>(++id, id * 1000), id % 6);
+      domain.addTask(maketask<TaskB>(++id, id * 3.14159), id % 6);
+      domain.addTask(maketask<TaskB>(++id, id * 18.2345), id % 6);
+      domain.addTask(maketask<TaskB>(++id, id * 32.4568), id % 6);
+      domain.unlock();
+      domain.notify();
+      if (id > 100)
+         break;
+   }
+   // domain.stop();
+   domain.join();
+   printf("任务全部处理完成\n");
+   return 0;
 }
 
-void setPriority(TaskQueue* queue, int priority) {
-    while (queue->head != queue->tail) {
-        Task* task = &queue->tasks[queue->head];
-        if (task->priority < priority) {
-            task->priority = priority;
-            queue->head = (queue->head + 1) % queue->size;
-        }
-        queue->tail = (queue->tail + 1) % queue->size;
-    }
-}
-
-int isReady(TaskQueue* queue, int priority) {
-    return queue->tasks[queue->head].priority == priority;
-}
-
-void printPriority(TaskQueue* queue) {
-    for (int i = 0; i < queue->size; i++) {
-        Task* task = &queue->tasks[i];
-        printf("%d %d\n", task->priority, task->wait_time);
-    }
-}
-
-void* worker(void* arg) {
-    TaskQueue* queue = (TaskQueue*)arg;
-    while (1) {
-        int priority = dequeueTask(queue);
-        if (priority == -1) {
-            printf("Thread %ld finished\n", (long)pthread_self());
-            pthread_exit(NULL);
-        }
-        printf("Thread %ld got task with priority %d\n", (long)pthread_self(), priority);
-        sleep(0);
-        setPriority(queue, priority);
-        int task_ready = isReady(queue, priority);
-        if (task_ready) {
-            int wait_time = dequeueTask(queue);
-            printf("Thread %ld finished task with priority %d and wait time %d\n", (long)pthread_self(), priority, wait_time);
-            pthread_exit(NULL);
-        }
-    }
-}
-
-int main() {
-    TaskQueue* queue = createTaskQueue();
-    for (int i = 0; i < MAX_PRIORITY; i++) {
-        enqueueTask(queue, i, 0);
-    }
-    pthread_t thread1, thread2;
-    pthread_create(&thread1, NULL, worker, queue);
-    pthread_create(&thread2, NULL, worker, queue);
-    printf("Start threads\n");
-    for (int i = 0; i < 10; i++) {
-        sleep(2);
-    }
-    pthread_join(thread1, NULL);
-    pthread_join(thread2, NULL);
-    printf("All tasks finished\n");
-    free(queue);
-    return 0;
-}
 ```
 
 ## 注意事项
