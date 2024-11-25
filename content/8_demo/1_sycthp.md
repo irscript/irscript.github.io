@@ -213,7 +213,7 @@ void *Scheduler::worker(void *userpoint)
             break;
     }
     domain.onstop();
-    printf("线程退出！\n");
+    printf("线程[%d] 退出！\n",pthread_self());
     return nullptr;
 }
 
