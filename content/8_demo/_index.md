@@ -1,8 +1,7 @@
 +++
-archetype = "home"
-title = "主页"
+title = "demo"
+weight = 8
 +++
-
 
 
 ##  目录
