@@ -1,6 +1,6 @@
 +++
 title = "编译原理"
-weight = 3
+weight = 1
 +++
 ## 目录
 <hr>
