@@ -2,8 +2,9 @@
 tags = ["debug","windows","minidump"]
 categories = ["debug","windows"]
 title = "Minidump"
-weight = 2
+weight = 1
 +++
+
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [blog.csdn.net](https://blog.csdn.net/shadow_2011/article/details/120847029)
 
 
