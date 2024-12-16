@@ -1,6 +1,5 @@
-
 +++
-tags = ["并行"，"c/c++","智能指针","引用计数"]
+tags = ["并行","c/c++","智能指针","引用计数"]
 categories = ["c/c++","多线程"]
 title = "深入理解引用计数：原理、实现与应用"
 weight = 2
@@ -8,6 +7,8 @@ weight = 2
 
 
 在现代编程中，尤其是在处理动态内存管理和对象生命周期控制方面，引用计数是一种极为重要的技术。它为我们提供了一种高效且相对直观的方式来管理对象的创建与销毁，确保资源在不再被使用时能够被正确地释放，避免内存泄漏等问题的发生。本文将深入探讨引用计数的相关知识，并结合一段具体的代码实现来详细解析其工作原理和实际应用场景。
+
+> 代码未进行运行测试，只是一个原理描述
 
 ## 二、引用计数的基本概念
 引用计数的核心思想非常简单：为每个对象维护一个计数器，记录当前有多少个引用指向该对象。当一个新的引用指向对象时，计数器加 1；当一个引用不再指向对象时，计数器减 1。当计数器的值变为 0 时，表示该对象不再被任何引用所指向，此时可以安全地释放该对象所占用的资源。
@@ -26,7 +27,7 @@ struct ObjectHD
     struct WeakRefBlk
     {
         void *mType;                      // 类型标记
-        std::atomic<ObjectHD *> *mObject; // 对象回访指针
+        std::atomic<ObjectHD *> mObject; // 对象回访指针
         std::atomic_int32_t mWeakRef;     // 弱引用计数
         std::atomic_flag mSpinlock;       // 自旋锁定
     };
@@ -209,6 +210,8 @@ ObjectHD::WeakRefBlk *weak_ref_form_weakobj(ObjectHD::WeakRefBlk *weakptr)
             }
             // 加锁成功,引用计数加一
             weakptr->mWeakRef++;
+            // 解锁
+            obj.mSpinlock.clear();
         }
         // 释放锁
         weakptr->mSpinlock.clear();
@@ -264,6 +267,8 @@ void unref_weak_obj(ObjectHD::WeakRefBlk *weakptr)
                 delete weakptr;
                 return;
             }
+            // 解锁
+            obj.mSpinlock.clear();
         }
         // 对象已经被释放
         else
@@ -319,6 +324,8 @@ ObjectHD *get_obj_from_weakobj(ObjectHD::WeakRefBlk *weakptr)
             }
             // 加锁成功,引用计数加一
             weakptr->mWeakRef++;
+            // 解锁
+            obj.mSpinlock.clear();
         }
         // 释放锁
         weakptr->mSpinlock.clear();
