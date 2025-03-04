@@ -23,6 +23,7 @@ weight = 1
 ## 网络相关
 
 * [即时通讯社区](http://www.52im.net/)
+* [https://parsing-techniques.duguying.net/](https://parsing-techniques.duguying.net/)
 
 ## 设计模式
 
@@ -42,6 +43,9 @@ weight = 1
 ## 计算机图形学
 
 * easy vulkan: [easyvulkan](https://easyvulkan.github.io/)
+* learn opengl：[https://learnopengl.com/](https://learnopengl.com/)
+* learn opengl中文版：[https://learnopengl-cn.github.io/](https://learnopengl-cn.github.io/)
+
 
 ## Linux 
 
@@ -51,3 +55,13 @@ weight = 1
 ## window
 
 * 自定义窗口标题栏，实现响应贴靠窗口布局:[https://learn.microsoft.com/zh-cn/windows/apps/desktop/modernize/apply-snap-layout-menu](https://learn.microsoft.com/zh-cn/windows/apps/desktop/modernize/apply-snap-layout-menu)
+
+## 编译原理
+
+* dalvik字节码：[https://source.android.google.cn/docs/core/runtime/dalvik-bytecode?hl=zh-cn](https://source.android.google.cn/docs/core/runtime/dalvik-bytecode?hl=zh-cn)
+* 北大编译实践在线文档：[https://pku-minic.github.io/online-doc/#/]{https://pku-minic.github.io/online-doc/#/}
+* MiniDecaf 编译器结构：[https://decaf-lang.github.io/minidecaf-tutorial/docs/step1/arch.html](https://decaf-lang.github.io/minidecaf-tutorial/docs/step1/arch.html)
+* 反汇编利器：[https://godbolt.org/](https://godbolt.org/)
+* 解析技术：[https://parsing-techniques.duguying.net/](https://parsing-techniques.duguying.net/)
+
+## 其他
