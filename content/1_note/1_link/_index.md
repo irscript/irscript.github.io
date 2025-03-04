@@ -59,7 +59,7 @@ weight = 1
 ## 编译原理
 
 * dalvik字节码：[https://source.android.google.cn/docs/core/runtime/dalvik-bytecode?hl=zh-cn](https://source.android.google.cn/docs/core/runtime/dalvik-bytecode?hl=zh-cn)
-* 北大编译实践在线文档：[https://pku-minic.github.io/online-doc/#/]{https://pku-minic.github.io/online-doc/#/}
+* 北大编译实践在线文档：[https://pku-minic.github.io/online-doc/#/](https://pku-minic.github.io/online-doc/#/)
 * MiniDecaf 编译器结构：[https://decaf-lang.github.io/minidecaf-tutorial/docs/step1/arch.html](https://decaf-lang.github.io/minidecaf-tutorial/docs/step1/arch.html)
 * 反汇编利器：[https://godbolt.org/](https://godbolt.org/)
 * 解析技术：[https://parsing-techniques.duguying.net/](https://parsing-techniques.duguying.net/)
